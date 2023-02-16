@@ -1,5 +1,6 @@
 <?php
 
+// use App\Http\Controllers\Admin\RestaurantController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,6 +29,8 @@ Route::middleware('auth')
     ->name('admin.')
     ->group(function(){
         Route::get('/', 'HomeController@index')->name('index');
+
+        Route::resource('/restaurants', RestaurantController::class);
     });
 
 //non auth routes
