@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Type;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -28,7 +29,9 @@ class RestaurantController extends Controller
      */
     public function create()
     {
-        //
+        // $types = Type::All();
+        // return view('admin.restaurant.create', compact('types'));
+
     }
 
     /**

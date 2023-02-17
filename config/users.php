@@ -8,7 +8,7 @@ return [
         "address" => 'Via via 666',
         "vat" => '125489516',
         "image" => 'images/restaurants/pizzaiuolo.jpg',
-        "type" => '1'
+        "type_id" => '1'
     ],
     [
         'name' => 'sushi',
@@ -17,7 +17,7 @@ return [
         "address" => 'Via via 666',
         "vat" => '125489516',
         "image" => 'images/restaurants/pizzaiuolo.jpg',
-        "type" => '4'
+        "type_id" => '4'
     ],
     [
         'name' => 'messicano',
@@ -26,7 +26,7 @@ return [
         "address" => 'Via via 666',
         "vat" => '125489516',
         "image" => 'images/restaurants/pizzaiuolo.jpg',
-        "type" => '5'
+        "type_id" => '5'
     ]
 
         ];
