@@ -15,6 +15,12 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
+            $table->string('restaurant_id')->nullable();
+            $table->string('customer_name')->nullable();
+            $table->string('customer_surname')->nullable();
+            $table->string('phone_number')->nullable();
+            $table->string('customer_address')->nullable();
+            $table->decimal('total_price', 5, 2)->nullable();
             $table->timestamps();
         });
     }

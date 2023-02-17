@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('address')->nullable();
             $table->string('vat')->nullable();
             $table->string('image')->nullable();
+            // $table->string('type_id')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
