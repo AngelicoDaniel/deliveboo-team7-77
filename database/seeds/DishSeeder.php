@@ -14,16 +14,16 @@ class DishSeeder extends Seeder
     {
         $dishes = config('dishes');
         foreach ($dishes as $dish) {
-            $dish = new Dish();
-            $dish->name = $dish['name'];
-            $dish->ingredients = $dish['ingredients'];
-            $dish->price = $dish['price'];
-            $dish->visible = $dish['visible'];
-            $dish->image = $dish['image'];
+            $newDish = new Dish();
+            $newDish->name = $dish['name'];
+            $newDish->ingredients = $dish['ingredients'];
+            $newDish->price = $dish['price'];
+            $newDish->visible = $dish['visible'];
+            $newDish->image = $dish['image'];
             // $dish->address = $user['address'];
             // $dish->vat = $user['vat'];
             // $dish->image = $user['image'];
-            $dish->save();
+            $newDish->save();
         }
     }
 }

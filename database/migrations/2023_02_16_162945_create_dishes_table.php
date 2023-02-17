@@ -15,11 +15,11 @@ class CreateDishesTable extends Migration
     {
         Schema::create('dishes', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->nullable(false);
-            $table->string('ingredients')->nullable(false);
-            $table->decimal('price', 5, 2)->nullable(false);
-            $table->string('image')->nullable(false);
-            $table->boolean('visible')->default(false);
+            $table->string('name')->nullable();
+            $table->string('ingredients')->nullable();
+            $table->decimal('price', 5, 2)->nullable();
+            $table->string('image')->nullable();
+            $table->boolean('visible')->nullable();
             $table->timestamps();
         });
     }
