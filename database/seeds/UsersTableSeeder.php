@@ -2,6 +2,7 @@
 
 use App\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 
 class UsersTableSeeder extends Seeder
@@ -18,7 +19,7 @@ class UsersTableSeeder extends Seeder
             $newUser = new User();
             $newUser->name = $user['name'];
             $newUser->email = $user['email'];
-            $newUser->password = $user['password'];
+            $newUser->password = Hash::make($user['password']);
             // $newUser->address = $user['address'];
             // $newUser->vat = $user['vat'];
             // $newUser->image = $user['image'];
