@@ -31,6 +31,7 @@ Route::middleware('auth')
         Route::get('/', 'HomeController@index')->name('index');
 
         Route::resource('/restaurants', RestaurantController::class);
+        Route::resource('/pages/dishes', DishController::class);
     });
 
 //non auth routes
