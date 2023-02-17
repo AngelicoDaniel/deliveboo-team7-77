@@ -20,9 +20,9 @@ class UsersTableSeeder extends Seeder
             $newUser->name = $user['name'];
             $newUser->email = $user['email'];
             $newUser->password = Hash::make($user['password']);
-            // $newUser->address = $user['address'];
-            // $newUser->vat = $user['vat'];
-            // $newUser->image = $user['image'];
+            $newUser->address = $user['address'];
+            $newUser->vat = $user['vat'];
+            $newUser->image = $user['image'];
             $newUser->save();
         }
     }

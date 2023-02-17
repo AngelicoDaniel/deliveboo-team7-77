@@ -61,7 +61,7 @@
                             </div>
                         </div>
 
-                        {{-- <div class="form-group row mt-3">
+                        <div class="form-group row mt-3">
                             <label for="address"
                                 class="col-md-4 col-form-label text-md-right">{{ __('address') }}
                                 <span class="text-warning">*</span></label>
@@ -79,11 +79,11 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="vat_number"
+                            <label for="vat"
                                 class="col-md-4 col-form-label text-md-right">{{ __('Partita IVA') }}
                                 <span class="text-warning">*</span></label>
                             <div class="col-md-6">
-                                <input id="vat_number" type="text"
+                                <input id="vat" type="text"
                                     class="form-control @error('vat') is-invalid @enderror" name="vat"
                                     value="{{ old('vat') }}" required minlength="11" maxlength="11"
                                     pattern="[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]"
@@ -105,7 +105,7 @@
                             <div class="col-md-6">
                                 <input type="file" class="form-control-file" name="image" required>
                             </div>
-                        </div> --}}
+                        </div>
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
