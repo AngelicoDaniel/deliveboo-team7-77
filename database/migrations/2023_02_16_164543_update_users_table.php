@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddForeignKeyToTable extends Migration
+class UpdateUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,8 +14,10 @@ class AddForeignKeyToTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->unsignedBigInteger('type_id')->nullable();
-            $table->foreign('type_id')->references('id')->on('types')->onDelete('set null');
+            $table->string('address', 100)->nullable();
+            $table->unsignedBigInteger('PIVA')->unique();
+            $table->string('slug', 100);
+            $table->string('image_logo', 200);
         });
     }
 
@@ -27,8 +29,7 @@ class AddForeignKeyToTable extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropForeign(['type_id']);
-            $table->dropColumn('type_id');
+            //
         });
     }
 }

@@ -1,6 +1,8 @@
 <?php
 
 use App\Type;
+use App\User;
+use Faker\Generator as Faker;
 use Illuminate\Database\Seeder;
 
 class TypeSeeder extends Seeder
@@ -10,14 +12,26 @@ class TypeSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run(Faker $faker)
     {
-        $types = config('types');
+        $restaurants = User::all()->pluck('id');
+        $types = [
+            'pizzeria',
+            'sushi',
+            'trattoria',
+            'fast food',
+            'cinese',
+            'street food',
+            'vegano',
+            'vegetariano',
+        ];
+
         foreach ($types as $type) {
-            $newType = new Type();
-            $newType->title = $type['title'];
-            $newType->description = $type['description'];
-            $newType->save();
+            $objType = new Type;
+            $objType->name = $type;
+            $objType->save();
+
+            $objType->users()->attach($faker->randomElements($restaurants, rand(1, (count($restaurants) > 5) ? 5 : count($restaurants))));
         }
     }
 }

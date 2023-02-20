@@ -1,6 +1,8 @@
 <?php
 
 use App\Dish;
+use App\User;
+use Faker\Generator as Faker;
 use Illuminate\Database\Seeder;
 
 class DishSeeder extends Seeder
@@ -10,20 +12,21 @@ class DishSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run(Faker $faker)
     {
-        $dishes = config('dishes');
-        foreach ($dishes as $dish) {
-            $newDish = new Dish();
-            $newDish->name = $dish['name'];
-            $newDish->ingredients = $dish['ingredients'];
-            $newDish->price = $dish['price'];
-            $newDish->visible = $dish['visible'];
-            $newDish->image = $dish['image'];
-            // $dish->address = $user['address'];
-            // $dish->vat = $user['vat'];
-            // $dish->image = $user['image'];
-            $newDish->save();
-        }
+        $users = User::all()->pluck('id');
+        for ($i=0;$i < 50; $i++) {
+            $name = $faker->words(5, true);
+
+            $dish = Dish::create([
+                'name' => $name,
+                'price' => $faker->decimal(5,3),
+                'image' => 'https://picsum.photos/id/'. rand(0, 1000) .'/500/400',
+                'visibility' => $faker->numberBetween(0,1),
+                'description' => $faker->paragraph(3, true),
+                'slug' => User::getSlug($name),
+                'user_id' => $faker->randomElement($users),
+            ]);
+        };
     }
 }

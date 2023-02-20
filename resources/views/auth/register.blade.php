@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Nuovo Ristoratore') }}</div>
+                <div class="card-header">{{ __('Register') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
@@ -61,49 +61,17 @@
                             </div>
                         </div>
 
-                        <div class="form-group row mt-3">
-                            <label for="address"
-                                class="col-md-4 col-form-label text-md-right">{{ __('address') }}
-                                <span class="text-warning">*</span></label>
+                        <div class="form-group row">
+                            <label for="address" class="col-md-4 col-form-label text-md-right">{{ __('Address') }}</label>
+
                             <div class="col-md-6">
-                                <input id="address" type="text"
-                                    class="form-control @error('address') is-invalid @enderror" name="address"
-                                    value="{{ old('address') }}" required autocomplete="address"
-                                    placeholder="Address">
+                                <input id="address" type="text" class="form-control @error('address') is-invalid @enderror" address="address" value="{{ old('address') }}" required autocomplete="address" autofocus>
+
                                 @error('address')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="vat"
-                                class="col-md-4 col-form-label text-md-right">{{ __('Partita IVA') }}
-                                <span class="text-warning">*</span></label>
-                            <div class="col-md-6">
-                                <input id="vat" type="text"
-                                    class="form-control @error('vat') is-invalid @enderror" name="vat"
-                                    value="{{ old('vat') }}" required minlength="11" maxlength="11"
-                                    pattern="[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]"
-                                    autocomplete="vat" placeholder="VAT Number">
-                                <small>La partita IVA deve essere di 11 cifre</small>
-                                @error('vat')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="image"
-                                class="col-md-4 col-form-label text-md-right">{{ __('image') }}
-                                <span class="text-warning">*</span>
-                            </label>
-                            <div class="col-md-6">
-                                <input type="file" class="form-control-file" name="image" required>
                             </div>
                         </div>
 

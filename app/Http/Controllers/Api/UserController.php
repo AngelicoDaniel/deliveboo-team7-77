@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Api;
 
-use App\Dish;
-use App\Http\Controllers\Controller;
+use App\User;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
-class DishController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +15,12 @@ class DishController extends Controller
      */
     public function index()
     {
-        $dish = Dish::All();
+        $users = User::all();
+        return response()->json([
+            'success' => true,
+            'results' => $users,
+        ]);
 
-        return view('admin.dishes.index', compact('dish'));
     }
 
     /**
@@ -27,7 +30,7 @@ class DishController extends Controller
      */
     public function create()
     {
-        return view('admin.dishes.create');
+        //
     }
 
     /**
@@ -38,13 +41,7 @@ class DishController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all();
-
-        $newDish = new Dish();
-        $newDish->fill($data);
-        $newDish->save();
-
-        return redirect()->route('admin.dishes.index');
+        //
     }
 
     /**
@@ -55,9 +52,7 @@ class DishController extends Controller
      */
     public function show($id)
     {
-        $single_dish = Dish::findOrFail($id);
-
-        return view('admin.dishes.show', compact('single_dish'));
+        //
     }
 
     /**
@@ -68,9 +63,7 @@ class DishController extends Controller
      */
     public function edit($id)
     {
-        $dish = Dish::findOrFail($id);
-
-        return view('admin.dishes.edit', compact('dish'));
+        //
     }
 
     /**
@@ -82,11 +75,7 @@ class DishController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data = $request->all();
-        $single_dish = Dish::findOrFail($id);
-        $single_dish->update($data);
-
-        return redirect()->route('admin.dishes.index', $single_dish->id);
+        //
     }
 
     /**
@@ -97,12 +86,6 @@ class DishController extends Controller
      */
     public function destroy($id)
     {
-        {
-            $single_dish = Dish::findOrFail($id);
-
-            $single_dish->delete();
-
-            return redirect()->route('admin.dishes.index');
-        }
+        //
     }
 }

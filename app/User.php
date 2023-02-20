@@ -5,9 +5,11 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Traits\slugger;
 
 class User extends Authenticatable
 {
+    use slugger;
     use Notifiable;
 
     /**
@@ -16,7 +18,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','address', 'vat', 'image', 'type_id'
+        'name', 'email', 'password',
     ];
 
     /**
@@ -37,7 +39,11 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function types(){
+    public function dishes() {
+        return $this->hasMany('App\Dish');
+    }
+
+    public function types() {
         return $this->belongsToMany('App\Type');
     }
 }

@@ -1,7 +1,8 @@
 <?php
 
-// use App\Http\Controllers\Admin\RestaurantController;
+
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,27 +15,29 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('layouts.dashboard');
-// });
+Auth::routes();
 
 // Route::get('/home', 'HomeController@index')->name('home');
 
-Auth::routes();
 
-//auth routes
+
+
 Route::middleware('auth')
     ->namespace('Admin')
-    ->prefix('admin')
     ->name('admin.')
-    ->group(function(){
-        Route::get('/', 'HomeController@index')->name('index');
+    ->prefix('admin')
+    ->group(function () {
+    Route::resource('dishes','RestaurantController');
 
-        Route::resource('/restaurants', RestaurantController::class);
-        Route::resource('/dishes', DishController::class);
-    });
+});
 
-//non auth routes
-Route::get('{any?}', function(){
-    return view('guest.home');
-})->where("any", ".*");
+
+// Route::get('{any?}', function () {
+//     return view('guest.home');
+// })->where("any", ".*")->name('guest.home');
+
+
+Route::get('/admin',function(){
+    return view('admin.home');
+    })->name('home');
+

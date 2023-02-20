@@ -1,6 +1,8 @@
 <?php
 
+use App\Dish;
 use App\Order;
+use Faker\Generator as Faker;
 use Illuminate\Database\Seeder;
 
 class OrderSeeder extends Seeder
@@ -10,20 +12,19 @@ class OrderSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run(Faker $faker)
     {
-        $orders = config('orders');
-        foreach ($orders as $order) {
-            $newOrder = new Order();
-            $newOrder->restaurant_id = $order['restaurant_id'];
-            $newOrder->customer_name = $order['customer_name'];
-            $newOrder->customer_surname = $order['customer_surname'];
-            $newOrder->phone_number = $order['phone_number'];
-            $newOrder->customer_address = $order['customer_address'];
-            $newOrder->total_price = $order['total_price'];
-            // $dish->vat = $user['vat'];
-            // $dish->image = $user['image'];
-            $newOrder->save();
-        }
+        $dishes = Dish::all()->pluck('id');
+
+        for ($i=0; $i < 20; $i++) {
+            $order = Order::create([
+                'order_number' => rand(0, 1000),
+                'ship_cost' => $faker->randomElement([250, 350, 450, 700]),
+                'address' => $faker->address(),
+                'customer_name' => $faker->words(2, true),
+                'email' => $faker->email(),
+            ]);
+            $order->dishes()->attach($faker->randomElements($dishes, rand(1, (count($dishes) > 15) ? 15 : count($dishes))));
+        };
     }
 }

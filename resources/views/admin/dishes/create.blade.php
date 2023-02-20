@@ -1,69 +1,45 @@
-@extends('layouts.dashboard')
-
+@extends('layouts.app');
 @section('content')
-<div class="container">
-    <div class="text-center">
-        <h1>Create a Dish</h1>
+<form action="{{route('admin.dishes.store')}}" method="POST">
+
+    @csrf
+
+    <div class="mb-3">
+      <label for="name" class="form-label">nome piatto</label>
+      <input type="text" class="form-control" id="name" name="name">
 
     </div>
 
-    <form action="{{ route('admin.dishes.store') }}" method="POST">
+    <div class="mb-3">
+      <label for="price" class="form-label">prezzo</label>
+      <input type="number" class="form-control" id="price" name="price">
+    </div>
 
-        @csrf
+    <div class="mb-3">
+        <label for="image" class="form-label">url immagine</label>
+        <input type="url" class="form-control" id="image" name="image">
+      </div>
 
-        <div class="mb-3">
-            <label for="" class="form-label">Name</label>
-            <input type="text" class="form-control" name="name">
-            {{-- @error('title')
-                <div class="alert alert-danger">
-                    {{ $message }}
-                </div>
-            @enderror --}}
-        </div>
-        <div class="mb-3">
-            <label for="ingredients" class="form-label">Ingredients</label>
-            <textarea class="form-control" name="ingredients"></textarea>
-            {{-- @error('body')
-                <div class="alert alert-danger">
-                    {{ $message }}
-                </div>
-            @enderror --}}
-        </div>
+    <div class="mb-3">
+        <label for="description" class="form-label">decrizione</label>
+        <input type="text" class="form-control" id="description" name="description">
 
-        <div class="mb-3">
-            <label for="price" class="form-label">Price</label>
-            <input class="form-control" name="price">
-            {{-- @error('body')
-                <div class="alert alert-danger">
-                    {{ $message }}
-                </div>
-            @enderror --}}
-        </div>
+    </div>
 
-        <div class="mb-3">
-            <label for="visible" class="form-label">Visible</label>
-            <input class="form-control" name="visible">
-            {{-- @error('body')
-                <div class="alert alert-danger">
-                    {{ $message }}
-                </div>
-            @enderror --}}
-        </div>
+    <div class="mb-3">
+        <label for="slug" class="form-label">slug</label>
+        <input type="text" class="form-control" id="slug" name="slug">
 
-        <div class="form-group row">
-            <label for="image"
-                class="col-md-4 col-form-label text-md-right">{{ __('image') }}
-                <span class="text-warning">*</span>
-            </label>
-            <div class="col-md-6">
-                <input type="file" class="form-control-file" name="image" required>
-            </div>
-        </div>
+    </div>
+
+    <div class="mb-3 form-check">
+      <input value="1" type="checkbox" class="form-check-input" id="visibility" name="visibility">
+      <label class="form-check-label" for="visibility">visibilità</label>
+    </div>
+
+    <button type="submit" class="btn btn-primary">aggiungi piatto</button>
 
 
-        <button type="submit" class="btn btn-primary">Crea</button>
-    </form>
-</div>
+</form>
+
 @endsection
-
-

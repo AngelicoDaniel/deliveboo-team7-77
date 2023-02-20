@@ -6,11 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Type extends Model
 {
-    public function users(){
+    public $timestamps = false;
+
+    public function users() {
         return $this->belongsToMany('App\User');
     }
-    protected $fillable = [
-        'title', 'description'
-    ];
-
 }

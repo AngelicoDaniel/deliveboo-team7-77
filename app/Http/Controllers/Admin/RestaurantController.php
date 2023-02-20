@@ -1,27 +1,41 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-
-use App\Http\Controllers\Controller;
-use App\Type;
+use App\Dish;
+use App\User;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
 class RestaurantController extends Controller
 {
+
+    private $validations = [
+        'slug'      => [
+            'required',
+            'string',
+            'max:100',
+        ],
+        'name'          => 'required|string|max:100',
+        'price'         => 'required|integer',
+        'image'         => 'url|max:200',
+        'visibility'    => 'tinyinteger',
+        'description'   => 'required|string',
+
+    ];
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
-     */
-    public function index()
+     */ public function index()
     {
-        $userId = Auth::id();
         $user = Auth::user();
+        $dishes = Dish::where('user_id', $user->id)->get();
 
-        return view('admin.restaurant.index', compact('userId', 'user'));
+        return view('admin.dishes.index', [
+            'dishes' => $dishes,
+        ]);
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -29,8 +43,7 @@ class RestaurantController extends Controller
      */
     public function create()
     {
-        // $types = Type::All();
-        // return view('admin.restaurant.create', compact('types'));
+        return view('admin.dishes.create');
 
     }
 
@@ -42,7 +55,19 @@ class RestaurantController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = Auth::user();
+        $data = $request->all();
+        $dish = new Dish;
+        $dish->name = $data['name'];
+        $dish->price = $data['price'];
+        $dish->image = $data['image'];
+        $dish->description = $data['description'];
+        $dish->visibility = $data['visibility'];
+        $dish->slug = $data['slug'];
+        $dish->user_id = $user->id ;
+        $dish->save();
+
+        return redirect()->route('admin.dishes.index');
     }
 
     /**
