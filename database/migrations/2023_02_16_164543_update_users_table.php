@@ -16,8 +16,8 @@ class UpdateUsersTable extends Migration
         Schema::table('users', function (Blueprint $table) {
             $table->string('address', 100)->nullable();
             $table->unsignedBigInteger('PIVA')->unique();
-            $table->string('slug', 100);
-            $table->string('image_logo', 200);
+            $table->string('slug', 100)->nullable();
+            $table->string('image_logo', 200)->nullable();
         });
     }
 
