@@ -6,7 +6,7 @@
 
     <ul>
         <li class="nav-item">
-            <a class="nav-link" href="{{route('admin.dishes.index')}}">Lista Ristoranti</a>
+            <a class="nav-link" href="{{route('admin.dishes.index')}}">Lista piatti</a>
         </li>
     </ul>
 @endsection

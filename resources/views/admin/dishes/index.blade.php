@@ -1,6 +1,6 @@
 @extends('layouts.dashboard')
 @section('content')
-<h1>i piatti!!</h1>
+<h1>Lista piatti</h1>
 <button><a class="nav-link" href="{{route('admin.dishes.create')}}">Crea piatto</a></button>
 @foreach ($dish as $elem)
 
@@ -9,6 +9,9 @@
             <a href="{{ route('admin.dishes.show', $elem->id) }}">{{$elem->name}}</a>
             @csrf
         </h3>
+
+        <h3>
+            Il prezzo: {{$elem->price}}
 
         <form action="{{ route('admin.dishes.destroy', $elem->id)}}" method="POST">
             @csrf
