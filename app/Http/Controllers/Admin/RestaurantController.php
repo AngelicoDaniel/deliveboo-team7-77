@@ -78,7 +78,11 @@ class RestaurantController extends Controller
      */
     public function show($id)
     {
-        //
+        {
+            $single_dish = Dish::findOrFail($id);
+
+            return view('admin.dishes.show', compact('single_dish'));
+        }
     }
 
     /**
@@ -89,7 +93,9 @@ class RestaurantController extends Controller
      */
     public function edit($id)
     {
-        //
+        $dish = Dish::findOrFail($id);
+
+        return view('admin.dishes.edit', compact('dish'));
     }
 
     /**
@@ -101,7 +107,11 @@ class RestaurantController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->all();
+        $single_dish = Dish::findOrFail($id);
+        $single_dish->update($data);
+
+        return redirect()->route('admin.dishes.index', $single_dish->id);
     }
 
     /**
@@ -112,6 +122,17 @@ class RestaurantController extends Controller
      */
     public function destroy($id)
     {
-        //
+
+            $single_dish = Dish::findOrFail($id);
+
+            // if ($single_dish->id) {
+            //     Storage::delete($single_dish->id);
+            // };
+
+            $single_dish->orders()->sync([]);
+
+            $single_dish->delete();
+
+            return redirect()->route('admin.dishes.index');
     }
 }
