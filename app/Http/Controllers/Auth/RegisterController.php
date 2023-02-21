@@ -54,12 +54,30 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            // 'address' => ['required', 'string', 'max:100'],
-            // 'PIVA' => ['required', 'integer', 'unique:users'],
-            // 'slug' => ['required', 'string', 'max:255'],
-            // 'image_logo' => ['required', 'string', 'max:255'],
-            // 'types' => ['required']
-        ]);
+            'address' => ['required', 'string', 'max:100'],
+            'PIVA' => ['required', 'integer', 'unique:users'],
+            'image_logo' => ['required', 'string', 'max:255'],
+            'types' => ['required']
+        ],
+        [
+            'name' => 'Il campo nome ristorante non può essere vuoto.',
+            'email.required' => 'Il campo email non può essere vuoto.',
+            'email.email' => 'Formato email non valido.',
+            'email.unique' => 'Email già registrata.',
+            'password.required' => 'Il campo password non può essere vuoto.',
+            'password.min' => 'La password deve essere minimo 8 caratteri.',
+            'password.confirmed' => 'La password di conferma non coincide.',
+            'address.required' => 'Il campo indirizzo non può essere vuoto.',
+            'PIVA.required' => 'Il campo P.IVA non può essere vuoto.',
+            'PIVA.digits' => 'Il campo P.IVA deve avere 11 cifre.',
+            'PIVA.numeric' => 'Formato P.IVA non valido.',
+            'image_logo.required' => 'Carica un immagine del ristorante.',
+            'image_logo.mimes' => 'Formato immagine non valida.',
+            'image_logo.max' => 'Dimensione massima consentita 2048kb.',
+            'types.required' => 'Almeno una tipologia deve essere selezionata.',
+            'types.exists' => 'La tipologia selezionata non esiste.'
+        ]
+    );
     }
 
     /**

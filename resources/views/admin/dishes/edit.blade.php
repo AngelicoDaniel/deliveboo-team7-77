@@ -27,12 +27,6 @@
 
     </div>
 
-    <div class="mb-3">
-        <label for="slug" class="form-label">slug</label>
-        <input type="text" class="form-control" id="slug" name="slug" value='{{$dish->slug}}'>
-
-    </div>
-
     <div class="mb-3 form-check">
       <input value="1" type="checkbox" class="form-check-input" id="visibility" name="visibility" value='{{$dish->visibility}}'>
       <label class="form-check-label" for="visibility">visibilità</label>

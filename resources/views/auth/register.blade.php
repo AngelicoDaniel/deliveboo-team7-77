@@ -61,21 +61,9 @@
                             </div>
                         </div>
 
-                        {{-- <div class="form-group row">
-                            <label for="address" class="col-md-4 col-form-label text-md-right">{{ __('Address') }}</label>
 
-                            <div class="col-md-6">
-                                <input id="address" type="text" class="form-control @error('address') is-invalid @enderror" address="address" value="{{ old('address') }}" required autocomplete="address" autofocus>
 
-                                @error('address')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div> --}}
-
-                        <div class="form-group row mt-3">
+                        {{-- <div class="form-group row mt-3">
                             <label for="address"
                                 class="col-md-4 col-form-label text-md-right">{{ __('Indirizzo') }}
                                 <span class="text-warning">*</span></label>
@@ -90,18 +78,33 @@
                                     </span>
                                 @enderror
                             </div>
+                        </div> --}}
+
+                        <div class="form-group row">
+                            <label for="address" class="col-md-4 col-form-label text-md-right">{{ __('address') }}</label>
+
+                            <div class="col-md-6">
+                                <input  id="address" type="text" class="form-control @error('address') is-invalid @enderror" name="address" value="{{ old('address') }}" required autocomplete="address" autofocus>
+
+                                @error('address')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
                         </div>
+
 
                         <div class="form-group row">
                             <label for="PIVA"
                                 class="col-md-4 col-form-label text-md-right">{{ __('Partita IVA') }}
                                 <span class="text-warning">*</span></label>
                             <div class="col-md-6">
-                                <input id="piva" type="text"
+                                <input id="vat_number" type="text"
                                     class="form-control @error('PIVA') is-invalid @enderror" name="PIVA"
-                                    value="{{ old('vat') }}" required minlength="11" maxlength="11"
+                                    value="{{ old('PIVA') }}" required minlength="11" maxlength="11"
                                     pattern="[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]"
-                                    autocomplete="PIVA" placeholder="VAT Number">
+                                    autocomplete="PIVA" placeholder="Inserisci la Partita IVA">
                                 <small>La partita IVA deve essere di 11 cifre</small>
                                 @error('PIVA')
                                     <span class="invalid-feedback" role="alert">
@@ -113,7 +116,7 @@
 
 
 
-                        <div class="form-group row">
+                        {{-- <div class="form-group row">
                             <label for="image_logo"
                                 class="col-md-4 col-form-label text-md-right">{{ __('image_logo') }}
                                 <span class="text-warning">*</span>
@@ -121,10 +124,21 @@
                             <div class="col-md-6">
                                 <input type="file" class="form-control-file" name="image_logo" required>
                             </div>
+                        </div> --}}
+
+                        <div class="form-group row">
+                            <label for="image_logo"
+                                class="col-md-4 col-form-label text-md-right">{{ __('Immagine ristorante') }}
+                                <span class="text-warning">*</span>
+                            </label>
+                            <div class="col-md-6">
+                                <input type="file" class="form-control-file" name="image_logo" required>
+                            </div>
                         </div>
+
                     </div>
 
-                    <div class="my-4">
+                    {{-- <div class="my-4">
                         <label for="">Types:</label>
                             @foreach ($types as $type)
                                 <label for="">
@@ -132,8 +146,9 @@
                                     {{ $type->name }}
                                 </label>
                             @endforeach
-                    </div>
-                    {{-- <div class="form-group row">
+                    </div> --}}
+
+                    <div class="form-group row">
                         <p class="col-md-4 col-form-label text-md-right">Tipologia ristorante <span
                                 class="text-warning">*</span></p>
                         <div class="offset-md-8"></div>
@@ -153,7 +168,7 @@
                         @error('types')
                             <div class="text-danger">{{ $message }}</div>
                         @enderror
-                    </div> --}}
+                    </div>
 
 
                         <div class="form-group row mb-0">

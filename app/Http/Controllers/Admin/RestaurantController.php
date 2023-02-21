@@ -63,7 +63,6 @@ class RestaurantController extends Controller
         $dish->image = $data['image'];
         $dish->description = $data['description'];
         $dish->visibility = $data['visibility'];
-        $dish->slug = $data['slug'];
         $dish->user_id = $user->id ;
         $dish->save();
 
