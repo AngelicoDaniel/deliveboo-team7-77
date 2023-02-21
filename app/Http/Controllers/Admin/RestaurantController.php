@@ -11,11 +11,11 @@ class RestaurantController extends Controller
 {
 
     private $validations = [
-        'slug'      => [
-            'required',
-            'string',
-            'max:100',
-        ],
+        // 'slug'      => [
+        //     'required',
+        //     'string',
+        //     'max:100',
+        // ],
         'name'          => 'required|string|max:100',
         'price'         => 'required|integer',
         'image'         => 'url|max:200',
@@ -66,6 +66,24 @@ class RestaurantController extends Controller
         $dish->user_id = $user->id ;
         $dish->save();
 
+        $request->validate([
+            'name' => 'required',
+            'price' => 'required|numeric|min:0.01',
+            'image' => 'required',
+            'description' => 'required',
+            'visibility' => 'required'
+        ],
+        [
+            'name.required' => 'Il campo nome è obbligatorio.',
+            'price.required' => 'Il prezzo è obbligatorio.',
+            'price.numeric' => 'Formato prezzo non valido.',
+            'price.min' => 'Il prezzo deve essere uguale o maggiore a 0.01',
+            'image.required' => 'Carica un immagine.',
+            'image.mimes' => 'Formato immagine non valido.',
+            'image.max' => 'Dimensioni massime consentite 4096kb.'
+        ]
+    );
+
         return redirect()->route('admin.dishes.index');
     }
 
@@ -106,6 +124,23 @@ class RestaurantController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'name' => 'required',
+            'price' => 'required|numeric|min:0.01',
+            'image' => 'required',
+            'description' => 'required',
+            'visibility' => 'required'
+        ],
+        [
+            'name.required' => 'Il campo nome è obbligatorio.',
+            'price.required' => 'Il prezzo è obbligatorio.',
+            'price.numeric' => 'Formato prezzo non valido.',
+            'price.min' => 'Il prezzo deve essere uguale o maggiore a 0.01',
+            'image.required' => 'Carica un immagine.',
+            'image.mimes' => 'Formato immagine non valido.',
+            'image.max' => 'Dimensioni massime consentite 4096kb.'
+        ]);
+
         $data = $request->all();
         $single_dish = Dish::findOrFail($id);
         $single_dish->update($data);

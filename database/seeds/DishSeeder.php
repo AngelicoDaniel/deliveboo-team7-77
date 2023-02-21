@@ -20,7 +20,7 @@ class DishSeeder extends Seeder
 
             $dish = Dish::create([
                 'name' => $name,
-                'price' => $faker->randomFloat(2,100),
+                'price' => $faker->randomFloat(2,1,100),
                 'image' => 'https://picsum.photos/id/'. rand(0, 1000) .'/500/400',
                 'visibility' => $faker->numberBetween(0,1),
                 'description' => $faker->paragraph(3, true),
