@@ -8,7 +8,7 @@
                 <div class="card-header">{{ __('Register') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
+                    <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                         @csrf
 
                         <div class="form-group row">
@@ -116,16 +116,6 @@
 
 
 
-                        {{-- <div class="form-group row">
-                            <label for="image_logo"
-                                class="col-md-4 col-form-label text-md-right">{{ __('image_logo') }}
-                                <span class="text-warning">*</span>
-                            </label>
-                            <div class="col-md-6">
-                                <input type="file" class="form-control-file" name="image_logo" required>
-                            </div>
-                        </div> --}}
-
                         <div class="form-group row">
                             <label for="image_logo"
                                 class="col-md-4 col-form-label text-md-right">{{ __('Immagine ristorante') }}
@@ -138,15 +128,6 @@
 
                     </div>
 
-                    {{-- <div class="my-4">
-                        <label for="">Types:</label>
-                            @foreach ($types as $type)
-                                <label for="">
-                                    <input type="checkbox" name="types[]" value="{{ $type->id }}">
-                                    {{ $type->name }}
-                                </label>
-                            @endforeach
-                    </div> --}}
 
                     <div class="form-group row">
                         <p class="col-md-4 col-form-label text-md-right">Tipologia ristorante <span

@@ -9,6 +9,8 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use App\Type;
+use Illuminate\Support\Facades\Storage;
+
 
 class RegisterController extends Controller
 {
@@ -56,7 +58,7 @@ class RegisterController extends Controller
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'address' => ['required', 'string', 'max:100'],
             'PIVA' => ['required', 'integer', 'unique:users'],
-            'image_logo' => ['required', 'string', 'max:255'],
+            'image_logo' => ['required'],
             'types' => ['required']
         ],
         [
@@ -71,9 +73,9 @@ class RegisterController extends Controller
             'PIVA.required' => 'Il campo P.IVA non può essere vuoto.',
             'PIVA.digits' => 'Il campo P.IVA deve avere 11 cifre.',
             'PIVA.numeric' => 'Formato P.IVA non valido.',
-            'image_logo.required' => 'Carica un immagine del ristorante.',
-            'image_logo.mimes' => 'Formato immagine non valida.',
-            'image_logo.max' => 'Dimensione massima consentita 2048kb.',
+            // 'image_logo.required' => 'Carica un immagine del ristorante.',
+            // 'image_logo.mimes' => 'Formato immagine non valida.',
+            // 'image_logo.max' => 'Dimensione massima consentita 2048kb.',
             'types.required' => 'Almeno una tipologia deve essere selezionata.',
             'types.exists' => 'La tipologia selezionata non esiste.'
         ]
@@ -89,13 +91,17 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
 
+        $image = Storage::put('restaurant_covers', $data['image_logo']);
+
+
         $newUser = User::create([
+
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'address' => $data['address'],
             'PIVA' => $data['PIVA'],
-            'image_logo' => $data['image_logo'],
+            'image_logo' => $image,
 
         ]);
 
