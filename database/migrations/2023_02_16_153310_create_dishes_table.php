@@ -20,7 +20,6 @@ class CreateDishesTable extends Migration
             $table->string('image', 200);
             $table->boolean('visibility')->default(0);
             $table->text('description');
-            $table->string('slug', 100);
         });
     }
 

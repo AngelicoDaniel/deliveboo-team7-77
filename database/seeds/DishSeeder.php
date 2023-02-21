@@ -24,7 +24,6 @@ class DishSeeder extends Seeder
                 'image' => 'https://picsum.photos/id/'. rand(0, 1000) .'/500/400',
                 'visibility' => $faker->numberBetween(0,1),
                 'description' => $faker->paragraph(3, true),
-                'slug' => User::getSlug($name),
                 'user_id' => $faker->randomElement($users),
             ]);
         };

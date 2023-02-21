@@ -77,7 +77,6 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
             'address' => $data['address'],
             'PIVA' => $data['PIVA'],
-            'slug' => $data['slug'],
             'image_logo' => $data['image_logo'],
 
         ]);
@@ -98,8 +97,8 @@ class RegisterController extends Controller
 
     }
     public function showRegistrationForm()
- {
-     $types = Type::all();
-     return view('auth.register', compact('types'));
- }
+        {
+            $types = Type::all();
+            return view('auth.register', compact('types'));
+        }
 }

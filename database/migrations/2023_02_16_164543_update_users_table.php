@@ -16,7 +16,6 @@ class UpdateUsersTable extends Migration
         Schema::table('users', function (Blueprint $table) {
             $table->string('address', 100)->nullable();
             $table->string('PIVA')->unique()->default(0);
-            $table->string('slug', 100)->nullable();
             $table->string('image_logo', 200)->nullable();
         });
     }
@@ -31,7 +30,6 @@ class UpdateUsersTable extends Migration
         Schema::table('users', function (Blueprint $table) {
             $table->dropColumn('address');
             $table->dropColumn('PIVA');
-            $table->dropColumn('slug');
             $table->dropColumn('image_logo');
         });
     }

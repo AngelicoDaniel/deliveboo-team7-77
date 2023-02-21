@@ -21,7 +21,6 @@ class UserSeeder extends Seeder
                 'password'   =>   Hash::make('mcdonald'),
                 'address'    =>   $faker->address(),
                 'PIVA'       =>   $faker->randomNumber(9, true),
-                'slug'       =>   User::getSlug('McDonald'),
                 'image_logo' =>   'https://picsum.photos/id/'. rand(0, 1000) .'/500/400',
             ],
             [
@@ -30,7 +29,6 @@ class UserSeeder extends Seeder
                 'password'   =>   Hash::make('BurgerKing'),
                 'address'    =>   $faker->address(),
                 'PIVA'       =>   $faker->randomNumber(9, true),
-                'slug'       =>   User::getSlug('BurgerKing'),
                 'image_logo' =>   'https://picsum.photos/id/'. rand(0, 1000) .'/500/400',
             ],
             [
@@ -39,7 +37,6 @@ class UserSeeder extends Seeder
                 'password'   =>   Hash::make('Kfc'),
                 'address'    =>   $faker->address(),
                 'PIVA'       =>   $faker->randomNumber(9, true),
-                'slug'       =>   User::getSlug('Kfc'),
                 'image_logo' =>   'https://picsum.photos/id/'. rand(0, 1000) .'/500/400',
             ],
         ];
@@ -52,7 +49,6 @@ class UserSeeder extends Seeder
             $objUser->password    = $restaurant['password'];
             $objUser->address     = $restaurant['address'];
             $objUser->PIVA        = $restaurant['PIVA'];
-            $objUser->slug        = $restaurant['slug'];
             $objUser->image_logo  = $restaurant['image_logo'];
             $objUser->save();
         }
