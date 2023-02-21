@@ -61,12 +61,29 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
+                        {{-- <div class="form-group row">
                             <label for="address" class="col-md-4 col-form-label text-md-right">{{ __('Address') }}</label>
 
                             <div class="col-md-6">
                                 <input id="address" type="text" class="form-control @error('address') is-invalid @enderror" address="address" value="{{ old('address') }}" required autocomplete="address" autofocus>
 
+                                @error('address')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div> --}}
+
+                        <div class="form-group row mt-3">
+                            <label for="address"
+                                class="col-md-4 col-form-label text-md-right">{{ __('Indirizzo') }}
+                                <span class="text-warning">*</span></label>
+                            <div class="col-md-6">
+                                <input id="address" type="text"
+                                    class="form-control @error('address') is-invalid @enderror" name="address"
+                                    value="{{ old('address') }}" required autocomplete="address"
+                                    placeholder="Inserisci l'indirizzo">
                                 @error('address')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -114,6 +131,50 @@
                                 <input type="file" class="form-control-file" name="image_logo" required>
                             </div>
                         </div>
+                    </div>
+
+                    {{-- <div class="my-4">
+                        <label for="">Types:</label>
+                            @foreach ($types as $type)
+                                <label for="">
+                                    <input type="checkbox" name="types[]" value="{{ $type->id }}">
+                                    {{ $type->name }}
+                                </label>
+                            @endforeach
+                    </div> --}}
+
+                    <div class="form-group row">
+                        <p class="col-md-4 col-form-label text-md-right">Tipologia ristorante <span
+                                class="text-warning">*</span></p>
+                        <div class="offset-md-8"></div>
+                        @foreach ($types as $type)
+                        <?php
+                            $types = [
+                                'pizzeria',
+                                'sushi',
+                                'trattoria',
+                                'fast food',
+                                'cinese',
+                                'street food',
+                                'vegano',
+                                'vegetariano',
+                            ];
+                        ?>
+                            <div class="offset-md-4 col-md-8">
+                                <input
+                                    class="categoryInput form-check-input @error('types') is-invalid @enderror"
+                                    type="checkbox" name="types[]" value="{{ $type->id }}"
+                                    {{ in_array($type->id, old('types', [])) ? 'checked' : '' }} />
+                                <label> {{ $type->name }}</label>
+
+                            </div>
+                        @endforeach
+                        <small id="alert-checkbox" class="alert alert-danger m-auto"
+                            style="display: none">Seleziona almeno una
+                            tipologia!!</small>
+                        @error('types')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
                     </div>
 
 

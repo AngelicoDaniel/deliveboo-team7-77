@@ -29,10 +29,10 @@ Route::middleware('auth')
     ->group(function () {
     Route::resource('dishes','RestaurantController');
 
-
-
     // Route::resource('/restaurants', RestaurantController::class);
 });
+
+Route::get('admin/register', 'TypeController@index');
 
 
 Route::get('/admin',function(){
