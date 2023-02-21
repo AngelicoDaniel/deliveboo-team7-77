@@ -79,10 +79,20 @@ class RegisterController extends Controller
             'PIVA' => $data['PIVA'],
             'slug' => $data['slug'],
             'image_logo' => $data['image_logo'],
+
         ]);
 
+        // dd($data);
+
         $newUser = User::orderBy('id', 'desc')->first();
-        $newUser->types()->attach($data['types']);
+
+        if (array_key_exists('types', $data)) {
+
+            $newUser->types()->sync($data['types']);
+        };
+
+
+
 
         return $newUser;
 
