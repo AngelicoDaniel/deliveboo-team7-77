@@ -6,6 +6,7 @@ use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class RestaurantController extends Controller
 {
@@ -58,6 +59,11 @@ class RestaurantController extends Controller
         $user = Auth::user();
         $data = $request->all();
         $dish = new Dish;
+        if (array_key_exists('image', $data)) {
+            $image = Storage::put('dish_covers', $data['image']);
+            $data['image'] = $image;
+        }
+
         $dish->name = $data['name'];
         $dish->price = $data['price'];
         $dish->image = $data['image'];

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<form action="{{route('admin.dishes.store')}}" method="POST">
+<form action="{{route('admin.dishes.store')}}" method="POST" enctype="multipart/form-data">
 
     @csrf
 
