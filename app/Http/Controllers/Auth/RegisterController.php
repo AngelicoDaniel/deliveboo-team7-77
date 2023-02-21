@@ -8,6 +8,7 @@ use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use App\Type;
 
 class RegisterController extends Controller
 {
@@ -57,6 +58,7 @@ class RegisterController extends Controller
             // 'PIVA' => ['required', 'integer', 'unique:users'],
             // 'slug' => ['required', 'string', 'max:255'],
             // 'image_logo' => ['required', 'string', 'max:255'],
+            // 'types' => ['required']
         ]);
     }
 
@@ -68,7 +70,8 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        $user = User::create([
+
+        User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
@@ -78,8 +81,15 @@ class RegisterController extends Controller
             'image_logo' => $data['image_logo'],
         ]);
 
-        $user->types()->sync($data['types']);
-        return $user;
+        $newUser = User::orderBy('id')->first();
+        $newUser->types()->attach($data['types']);
+
+        return $newUser;
 
     }
+    public function showRegistrationForm()
+ {
+     $types = Type::all();
+     return view('auth.register', compact('types'));
+ }
 }

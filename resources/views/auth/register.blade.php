@@ -133,7 +133,7 @@
                         </div>
                     </div>
 
-                    {{-- <div class="my-4">
+                    <div class="my-4">
                         <label for="">Types:</label>
                             @foreach ($types as $type)
                                 <label for="">
@@ -141,25 +141,12 @@
                                     {{ $type->name }}
                                 </label>
                             @endforeach
-                    </div> --}}
-
-                    <div class="form-group row">
+                    </div>
+                    {{-- <div class="form-group row">
                         <p class="col-md-4 col-form-label text-md-right">Tipologia ristorante <span
                                 class="text-warning">*</span></p>
                         <div class="offset-md-8"></div>
                         @foreach ($types as $type)
-                        <?php
-                            $types = [
-                                'pizzeria',
-                                'sushi',
-                                'trattoria',
-                                'fast food',
-                                'cinese',
-                                'street food',
-                                'vegano',
-                                'vegetariano',
-                            ];
-                        ?>
                             <div class="offset-md-4 col-md-8">
                                 <input
                                     class="categoryInput form-check-input @error('types') is-invalid @enderror"
@@ -175,8 +162,7 @@
                         @error('types')
                             <div class="text-danger">{{ $message }}</div>
                         @enderror
-                    </div>
-
+                    </div> --}}
 
 
                         <div class="form-group row mb-0">
