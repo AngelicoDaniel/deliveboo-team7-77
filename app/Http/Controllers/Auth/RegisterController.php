@@ -71,7 +71,7 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
 
-        User::create([
+        $newUser = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
@@ -81,7 +81,7 @@ class RegisterController extends Controller
             'image_logo' => $data['image_logo'],
         ]);
 
-        $newUser = User::orderBy('id')->first();
+        $newUser = User::orderBy('id', 'desc')->first();
         $newUser->types()->attach($data['types']);
 
         return $newUser;
