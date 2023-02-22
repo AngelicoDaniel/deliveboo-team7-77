@@ -2,22 +2,22 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Type;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\User;
 
-class RestaurantController extends Controller
+class TypeController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-
     public function index()
     {
-        $restaurants = User::with('types')->get();
-        return response()->json($restaurants);
+        $types = Type::With('users')->get();
+
+        return response()->json($types);
     }
 
     /**
@@ -37,9 +37,12 @@ class RestaurantController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($name)
     {
-        //
+        $type = Type::where('name', 'like', $name)->with('users')->get();
+
+
+        return response()->json($type);
     }
 
     /**

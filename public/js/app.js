@@ -1800,7 +1800,33 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: 'App'
+  name: 'App',
+  mounted: function mounted() {
+    this.getRestaurants();
+    this.getTypes();
+  },
+  data: function data() {
+    return {
+      restaurants: [],
+      types: []
+    };
+  },
+  methods: {
+    getRestaurants: function getRestaurants() {
+      var _this = this;
+      axios.get('http://127.0.0.1:8000/api/restaurants').then(function (res) {
+        console.log(res.data);
+        _this.restaurants = res.data;
+      });
+    },
+    getTypes: function getTypes() {
+      var _this2 = this;
+      axios.get('http://127.0.0.1:8000/api/types').then(function (res) {
+        console.log(res.data);
+        _this2.types = res.data;
+      });
+    }
+  }
 });
 
 /***/ }),
@@ -1820,13 +1846,17 @@ __webpack_require__.r(__webpack_exports__);
 var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
-  return _vm._m(0);
+  return _c("div", [_c("h1", [_vm._v("Ciao")]), _vm._v(" "), _c("div", [_c("ul", _vm._l(_vm.restaurants, function (elem) {
+    return _c("li", {
+      key: elem.id
+    }, [_vm._v(_vm._s(elem.name))]);
+  }), 0)]), _vm._v(" "), _c("div", [_c("ul", _vm._l(_vm.types, function (elem) {
+    return _c("li", {
+      key: elem.id
+    }, [_vm._v(_vm._s(elem.name))]);
+  }), 0)])]);
 };
-var staticRenderFns = [function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("div", [_c("h1", [_vm._v("Ciao")]), _vm._v(" "), _c("div", [_c("ul", [_c("li")])])]);
-}];
+var staticRenderFns = [];
 render._withStripped = true;
 
 
