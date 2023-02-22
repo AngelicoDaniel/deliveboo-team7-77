@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+
 use App\Dish;
 use App\User;
 use Illuminate\Http\Request;
@@ -45,7 +46,6 @@ class RestaurantController extends Controller
     public function create()
     {
         return view('admin.dishes.create');
-
     }
 
     /**
@@ -69,26 +69,27 @@ class RestaurantController extends Controller
         $dish->image = $data['image'];
         $dish->description = $data['description'];
         $dish->visibility = $data['visibility'];
-        $dish->user_id = $user->id ;
+        $dish->user_id = $user->id;
         $dish->save();
 
-        $request->validate([
-            'name' => 'required',
-            'price' => 'required|numeric|min:0.01',
-            'image' => 'required',
-            'description' => 'required',
-            'visibility' => 'required'
-        ],
-        [
-            'name.required' => 'Il campo nome è obbligatorio.',
-            'price.required' => 'Il prezzo è obbligatorio.',
-            'price.numeric' => 'Formato prezzo non valido.',
-            'price.min' => 'Il prezzo deve essere uguale o maggiore a 0.01',
-            'image.required' => 'Carica un immagine.',
-            'image.mimes' => 'Formato immagine non valido.',
-            'image.max' => 'Dimensioni massime consentite 4096kb.'
-        ]
-    );
+        $request->validate(
+            [
+                'name' => 'required',
+                'price' => 'required|numeric|min:0.01',
+                'image' => 'required',
+                'description' => 'required',
+                'visibility' => 'required'
+            ],
+            [
+                'name.required' => 'Il campo nome è obbligatorio.',
+                'price.required' => 'Il prezzo è obbligatorio.',
+                'price.numeric' => 'Formato prezzo non valido.',
+                'price.min' => 'Il prezzo deve essere uguale o maggiore a 0.01',
+                'image.required' => 'Carica un immagine.',
+                'image.mimes' => 'Formato immagine non valido.',
+                'image.max' => 'Dimensioni massime consentite 4096kb.'
+            ]
+        );
 
         return redirect()->route('admin.dishes.index');
     }
@@ -100,8 +101,7 @@ class RestaurantController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
-        {
+    { {
             $single_dish = Dish::findOrFail($id);
 
             return view('admin.dishes.show', compact('single_dish'));
@@ -130,22 +130,24 @@ class RestaurantController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'name' => 'required',
-            'price' => 'required|numeric|min:0.01',
-            'image' => 'required',
-            'description' => 'required',
-            'visibility' => 'required'
-        ],
-        [
-            'name.required' => 'Il campo nome è obbligatorio.',
-            'price.required' => 'Il prezzo è obbligatorio.',
-            'price.numeric' => 'Formato prezzo non valido.',
-            'price.min' => 'Il prezzo deve essere uguale o maggiore a 0.01',
-            'image.required' => 'Carica un immagine.',
-            'image.mimes' => 'Formato immagine non valido.',
-            'image.max' => 'Dimensioni massime consentite 4096kb.'
-        ]);
+        $request->validate(
+            [
+                'name' => 'required',
+                'price' => 'required|numeric|min:0.01',
+                'image' => 'required',
+                'description' => 'required',
+                'visibility' => 'required'
+            ],
+            [
+                'name.required' => 'Il campo nome è obbligatorio.',
+                'price.required' => 'Il prezzo è obbligatorio.',
+                'price.numeric' => 'Formato prezzo non valido.',
+                'price.min' => 'Il prezzo deve essere uguale o maggiore a 0.01',
+                'image.required' => 'Carica un immagine.',
+                'image.mimes' => 'Formato immagine non valido.',
+                'image.max' => 'Dimensioni massime consentite 4096kb.'
+            ]
+        );
 
         $data = $request->all();
         $single_dish = Dish::findOrFail($id);
@@ -163,16 +165,16 @@ class RestaurantController extends Controller
     public function destroy($id)
     {
 
-            $single_dish = Dish::findOrFail($id);
+        $single_dish = Dish::findOrFail($id);
 
-            // if ($single_dish->id) {
-            //     Storage::delete($single_dish->id);
-            // };
+        // if ($single_dish->id) {
+        //     Storage::delete($single_dish->id);
+        // };
 
-            $single_dish->orders()->sync([]);
+        $single_dish->orders()->sync([]);
 
-            $single_dish->delete();
+        $single_dish->delete();
 
-            return redirect()->route('admin.dishes.index');
+        return redirect()->route('admin.dishes.index');
     }
 }
