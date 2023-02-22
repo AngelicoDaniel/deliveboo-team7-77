@@ -5,6 +5,7 @@
     <p>Nome del tuo ristorante: {{ $user->name }}</p>
     <p>Indirizzo del tuo ristorante: {{ $user->address }}</p>
     <p>P.iva del tuo ristorante: {{ $user->PIVA }}</p>
+    <img src="{{ asset("storage/$user->image_logo") }}" alt="">
 
     <ul>
         <h3 class="nav-item">
