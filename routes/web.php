@@ -27,19 +27,25 @@ Route::middleware('auth')
     ->name('admin.')
     ->prefix('admin')
     ->group(function () {
-    Route::resource('dishes','RestaurantController');
+        Route::resource('dishes', 'RestaurantController');
 
-    // Route::resource('/restaurants', RestaurantController::class);
-});
+        Route::get('/restaurantwelcome', 'WelcomeController@index');
+        // Route::resource('/restaurants', RestaurantController::class);
 
-Route::get('admin/register', 'TypeController@index');
+    });
+
+// Route::get('admin/register', 'TypeController@index');
 
 
-Route::get('/admin',function(){
-    return view('admin.home');
-    })->name('home');
+// Route::get('/admin', function () {
+//     return view('admin.restaurant.index');
+// })->name('index');
+
+Route::get('/admin', function () {
+    return view('admin.restaurant.homepage');
+})->name('homepage');
 
 
 Route::get('{any?}', function () {
     return view('guest.home');
-    })->where("any", ".*")->name('guest.home');
+})->where("any", ".*")->name('guest.home');
