@@ -2050,16 +2050,7 @@ var render = function render() {
         name: "home"
       }
     }
-  }, [_vm._v("Home")])], 1), _vm._v(" "), _c("li", {
-    staticClass: "nav-item"
-  }, [_c("router-link", {
-    staticClass: "nav-link",
-    attrs: {
-      to: {
-        name: "types"
-      }
-    }
-  }, [_vm._v("Type List")])], 1)])])], 1)])]);
+  }, [_vm._v("Home")])], 1), _vm._v(" "), _vm._m(1)])])], 1)])]);
 };
 var staticRenderFns = [function () {
   var _vm = this,
@@ -2077,6 +2068,17 @@ var staticRenderFns = [function () {
   }, [_c("span", {
     staticClass: "navbar-toggler-icon"
   })]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("li", {
+    staticClass: "nav-item"
+  }, [_c("a", {
+    staticClass: "nav-link",
+    attrs: {
+      href: "http://127.0.0.1:8000/admin"
+    }
+  }, [_vm._v("Area Riservata")])]);
 }];
 render._withStripped = true;
 

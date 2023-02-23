@@ -13,8 +13,11 @@
                             <router-link class="nav-link active" aria-current="page"
                                 :to="{ name: 'home' }">Home</router-link>
                         </li>
+                        <!-- <li class="nav-item">
+                            <router-link class="nav-link" :to="{ name: 'types' }">Type Listllllllllll</router-link>
+                        </li> -->
                         <li class="nav-item">
-                            <router-link class="nav-link" :to="{ name: 'types' }">Type List</router-link>
+                            <a class="nav-link" href="http://127.0.0.1:8000/admin">Area Riservata</a>
                         </li>
 
 

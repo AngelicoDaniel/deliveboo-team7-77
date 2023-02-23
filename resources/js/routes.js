@@ -21,7 +21,8 @@ const router = new VueRouter({
         path: '/types/:name',
         name: 'restaurant',
         component: RestaurantPage
-    }
+    },
+
 
 ]
 });
