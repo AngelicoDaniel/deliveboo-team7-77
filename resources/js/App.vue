@@ -1,21 +1,22 @@
 <template>
     <div>
-
+        <HeaderComp/>
         <router-view></router-view>
-      <!-- <HomePage/> -->
+        <!-- <h1>ciao</h1> -->
+
     </div>
   </template>
 
 <script>
 
 // import TypeComp from './components/TypeComp.vue';
-import HomePage from './pages/HomePage.vue';
+import HeaderComp from './components/HeaderComp.vue';
 
 export default {
     name: 'App',
     components: {
         // TypeComp,
-        HomePage
+        HeaderComp
     },
 
     // mounted() {

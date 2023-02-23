@@ -1,6 +1,6 @@
 <template>
     <div>
-        <HeaderComp/>
+        <!-- <HeaderComp/> -->
         <h1>HOMEPAGE</h1>
 
         <TypeComp/>
@@ -11,12 +11,12 @@
 <script>
 
 import TypeComp from '../components/TypeComp.vue';
-import HeaderComp from '../components/HeaderComp.vue';
+// import HeaderComp from '../components/HeaderComp.vue';
 
 export default {
     name: 'HomePage',
     components: {
-        HeaderComp,
+        // HeaderComp,
         TypeComp,
     },
 }
