@@ -6,7 +6,7 @@
             <ul>
                 <li v-for="elem in types" :key="elem.id">
                     <router-link class="nav-link active" aria-current="page"
-                                :to="`/restaurant/${elem.name}`">{{ elem.name }}</router-link>
+                                :to="`/types/${elem.name}`">{{ elem.name }}</router-link>
                 </li>
             </ul>
         </div>
@@ -42,8 +42,9 @@ export default {
         getTypes() {
             axios.get('http://127.0.0.1:8000/api/types')
                 .then((res) => {
-                    console.log(res.data);
+
                     this.types = res.data
+                    console.log(this.types);
                 })
         }
     }

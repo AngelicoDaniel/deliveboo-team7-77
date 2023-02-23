@@ -1,6 +1,6 @@
 <template>
   <div class="text-center">
-    <h1>tag Show</h1>
+
     <TypeCard />
   </div>
 </template>
