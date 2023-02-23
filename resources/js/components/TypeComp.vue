@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>Ciao</h1>
+        <h1>Types:</h1>
 
         <div>
             <ul>

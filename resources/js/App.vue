@@ -1,19 +1,21 @@
 <template>
     <div>
 
-      <TypeComp/>
+      <HomePage/>
       <!-- <router-view></router-view> -->
     </div>
   </template>
 
 <script>
 
-import TypeComp from './components/TypeComp.vue';
+// import TypeComp from './components/TypeComp.vue';
+import HomePage from './pages/HomePage.vue';
 
 export default {
     name: 'App',
     components: {
-        TypeComp,
+        // TypeComp,
+        HomePage
     },
 
     // mounted() {
