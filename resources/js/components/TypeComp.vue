@@ -6,7 +6,7 @@
             <ul>
                 <li v-for="elem in types" :key="elem.id">
                     <router-link class="nav-link active" aria-current="page"
-                                :to="`/type/${elem.name}`">{{ elem.name }}</router-link>
+                                :to="`/restaurant/${elem.name}`">{{ elem.name }}</router-link>
                 </li>
             </ul>
         </div>
