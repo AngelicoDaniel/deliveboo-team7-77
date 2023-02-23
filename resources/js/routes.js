@@ -7,6 +7,8 @@ Vue.use(VueRouter)
 import HomePage from './pages/HomePage.vue'
 import RestaurantPage from './pages/RestaurantPage.vue'
 
+
+
 const router = new VueRouter({
     mode:'history',
     routes: [
@@ -16,10 +18,11 @@ const router = new VueRouter({
         component: HomePage
     },
     {
-        path: '/restaurant',
+        path: '/restaurant/:name',
         name: 'restaurant',
         component: RestaurantPage
     }
+
 ]
 });
 
