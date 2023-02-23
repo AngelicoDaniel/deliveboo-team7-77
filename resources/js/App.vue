@@ -1,25 +1,10 @@
 <template>
     <div>
-        <h1>Ciao</h1>
-        <!-- <router-view></router-view> -->
-        <!-- <div>
-            <ul>
-                <li v-for="elem in restaurants" :key="elem.id">{{ elem.name }}</li>
-            </ul>
-        </div> -->
 
-        <!-- <div>
-            <ul>
-                <li v-for="elem in types" :key="elem.id">{{ elem.name }}</li>
-            </ul>
-        </div> -->
-
-
-        <TypeComp/>
-        <router-view></router-view>
-
-</div>
-</template>
+      <TypeComp/>
+      <!-- <router-view></router-view> -->
+    </div>
+  </template>
 
 <script>
 
