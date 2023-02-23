@@ -1,8 +1,8 @@
 <template>
     <div>
 
-      <HomePage/>
-      <!-- <router-view></router-view> -->
+        <router-view></router-view>
+      <!-- <HomePage/> -->
     </div>
   </template>
 

@@ -3,14 +3,15 @@ import VueRouter from 'vue-router'
 
 Vue.use(VueRouter)
 
-import App from './App.vue'
+// import App from './App.vue'
+import HomePage from './pages/HomePage.vue'
 
 const router = new VueRouter({
     mode:'history',
     routes: [{
         path: '/',
-        name: 'App',
-        component: App
+        name: 'home',
+        component: HomePage
     }]
 });
 
