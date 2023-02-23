@@ -1883,8 +1883,8 @@ __webpack_require__.r(__webpack_exports__);
     getType: function getType() {
       var _this = this;
       axios.get("http://127.0.0.1:8000/api/types" + this.$route.params.name).then(function (res) {
-        console.log(res);
-        _this.type = res.data;
+        _this.type = res;
+        console.log(_this.type);
       })["catch"](function (err) {
         console.log(err);
       });
@@ -1928,8 +1928,8 @@ __webpack_require__.r(__webpack_exports__);
     getTypes: function getTypes() {
       var _this = this;
       axios.get('http://127.0.0.1:8000/api/types').then(function (res) {
-        console.log(res.data);
         _this.types = res.data;
+        console.log(_this.types);
       });
     }
   }
@@ -2102,7 +2102,7 @@ var render = function render() {
     staticClass: "text-center"
   }, [_c("h1", {
     staticClass: "m-4"
-  }, [_vm._v(_vm._s(this.$route.params.name))]), _vm._v(" "), _c("ul"), _vm._v(" "), _c("h1", [_vm._v("ok")])]);
+  }, [_vm._v(_vm._s(this.$route.params.name))])]);
 };
 var staticRenderFns = [];
 render._withStripped = true;
@@ -2132,7 +2132,7 @@ var render = function render() {
       staticClass: "nav-link active",
       attrs: {
         "aria-current": "page",
-        to: "/restaurant/".concat(elem.name)
+        to: "/types/".concat(elem.name)
       }
     }, [_vm._v(_vm._s(elem.name))])], 1);
   }), 0)])]);
@@ -2183,7 +2183,7 @@ var render = function render() {
     _c = _vm._self._c;
   return _c("div", {
     staticClass: "text-center"
-  }, [_c("h1", [_vm._v("tag Show")]), _vm._v(" "), _c("TypeCard")], 1);
+  }, [_c("TypeCard")], 1);
 };
 var staticRenderFns = [];
 render._withStripped = true;
@@ -2272,7 +2272,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     name: 'home',
     component: _pages_HomePage_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
   }, {
-    path: '/restaurant/:name',
+    path: '/types/:name',
     name: 'restaurant',
     component: _pages_RestaurantPage_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
   }]
