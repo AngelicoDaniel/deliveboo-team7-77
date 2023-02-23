@@ -1,25 +1,19 @@
 <template>
-    <div>
-        <!-- <HeaderComp/> -->
-        <h1>restaurant</h1>
-
-
-</div>
+  <div class="text-center">
+    <h1>tag Show</h1>
+    <TypeCard />
+  </div>
 </template>
 
 <script>
-
-// import TypeComp from '../components/TypeComp.vue';
-
-
+import TypeCard from "../components/TypeCard.vue";
 export default {
-    name: 'RestaurantPage',
-    components: {
-        // HeaderComp,
-
-    },
-}
-
+  name: "RestaurantPage",
+  components: {
+    TypeCard,
+  },
+};
 </script>
 
-<style></style>
+<style lang="scss" scoped>
+</style>
