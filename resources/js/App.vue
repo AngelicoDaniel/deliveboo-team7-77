@@ -2,53 +2,62 @@
     <div>
         <h1>Ciao</h1>
         <!-- <router-view></router-view> -->
-        <div>
+        <!-- <div>
             <ul>
                 <li v-for="elem in restaurants" :key="elem.id">{{ elem.name }}</li>
             </ul>
-        </div>
+        </div> -->
 
-        <div>
+        <!-- <div>
             <ul>
                 <li v-for="elem in types" :key="elem.id">{{ elem.name }}</li>
             </ul>
-        </div>
+        </div> -->
 
+
+        <TypeComp/>
+        <router-view></router-view>
 
 </div>
 </template>
 
 <script>
+
+import TypeComp from './components/TypeComp.vue';
+
 export default {
     name: 'App',
-
-    mounted() {
-        this.getRestaurants();
-        this.getTypes();
+    components: {
+        TypeComp,
     },
-    data() {
-        return {
-            restaurants: [],
-            types: []
-        }
-    },
-    methods: {
-        getRestaurants() {
-            axios.get('http://127.0.0.1:8000/api/restaurants')
-                .then((res) => {
-                    console.log(res.data);
-                    this.restaurants = res.data
-                })
-        },
 
-        getTypes() {
-            axios.get('http://127.0.0.1:8000/api/types')
-                .then((res) => {
-                    console.log(res.data);
-                    this.types = res.data
-                })
-        }
-    }
+    // mounted() {
+    //     this.getRestaurants();
+    //     this.getTypes();
+    // },
+    // data() {
+    //     return {
+    //         restaurants: [],
+    //         types: []
+    //     }
+    // },
+    // methods: {
+    //     getRestaurants() {
+    //         axios.get('http://127.0.0.1:8000/api/restaurants')
+    //             .then((res) => {
+    //                 console.log(res.data);
+    //                 this.restaurants = res.data
+    //             })
+    //     },
+
+    //     getTypes() {
+    //         axios.get('http://127.0.0.1:8000/api/types')
+    //             .then((res) => {
+    //                 console.log(res.data);
+    //                 this.types = res.data
+    //             })
+    //     }
+    // }
 
 
 }
