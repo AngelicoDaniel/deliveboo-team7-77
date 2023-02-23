@@ -2132,7 +2132,7 @@ var render = function render() {
       staticClass: "nav-link active",
       attrs: {
         "aria-current": "page",
-        to: "/type/".concat(elem.name)
+        to: "/restaurant/".concat(elem.name)
       }
     }, [_vm._v(_vm._s(elem.name))])], 1);
   }), 0)])]);
