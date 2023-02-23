@@ -44,7 +44,7 @@ export default {
                 .then((res) => {
 
                     this.types = res.data
-                    console.log(this.types);
+                    // console.log(this.types);
                 })
         }
     }

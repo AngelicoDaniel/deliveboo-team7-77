@@ -1882,8 +1882,8 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     getType: function getType() {
       var _this = this;
-      axios.get("http://127.0.0.1:8000/api/types" + this.$route.params.name).then(function (res) {
-        _this.type = res;
+      axios.get("http://127.0.0.1:8000/api/types/" + this.$route.params.name).then(function (res) {
+        _this.type = res.data;
         console.log(_this.type);
       })["catch"](function (err) {
         console.log(err);
@@ -1929,7 +1929,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
       axios.get('http://127.0.0.1:8000/api/types').then(function (res) {
         _this.types = res.data;
-        console.log(_this.types);
+        // console.log(this.types);
       });
     }
   }
@@ -2102,7 +2102,15 @@ var render = function render() {
     staticClass: "text-center"
   }, [_c("h1", {
     staticClass: "m-4"
-  }, [_vm._v(_vm._s(this.$route.params.name))])]);
+  }, [_vm._v(_vm._s(this.$route.params.name))]), _vm._v(" "), _c("ul", _vm._l(_vm.type, function (elem, index) {
+    return _c("li", {
+      key: index
+    }, [_c("ul", _vm._l(elem.users, function (user, index) {
+      return _c("li", {
+        key: index
+      }, [_vm._v("\n                        " + _vm._s(user.name) + "\n                    ")]);
+    }), 0)]);
+  }), 0)]);
 };
 var staticRenderFns = [];
 render._withStripped = true;
