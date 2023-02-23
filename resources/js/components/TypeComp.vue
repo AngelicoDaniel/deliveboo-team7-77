@@ -4,7 +4,10 @@
 
         <div>
             <ul>
-                <li v-for="elem in types" :key="elem.id">{{ elem.name }}</li>
+                <li v-for="elem in types" :key="elem.id">
+                    <router-link class="nav-link active" aria-current="page"
+                                :to="{ name: 'restaurant' }">{{ elem.name }}</router-link>
+                </li>
             </ul>
         </div>
 

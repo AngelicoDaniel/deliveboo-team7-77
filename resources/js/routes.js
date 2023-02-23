@@ -5,14 +5,22 @@ Vue.use(VueRouter)
 
 // import App from './App.vue'
 import HomePage from './pages/HomePage.vue'
+import RestaurantPage from './pages/RestaurantPage.vue'
 
 const router = new VueRouter({
     mode:'history',
-    routes: [{
+    routes: [
+        {
         path: '/',
         name: 'home',
         component: HomePage
-    }]
+    },
+    {
+        path: '/restaurant',
+        name: 'restaurant',
+        component: RestaurantPage
+    }
+]
 });
 
 
