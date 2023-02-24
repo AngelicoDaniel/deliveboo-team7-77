@@ -11,8 +11,13 @@
                     <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                         @csrf
 
+                        {{-- box alert campi obbligatori --}}
+                        <div class="alert alert-success" role="alert">
+                            I campi contrassegnati dall'asterisco (*) sono obbligatori.
+                        </div>
+
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}<span class="text-success">*</span></label>
 
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
@@ -26,7 +31,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}<span class="text-success">*</span></label>
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
@@ -43,7 +48,7 @@
                          {{-- input password --}}
                          <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}
-                                <span class="text-warning">*</span></label>
+                                <span class="text-success">*</span></label>
                             <div class="col-md-6">
                                 <input id="new-password" type="password"
                                     class="form-control @error('password') is-invalid @enderror" name="password"
@@ -62,7 +67,7 @@
                         <div class="form-group row">
                             <label for="password_confirmation" class="col-md-4 col-form-label text-md-right"
                                 minlength="8">{{ __('Confirm Password') }}
-                                <span class="text-warning">*</span></label>
+                                <span class="text-success">*</span></label>
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control"
                                     name="password_confirmation" required autocomplete="password-confirm"
@@ -80,7 +85,7 @@
                         <div class="form-group row mt-3">
                             <label for="address"
                                 class="col-md-4 col-form-label text-md-right">{{ __('Indirizzo') }}
-                                <span class="text-warning">*</span></label>
+                                <span class="text-success">*</span></label>
                             <div class="col-md-6">
                                 <input id="address" type="text"
                                     class="form-control @error('address') is-invalid @enderror" name="address"
@@ -98,7 +103,7 @@
                         <div class="form-group row">
                             <label for="PIVA"
                                 class="col-md-4 col-form-label text-md-right">{{ __('Partita IVA') }}
-                                <span class="text-warning">*</span></label>
+                                <span class="text-success">*</span></label>
                             <div class="col-md-6">
                                 <input id="vat_number" type="text"
                                     class="form-control @error('PIVA') is-invalid @enderror" name="PIVA"
@@ -119,7 +124,7 @@
                         <div class="form-group row">
                             <label for="image_logo"
                                 class="col-md-4 col-form-label text-md-right">{{ __('Immagine ristorante') }}
-                                <span class="text-warning">*</span>
+                                <span class="text-success">*</span>
                             </label>
                             <div class="col-md-6">
                                 <input type="file" class="form-control-file" name="image_logo" required>
@@ -131,7 +136,7 @@
 
                     <div class="form-group row">
                         <p class="col-md-4 col-form-label text-md-right">Tipologia ristorante <span
-                                class="text-warning">*</span></p>
+                                class="text-success">*</span></p>
                         <div class="offset-md-8"></div>
                         @foreach ($types as $type)
                             <div class="offset-md-4 col-md-8">

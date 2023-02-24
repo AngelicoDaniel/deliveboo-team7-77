@@ -6,10 +6,15 @@
         @method('PUT')
 
 
+        {{-- box alert campi obbligatori --}}
+        <div class="alert alert-success" role="alert">
+            I campi contrassegnati dall'asterisco (*) sono obbligatori.
+        </div>
+
 
         <div class="form-group row">
             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Nome piatto') }}
-                <span class="text-warning">*</span></label>
+                <span class="alert alert-success">*</span></label>
             <div class="col-md-6">
                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name"
                     value='{{ $dish->name }}' required autocomplete="name" placeholder="Inserisci il nome del piatto"
@@ -24,7 +29,7 @@
 
         <div class="form-group row mt-3">
             <label for="price" class="col-md-4 col-form-label text-md-right">{{ __('Prezzo') }}
-                <span class="text-warning">*</span></label>
+                <span class="alert alert-success">*</span></label>
             <div class="col-md-6">
                 <input id="price" type="number" min="0.1" step=".01"
                     class="form-control @error('price') is-invalid @enderror" name="price" value='{{ $dish->price }}'
@@ -39,7 +44,7 @@
 
         <div class="form-group row">
             <label for="image" class="col-md-4 col-form-label text-md-right">{{ __('Immagine ristorante') }}
-                <span class="text-warning">*</span>
+                <span class="text-success">*</span>
             </label>
             <div class="col-md-6">
                 <input type="file" class="form-control-file" name="image" required>
@@ -48,7 +53,7 @@
 
         <div class="form-group row">
             <label for="description" class="col-md-4 col-form-label text-md-right">{{ __('Descrizione') }}
-                <span class="text-warning">*</span></label>
+                <span class="text-success">*</span></label>
             <div class="col-md-6">
                 <textarea class="form-control @error('description') is-invalid @enderror" id="exampleFormControlTextarea1"
                     rows="3" name="description" required autocomplete="description" minlength="10"
@@ -64,7 +69,7 @@
 
         <div class="form-group row">
             <label for="visibility" class="col-md-4 col-form-label text-md-right">{{ __('Visibile') }}
-                <span class="text-warning">*</span></label>
+                <span class="text-success">*</span></label>
             <div class="col-md-6">
                 <select class="form-control" name="visibility" required autocomplete="visibility">
                     <option value="1">Si</option>
