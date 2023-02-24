@@ -1,7 +1,7 @@
 <template>
     <div>
         <!-- <HeaderComp/> -->
-        <h1>HOMEPAGE </h1>
+        <h1>HOMEPAGE</h1>
 
         <TypeComp/>
 
