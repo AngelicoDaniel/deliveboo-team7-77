@@ -4,7 +4,7 @@
         <div>
             <ul>
                 <li v-for="elem in filteredTypes"  :key="elem.id">
-                    <router-link class="nav-link active" aria-current="page" :to="`/types/${elem.name}`">{{ elem.name
+                    <router-link class="nav-link active" aria-current="page"  :to="`/types/${elem.name}`">{{ elem.name
                     }}</router-link>
                 </li>
             </ul>

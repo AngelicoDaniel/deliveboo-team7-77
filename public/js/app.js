@@ -1942,31 +1942,35 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'TypeComp',
   mounted: function mounted() {
-    // this.getRestaurants();
     this.getTypes();
   },
   data: function data() {
     return {
-      // restaurants: [],
-      types: []
+      types: [],
+      search: '',
+      originalTypes: []
     };
   },
   methods: {
-    // getRestaurants() {
-    //     axios.get('http://127.0.0.1:8000/api/restaurants')
-    //         .then((res) => {
-    //             console.log(res.data);
-    //             this.restaurants = res.data
-    //         })
-    // },
     getTypes: function getTypes() {
       var _this = this;
-      axios.get('http://127.0.0.1:8000/api/types').then(function (res) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default().get('http://127.0.0.1:8000/api/types').then(function (res) {
         _this.types = res.data;
-        // console.log(this.types);
+        _this.originalTypes = res.data;
+      });
+    }
+  },
+  computed: {
+    filteredTypes: function filteredTypes() {
+      var _this2 = this;
+      return this.types.filter(function (type) {
+        return type.name.toLowerCase().includes(_this2.search.toLowerCase());
       });
     }
   }
@@ -2231,7 +2235,27 @@ __webpack_require__.r(__webpack_exports__);
 var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("div", [_c("h1", [_vm._v("Types:")]), _vm._v(" "), _c("div", [_c("ul", _vm._l(_vm.types, function (elem) {
+  return _c("div", [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.search,
+      expression: "search"
+    }],
+    attrs: {
+      type: "text",
+      placeholder: "Search restaurant type"
+    },
+    domProps: {
+      value: _vm.search
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.search = $event.target.value;
+      }
+    }
+  }), _vm._v(" "), _c("div", [_c("ul", _vm._l(_vm.filteredTypes, function (elem) {
     return _c("li", {
       key: elem.id
     }, [_c("router-link", {
@@ -36491,6 +36515,18 @@ Vue.compile = compileToFunctions;
 /******/ 				}
 /******/ 			}
 /******/ 			return result;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/compat get default export */
+/******/ 	(() => {
+/******/ 		// getDefaultExport function for compatibility with non-harmony modules
+/******/ 		__webpack_require__.n = (module) => {
+/******/ 			var getter = module && module.__esModule ?
+/******/ 				() => (module['default']) :
+/******/ 				() => (module);
+/******/ 			__webpack_require__.d(getter, { a: getter });
+/******/ 			return getter;
 /******/ 		};
 /******/ 	})();
 /******/ 	
