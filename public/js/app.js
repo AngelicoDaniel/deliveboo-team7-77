@@ -1963,14 +1963,33 @@ __webpack_require__.r(__webpack_exports__);
       axios__WEBPACK_IMPORTED_MODULE_0___default().get('http://127.0.0.1:8000/api/types').then(function (res) {
         _this.types = res.data;
         _this.originalTypes = res.data;
+        _this.getRestaurants();
+      });
+    },
+    getRestaurants: function getRestaurants() {
+      var _this2 = this;
+      axios__WEBPACK_IMPORTED_MODULE_0___default().get('http://127.0.0.1:8000/api/restaurants').then(function (res) {
+        res.data.forEach(function (restaurant) {
+          restaurant.types.forEach(function (type) {
+            var matchingType = _this2.types.find(function (t) {
+              return t.id === type.id;
+            });
+            if (matchingType) {
+              if (!matchingType.restaurants) {
+                matchingType.restaurants = [];
+              }
+              matchingType.restaurants.push(restaurant);
+            }
+          });
+        });
       });
     }
   },
   computed: {
     filteredTypes: function filteredTypes() {
-      var _this2 = this;
+      var _this3 = this;
       return this.types.filter(function (type) {
-        return type.name.toLowerCase().includes(_this2.search.toLowerCase());
+        return type.name.toLowerCase().includes(_this3.search.toLowerCase());
       });
     }
   }
@@ -2264,7 +2283,15 @@ var render = function render() {
         "aria-current": "page",
         to: "/types/".concat(elem.name)
       }
-    }, [_vm._v(_vm._s(elem.name))])], 1);
+    }, [_vm._v(_vm._s(elem.name))]), _vm._v(" "), _c("ul", _vm._l(elem.restaurants, function (restaurant) {
+      return _c("li", {
+        key: restaurant.id
+      }, [_c("router-link", {
+        attrs: {
+          to: "/restaurants/".concat(restaurant.id)
+        }
+      }, [_vm._v(_vm._s(restaurant.name))])], 1);
+    }), 0)], 1);
   }), 0)])]);
 };
 var staticRenderFns = [];
