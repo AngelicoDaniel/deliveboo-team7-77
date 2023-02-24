@@ -17,8 +17,7 @@
                     <form>
 
                         <button class="btn btn-success"><a class="text-white"
-                                href="{{ route('admin.dishes.edit', $dish->id) }}"><i
-                                    class="fa-regular fa-pen-to-square"></i></a></button>
+                                href="{{ route('admin.dishes.edit', $dish->id) }}">EDIT</button>
                     </form>
                 </ul>
             </li>
