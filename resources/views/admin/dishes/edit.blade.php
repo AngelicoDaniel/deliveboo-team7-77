@@ -52,7 +52,7 @@
             <div class="col-md-6">
                 <textarea class="form-control @error('description') is-invalid @enderror" id="exampleFormControlTextarea1"
                     rows="3" name="description" required autocomplete="description" minlength="10"
-                    placeholder="Inserisci la descrizione del piatto">{{ old('description') }}</textarea>
+                    placeholder="Inserisci la descrizione del piatto">{{ $dish->description }}</textarea>
                 @error('description')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
