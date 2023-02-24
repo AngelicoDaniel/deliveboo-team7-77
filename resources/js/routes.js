@@ -7,6 +7,9 @@ Vue.use(VueRouter)
 import HomePage from './pages/HomePage.vue'
 import RestaurantPage from './pages/RestaurantPage.vue'
 
+import DishPage from './pages/DishPage.vue'
+
+
 
 
 const router = new VueRouter({
@@ -21,6 +24,11 @@ const router = new VueRouter({
         path: '/types/:name',
         name: 'restaurant',
         component: RestaurantPage
+    },
+    {
+        path: '/dishes/:name',
+        name: 'dish',
+        component: DishPage
     },
 
 

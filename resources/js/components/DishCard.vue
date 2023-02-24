@@ -1,17 +1,15 @@
-
-
 <template>
     <div class="text-center">
         <h1 class="m-4">{{ this.$route.params.name }}</h1>
 
         <ul>
-            <li v-for="(elem, index) in type" :key="index">
-                <ul>
+            <li v-for="(elem, index) in dish" :key="index">
+                <!-- <ul>
                     <li v-for="(user, index) in elem.users" :key="index">
-                        <router-link class="nav-link active" aria-current="page"
-                                :to="`/dishes/${user.name}`"> {{ user.name }}</router-link>
-                </li>
-                </ul>
+                        {{ user.name }}
+                    </li>
+                </ul> -->
+                 {{ elem.name }}
             </li>
         </ul>
 </div>
@@ -19,23 +17,23 @@
 
 <script>
 export default {
-    name: "TypeCard",
+    name: "DishCard",
     components: {},
     data() {
         return {
-            type: [],
+            dish: [],
         };
     },
     mounted() {
-        this.getType();
+        this.getDish();
     },
     methods: {
-        getType() {
+        getDish() {
             axios
-                .get("http://127.0.0.1:8000/api/types/" + this.$route.params.name)
+                .get("http://127.0.0.1:8000/api/dishes/" + this.$route.params.name)
                 .then((res) => {
-                    this.type = res.data;
-                    console.log(this.type);
+                    this.dish = res.data;
+                    console.log(this.dish);
                 })
                 .catch((err) => {
                     console.log(err);
@@ -46,4 +44,3 @@ export default {
 </script>
 
 <style scoped lang="scss"></style>
-
