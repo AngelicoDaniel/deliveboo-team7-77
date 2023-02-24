@@ -1,6 +1,6 @@
 <template>
     <div class="text-center">
-        <h1 class="m-4">{{ this.$route.params.name }}</h1>
+        <h1 class="m-4">{{ this.$route.params.user_id}}</h1>
 
         <ul>
             <li v-for="(elem, index) in dish" :key="index">
@@ -9,7 +9,7 @@
                         {{ user.name }}
                     </li>
                 </ul> -->
-                 {{ elem.name }}
+                 {{ elem}}
             </li>
         </ul>
 </div>
@@ -30,9 +30,9 @@ export default {
     methods: {
         getDish() {
             axios
-                .get("http://127.0.0.1:8000/api/dishes")
+                .get("http://127.0.0.1:8000/api/dishes"+ this.$route.params.user_id)
                 .then((res) => {
-                    this.dish = res.data;
+                    this.dish = res;
                     console.log(this.dish);
                 })
                 .catch((err) => {

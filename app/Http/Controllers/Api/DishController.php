@@ -41,11 +41,15 @@ class DishController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($user_id)
+
+
     {
-         $dish = Dish::find($id);
-         if (!$dish)
-             return response('Post non trovato', 404);
+        //  $dish = Dish::find($user_id);
+        //  if (!$dish)
+        //      return response('Post non trovato', 404);
+
+        $dish = Dish::where('user_id', 'like', $user_id)->get();
 
          return response()->json($dish);
 

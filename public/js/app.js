@@ -1865,8 +1865,8 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     getDish: function getDish() {
       var _this = this;
-      axios.get("http://127.0.0.1:8000/api/dishes").then(function (res) {
-        _this.dish = res.data;
+      axios.get("http://127.0.0.1:8000/api/dishes" + this.$route.params.user_id).then(function (res) {
+        _this.dish = res;
         console.log(_this.dish);
       })["catch"](function (err) {
         console.log(err);
@@ -2085,10 +2085,10 @@ var render = function render() {
     staticClass: "text-center"
   }, [_c("h1", {
     staticClass: "m-4"
-  }, [_vm._v(_vm._s(this.$route.params.name))]), _vm._v(" "), _c("ul", _vm._l(_vm.dish, function (elem, index) {
+  }, [_vm._v(_vm._s(this.$route.params.user_id))]), _vm._v(" "), _c("ul", _vm._l(_vm.dish, function (elem, index) {
     return _c("li", {
       key: index
-    }, [_vm._v("\n                 " + _vm._s(elem.name) + "\n            ")]);
+    }, [_vm._v("\n                 " + _vm._s(elem) + "\n            ")]);
   }), 0)]);
 };
 var staticRenderFns = [];
@@ -2204,7 +2204,7 @@ var render = function render() {
         staticClass: "nav-link active",
         attrs: {
           "aria-current": "page",
-          to: "/dishes"
+          to: "/dishes/".concat(user.id)
         }
       }, [_vm._v(" " + _vm._s(user.name))])], 1);
     }), 0)]);
@@ -2409,7 +2409,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     name: 'restaurant',
     component: _pages_RestaurantPage_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
   }, {
-    path: '/dishes',
+    path: '/dishes/:user_id',
     name: 'dish',
     component: _pages_DishPage_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
   }]
