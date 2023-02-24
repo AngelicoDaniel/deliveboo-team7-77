@@ -14,7 +14,14 @@ Route::namespace('Api')->prefix('/restaurants')->group(function () {
     Route::get('/{id}', 'RestaurantController@show');
 });
 
+
 Route::namespace('Api')->prefix('/types')->group(function () {
     Route::get('/', 'TypeController@index');
     Route::get('/{id}', 'TypeController@show');
+});
+
+
+Route::namespace('Api')->prefix('/dishes')->group(function () {
+    Route::get('/', 'DishController@index');
+    Route::get('/{id}', 'DishController@show');
 });
