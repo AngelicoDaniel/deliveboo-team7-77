@@ -113,7 +113,13 @@ class RestaurantController extends Controller
     {
         $dish = Dish::findOrFail($id);
 
-        return view('admin.dishes.edit', compact('dish'));
+        if ($dish->user_id != Auth::user()->id) {
+            return view('404.notFound');
+        } else {
+            return view('admin.dishes.edit', compact('dish'));
+        }
+
+
     }
 
     /**
