@@ -1,57 +1,53 @@
 <template>
     <div>
-        <h1>Types: </h1>
+      <input type="text" v-model="search" placeholder="Search restaurant type">
+      <div>
+        <ul>
+          <li v-for="elem in filteredTypes" :key="elem.id">
+            <router-link class="nav-link active" aria-current="page" :to="`/types/${elem.name}`">{{ elem.name }}</router-link>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </template>
+  
 
-        <div>
-            <ul>
-                <li v-for="elem in types" :key="elem.id">
-                    <router-link class="nav-link active" aria-current="page"
-                                :to="`/types/${elem.name}`">{{ elem.name }}</router-link>
-                </li>
-            </ul>
-        </div>
-
-
-</div>
-</template>
-
-<script>
+<<script>
+import axios from 'axios';
 
 export default {
-    name: 'TypeComp',
+  name: 'TypeComp',
 
-    mounted() {
-        // this.getRestaurants();
-        this.getTypes();
-    },
-    data() {
-        return {
-            // restaurants: [],
-            types: []
-        }
-    },
-    methods: {
-        // getRestaurants() {
-        //     axios.get('http://127.0.0.1:8000/api/restaurants')
-        //         .then((res) => {
-        //             console.log(res.data);
-        //             this.restaurants = res.data
-        //         })
-        // },
+  mounted() {
+    this.getTypes();
+  },
 
-        getTypes() {
-            axios.get('http://127.0.0.1:8000/api/types')
-                .then((res) => {
-
-                    this.types = res.data
-                    // console.log(this.types);
-                })
-        }
+  data() {
+    return {
+      types: [],
+      search: '',
+      originalTypes: []
     }
+  },
 
+  methods: {
+    getTypes() {
+      axios.get('http://127.0.0.1:8000/api/types')
+        .then((res) => {
+          this.types = res.data;
+          this.originalTypes = res.data;
+        })
+    }
+  },
 
+  computed: {
+    filteredTypes() {
+      return this.types.filter((type) => {
+        return type.name.toLowerCase().includes(this.search.toLowerCase());
+      });
+    }
+  }
 }
-
 </script>
 
 <style></style>
