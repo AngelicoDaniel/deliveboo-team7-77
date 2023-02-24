@@ -2172,7 +2172,7 @@ var staticRenderFns = [function () {
     attrs: {
       href: "http://127.0.0.1:8000/admin"
     }
-  }, [_vm._v("Area Riservata")])]);
+  }, [_vm._v("Area Riservataa")])]);
 }];
 render._withStripped = true;
 

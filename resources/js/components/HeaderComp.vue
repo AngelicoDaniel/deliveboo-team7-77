@@ -14,10 +14,10 @@
                                 :to="{ name: 'home' }">Home</router-link>
                         </li>
                         <!-- <li class="nav-item">
-                            <router-link class="nav-link" :to="{ name: 'types' }">Type Listllllllllll</router-link>
-                        </li> -->
+                                <router-link class="nav-link" :to="{ name: 'types' }">Type Listllllllllll</router-link>
+                            </li> -->
                         <li class="nav-item">
-                            <a class="nav-link" href="http://127.0.0.1:8000/admin">Area Riservata</a>
+                            <a class="nav-link" href="http://127.0.0.1:8000/admin">Area Riservataa</a>
                         </li>
 
 
@@ -25,7 +25,7 @@
                 </div>
             </div>
         </nav>
-    </header>
+</header>
 </template>
 
 <script>
