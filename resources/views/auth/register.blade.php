@@ -39,12 +39,17 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
+                         {{-- input password --}}
+                         <div class="form-group row">
+                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}
+                                <span class="text-warning">*</span></label>
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
+                                <input id="new-password" type="password"
+                                    class="form-control @error('password') is-invalid @enderror" name="password"
+                                    required autocomplete="new-password" minlength="8"
+                                    placeholder="Inserisci la password">
+                                <small>Minimo 8 caratteri</small>
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -53,17 +58,26 @@
                             </div>
                         </div>
 
+                        {{-- input conferma password --}}
                         <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
-
+                            <label for="password_confirmation" class="col-md-4 col-form-label text-md-right"
+                                minlength="8">{{ __('Confirm Password') }}
+                                <span class="text-warning">*</span></label>
                             <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                                <input id="password-confirm" type="password" class="form-control"
+                                    name="password_confirmation" required autocomplete="password-confirm"
+                                    placeholder="Reinserisci la password">
+                                <small>Assicurati che le password coincidano</small>
+                                <small id="alert-password" class="alert alert-danger m-auto" style="display:none">Le
+                                    password non coincidono!!</small>
+                                <small id="success-password" class="alert alert-success m-auto" style="display:none">Le
+                                    password coincidono!!</small>
                             </div>
                         </div>
+                        <div>
 
-
-
-                        {{-- <div class="form-group row mt-3">
+                        {{-- input indirizzo --}}
+                        <div class="form-group row mt-3">
                             <label for="address"
                                 class="col-md-4 col-form-label text-md-right">{{ __('Indirizzo') }}
                                 <span class="text-warning">*</span></label>
@@ -72,20 +86,6 @@
                                     class="form-control @error('address') is-invalid @enderror" name="address"
                                     value="{{ old('address') }}" required autocomplete="address"
                                     placeholder="Inserisci l'indirizzo">
-                                @error('address')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div> --}}
-
-                        <div class="form-group row">
-                            <label for="address" class="col-md-4 col-form-label text-md-right">{{ __('address') }}</label>
-
-                            <div class="col-md-6">
-                                <input  id="address" type="text" class="form-control @error('address') is-invalid @enderror" name="address" value="{{ old('address') }}" required autocomplete="address" autofocus>
-
                                 @error('address')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
