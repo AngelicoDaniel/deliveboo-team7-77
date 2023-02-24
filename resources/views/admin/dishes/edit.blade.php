@@ -14,7 +14,7 @@
 
         <div class="form-group row">
             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Nome piatto') }}
-                <span class="alert alert-success">*</span></label>
+                <span class="text-success">*</span></label>
             <div class="col-md-6">
                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name"
                     value='{{ $dish->name }}' required autocomplete="name" placeholder="Inserisci il nome del piatto"
@@ -29,7 +29,7 @@
 
         <div class="form-group row mt-3">
             <label for="price" class="col-md-4 col-form-label text-md-right">{{ __('Prezzo') }}
-                <span class="alert alert-success">*</span></label>
+                <span class="text-success">*</span></label>
             <div class="col-md-6">
                 <input id="price" type="number" min="0.1" step=".01"
                     class="form-control @error('price') is-invalid @enderror" name="price" value='{{ $dish->price }}'
