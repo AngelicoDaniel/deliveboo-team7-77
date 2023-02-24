@@ -9,7 +9,7 @@
                 <ul>
                     <li v-for="(user, index) in elem.users" :key="index">
                         <router-link class="nav-link active" aria-current="page"
-                                :to="`/dishes/${user.name}`"> {{ user.name }}</router-link>
+                                :to="`/dishes`"> {{ user.name }}</router-link>
                 </li>
                 </ul>
             </li>

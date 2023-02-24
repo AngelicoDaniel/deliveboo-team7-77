@@ -4,9 +4,10 @@ namespace App\Http\Controllers\Api;
 
 use App\Dish;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
-class TypeController extends Controller
+class DishController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,10 +16,13 @@ class TypeController extends Controller
      */
     public function index()
     {
-        $dishes = Dish::With('users')->get();
+         $dishes = Dish::all();
+        // $user = Auth::user();
+        // $dishes = Dish::where('user_id', $user->id)->get();
 
         return response()->json($dishes);
     }
+
 
     /**
      * Store a newly created resource in storage.
@@ -37,12 +41,14 @@ class TypeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($name)
+    public function show($id)
     {
-        $dish = Dish::where('name', 'like', $name)->with('users')->get();
+         $dish = Dish::find($id);
+         if (!$dish)
+             return response('Post non trovato', 404);
 
+         return response()->json($dish);
 
-        return response()->json($dish);
     }
 
     /**

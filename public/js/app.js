@@ -1865,7 +1865,7 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     getDish: function getDish() {
       var _this = this;
-      axios.get("http://127.0.0.1:8000/api/dishes/" + this.$route.params.name).then(function (res) {
+      axios.get("http://127.0.0.1:8000/api/dishes").then(function (res) {
         _this.dish = res.data;
         console.log(_this.dish);
       })["catch"](function (err) {
@@ -2204,7 +2204,7 @@ var render = function render() {
         staticClass: "nav-link active",
         attrs: {
           "aria-current": "page",
-          to: "/dishes/".concat(user.name)
+          to: "/dishes"
         }
       }, [_vm._v(" " + _vm._s(user.name))])], 1);
     }), 0)]);
@@ -2409,7 +2409,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     name: 'restaurant',
     component: _pages_RestaurantPage_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
   }, {
-    path: '/dishes/:name',
+    path: '/dishes',
     name: 'dish',
     component: _pages_DishPage_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
   }]
