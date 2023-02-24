@@ -13,11 +13,6 @@ class RestaurantController extends Controller
 {
 
     private $validations = [
-        // 'slug'      => [
-        //     'required',
-        //     'string',
-        //     'max:100',
-        // ],
         'name'          => 'required|string|max:100',
         'price'         => 'required|integer',
         'image'         => 'url|max:200',
@@ -130,30 +125,30 @@ class RestaurantController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request->validate(
-            [
-                'name' => 'required',
-                'price' => 'required|numeric|min:0.01',
-                'image' => 'required',
-                'description' => 'required',
-                'visibility' => 'required'
-            ],
-            [
-                'name.required' => 'Il campo nome è obbligatorio.',
-                'price.required' => 'Il prezzo è obbligatorio.',
-                'price.numeric' => 'Formato prezzo non valido.',
-                'price.min' => 'Il prezzo deve essere uguale o maggiore a 0.01',
-                'image.required' => 'Carica un immagine.',
-                'image.mimes' => 'Formato immagine non valido.',
-                'image.max' => 'Dimensioni massime consentite 4096kb.'
-            ]
-        );
+        $dish = Dish::findOrFail($id);
 
-        $data = $request->all();
-        $single_dish = Dish::findOrFail($id);
-        $single_dish->update($data);
+        $validatedData = $request->validate([
+            'name' => 'required',
+            'price' => 'required|numeric|min:0.1',
+            'description' => 'required|min:10',
+            'visibility' => 'required',
+            'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048' // aggiunta della validazione dell'immagine
+        ]);
 
-        return redirect()->route('admin.dishes.index', $single_dish->id);
+        $dish->name = $validatedData['name'];
+        $dish->price = $validatedData['price'];
+        $dish->description = $validatedData['description'];
+        $dish->visibility = $validatedData['visibility'];
+
+        // Aggiornamento dell'immagine solo se l'utente ha selezionato una nuova immagine
+        if ($request->hasFile('image')) {
+            Storage::delete($dish->image);
+            $dish->image = $request->file('image')->store('public/images');
+        }
+
+        $dish->save();
+
+        return redirect()->route('admin.dishes.show', $dish->id);
     }
 
     /**

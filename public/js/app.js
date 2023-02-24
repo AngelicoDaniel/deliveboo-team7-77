@@ -1865,7 +1865,7 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     getDish: function getDish() {
       var _this = this;
-      axios.get("http://127.0.0.1:8000/api/dishes" + this.$route.params.user_id).then(function (res) {
+      axios.get("http://127.0.0.1:8000/api/dishes/" + this.$route.params.user_id).then(function (res) {
         _this.dish = res;
         console.log(_this.dish);
       })["catch"](function (err) {

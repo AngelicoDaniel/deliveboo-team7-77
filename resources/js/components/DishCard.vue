@@ -30,7 +30,7 @@ export default {
     methods: {
         getDish() {
             axios
-                .get("http://127.0.0.1:8000/api/dishes"+ this.$route.params.user_id)
+                .get("http://127.0.0.1:8000/api/dishes/" + this.$route.params.user_id)
                 .then((res) => {
                     this.dish = res;
                     console.log(this.dish);

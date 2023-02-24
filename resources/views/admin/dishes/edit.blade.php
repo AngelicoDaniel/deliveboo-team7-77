@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-    <form action="{{ route('admin.dishes.update', $dish->id) }}" method="POST">
+    <form action="{{ route('admin.dishes.update', $dish->id) }}" method="POST" enctype="multipart/form-data">
 
         @csrf
         @method('PUT')
