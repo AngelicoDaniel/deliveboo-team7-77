@@ -9,7 +9,8 @@
                         {{ user.name }}
                     </li>
                 </ul> -->
-                 {{ elem}}
+                 {{ elem.name}}
+                 {{ elem.price}}
             </li>
         </ul>
 </div>
@@ -32,7 +33,7 @@ export default {
             axios
                 .get("http://127.0.0.1:8000/api/dishes/" + this.$route.params.user_id)
                 .then((res) => {
-                    this.dish = res;
+                    this.dish = res.data;
                     console.log(this.dish);
                 })
                 .catch((err) => {

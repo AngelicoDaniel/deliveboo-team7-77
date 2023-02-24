@@ -1866,7 +1866,7 @@ __webpack_require__.r(__webpack_exports__);
     getDish: function getDish() {
       var _this = this;
       axios.get("http://127.0.0.1:8000/api/dishes/" + this.$route.params.user_id).then(function (res) {
-        _this.dish = res;
+        _this.dish = res.data;
         console.log(_this.dish);
       })["catch"](function (err) {
         console.log(err);
@@ -2088,7 +2088,7 @@ var render = function render() {
   }, [_vm._v(_vm._s(this.$route.params.user_id))]), _vm._v(" "), _c("ul", _vm._l(_vm.dish, function (elem, index) {
     return _c("li", {
       key: index
-    }, [_vm._v("\n                 " + _vm._s(elem) + "\n            ")]);
+    }, [_vm._v("\n                 " + _vm._s(elem.name) + "\n                 " + _vm._s(elem.price) + "\n            ")]);
   }), 0)]);
 };
 var staticRenderFns = [];
