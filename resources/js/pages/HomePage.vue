@@ -1,9 +1,18 @@
 <template>
-    <div>
+    <div class="w-100 hero">
         <!-- <HeaderComp/> -->
-        <h1>HOMEPAGE</h1>
+        <div class="container ">
+            <div class="row">
+                <div class="col-12 text-center text-white">
+                    <h1>I piatti dei ristoranti che ami e la spesa, a domicilio</h1>
+                </div>
 
-        <TypeComp/>
+            </div>
+            <TypeComp />
+        </div>
+
+
+
 
 </div>
 </template>
@@ -23,4 +32,13 @@ export default {
 
 </script>
 
-<style></style>
+<style>
+.hero {
+    background-image: url('/images/360_F_294218701_se4mQtVmQoPnG4UX7J8PjvTzn8yeWyqF.jpg');
+    background-size: cover;
+
+
+    width: 100%;
+    height: 85.3vh;
+}
+</style>
