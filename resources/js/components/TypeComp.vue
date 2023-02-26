@@ -1,8 +1,8 @@
 <template>
-    <div class="text-center">
+    <div class="text-start">
         <input class="inp-sty" type="text" v-model="search" placeholder="Search restaurant type">
         <div>
-            <ul class="text-white d-flex justify-content-between fs-5 list-unstyled">
+            <ul class="text-white  fs-5 list-unstyled">
                 <li v-for="elem in filteredTypes" :key="elem.id">
                     <router-link class="nav-link active" aria-current="page" :to="`/types/${elem.name}`">{{ elem.name
                     }}</router-link>

@@ -3,8 +3,9 @@
         <!-- <HeaderComp/> -->
         <div class="container ">
             <div class="row">
-                <div class="col-12 text-center text-white">
-                    <h1>I piatti dei ristoranti che ami e la spesa, a domicilio</h1>
+                <div class="col-12  text-white">
+                    <h1>I piatti dei ristoranti che ami, <span class="domicilio-span">a domicilio</span>
+                    </h1>
                 </div>
 
             </div>
@@ -34,11 +35,15 @@ export default {
 
 <style>
 .hero {
-    background-image: url('/images/360_F_294218701_se4mQtVmQoPnG4UX7J8PjvTzn8yeWyqF.jpg');
+    background-image: url('/images/pexels-valeria-boltneva-1639562.jpg');
     background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 165.7px;
+    height: 100%;
+}
 
-
-    width: 100%;
-    height: 85.3vh;
+.domicilio-span {
+    color: #00CCBC;
 }
 </style>

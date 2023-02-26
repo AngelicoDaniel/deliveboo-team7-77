@@ -1,22 +1,24 @@
 <template>
     <div>
-        <HeaderComp/>
+        <HeaderComp />
         <router-view></router-view>
         <!-- <h1>ciao</h1> -->
-
-    </div>
-  </template>
+        <FooterComp />
+</div>
+</template>
 
 <script>
 
 // import TypeComp from './components/TypeComp.vue';
 import HeaderComp from './components/HeaderComp.vue';
+import FooterComp from './components/FooterComp.vue';
 
 export default {
     name: 'App',
     components: {
         // TypeComp,
-        HeaderComp
+        HeaderComp,
+        FooterComp
     },
 
     // mounted() {
