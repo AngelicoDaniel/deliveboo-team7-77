@@ -10,7 +10,7 @@
             </li>
         </ul>
 
-        <div>
+       <div>
             <h3>Carrello</h3>
             <p>Prezzo totale: {{ totalPrice }}€</p>
             <button @click="removeCart()"> Svuota Carrello</button>
@@ -25,7 +25,7 @@
         </div>
 
 
-        <CartComp :dish="dish" :cart="cart" :removeCart="removeCart" :addCart="addCart" />
+        <CartComp  :cart="cart" :totalPrice="totalPrice" />
     </div>
 </template>
 
@@ -67,16 +67,14 @@ export default {
         addCart(name, price) {
             this.cart.push(name);
             this.totalPrice += parseFloat(price);
-            localStorage.setItem('cart', this.cart);
+            localStorage.setItem('carts', this.cart);
             localStorage.setItem('priceCart', this.totalPrice);
         },
         removeCart() {
-            // this.cart = [];
-            // this.totalPrice = 0;
             this.cart = [];
             this.totalPrice = 0;
-            localStorage.removeItem('cart');
-            localStorage.setItem('priceCart');
+            localStorage.removeItem('carts');
+            localStorage.removeItem('priceCart');
         },
 
 
