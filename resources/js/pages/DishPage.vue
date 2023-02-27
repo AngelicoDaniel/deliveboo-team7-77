@@ -1,6 +1,5 @@
 <template>
   <div class="text-center">
-
     <DishCard />
   </div>
 </template>

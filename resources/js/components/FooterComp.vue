@@ -1,21 +1,14 @@
 <template>
-    <div>
-        <h3>Footer</h3>
-</div>
+  <div>
+    <h3>Footer</h3>
+  </div>
 </template>
 
 <script>
-
-
-
-
 export default {
-    name: 'FooterComp',
-    components: {
-
-    },
-}
-
+  name: "FooterComp",
+  components: {},
+};
 </script>
 
 <style></style>

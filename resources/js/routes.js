@@ -13,26 +13,26 @@ import DishPage from './pages/DishPage.vue'
 
 
 const router = new VueRouter({
-    mode:'history',
+    mode: 'history',
     routes: [
         {
-        path: '/',
-        name: 'home',
-        component: HomePage
-    },
-    {
-        path: '/types/:name',
-        name: 'restaurant',
-        component: RestaurantPage
-    },
-    {
-        path: '/dishes/:user_id',
-        name: 'dish',
-        component: DishPage
-    },
+            path: '/',
+            name: 'home',
+            component: HomePage
+        },
+        {
+            path: '/types/:name',
+            name: 'restaurant',
+            component: RestaurantPage
+        },
+        {
+            path: '/dishes/:user_id',
+            name: 'dish',
+            component: DishPage
+        },
 
 
-]
+    ]
 });
 
 

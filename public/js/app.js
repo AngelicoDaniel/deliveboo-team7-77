@@ -1801,44 +1801,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _components_HeaderComp_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/HeaderComp.vue */ "./resources/js/components/HeaderComp.vue");
 /* harmony import */ var _components_FooterComp_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/FooterComp.vue */ "./resources/js/components/FooterComp.vue");
-// import TypeComp from './components/TypeComp.vue';
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: 'App',
+  name: "App",
   components: {
-    // TypeComp,
     HeaderComp: _components_HeaderComp_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
     FooterComp: _components_FooterComp_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
   }
-
-  // mounted() {
-  //     this.getRestaurants();
-  //     this.getTypes();
-  // },
-  // data() {
-  //     return {
-  //         restaurants: [],
-  //         types: []
-  //     }
-  // },
-  // methods: {
-  //     getRestaurants() {
-  //         axios.get('http://127.0.0.1:8000/api/restaurants')
-  //             .then((res) => {
-  //                 console.log(res.data);
-  //                 this.restaurants = res.data
-  //             })
-  //     },
-
-  //     getTypes() {
-  //         axios.get('http://127.0.0.1:8000/api/types')
-  //             .then((res) => {
-  //                 console.log(res.data);
-  //                 this.types = res.data
-  //             })
-  //     }
-  // }
 });
 
 /***/ }),
@@ -1892,7 +1862,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: 'FooterComp',
+  name: "FooterComp",
   components: {}
 });
 
@@ -1910,7 +1880,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: 'Header'
+  name: "Header"
 });
 
 /***/ }),
@@ -1967,21 +1937,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: 'TypeComp',
+  name: "TypeComp",
   mounted: function mounted() {
     this.getTypes();
   },
   data: function data() {
     return {
       types: [],
-      search: '',
+      search: "",
       originalTypes: []
     };
   },
   methods: {
     getTypes: function getTypes() {
       var _this = this;
-      axios__WEBPACK_IMPORTED_MODULE_0___default().get('http://127.0.0.1:8000/api/types').then(function (res) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default().get("http://127.0.0.1:8000/api/types").then(function (res) {
         _this.types = res.data;
         _this.originalTypes = res.data;
         _this.getRestaurants();
@@ -1989,7 +1959,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     getRestaurants: function getRestaurants() {
       var _this2 = this;
-      axios__WEBPACK_IMPORTED_MODULE_0___default().get('http://127.0.0.1:8000/api/restaurants').then(function (res) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default().get("http://127.0.0.1:8000/api/restaurants").then(function (res) {
         res.data.forEach(function (restaurant) {
           restaurant.types.forEach(function (type) {
             var matchingType = _this2.types.find(function (t) {
@@ -2056,7 +2026,7 @@ __webpack_require__.r(__webpack_exports__);
 // import HeaderComp from '../components/HeaderComp.vue';
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: 'HomePage',
+  name: "HomePage",
   components: {
     // HeaderComp,
     TypeComp: _components_TypeComp_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
@@ -2132,7 +2102,7 @@ var render = function render() {
   }, [_vm._v(_vm._s(this.$route.params.user_id))]), _vm._v(" "), _c("ul", _vm._l(_vm.dish, function (elem, index) {
     return _c("li", {
       key: index
-    }, [_vm._v("\n                 " + _vm._s(elem.name) + "\n                 " + _vm._s(elem.price) + "\n            ")]);
+    }, [_vm._v("\n      " + _vm._s(elem.name) + "\n      " + _vm._s(elem.price) + "\n    ")]);
   }), 0)]);
 };
 var staticRenderFns = [];
@@ -2286,7 +2256,7 @@ var render = function render() {
           "aria-current": "page",
           to: "/dishes/".concat(user.id)
         }
-      }, [_vm._v(" " + _vm._s(user.name))])], 1);
+      }, [_vm._v("\n            " + _vm._s(user.name))])], 1);
     }), 0)]);
   }), 0)]);
 };
@@ -2415,7 +2385,7 @@ var staticRenderFns = [function () {
     staticClass: "row"
   }, [_c("div", {
     staticClass: "col-12 text-white"
-  }, [_c("h1", [_vm._v("I piatti dei ristoranti che ami, "), _c("span", {
+  }, [_c("h1", [_vm._v("\n          I piatti dei ristoranti che ami,\n          "), _c("span", {
     staticClass: "domicilio-span"
   }, [_vm._v("a domicilio")])])])]);
 }];
@@ -2459,22 +2429,6 @@ render._withStripped = true;
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _routes_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./routes.js */ "./resources/js/routes.js");
 /* harmony import */ var _App_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./App.vue */ "./resources/js/App.vue");
-// require('./bootstrap');
-// window.Vue = require('vue');
-
-// import Vue from 'vue';
-// import VueRouter from 'vue-router';
-// Vue.use(VueRouter);
-
-// import App from './App.vue';
-// import router from './routes.js';
-
-// const app = new Vue({
-//     el: '#root',
-//     router,
-//     render: h => h(App),
-// });
-
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 window.Vue = (__webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js")["default"]);
 
@@ -6927,7 +6881,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.img-logo {\r\n\r\n    width: 170px;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.img-logo {\n  width: 170px;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -6951,7 +6905,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.inp-sty {\n    padding: 10px;\n    border-radius: 20px;\n    width: 30%;\n    margin: 30px 0px;\n    border: 0;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.inp-sty {\n  padding: 10px;\n  border-radius: 20px;\n  width: 30%;\n  margin: 30px 0px;\n  border: 0;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -6975,7 +6929,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.hero {\r\n    background-image: url('/images/pexels-valeria-boltneva-1639562.jpg');\r\n    background-size: cover;\r\n    background-repeat: no-repeat;\r\n    background-position: center;\r\n    padding: 165.7px;\r\n    height: 100%;\n}\n.domicilio-span {\r\n    color: #00CCBC;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.hero {\n  background-image: url(\"/images/pexels-valeria-boltneva-1639562.jpg\");\n  background-size: cover;\n  background-repeat: no-repeat;\n  background-position: center;\n  padding: 165.7px;\n  height: 100%;\n}\n.domicilio-span {\n  color: #00ccbc;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
