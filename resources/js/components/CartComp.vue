@@ -1,18 +1,15 @@
 <template>
     <div>
       <h1>cartcomp</h1>
-
-      <div></div>
-
-      <h3>Carrello</h3>
       <p>Prezzo totale: {{ subtotalPrice }}€</p>
       <button @click="removeCart()"> Svuota Carrello</button>
       <p>Hai Aggiunto:</p>
 
       <ul>
         <li v-for="(item, index) in cart" :key="index">
-          {{ item.name }} - {{ item.price }}€
+          {{ item }} -
         </li>
+        <h4>{{ totalPrice }}</h4>
       </ul>
     </div>
   </template>

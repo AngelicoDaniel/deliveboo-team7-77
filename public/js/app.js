@@ -2110,6 +2110,21 @@ __webpack_require__.r(__webpack_exports__);
   name: "CartPage",
   components: {
     CartComp: _components_CartComp_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  data: function data() {
+    return {
+      cart: [],
+      totalPrice: 0
+    };
+  },
+  mounted: function mounted() {
+    this.getCart();
+  },
+  methods: {
+    getCart: function getCart() {
+      this.cart = JSON.parse(localStorage.getItem("cart")) || [];
+      this.totalPrice = localStorage.getItem("priceCart") || 0;
+    }
   }
 });
 
@@ -2222,17 +2237,17 @@ __webpack_require__.r(__webpack_exports__);
 var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("div", [_c("h1", [_vm._v("cartcomp")]), _vm._v(" "), _c("div"), _vm._v(" "), _c("h3", [_vm._v("Carrello")]), _vm._v(" "), _c("p", [_vm._v("Prezzo totale: " + _vm._s(_vm.subtotalPrice) + "€")]), _vm._v(" "), _c("button", {
+  return _c("div", [_c("h1", [_vm._v("cartcomp")]), _vm._v(" "), _c("p", [_vm._v("Prezzo totale: " + _vm._s(_vm.subtotalPrice) + "€")]), _vm._v(" "), _c("button", {
     on: {
       click: function click($event) {
         return _vm.removeCart();
       }
     }
-  }, [_vm._v(" Svuota Carrello")]), _vm._v(" "), _c("p", [_vm._v("Hai Aggiunto:")]), _vm._v(" "), _c("ul", _vm._l(_vm.cart, function (item, index) {
+  }, [_vm._v(" Svuota Carrello")]), _vm._v(" "), _c("p", [_vm._v("Hai Aggiunto:")]), _vm._v(" "), _c("ul", [_vm._l(_vm.cart, function (item, index) {
     return _c("li", {
       key: index
-    }, [_vm._v("\n      " + _vm._s(item.name) + " - " + _vm._s(item.price) + "€\n    ")]);
-  }), 0)]);
+    }, [_vm._v("\n      " + _vm._s(item) + " -\n    ")]);
+  }), _vm._v(" "), _c("h4", [_vm._v(_vm._s(_vm.totalPrice))])], 2)]);
 };
 var staticRenderFns = [];
 render._withStripped = true;
@@ -2688,7 +2703,12 @@ var render = function render() {
     _c = _vm._self._c;
   return _c("div", {
     staticClass: "text-center"
-  }, [_c("CartComp")], 1);
+  }, [_c("h1", [_vm._v("Il tuo carrello")]), _vm._v(" "), _c("CartComp", {
+    attrs: {
+      cart: _vm.cart,
+      totalPrice: _vm.totalPrice
+    }
+  })], 1);
 };
 var staticRenderFns = [];
 render._withStripped = true;
