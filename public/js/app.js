@@ -1863,13 +1863,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _components_CartComp_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/CartComp.vue */ "./resources/js/components/CartComp.vue");
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "DishCard",
-  components: {
-    CartComp: _components_CartComp_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
-  },
   data: function data() {
     return {
       dish: [],
@@ -2287,22 +2282,7 @@ var render = function render() {
         }
       }
     }, [_vm._v(" ADD")])]);
-  }), 0), _vm._v(" "), _c("div", [_c("h3", [_vm._v("Carrello")]), _vm._v(" "), _c("p", [_vm._v("Prezzo totale: " + _vm._s(_vm.totalPrice) + "€")]), _vm._v(" "), _c("button", {
-    on: {
-      click: function click($event) {
-        return _vm.removeCart();
-      }
-    }
-  }, [_vm._v(" Svuota Carrello")]), _vm._v(" "), _c("p", [_vm._v("Hai Aggiunto:")]), _vm._v(" "), _c("ul", _vm._l(_vm.cart, function (item, index) {
-    return _c("li", {
-      key: index
-    }, [_vm._v("\n                " + _vm._s(item) + "\n\n            ")]);
-  }), 0)]), _vm._v(" "), _c("CartComp", {
-    attrs: {
-      cart: _vm.cart,
-      totalPrice: _vm.totalPrice
-    }
-  })], 1);
+  }), 0)]);
 };
 var staticRenderFns = [];
 render._withStripped = true;
