@@ -2078,6 +2078,16 @@ __webpack_require__.r(__webpack_exports__);
       this.TotalPrice = 0;
       localStorage.removeItem("cart");
       localStorage.removeItem("priceCart");
+    },
+    //   removeData() {
+    //     localStorage.clear();
+    //     location.reload(); // ricarica la pagina per visualizzare i dati aggiornati
+    //   },
+    removeItem: function removeItem(index) {
+      this.cart.splice(index, 1); // rimuovi l'elemento dalla posizione "index"
+      this.TotalPrice.splice(index, 1); // rimuovi il prezzo corrispondente dall'array "TotalPrice"
+      localStorage.setItem("cart", this.cart.toString());
+      localStorage.setItem("priceCart", this.TotalPrice.toString());
     }
   }
 });
@@ -2614,7 +2624,13 @@ var render = function render() {
   }, [_c("h3", [_vm._v("I tuoi Piatti")]), _vm._v(" "), _vm._l(_vm.cart, function (item, index) {
     return _c("li", {
       key: index
-    }, [_vm._v(_vm._s(item) + " -")]);
+    }, [_vm._v("\n      " + _vm._s(item) + " -\n      "), _c("button", {
+      on: {
+        click: function click($event) {
+          return _vm.removeItem(index);
+        }
+      }
+    }, [_vm._v("Elimina")])]);
   })], 2), _vm._v(" "), _c("div", {
     staticClass: "m-3"
   }, [_c("h4", [_vm._v("Prezzo totale:")]), _vm._v("\n    " + _vm._s(this.TotalPrice[0]) + "\n  ")]), _vm._v(" "), _c("div", {
@@ -7212,7 +7228,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.img-logo {\n    width: 170px;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.img-logo {\r\n    width: 170px;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -7236,7 +7252,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.inp-sty {\n  padding: 10px;\n  border-radius: 20px;\n  width: 30%;\n  margin: 30px 0px;\n  border: 0;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.inp-sty {\r\n  padding: 10px;\r\n  border-radius: 20px;\r\n  width: 30%;\r\n  margin: 30px 0px;\r\n  border: 0;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -7260,7 +7276,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.hero {\n  background-image: url(\"/images/pexels-valeria-boltneva-1639562.jpg\");\n  background-size: cover;\n  background-repeat: no-repeat;\n  background-position: center;\n  padding: 165.7px;\n  height: 100%;\n}\n.domicilio-span {\n  color: #00ccbc;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.hero {\r\n  background-image: url(\"/images/pexels-valeria-boltneva-1639562.jpg\");\r\n  background-size: cover;\r\n  background-repeat: no-repeat;\r\n  background-position: center;\r\n  padding: 165.7px;\r\n  height: 100%;\n}\n.domicilio-span {\r\n  color: #00ccbc;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
