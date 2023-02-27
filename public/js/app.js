@@ -2109,10 +2109,10 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     var _this = this;
-    localStorage.getItem('cart').split(',').forEach(function (element) {
+    localStorage.getItem("cart").split(",").forEach(function (element) {
       _this.cart.push(element);
     });
-    localStorage.getItem('priceCart').split(',').forEach(function (element) {
+    localStorage.getItem("priceCart").split(",").forEach(function (element) {
       _this.TotalPrice.push(element);
     });
   },
@@ -2120,8 +2120,8 @@ __webpack_require__.r(__webpack_exports__);
     removeCart: function removeCart() {
       this.cart = [];
       this.TotalPrice = 0;
-      localStorage.removeItem('cart');
-      localStorage.removeItem('priceCart');
+      localStorage.removeItem("cart");
+      localStorage.removeItem("priceCart");
     }
   }
 });
@@ -2686,17 +2686,23 @@ var render = function render() {
     _c = _vm._self._c;
   return _c("div", {
     staticClass: "text-center"
-  }, [_vm._l(_vm.cart, function (item, index) {
+  }, [_c("div", {
+    staticClass: "m-3"
+  }, [_c("h3", [_vm._v("I tuoi Piatti")]), _vm._v(" "), _vm._l(_vm.cart, function (item, index) {
     return _c("li", {
       key: index
-    }, [_vm._v("\n      " + _vm._s(item) + " -\n    ")]);
-  }), _vm._v("\n\n    " + _vm._s(this.TotalPrice[0]) + "\n\n    "), _c("button", {
+    }, [_vm._v(_vm._s(item) + " -")]);
+  })], 2), _vm._v(" "), _c("div", {
+    staticClass: "m-3"
+  }, [_c("h4", [_vm._v("Prezzo totale:")]), _vm._v("\n    " + _vm._s(this.TotalPrice[0]) + "\n  ")]), _vm._v(" "), _c("div", {
+    staticClass: "m-4"
+  }, [_c("button", {
     on: {
       click: function click($event) {
         return _vm.removeCart();
       }
     }
-  }, [_vm._v(" Svuota Carrello")])], 2);
+  }, [_vm._v("Svuota Carrello")])])]);
 };
 var staticRenderFns = [];
 render._withStripped = true;
