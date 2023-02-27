@@ -10,32 +10,18 @@
             </li>
         </ul>
 
-       <div>
-            <h3>Carrello</h3>
-            <p>Prezzo totale: {{ totalPrice }}€</p>
-            <button @click="removeCart()"> Svuota Carrello</button>
-            <p>Hai Aggiunto:</p>
-
-            <ul>
-                <li v-for="(item, index) in cart" :key="index">
-                    {{ item }}
-
-                </li>
-            </ul>
-        </div>
 
 
-        <CartComp  :cart="cart" :totalPrice="totalPrice" />
+
+
     </div>
 </template>
 
 <script>
-import CartComp from "../components/CartComp.vue";
+
 export default {
     name: "DishCard",
-    components: {
-        CartComp
-    },
+
     data() {
     return {
         dish: [],
