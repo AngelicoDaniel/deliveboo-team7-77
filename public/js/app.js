@@ -1886,13 +1886,13 @@ __webpack_require__.r(__webpack_exports__);
     addCart: function addCart(name, price) {
       this.cart.push(name);
       this.totalPrice += parseFloat(price);
-      localStorage.setItem('carts', this.cart);
+      localStorage.setItem('cart', this.cart);
       localStorage.setItem('priceCart', this.totalPrice);
     },
     removeCart: function removeCart() {
       this.cart = [];
       this.totalPrice = 0;
-      localStorage.removeItem('carts');
+      localStorage.removeItem('cart');
       localStorage.removeItem('priceCart');
     }
   }

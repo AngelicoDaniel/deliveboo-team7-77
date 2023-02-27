@@ -67,13 +67,13 @@ export default {
         addCart(name, price) {
             this.cart.push(name);
             this.totalPrice += parseFloat(price);
-            localStorage.setItem('carts', this.cart);
+            localStorage.setItem('cart', this.cart);
             localStorage.setItem('priceCart', this.totalPrice);
         },
         removeCart() {
             this.cart = [];
             this.totalPrice = 0;
-            localStorage.removeItem('carts');
+            localStorage.removeItem('cart');
             localStorage.removeItem('priceCart');
         },
 
