@@ -7,8 +7,9 @@
                     <router-link class="nav-link active" aria-current="page" :to="`/types/${elem.name}`">{{ elem.name
                     }}</router-link>
                     <ul>
+
                         <li v-for="restaurant in elem.restaurants" :key="restaurant.id">
-                            <router-link :to="`/restaurants/${restaurant.id}`">{{ restaurant.name }}</router-link>
+                            <router-link :to="`/dishes/${restaurant.id}`">{{ restaurant.name }}</router-link>
                         </li>
                     </ul>
                 </li>
