@@ -8,6 +8,7 @@ import HomePage from './pages/HomePage.vue'
 import RestaurantPage from './pages/RestaurantPage.vue'
 
 import DishPage from './pages/DishPage.vue'
+import CartPage from './pages/CartPage.vue'
 
 
 
@@ -29,6 +30,11 @@ const router = new VueRouter({
             path: '/dishes/:user_id',
             name: 'dish',
             component: DishPage
+        },
+        {
+            path: '/cart',
+            name: 'cart',
+            component: CartPage
         },
 
 

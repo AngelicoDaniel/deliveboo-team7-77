@@ -22,7 +22,8 @@
                             <a class="nav-link" href="http://127.0.0.1:8000/admin">Area Riservata</a>
                         </li>
                         <li>
-                            <CartComp />
+                            <router-link class="nav-link active" aria-current="page"
+                                :to="{ name: 'cart' }"><CartComp />Carrello</router-link>
                         </li>
                     </ul>
                 </div>
