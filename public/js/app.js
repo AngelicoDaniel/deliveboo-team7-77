@@ -1829,21 +1829,43 @@ __webpack_require__.r(__webpack_exports__);
   components: {},
   data: function data() {
     return {
-      dish: []
+      dish: [],
+      cart: [],
+      totalPrice: 0
     };
   },
   mounted: function mounted() {
+    var _this = this;
     this.getDish();
+    localStorage.getItem('cart').split(',').forEach(function (element) {
+      _this.cart.push(element);
+    });
+    var priceCart = localStorage.getItem('priceCart');
+    if (priceCart !== null) {
+      this.totalPrice = parseFloat(priceCart);
+    }
   },
   methods: {
     getDish: function getDish() {
-      var _this = this;
+      var _this2 = this;
       axios.get("http://127.0.0.1:8000/api/dishes/" + this.$route.params.user_id).then(function (res) {
-        _this.dish = res.data;
-        console.log(_this.dish);
+        _this2.dish = res.data;
+        console.log(_this2.dish);
       })["catch"](function (err) {
         console.log(err);
       });
+    },
+    addCart: function addCart(name, price) {
+      this.cart.push(name);
+      this.totalPrice += parseFloat(price);
+      localStorage.setItem('cart', this.cart);
+      localStorage.setItem('priceCart', this.totalPrice);
+    },
+    removeCart: function removeCart() {
+      this.cart = [];
+      this.totalPrice = 0;
+      localStorage.removeItem('cart');
+      localStorage.setItem('priceCart');
     }
   }
 });
@@ -2141,8 +2163,24 @@ var render = function render() {
   }, [_vm._v(_vm._s(this.$route.params.user_id))]), _vm._v(" "), _c("ul", _vm._l(_vm.dish, function (elem, index) {
     return _c("li", {
       key: index
-    }, [_vm._v("\n      " + _vm._s(elem.name) + "\n      " + _vm._s(elem.price) + "\n    ")]);
-  }), 0)]);
+    }, [_vm._v("\n            " + _vm._s(elem.name) + "\n            " + _vm._s(elem.price) + "\n            "), _c("button", {
+      on: {
+        click: function click($event) {
+          return _vm.addCart(elem.name, elem.price);
+        }
+      }
+    }, [_vm._v(" ADD")])]);
+  }), 0), _vm._v(" "), _c("div", [_c("h3", [_vm._v("Carrello")]), _vm._v(" "), _c("p", [_vm._v("Prezzo totale: " + _vm._s(_vm.totalPrice) + "€")]), _vm._v(" "), _c("button", {
+    on: {
+      click: function click($event) {
+        return _vm.removeCart();
+      }
+    }
+  }, [_vm._v(" Svuota Carrello")]), _vm._v(" "), _c("p", [_vm._v("Hai Aggiunto:")]), _vm._v(" "), _c("ul", _vm._l(_vm.cart, function (item, index) {
+    return _c("li", {
+      key: index
+    }, [_vm._v("\n                " + _vm._s(item) + "\n            ")]);
+  }), 0)])]);
 };
 var staticRenderFns = [];
 render._withStripped = true;
@@ -7094,7 +7132,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.img-logo {\r\n  width: 170px;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.img-logo {\n    width: 170px;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -7142,7 +7180,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.hero {\r\n  background-image: url(\"/images/pexels-valeria-boltneva-1639562.jpg\");\r\n  background-size: cover;\r\n  background-repeat: no-repeat;\r\n  background-position: center;\r\n  padding: 165.7px;\r\n  height: 100%;\n}\n.domicilio-span {\r\n  color: #00ccbc;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.hero {\n  background-image: url(\"/images/pexels-valeria-boltneva-1639562.jpg\");\n  background-size: cover;\n  background-repeat: no-repeat;\n  background-position: center;\n  padding: 165.7px;\n  height: 100%;\n}\n.domicilio-span {\n  color: #00ccbc;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
