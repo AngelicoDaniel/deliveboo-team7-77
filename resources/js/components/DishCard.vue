@@ -37,12 +37,13 @@ export default {
         CartComp
     },
     data() {
-        return {
-            dish: [],
-            cart: [],
-            totalPrice: 0,
-        };
-    },
+    return {
+        dish: [],
+        cart: [],
+        totalPrice: localStorage.getItem('priceCart') || 0,
+    };
+},
+
     mounted() {
         this.getDish()
 
