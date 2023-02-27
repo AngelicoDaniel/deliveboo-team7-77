@@ -2104,26 +2104,29 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _components_CartComp_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/CartComp.vue */ "./resources/js/components/CartComp.vue");
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "CartPage",
-  components: {
-    CartComp: _components_CartComp_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
-  },
   data: function data() {
     return {
       cart: [],
-      totalPrice: 0
+      TotalPrice: []
     };
   },
   mounted: function mounted() {
-    this.getCart();
+    var _this = this;
+    localStorage.getItem('cart').split(',').forEach(function (element) {
+      _this.cart.push(element);
+    });
+    localStorage.getItem('priceCart').split(',').forEach(function (element) {
+      _this.TotalPrice.push(element);
+    });
   },
   methods: {
-    getCart: function getCart() {
-      this.cart = JSON.parse(localStorage.getItem("cart")) || [];
-      this.totalPrice = localStorage.getItem("priceCart") || 0;
+    removeCart: function removeCart() {
+      this.cart = [];
+      this.TotalPrice = 0;
+      localStorage.removeItem('cart');
+      localStorage.removeItem('priceCart');
     }
   }
 });
@@ -2703,12 +2706,17 @@ var render = function render() {
     _c = _vm._self._c;
   return _c("div", {
     staticClass: "text-center"
-  }, [_c("h1", [_vm._v("Il tuo carrello")]), _vm._v(" "), _c("CartComp", {
-    attrs: {
-      cart: _vm.cart,
-      totalPrice: _vm.totalPrice
+  }, [_vm._l(_vm.cart, function (item, index) {
+    return _c("li", {
+      key: index
+    }, [_vm._v("\n      " + _vm._s(item) + " -\n    ")]);
+  }), _vm._v("\n\n    " + _vm._s(this.TotalPrice[0]) + "\n\n    "), _c("button", {
+    on: {
+      click: function click($event) {
+        return _vm.removeCart();
+      }
     }
-  })], 1);
+  }, [_vm._v(" Svuota Carrello")])], 2);
 };
 var staticRenderFns = [];
 render._withStripped = true;
@@ -7295,7 +7303,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.img-logo {\n    width: 170px;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.img-logo {\r\n    width: 170px;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -7343,7 +7351,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.hero {\r\n  background-image: url(\"/images/pexels-valeria-boltneva-1639562.jpg\");\r\n  background-size: cover;\r\n  background-repeat: no-repeat;\r\n  background-position: center;\r\n  padding: 165.7px;\r\n  height: 100%;\n}\n.domicilio-span {\r\n  color: #00ccbc;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.hero {\n  background-image: url(\"/images/pexels-valeria-boltneva-1639562.jpg\");\n  background-size: cover;\n  background-repeat: no-repeat;\n  background-position: center;\n  padding: 165.7px;\n  height: 100%;\n}\n.domicilio-span {\n  color: #00ccbc;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

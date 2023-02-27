@@ -1,33 +1,57 @@
 <template>
     <div class="text-center">
-      <h1>Il tuo carrello</h1>
-      <CartComp :cart="cart" :totalPrice="totalPrice" />
-    </div>
-  </template>
 
-  <script>
-  import CartComp from "../components/CartComp.vue";
-  export default {
+        <li v-for="(item, index) in cart" :key="index">
+          {{ item }} -
+        </li>
+
+        {{this.TotalPrice[0]}}
+
+        <button @click="removeCart()"> Svuota Carrello</button>
+
+    </div>
+</template>
+
+<script>
+
+export default {
     name: "CartPage",
-    components: {
-      CartComp,
-    },
+
     data() {
-      return {
+    return {
+
         cart: [],
-        totalPrice: 0,
-      };
-    },
+        TotalPrice: [],
+
+    };
+},
+
     mounted() {
-      this.getCart();
+
+
+        localStorage.getItem('cart').split(',').forEach(element => {
+            this.cart.push(element);
+        });
+
+        localStorage.getItem('priceCart').split(',').forEach(element => {
+            this.TotalPrice.push(element);
+        });
+
+
     },
     methods: {
-      getCart() {
-        this.cart = JSON.parse(localStorage.getItem("cart")) || [];
-        this.totalPrice = localStorage.getItem("priceCart") || 0;
-      },
-    },
-  };
-  </script>
 
-  <style lang="scss" scoped></style>
+ removeCart() {
+            this.cart = [];
+            this.TotalPrice = 0;
+            localStorage.removeItem('cart');
+            localStorage.removeItem('priceCart');
+        },
+
+
+
+    },
+};
+</script>
+
+<style scoped lang="scss"></style>
