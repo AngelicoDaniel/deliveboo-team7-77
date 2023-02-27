@@ -1934,6 +1934,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "TypeComp",
@@ -1943,16 +1949,20 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       types: [],
-      search: "",
-      originalTypes: []
+      search: ""
     };
   },
   methods: {
     getTypes: function getTypes() {
       var _this = this;
       axios__WEBPACK_IMPORTED_MODULE_0___default().get("http://127.0.0.1:8000/api/types").then(function (res) {
-        _this.types = res.data;
-        _this.originalTypes = res.data;
+        _this.types = res.data.map(function (type) {
+          return _objectSpread(_objectSpread({}, type), {}, {
+            showRestaurants: false,
+            filteredRestaurants: [],
+            originalRestaurants: []
+          });
+        });
         _this.getRestaurants();
       });
     },
@@ -1968,7 +1978,9 @@ __webpack_require__.r(__webpack_exports__);
               if (!matchingType.restaurants) {
                 matchingType.restaurants = [];
               }
-              matchingType.restaurants.push(restaurant);
+              if (!matchingType.restaurants.includes(restaurant)) {
+                matchingType.restaurants.push(restaurant);
+              }
             }
           });
         });
@@ -1978,9 +1990,37 @@ __webpack_require__.r(__webpack_exports__);
   computed: {
     filteredTypes: function filteredTypes() {
       var _this3 = this;
-      return this.types.filter(function (type) {
-        return type.name.toLowerCase().includes(_this3.search.toLowerCase());
-      });
+      if (this.search) {
+        return this.types.filter(function (type) {
+          return type.name.toLowerCase().includes(_this3.search.toLowerCase()) || type.restaurants && type.restaurants.some(function (restaurant) {
+            return restaurant.name.toLowerCase().includes(_this3.search.toLowerCase());
+          });
+        });
+      } else {
+        return this.types;
+      }
+    }
+  },
+  watch: {
+    search: function search(val) {
+      if (val) {
+        this.types.forEach(function (type) {
+          type.filteredRestaurants = type.originalRestaurants.filter(function (restaurant) {
+            return restaurant.name.toLowerCase().includes(val.toLowerCase());
+          });
+        });
+      }
+    },
+    filteredTypes: function filteredTypes(val) {
+      if (!this.search) {
+        this.types.forEach(function (type) {
+          type.showRestaurants = false;
+        });
+      } else {
+        val.forEach(function (type) {
+          type.showRestaurants = true;
+        });
+      }
     }
   }
 });
@@ -2464,7 +2504,7 @@ var render = function render() {
         "aria-current": "page",
         to: "/types/".concat(elem.name)
       }
-    }, [_vm._v(_vm._s(elem.name))]), _vm._v(" "), _c("ul", _vm._l(elem.restaurants, function (restaurant) {
+    }, [_vm._v(_vm._s(elem.name))]), _vm._v(" "), elem.showRestaurants ? _c("ul", _vm._l(elem.restaurants, function (restaurant) {
       return _c("li", {
         key: restaurant.id
       }, [_c("router-link", {
@@ -2472,7 +2512,7 @@ var render = function render() {
           to: "/dishes/".concat(restaurant.id)
         }
       }, [_vm._v(_vm._s(restaurant.name))])], 1);
-    }), 0)], 1);
+    }), 0) : _vm._e()], 1);
   }), 0)])]);
 };
 var staticRenderFns = [];
@@ -7054,7 +7094,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.img-logo {\n  width: 170px;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.img-logo {\r\n  width: 170px;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -7102,7 +7142,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.hero {\n  background-image: url(\"/images/pexels-valeria-boltneva-1639562.jpg\");\n  background-size: cover;\n  background-repeat: no-repeat;\n  background-position: center;\n  padding: 165.7px;\n  height: 100%;\n}\n.domicilio-span {\n  color: #00ccbc;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.hero {\r\n  background-image: url(\"/images/pexels-valeria-boltneva-1639562.jpg\");\r\n  background-size: cover;\r\n  background-repeat: no-repeat;\r\n  background-position: center;\r\n  padding: 165.7px;\r\n  height: 100%;\n}\n.domicilio-span {\r\n  color: #00ccbc;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
