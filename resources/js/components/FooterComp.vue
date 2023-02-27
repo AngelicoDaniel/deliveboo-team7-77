@@ -4,7 +4,7 @@
       <div class="row pl-3">
         <!--logo deliveboo-->
         <a href="">
-          <img src="" alt="deliveboo-logo" />
+          <img class=" img-logo" src="../../../public/images/6103fbd57410870004d7f2dd.png" alt="deliveboo-logo" />
         </a>
       </div>
     </div>
@@ -131,6 +131,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.img-logo {
+  width: 170px;
+}
 footer {
   background-color: black;
   color: white;
