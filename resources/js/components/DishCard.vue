@@ -10,27 +10,18 @@
             </li>
         </ul>
 
-        <div>
-            <h3>Carrello</h3>
-            <p>Prezzo totale: {{ totalPrice }}€</p>
-            <button @click="removeCart()"> Svuota Carrello</button>
-            <p>Hai Aggiunto:</p>
 
-            <ul>
-                <li v-for="(item, index) in cart" :key="index">
-                    {{ item }}
-                </li>
-            </ul>
-
-
-        </div>
+        <CartComp :dish="dish" :cart="cart" :removeCart="removeCart" :addCart="addCart" />
     </div>
 </template>
 
 <script>
+import CartComp from "../components/CartComp.vue";
 export default {
     name: "DishCard",
-    components: {},
+    components: {
+        CartComp
+    },
     data() {
         return {
             dish: [],
@@ -44,10 +35,7 @@ export default {
         localStorage.getItem('cart').split(',').forEach(element => {
             this.cart.push(element);
         });
-        const priceCart = localStorage.getItem('priceCart');
-        if (priceCart !== null) {
-            this.totalPrice = parseFloat(priceCart);
-        }
+
     },
     methods: {
         getDish() {
@@ -65,16 +53,17 @@ export default {
         addCart(name, price) {
             this.cart.push(name);
             this.totalPrice += parseFloat(price);
-            localStorage.setItem('cart', this.cart);
-            localStorage.setItem('priceCart', this.totalPrice);
+
+        },
+        removeCart() {
+            // this.cart = [];
+            // this.totalPrice = 0;
+
         },
 
-        removeCart() {
-            this.cart = [];
-            this.totalPrice = 0;
-            localStorage.removeItem('cart');
-            localStorage.setItem('priceCart');
-        },
+
+
+
     },
 };
 </script>

@@ -21,7 +21,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="http://127.0.0.1:8000/admin">Area Riservata</a>
                         </li>
-
+                        <li>
+                            <CartComp />
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -31,11 +33,13 @@
 
 
 <script>
-
+import CartComp from "../components/CartComp.vue";
 export default {
     name: "Header",
 
-
+    components: {
+        CartComp
+    }
 };
 </script>
 <style>
