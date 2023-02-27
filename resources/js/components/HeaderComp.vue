@@ -23,7 +23,7 @@
                         </li>
                         <li>
                             <router-link class="nav-link active" aria-current="page"
-                                :to="{ name: 'cart' }"><CartComp />Carrello</router-link>
+                                :to="{ name: 'cart' }">Carrello</router-link>
                         </li>
                     </ul>
                 </div>
@@ -34,13 +34,8 @@
 
 
 <script>
-import CartComp from "../components/CartComp.vue";
 export default {
     name: "Header",
-
-    components: {
-        CartComp
-    }
 };
 </script>
 <style>
