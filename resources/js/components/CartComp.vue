@@ -2,7 +2,7 @@
     <div>
         <h1>cartcomp</h1>
 
-        <div>
+        <!-- <div>
             <h3>Carrello</h3>
             <p>Prezzo totale: {{ totalPrice }}€</p>
             <button @click="removeCart()"> Svuota Carrello</button>
@@ -14,7 +14,7 @@
 
                 </li>
             </ul>
-        </div>
+        </div> -->
     </div>
 </template>
 
@@ -54,14 +54,14 @@ export default {
 
         addCart(name, price) {
 
-            localStorage.setItem('cart', this.cart);
-            localStorage.setItem('priceCart', this.totalPrice);
+            // localStorage.setItem('cart', this.cart);
+            // localStorage.setItem('priceCart', this.totalPrice);
         },
         removeCart() {
-            this.cart = [];
-            this.totalPrice = 0;
-            localStorage.removeItem('cart');
-            localStorage.setItem('priceCart');
+            // this.cart = [];
+            // this.totalPrice = 0;
+            // localStorage.removeItem('cart');
+            // localStorage.setItem('priceCart');
         },
 
     }

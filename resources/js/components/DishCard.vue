@@ -10,6 +10,20 @@
             </li>
         </ul>
 
+        <div>
+            <h3>Carrello</h3>
+            <p>Prezzo totale: {{ totalPrice }}€</p>
+            <button @click="removeCart()"> Svuota Carrello</button>
+            <p>Hai Aggiunto:</p>
+
+            <ul>
+                <li v-for="(item, index) in cart" :key="index">
+                    {{ item }}
+
+                </li>
+            </ul>
+        </div>
+
 
         <CartComp :dish="dish" :cart="cart" :removeCart="removeCart" :addCart="addCart" />
     </div>
@@ -53,12 +67,16 @@ export default {
         addCart(name, price) {
             this.cart.push(name);
             this.totalPrice += parseFloat(price);
-
+            localStorage.setItem('cart', this.cart);
+            localStorage.setItem('priceCart', this.totalPrice);
         },
         removeCart() {
             // this.cart = [];
             // this.totalPrice = 0;
-
+            this.cart = [];
+            this.totalPrice = 0;
+            localStorage.removeItem('cart');
+            localStorage.setItem('priceCart');
         },
 
 

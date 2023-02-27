@@ -1851,14 +1851,15 @@ __webpack_require__.r(__webpack_exports__);
     //     this.addCart()
     // },
     addCart: function addCart(name, price) {
-      localStorage.setItem('cart', this.cart);
-      localStorage.setItem('priceCart', this.totalPrice);
+
+      // localStorage.setItem('cart', this.cart);
+      // localStorage.setItem('priceCart', this.totalPrice);
     },
     removeCart: function removeCart() {
-      this.cart = [];
-      this.totalPrice = 0;
-      localStorage.removeItem('cart');
-      localStorage.setItem('priceCart');
+      // this.cart = [];
+      // this.totalPrice = 0;
+      // localStorage.removeItem('cart');
+      // localStorage.setItem('priceCart');
     }
   }
 });
@@ -1910,10 +1911,16 @@ __webpack_require__.r(__webpack_exports__);
     addCart: function addCart(name, price) {
       this.cart.push(name);
       this.totalPrice += parseFloat(price);
+      localStorage.setItem('cart', this.cart);
+      localStorage.setItem('priceCart', this.totalPrice);
     },
     removeCart: function removeCart() {
       // this.cart = [];
       // this.totalPrice = 0;
+      this.cart = [];
+      this.totalPrice = 0;
+      localStorage.removeItem('cart');
+      localStorage.setItem('priceCart');
     }
   }
 });
@@ -2209,19 +2216,13 @@ __webpack_require__.r(__webpack_exports__);
 var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("div", [_c("h1", [_vm._v("cartcomp")]), _vm._v(" "), _c("div", [_c("h3", [_vm._v("Carrello")]), _vm._v(" "), _c("p", [_vm._v("Prezzo totale: " + _vm._s(_vm.totalPrice) + "€")]), _vm._v(" "), _c("button", {
-    on: {
-      click: function click($event) {
-        return _vm.removeCart();
-      }
-    }
-  }, [_vm._v(" Svuota Carrello")]), _vm._v(" "), _c("p", [_vm._v("Hai Aggiunto:")]), _vm._v(" "), _c("ul", _vm._l(_vm.cart, function (item, index) {
-    return _c("li", {
-      key: index
-    }, [_vm._v("\n                " + _vm._s(item) + "\n\n            ")]);
-  }), 0)])]);
+  return _vm._m(0);
 };
-var staticRenderFns = [];
+var staticRenderFns = [function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", [_c("h1", [_vm._v("cartcomp")])]);
+}];
 render._withStripped = true;
 
 
@@ -2256,7 +2257,17 @@ var render = function render() {
         }
       }
     }, [_vm._v(" ADD")])]);
-  }), 0), _vm._v(" "), _c("CartComp", {
+  }), 0), _vm._v(" "), _c("div", [_c("h3", [_vm._v("Carrello")]), _vm._v(" "), _c("p", [_vm._v("Prezzo totale: " + _vm._s(_vm.totalPrice) + "€")]), _vm._v(" "), _c("button", {
+    on: {
+      click: function click($event) {
+        return _vm.removeCart();
+      }
+    }
+  }, [_vm._v(" Svuota Carrello")]), _vm._v(" "), _c("p", [_vm._v("Hai Aggiunto:")]), _vm._v(" "), _c("ul", _vm._l(_vm.cart, function (item, index) {
+    return _c("li", {
+      key: index
+    }, [_vm._v("\n                " + _vm._s(item) + "\n\n            ")]);
+  }), 0)]), _vm._v(" "), _c("CartComp", {
     attrs: {
       dish: _vm.dish,
       cart: _vm.cart,
