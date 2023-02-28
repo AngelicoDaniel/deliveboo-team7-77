@@ -61,7 +61,7 @@ class RegisterController extends Controller
                 'address' => ['required', 'string', 'max:100'],
                 'PIVA' => ['required', 'integer', 'unique:users'],
                 'image_logo' => ['required'],
-                'types' => ['required']
+                'types' => ['required', ]
             ],
             [
                 'name' => 'Il campo nome ristorante non può essere vuoto.',
