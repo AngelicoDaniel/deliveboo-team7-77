@@ -131,6 +131,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
 .img-logo {
   width: 170px;
 }

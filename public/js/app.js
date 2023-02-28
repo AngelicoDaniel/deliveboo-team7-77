@@ -2236,7 +2236,7 @@ var render = function render() {
   return _c("div", {
     staticClass: "text-center"
   }, [_vm._m(0), _vm._v(" "), _c("div", {
-    staticClass: "container my-4"
+    staticClass: "container my-4 w-25"
   }, _vm._l(_vm.dish, function (elem, index) {
     return _c("div", {
       key: index,
@@ -2637,7 +2637,10 @@ var render = function render() {
       value: _vm.selectedType,
       expression: "selectedType"
     }],
-    staticClass: "form-select",
+    staticClass: "form-select form-select-lg mb-3",
+    attrs: {
+      "aria-label": ".form-select-lg example"
+    },
     on: {
       change: function change($event) {
         var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
@@ -2817,7 +2820,7 @@ var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", {
-    staticClass: "text-center"
+    staticClass: "text-center bg-dark"
   }, [_c("TypeCard")], 1);
 };
 var staticRenderFns = [];
@@ -7294,7 +7297,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "img.restaurant_img.before-enter[data-v-2988c035] {\n  opacity: 0;\n  transform: translateX(50%) scale(0.5);\n  transition: all 1.5s ease-in-out;\n}\nimg.restaurant_img.enter[data-v-2988c035] {\n  opacity: 1;\n  transform: translateX(0) scale(1);\n}\n.h2_info.before-enter[data-v-2988c035] {\n  opacity: 0;\n  transform: translateX(25%);\n  transition: all 1.5s ease-in-out;\n  transition-delay: 0.5s;\n}\n.h2_info.enter[data-v-2988c035] {\n  opacity: 1;\n  transform: translateX(0);\n}\n.card.plate_card .wrapper_plate_img[data-v-2988c035] {\n  max-width: 230px;\n}\n.card.plate_card.before-enter[data-v-2988c035] {\n  opacity: 0;\n  transform: translateY(100%);\n  transition: all 1s ease-in-out;\n}\n.card.plate_card.enter[data-v-2988c035] {\n  opacity: 1;\n  transform: translateY(0);\n}\n.card_scrollbar[data-v-2988c035]::-webkit-scrollbar {\n  width: 2px;\n}\n.cart_style[data-v-2988c035] {\n  overflow-y: auto;\n  max-height: 500px;\n  border-radius: 5px;\n}\n.full-cart[data-v-2988c035] {\n  border-bottom: 2px solid blue;\n}\n.empty_cart[data-v-2988c035] {\n  border-radius: 5px;\n}\n.cart_animation.before-enter[data-v-2988c035] {\n  opacity: 0;\n  transform: translatey(100%) scale(0.1);\n  transition: all 1.5s ease-in-out;\n}\n.cart_animation.enter[data-v-2988c035] {\n  opacity: 1;\n  transform: translateY(0) scale(1);\n}\n.added_plate.before-enter[data-v-2988c035] {\n  opacity: 0;\n  transform: translateX(-50%);\n  transition: all 0.5s ease-in-out;\n}\n.added_plate.enter[data-v-2988c035] {\n  opacity: 1;\n  transform: translateX(0);\n}\n.ck_border[data-v-2988c035] {\n  border-top: 2px solid blue;\n}\n.fa-circle-plus[data-v-2988c035],\n.fa-circle-minus[data-v-2988c035] {\n  transition: transform 0.25s ease-in-out;\n}\n.fa-circle-plus[data-v-2988c035]:hover,\n.fa-circle-minus[data-v-2988c035]:hover {\n  cursor: pointer;\n  transform: scale(1.3);\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "/* .card{\n    width: 50%;\n} */\nimg.restaurant_img.before-enter[data-v-2988c035] {\n  opacity: 0;\n  transform: translateX(50%) scale(0.5);\n  transition: all 1.5s ease-in-out;\n}\nimg.restaurant_img.enter[data-v-2988c035] {\n  opacity: 1;\n  transform: translateX(0) scale(1);\n}\n.h2_info.before-enter[data-v-2988c035] {\n  opacity: 0;\n  transform: translateX(25%);\n  transition: all 1.5s ease-in-out;\n  transition-delay: 0.5s;\n}\n.h2_info.enter[data-v-2988c035] {\n  opacity: 1;\n  transform: translateX(0);\n}\n.card.plate_card .wrapper_plate_img[data-v-2988c035] {\n  max-width: 230px;\n}\n.card.plate_card.before-enter[data-v-2988c035] {\n  opacity: 0;\n  transform: translateY(100%);\n  transition: all 1s ease-in-out;\n}\n.card.plate_card.enter[data-v-2988c035] {\n  opacity: 1;\n  transform: translateY(0);\n}\n.card_scrollbar[data-v-2988c035]::-webkit-scrollbar {\n  width: 2px;\n}\n.cart_style[data-v-2988c035] {\n  overflow-y: auto;\n  max-height: 500px;\n  border-radius: 5px;\n}\n.full-cart[data-v-2988c035] {\n  border-bottom: 2px solid blue;\n}\n.empty_cart[data-v-2988c035] {\n  border-radius: 5px;\n}\n.cart_animation.before-enter[data-v-2988c035] {\n  opacity: 0;\n  transform: translatey(100%) scale(0.1);\n  transition: all 1.5s ease-in-out;\n}\n.cart_animation.enter[data-v-2988c035] {\n  opacity: 1;\n  transform: translateY(0) scale(1);\n}\n.added_plate.before-enter[data-v-2988c035] {\n  opacity: 0;\n  transform: translateX(-50%);\n  transition: all 0.5s ease-in-out;\n}\n.added_plate.enter[data-v-2988c035] {\n  opacity: 1;\n  transform: translateX(0);\n}\n.ck_border[data-v-2988c035] {\n  border-top: 2px solid blue;\n}\n.fa-circle-plus[data-v-2988c035],\n.fa-circle-minus[data-v-2988c035] {\n  transition: transform 0.25s ease-in-out;\n}\n.fa-circle-plus[data-v-2988c035]:hover,\n.fa-circle-minus[data-v-2988c035]:hover {\n  cursor: pointer;\n  transform: scale(1.3);\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -7414,7 +7417,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.inp-sty {\n    padding: 10px;\n    border-radius: 20px;\n    width: 30%;\n    margin: 30px 0px;\n    border: 0;\n}\n.list-type {\n    background-color: #00ccbc;\n    border-radius: 15px;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.inp-sty {\n    padding: 10px;\n    border-radius: 20px;\n    width: 30%;\n    margin: 30px 0px;\n    border: 0;\n}\n.list-type {\n    background-color: #00ccbc;\n    border-radius: 15px;\n}\n.list-restaurants{\n  list-style-type: none;\n  text-decoration: none;\n  color: gray;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

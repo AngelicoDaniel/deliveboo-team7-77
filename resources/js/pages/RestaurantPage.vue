@@ -1,5 +1,5 @@
 <template>
-  <div class="text-center">
+  <div class="text-center bg-dark">
     <TypeCard />
   </div>
 </template>
