@@ -2672,23 +2672,20 @@ var render = function render() {
   }).restaurants, function (restaurant) {
     return _c("div", {
       key: restaurant.id,
-      staticClass: "card"
+      staticClass: "card",
+      style: {
+        backgroundImage: "url(".concat(restaurant.image_logo, ")")
+      }
     }, [_c("router-link", {
       attrs: {
         to: "/dishes/".concat(restaurant.id)
       }
-    }, [_c("img", {
-      staticClass: "card-img-top",
-      attrs: {
-        src: restaurant.image_logo,
-        alt: restaurant.name
-      }
-    }), _vm._v(" "), _c("div", {
-      staticClass: "card-body"
+    }, [_c("div", {
+      staticClass: "card-overlay"
     }, [_c("h5", {
-      staticClass: "card-titl"
+      staticClass: "card-title"
     }, [_vm._v(_vm._s(restaurant.name))]), _vm._v(" "), _c("p", {
-      staticClass: "card-tex"
+      staticClass: "card-text"
     }, [_vm._v("Indirizzo: " + _vm._s(restaurant.address))])])])], 1);
   }), 0)]) : _vm._e()]);
 };
@@ -7433,7 +7430,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.inp-sty {\n  padding: 10px;\n  border-radius: 20px;\n  width: 30%;\n  margin: 30px 0px;\n  border: 0;\n}\n.list-type {\n  background-color: #00ccbc;\n  border-radius: 15px;\n}\n.list-restaurants {\n  list-style-type: none;\n  text-decoration: none;\n  color: gray;\n}\n.card{\n    flex-basis: 22%;\n    justify-content: space-between;\n    margin: 10px 10px;\n}\n.card-deck{\n    display: flex;\n    flex-wrap: wrap;\n}\n.card-titl .card-tex{\n    color: white;\n}\nrouter-link{\n    text-decoration: none !important;\n}\n\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.inp-sty {\n  padding: 10px;\n  border-radius: 20px;\n  width: 30%;\n  margin: 30px 0px;\n  border: 0;\n}\n.list-type {\n  background-color: #00ccbc;\n  border-radius: 15px;\n}\n.list-restaurants {\n  list-style-type: none;\n  text-decoration: none;\n  color: gray;\n}\n.card{\n    flex-basis: 22%;\n    justify-content: space-between;\n    margin: 10px 10px;\n}\n.card-deck{\n    display: flex;\n    flex-wrap: wrap;\n}\n.card-titl .card-tex{\n    color: white;\n}\nrouter-link{\n    text-decoration: none !important;\n}\n.card {\n  background-size: cover;\n  background-position: center;\n  background-repeat: no-repeat;\n  aspect-ratio: 1/1;\n}\n.card-overlay {\nmargin-top: 25%;\n  padding: 10px;\n  background-color: rgba(255, 255, 255, 0.7);\n  text-align: center;\n  color: black;\n}\n.card-title {\n  font-size: 1.2rem;\n  margin: 0;\n}\n.card-text {\n  font-size: 1rem;\n  margin: 0;\n}\n\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

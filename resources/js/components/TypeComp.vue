@@ -53,26 +53,19 @@
 
     <div v-if="selectedType">
       <!-- <h2 class="list-type">{{ types.find(t => t.id === selectedType).name }}</h2> -->
-      <div class="card-deck d-flex">
-        <div
-          v-for="restaurant in types.find((t) => t.id === selectedType)
-            .restaurants"
-          :key="restaurant.id"
-          class="card"
-        >
-          <router-link :to="`/dishes/${restaurant.id}`">
-            <img
-              class="card-img-top"
-              :src="restaurant.image_logo"
-              :alt="restaurant.name"
-            />
-            <div class="card-body">
-              <h5 class="card-titl">{{ restaurant.name }}</h5>
-              <p class="card-tex">Indirizzo: {{ restaurant.address }}</p>
-            </div>
-          </router-link>
-        </div>
+    <div class="card-deck d-flex">
+  <div v-for="restaurant in types.find((t) => t.id === selectedType).restaurants"
+    :key="restaurant.id"
+    class="card"
+    :style="{ backgroundImage: `url(${restaurant.image_logo})` }">
+    <router-link :to="`/dishes/${restaurant.id}`">
+      <div class="card-overlay">
+        <h5 class="card-title">{{ restaurant.name }}</h5>
+        <p class="card-text">Indirizzo: {{ restaurant.address }}</p>
       </div>
+    </router-link>
+  </div>
+</div>
     </div>
   </div>
 </template>
@@ -255,6 +248,31 @@ export default {
 
 router-link{
     text-decoration: none !important;
+}
+
+.card {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  aspect-ratio: 1/1;
+}
+
+.card-overlay {
+margin-top: 25%;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.7);
+  text-align: center;
+  color: black;
+}
+
+.card-title {
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.card-text {
+  font-size: 1rem;
+  margin: 0;
 }
 
 </style>
