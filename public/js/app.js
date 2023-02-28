@@ -2193,36 +2193,25 @@ var render = function render() {
     _c = _vm._self._c;
   return _c("div", {
     staticClass: "text-center"
-  }, [_vm._m(0), _vm._v(" "), _vm._l(_vm.dish, function (elem, index) {
+  }, [_vm._m(0), _vm._v(" "), _c("div", {
+    staticClass: "container my-4"
+  }, _vm._l(_vm.dish, function (elem, index) {
     return _c("div", {
-      key: index
-    }, [_c("div", {
-      staticClass: "row justify-content-around align-items-center"
-    }, [_c("div", {
-      staticClass: "col-md-6"
-    }, [_c("div", {
-      staticClass: "row justify-content-center"
-    }, [_c("img", {
-      staticClass: "w-100 p-3",
-      attrs: {
-        src: "/storage/" + elem.image,
-        alt: elem.name
-      }
-    })])]), _vm._v(" "), _c("div", {
-      staticClass: "col-md-6 p-3 text-center"
+      key: index,
+      staticClass: "row justify-content-center my-5"
     }, [_c("h5", [_vm._v(_vm._s(elem.name))]), _vm._v(" "), _c("p", {
       staticClass: "card-text mb-2 plate_description"
-    }, [_vm._v("\n                    " + _vm._s(elem.description) + "\n                  ")]), _vm._v(" "), _c("p", {
+    }, [_vm._v("\n                " + _vm._s(elem.description) + "\n            ")]), _vm._v(" "), _c("p", {
       staticClass: "card-text mb-3"
     }, [_vm._v("Prezzo: " + _vm._s(elem.price) + "€")]), _vm._v(" "), _c("button", {
-      staticClass: "btn btn-primary",
+      staticClass: "btn btn-primary w-25",
       on: {
         click: function click($event) {
           return _vm.addCart(elem.name, elem.price);
         }
       }
-    }, [_vm._v("\n                    Aggiungi al Carrello\n                  ")])])])]);
-  })], 2);
+    }, [_vm._v("\n                Aggiungi al Carrello\n            ")])]);
+  }), 0)]);
 };
 var staticRenderFns = [function () {
   var _vm = this,
@@ -2451,9 +2440,9 @@ var render = function render() {
       alt: ""
     }
   })]), _vm._v(" "), _vm._m(0)], 1), _vm._v(" "), _c("div", {
-    staticClass: "collapse navbar-collapse",
+    staticClass: "collapse navbar-collapse d-flex justify-content-between",
     attrs: {
-      id: "navbarNav "
+      id: "navbarNav"
     }
   }, [_c("ul", {
     staticClass: "navbar-nav"
@@ -2467,7 +2456,7 @@ var render = function render() {
         name: "home"
       }
     }
-  }, [_vm._v("Home")])], 1), _vm._v(" "), _vm._m(1), _vm._v(" "), _c("li", [_c("router-link", {
+  }, [_vm._v("Home")])], 1), _vm._v(" "), _c("li", [_c("router-link", {
     staticClass: "nav-link active",
     attrs: {
       "aria-current": "page",
@@ -2475,7 +2464,7 @@ var render = function render() {
         name: "cart"
       }
     }
-  }, [_vm._v("Carrello")])], 1)])])])])]);
+  }, [_vm._v("Carrello")])], 1)]), _vm._v(" "), _vm._m(1)])])])]);
 };
 var staticRenderFns = [function () {
   var _vm = this,
@@ -2496,14 +2485,14 @@ var staticRenderFns = [function () {
 }, function () {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("li", {
-    staticClass: "nav-item"
+  return _c("div", {
+    staticClass: "d-flex flex-end w-25"
   }, [_c("a", {
-    staticClass: "nav-link",
+    staticClass: "nav-link text-white",
     attrs: {
       href: "http://127.0.0.1:8000/admin"
     }
-  }, [_vm._v("Area Riservata")])]);
+  }, [_vm._v("Sei un ristoratore?")])]);
 }];
 render._withStripped = true;
 
