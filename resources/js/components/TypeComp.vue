@@ -1,6 +1,7 @@
 <template>
-    <div class="text-start">
-        <input
+  <div class="text-start">
+
+     <!-- <input
             class="inp-sty"
             type="text"
             v-model="search"
@@ -37,9 +38,25 @@
                         </li>
                     </ul>
                 </div>
-            </div>
-        </div>
+            </div> -->
+    <select class="form-select" v-model="selectedType">
+      <option value="">Seleziona un tipo di ristorante</option>
+      <option v-for="type in filteredTypes" :value="type.id" :key="type.id">
+        {{ type.name }}
+      </option>
+    </select>
+    <div v-if="selectedType">
+      <!-- <h2 class="list-type">{{ types.find(t => t.id === selectedType).name }}</h2> -->
+      <ul>
+        <li class="text-light" v-for="restaurant in types.find(t => t.id === selectedType).restaurants" :key="restaurant.id" >
+         <router-link
+                                        :to="`/dishes/${restaurant.id}`"
+                                        >{{ restaurant.name }}</router-link
+                                    >
+        </li>
+      </ul>
     </div>
+  </div>
 </template>
 <script>
 import axios from "axios";
@@ -53,25 +70,41 @@ export default {
 
     data() {
         return {
-            types: [],
-            search: "",
+          types: [],
+        search: "",
+        selectedType: ""
         };
     },
 
     methods: {
-        getTypes() {
-            axios.get("http://127.0.0.1:8000/api/types").then((res) => {
-                this.types = res.data.map((type) => {
-                    return {
-                        ...type,
-                        showRestaurants: false,
-                        filteredRestaurants: [],
-                        originalRestaurants: [],
-                    };
-                });
-                this.getRestaurants();
-            });
-        },
+      getTypes() {
+    axios.get("http://127.0.0.1:8000/api/types").then((res) => {
+        this.types = res.data.map((type) => {
+            return {
+                ...type,
+                showRestaurants: false,
+                filteredRestaurants: [],
+                originalRestaurants: type.restaurants, // Salva una copia dell'elenco originale di ristoranti
+            };
+        });
+        this.getRestaurants();
+    });
+},
+
+//  getTypes() {
+//             axios.get("http://127.0.0.1:8000/api/types").then((res) => {
+//                 this.types = res.data.map((type) => {
+//                     return {
+//                         ...type,
+//                         showRestaurants: false,
+//                         filteredRestaurants: [],
+//                         originalRestaurants: [],
+//                     };
+//                 });
+//                 this.getRestaurants();
+//             });
+//         },
+
 
         getRestaurants() {
             axios.get("http://127.0.0.1:8000/api/restaurants").then((res) => {
@@ -97,41 +130,71 @@ export default {
     },
 
     computed: {
-        filteredTypes() {
-            if (this.search) {
-                return this.types.filter((type) => {
-                    return (
-                        type.name
-                            .toLowerCase()
-                            .includes(this.search.toLowerCase()) ||
-                        (type.restaurants &&
-                            type.restaurants.some((restaurant) =>
-                                restaurant.name
-                                    .toLowerCase()
-                                    .includes(this.search.toLowerCase())
-                            ))
-                    );
-                });
-            } else {
-                return this.types;
-            }
-        },
+    filteredTypes() {
+        if (this.search) {
+            return this.types.filter((type) => {
+                return (
+                    type.name
+                        .toLowerCase()
+                        .includes(this.search.toLowerCase()) ||
+                    (type.restaurants &&
+                        type.restaurants.some((restaurant) =>
+                            restaurant.name
+                                .toLowerCase()
+                                .includes(this.search.toLowerCase())
+                        ))
+                );
+            });
+        } else {
+            return this.types;
+        }
     },
+},
 
     watch: {
-        search(val) {
-            if (val) {
-                this.types.forEach((type) => {
-                    type.filteredRestaurants = type.originalRestaurants.filter(
-                        (restaurant) => {
-                            return restaurant.name
-                                .toLowerCase()
-                                .includes(val.toLowerCase());
-                        }
-                    );
-                });
-            }
-        },
+    search(val) {
+        if (val) {
+            this.types.forEach((type) => {
+                type.filteredRestaurants = type.originalRestaurants.filter(
+                    (restaurant) => {
+                        return restaurant.name
+                            .toLowerCase()
+                            .includes(val.toLowerCase());
+                    }
+                );
+            });
+        }
+    },
+
+    // watch: {
+    //     search(val) {
+    //         if (val) {
+    //             this.types.forEach((type) => {
+    //                 type.filteredRestaurants = type.originalRestaurants.filter(
+    //                     (restaurant) => {
+    //                         return restaurant.name
+    //                             .toLowerCase()
+    //                             .includes(val.toLowerCase());
+    //                     }
+    //                 );
+    //             });
+    //         }
+    //     },
+
+    filteredTypes(val) {
+        if (!this.search) {
+            this.types.forEach((type) => {
+                type.showRestaurants = false;
+                type.filteredRestaurants = type.originalRestaurants; // Ripristina l'elenco completo di ristoranti
+            });
+        } else {
+            val.forEach((type) => {
+                type.showRestaurants = true;
+            });
+        }
+    },
+},
+
 
         filteredTypes(val) {
             if (!this.search) {
@@ -144,8 +207,8 @@ export default {
                 });
             }
         },
-    },
-};
+    }
+
 </script>
 <style>
 .inp-sty {

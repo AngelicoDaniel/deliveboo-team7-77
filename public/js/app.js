@@ -1967,7 +1967,8 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
   data: function data() {
     return {
       types: [],
-      search: ""
+      search: "",
+      selectedType: ""
     };
   },
   methods: {
@@ -1978,12 +1979,26 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
           return _objectSpread(_objectSpread({}, type), {}, {
             showRestaurants: false,
             filteredRestaurants: [],
-            originalRestaurants: []
+            originalRestaurants: type.restaurants // Salva una copia dell'elenco originale di ristoranti
           });
         });
+
         _this.getRestaurants();
       });
     },
+    //  getTypes() {
+    //             axios.get("http://127.0.0.1:8000/api/types").then((res) => {
+    //                 this.types = res.data.map((type) => {
+    //                     return {
+    //                         ...type,
+    //                         showRestaurants: false,
+    //                         filteredRestaurants: [],
+    //                         originalRestaurants: [],
+    //                     };
+    //                 });
+    //                 this.getRestaurants();
+    //             });
+    //         },
     getRestaurants: function getRestaurants() {
       var _this2 = this;
       axios__WEBPACK_IMPORTED_MODULE_0___default().get("http://127.0.0.1:8000/api/restaurants").then(function (res) {
@@ -2029,16 +2044,42 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
         });
       }
     },
+    // watch: {
+    //     search(val) {
+    //         if (val) {
+    //             this.types.forEach((type) => {
+    //                 type.filteredRestaurants = type.originalRestaurants.filter(
+    //                     (restaurant) => {
+    //                         return restaurant.name
+    //                             .toLowerCase()
+    //                             .includes(val.toLowerCase());
+    //                     }
+    //                 );
+    //             });
+    //         }
+    //     },
     filteredTypes: function filteredTypes(val) {
       if (!this.search) {
         this.types.forEach(function (type) {
           type.showRestaurants = false;
+          type.filteredRestaurants = type.originalRestaurants; // Ripristina l'elenco completo di ristoranti
         });
       } else {
         val.forEach(function (type) {
           type.showRestaurants = true;
         });
       }
+    }
+  },
+  filteredTypes: function filteredTypes(val) {
+    if (!this.search) {
+      this.types.forEach(function (type) {
+        type.showRestaurants = false;
+      });
+    } else {
+      val.forEach(function (type) {
+        type.showRestaurants = true;
+      });
     }
   }
 });
@@ -2589,55 +2630,48 @@ var render = function render() {
     _c = _vm._self._c;
   return _c("div", {
     staticClass: "text-start"
-  }, [_c("input", {
+  }, [_c("select", {
     directives: [{
       name: "model",
       rawName: "v-model",
-      value: _vm.search,
-      expression: "search"
+      value: _vm.selectedType,
+      expression: "selectedType"
     }],
-    staticClass: "inp-sty",
-    attrs: {
-      type: "text",
-      placeholder: "Search restaurant type"
-    },
-    domProps: {
-      value: _vm.search
-    },
+    staticClass: "form-select",
     on: {
-      input: function input($event) {
-        if ($event.target.composing) return;
-        _vm.search = $event.target.value;
+      change: function change($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
+          return o.selected;
+        }).map(function (o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val;
+        });
+        _vm.selectedType = $event.target.multiple ? $$selectedVal : $$selectedVal[0];
       }
     }
-  }), _vm._v(" "), _c("div", {
-    staticClass: "container-fluid"
-  }, [_c("div", {
-    staticClass: "row"
-  }, [_c("div", {
-    staticClass: "col-lg-12 col-md-6 col-sm-3"
-  }, [_c("ul", {
-    staticClass: "text-white fs-5 list-unstyled d-flex justify-content-between flex-wrap"
-  }, _vm._l(_vm.filteredTypes, function (elem) {
-    return _c("li", {
-      key: elem.id,
-      staticClass: "list-type py-2 px-4 my-md-3 my-sm-2"
-    }, [_c("router-link", {
-      staticClass: "nav-link active",
-      attrs: {
-        "aria-current": "page",
-        to: "/types/".concat(elem.name)
+  }, [_c("option", {
+    attrs: {
+      value: ""
+    }
+  }, [_vm._v("Seleziona un tipo di ristorante")]), _vm._v(" "), _vm._l(_vm.filteredTypes, function (type) {
+    return _c("option", {
+      key: type.id,
+      domProps: {
+        value: type.id
       }
-    }, [_vm._v(_vm._s(elem.name))]), _vm._v(" "), elem.showRestaurants ? _c("ul", _vm._l(elem.restaurants, function (restaurant) {
-      return _c("li", {
-        key: restaurant.id
-      }, [_c("router-link", {
-        attrs: {
-          to: "/dishes/".concat(restaurant.id)
-        }
-      }, [_vm._v(_vm._s(restaurant.name))])], 1);
-    }), 0) : _vm._e()], 1);
-  }), 0)])])])]);
+    }, [_vm._v("\n      " + _vm._s(type.name) + "\n    ")]);
+  })], 2), _vm._v(" "), _vm.selectedType ? _c("div", [_c("ul", _vm._l(_vm.types.find(function (t) {
+    return t.id === _vm.selectedType;
+  }).restaurants, function (restaurant) {
+    return _c("li", {
+      key: restaurant.id,
+      staticClass: "text-light"
+    }, [_c("router-link", {
+      attrs: {
+        to: "/dishes/".concat(restaurant.id)
+      }
+    }, [_vm._v(_vm._s(restaurant.name))])], 1);
+  }), 0)]) : _vm._e()]);
 };
 var staticRenderFns = [];
 render._withStripped = true;
@@ -7380,7 +7414,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.inp-sty {\r\n    padding: 10px;\r\n    border-radius: 20px;\r\n    width: 30%;\r\n    margin: 30px 0px;\r\n    border: 0;\n}\n.list-type {\r\n    background-color: #00ccbc;\r\n    border-radius: 15px;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.inp-sty {\n    padding: 10px;\n    border-radius: 20px;\n    width: 30%;\n    margin: 30px 0px;\n    border: 0;\n}\n.list-type {\n    background-color: #00ccbc;\n    border-radius: 15px;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -7404,7 +7438,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.hero {\r\n  background-image: url(\"/images/pexels-valeria-boltneva-1639562.jpg\");\r\n  background-size: cover;\r\n  background-repeat: no-repeat;\r\n  background-position: center;\r\n  padding: 165.7px;\r\n  height: 100%;\n}\n.domicilio-span {\r\n  color: #00ccbc;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.hero {\n  background-image: url(\"/images/pexels-valeria-boltneva-1639562.jpg\");\n  background-size: cover;\n  background-repeat: no-repeat;\n  background-position: center;\n  padding: 165.7px;\n  height: 100%;\n}\n.domicilio-span {\n  color: #00ccbc;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
