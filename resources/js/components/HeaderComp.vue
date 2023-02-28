@@ -19,7 +19,7 @@
                                 :to="{ name: 'home' }">Home</router-link>
                         </li>
 
-
+                        
                         <li>
                             <router-link class="nav-link active" aria-current="page"
                                 :to="{ name: 'cart' }">Carrello</router-link>
@@ -49,6 +49,7 @@ export default {
 };
 </script>
 <style>
+
 .img-logo {
     width: 170px;
 }
