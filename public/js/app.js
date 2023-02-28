@@ -2078,16 +2078,6 @@ __webpack_require__.r(__webpack_exports__);
       this.TotalPrice = 0;
       localStorage.removeItem("cart");
       localStorage.removeItem("priceCart");
-    },
-    //   removeData() {
-    //     localStorage.clear();
-    //     location.reload(); // ricarica la pagina per visualizzare i dati aggiornati
-    //   },
-    removeItem: function removeItem(index) {
-      this.cart.splice(index, 1); // rimuovi l'elemento dalla posizione "index"
-      this.TotalPrice.splice(index, 1); // rimuovi il prezzo corrispondente dall'array "TotalPrice"
-      localStorage.setItem("cart", this.cart.toString());
-      localStorage.setItem("priceCart", this.TotalPrice.toString());
     }
   }
 });
@@ -2655,13 +2645,7 @@ var render = function render() {
   }, [_c("h3", [_vm._v("I tuoi Piatti")]), _vm._v(" "), _vm._l(_vm.cart, function (item, index) {
     return _c("li", {
       key: index
-    }, [_vm._v("\n      " + _vm._s(item) + " -\n      "), _c("button", {
-      on: {
-        click: function click($event) {
-          return _vm.removeItem(index);
-        }
-      }
-    }, [_vm._v("Elimina")])]);
+    }, [_vm._v(_vm._s(item) + " -")]);
   })], 2), _vm._v(" "), _c("div", {
     staticClass: "m-3"
   }, [_c("h4", [_vm._v("Prezzo totale:")]), _vm._v("\n    " + _vm._s(this.TotalPrice[0]) + "\n  ")]), _vm._v(" "), _c("div", {
