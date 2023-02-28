@@ -3,7 +3,7 @@
     <!-- <HeaderComp/> -->
     <div class="container">
       <div class="row">
-        <div class="col-12 text-white">
+        <div class="col-12 text-white text-center">
           <h1>
             I piatti dei ristoranti che ami,
             <span class="domicilio-span">a domicilio</span>

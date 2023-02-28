@@ -2629,7 +2629,9 @@ var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", {
-    staticClass: "text-start"
+    staticClass: "text-center"
+  }, [_c("div", {
+    staticClass: "d-flex justify-content-center"
   }, [_c("select", {
     directives: [{
       name: "model",
@@ -2662,18 +2664,32 @@ var render = function render() {
       domProps: {
         value: type.id
       }
-    }, [_vm._v("\n            " + _vm._s(type.name) + "\n        ")]);
-  })], 2), _vm._v(" "), _vm.selectedType ? _c("div", [_c("ul", _vm._l(_vm.types.find(function (t) {
+    }, [_vm._v("\n        " + _vm._s(type.name) + "\n      ")]);
+  })], 2)]), _vm._v(" "), _vm.selectedType ? _c("div", [_c("div", {
+    staticClass: "card-deck d-flex"
+  }, _vm._l(_vm.types.find(function (t) {
     return t.id === _vm.selectedType;
   }).restaurants, function (restaurant) {
-    return _c("li", {
+    return _c("div", {
       key: restaurant.id,
-      staticClass: "text-light"
+      staticClass: "card"
     }, [_c("router-link", {
       attrs: {
         to: "/dishes/".concat(restaurant.id)
       }
-    }, [_vm._v(_vm._s(restaurant.name))])], 1);
+    }, [_c("img", {
+      staticClass: "card-img-top",
+      attrs: {
+        src: restaurant.image_logo,
+        alt: restaurant.name
+      }
+    }), _vm._v(" "), _c("div", {
+      staticClass: "card-body"
+    }, [_c("h5", {
+      staticClass: "card-titl"
+    }, [_vm._v(_vm._s(restaurant.name))]), _vm._v(" "), _c("p", {
+      staticClass: "card-tex"
+    }, [_vm._v("Indirizzo: " + _vm._s(restaurant.address))])])])], 1);
   }), 0)]) : _vm._e()]);
 };
 var staticRenderFns = [];
@@ -2794,7 +2810,7 @@ var staticRenderFns = [function () {
   return _c("div", {
     staticClass: "row"
   }, [_c("div", {
-    staticClass: "col-12 text-white"
+    staticClass: "col-12 text-white text-center"
   }, [_c("h1", [_vm._v("\n          I piatti dei ristoranti che ami,\n          "), _c("span", {
     staticClass: "domicilio-span"
   }, [_vm._v("a domicilio")])])])]);
@@ -7393,7 +7409,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.img-logo {\n    width: 170px;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.img-logo {\r\n    width: 170px;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -7417,7 +7433,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.inp-sty {\n    padding: 10px;\n    border-radius: 20px;\n    width: 30%;\n    margin: 30px 0px;\n    border: 0;\n}\n.list-type {\n    background-color: #00ccbc;\n    border-radius: 15px;\n}\n.list-restaurants {\n    list-style-type: none;\n    text-decoration: none;\n    color: gray;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.inp-sty {\n  padding: 10px;\n  border-radius: 20px;\n  width: 30%;\n  margin: 30px 0px;\n  border: 0;\n}\n.list-type {\n  background-color: #00ccbc;\n  border-radius: 15px;\n}\n.list-restaurants {\n  list-style-type: none;\n  text-decoration: none;\n  color: gray;\n}\n.card{\n    flex-basis: 22%;\n    justify-content: space-between;\n    margin: 10px 10px;\n}\n.card-deck{\n    display: flex;\n    flex-wrap: wrap;\n}\n.card-titl .card-tex{\n    color: white;\n}\nrouter-link{\n    text-decoration: none !important;\n}\n\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
