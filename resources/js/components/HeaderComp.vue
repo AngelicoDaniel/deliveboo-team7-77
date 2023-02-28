@@ -11,23 +11,33 @@
                     </button>
                 </div>
 
-                <div class="collapse navbar-collapse" id="navbarNav ">
-                    <ul class="navbar-nav">
+                <div class="collapse navbar-collapse w-100 d-flex justify-content-between " id="navbarNav">
+                    <ul class="navbar-nav ">
+
                         <li class="nav-item">
                             <router-link class="nav-link active" aria-current="page"
                                 :to="{ name: 'home' }">Home</router-link>
                         </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="http://127.0.0.1:8000/admin">Area Riservata</a>
-                        </li>
+
                         <li>
                             <router-link class="nav-link active" aria-current="page"
                                 :to="{ name: 'cart' }">Carrello</router-link>
                         </li>
+
+
+
+
                     </ul>
+                    <div class="d-flex flex-end w-25">
+
+                        <a class="nav-link text-white" href="http://127.0.0.1:8000/admin">Sei un ristoratore?</a>
+
+                    </div>
                 </div>
+
             </div>
+
         </nav>
     </header>
 </template>
