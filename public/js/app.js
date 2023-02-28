@@ -2193,21 +2193,46 @@ var render = function render() {
     _c = _vm._self._c;
   return _c("div", {
     staticClass: "text-center"
-  }, [_c("h2", {
-    staticClass: "text-center m-5"
-  }, [_vm._v("Menu")]), _vm._v(" "), _c("ul", _vm._l(_vm.dish, function (elem, index) {
-    return _c("li", {
+  }, [_vm._m(0), _vm._v(" "), _vm._l(_vm.dish, function (elem, index) {
+    return _c("div", {
       key: index
-    }, [_vm._v("\n      " + _vm._s(elem.name) + "\n      " + _vm._s(elem.price) + "\n      "), _c("button", {
+    }, [_c("div", {
+      staticClass: "row justify-content-around align-items-center"
+    }, [_c("div", {
+      staticClass: "col-md-6"
+    }, [_c("div", {
+      staticClass: "row justify-content-center"
+    }, [_c("img", {
+      staticClass: "w-100 p-3",
+      attrs: {
+        src: "/storage/" + elem.image,
+        alt: elem.name
+      }
+    })])]), _vm._v(" "), _c("div", {
+      staticClass: "col-md-6 p-3 text-center"
+    }, [_c("h5", [_vm._v(_vm._s(elem.name))]), _vm._v(" "), _c("p", {
+      staticClass: "card-text mb-2 plate_description"
+    }, [_vm._v("\n                    " + _vm._s(elem.description) + "\n                  ")]), _vm._v(" "), _c("p", {
+      staticClass: "card-text mb-3"
+    }, [_vm._v("Prezzo: " + _vm._s(elem.price) + "€")]), _vm._v(" "), _c("button", {
+      staticClass: "btn btn-primary",
       on: {
         click: function click($event) {
           return _vm.addCart(elem.name, elem.price);
         }
       }
-    }, [_vm._v("ADD")])]);
-  }), 0)]);
+    }, [_vm._v("\n                    Aggiungi al Carrello\n                  ")])])])]);
+  })], 2);
 };
-var staticRenderFns = [];
+var staticRenderFns = [function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "row justify-content-center mb-5"
+  }, [_c("h3", {
+    staticClass: "text-center"
+  }, [_vm._v("Seleziona il tuo piatto preferito")])]);
+}];
 render._withStripped = true;
 
 
@@ -7198,6 +7223,30 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 
 }));
 //# sourceMappingURL=bootstrap.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-12.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12.use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/DishCard.vue?vue&type=style&index=0&id=2988c035&scoped=true&lang=scss&":
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-12.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12.use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/DishCard.vue?vue&type=style&index=0&id=2988c035&scoped=true&lang=scss& ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "img.restaurant_img.before-enter[data-v-2988c035] {\n  opacity: 0;\n  transform: translateX(50%) scale(0.5);\n  transition: all 1.5s ease-in-out;\n}\nimg.restaurant_img.enter[data-v-2988c035] {\n  opacity: 1;\n  transform: translateX(0) scale(1);\n}\n.h2_info.before-enter[data-v-2988c035] {\n  opacity: 0;\n  transform: translateX(25%);\n  transition: all 1.5s ease-in-out;\n  transition-delay: 0.5s;\n}\n.h2_info.enter[data-v-2988c035] {\n  opacity: 1;\n  transform: translateX(0);\n}\n.card.plate_card .wrapper_plate_img[data-v-2988c035] {\n  max-width: 230px;\n}\n.card.plate_card.before-enter[data-v-2988c035] {\n  opacity: 0;\n  transform: translateY(100%);\n  transition: all 1s ease-in-out;\n}\n.card.plate_card.enter[data-v-2988c035] {\n  opacity: 1;\n  transform: translateY(0);\n}\n.card_scrollbar[data-v-2988c035]::-webkit-scrollbar {\n  width: 2px;\n}\n.cart_style[data-v-2988c035] {\n  overflow-y: auto;\n  max-height: 500px;\n  border-radius: 5px;\n}\n.full-cart[data-v-2988c035] {\n  border-bottom: 2px solid blue;\n}\n.empty_cart[data-v-2988c035] {\n  border-radius: 5px;\n}\n.cart_animation.before-enter[data-v-2988c035] {\n  opacity: 0;\n  transform: translatey(100%) scale(0.1);\n  transition: all 1.5s ease-in-out;\n}\n.cart_animation.enter[data-v-2988c035] {\n  opacity: 1;\n  transform: translateY(0) scale(1);\n}\n.added_plate.before-enter[data-v-2988c035] {\n  opacity: 0;\n  transform: translateX(-50%);\n  transition: all 0.5s ease-in-out;\n}\n.added_plate.enter[data-v-2988c035] {\n  opacity: 1;\n  transform: translateX(0);\n}\n.ck_border[data-v-2988c035] {\n  border-top: 2px solid blue;\n}\n.fa-circle-plus[data-v-2988c035],\n.fa-circle-minus[data-v-2988c035] {\n  transition: transform 0.25s ease-in-out;\n}\n.fa-circle-plus[data-v-2988c035]:hover,\n.fa-circle-minus[data-v-2988c035]:hover {\n  cursor: pointer;\n  transform: scale(1.3);\n}", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
 
 /***/ }),
@@ -21250,6 +21299,36 @@ process.umask = function() { return 0; };
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-12.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12.use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/DishCard.vue?vue&type=style&index=0&id=2988c035&scoped=true&lang=scss&":
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-12.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12.use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/DishCard.vue?vue&type=style&index=0&id=2988c035&scoped=true&lang=scss& ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_clonedRuleSet_12_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_12_use_2_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_12_use_3_node_modules_vue_loader_lib_index_js_vue_loader_options_DishCard_vue_vue_type_style_index_0_id_2988c035_scoped_true_lang_scss___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-12.use[1]!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12.use[2]!../../../node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12.use[3]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./DishCard.vue?vue&type=style&index=0&id=2988c035&scoped=true&lang=scss& */ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-12.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12.use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/DishCard.vue?vue&type=style&index=0&id=2988c035&scoped=true&lang=scss&");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_12_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_12_use_2_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_12_use_3_node_modules_vue_loader_lib_index_js_vue_loader_options_DishCard_vue_vue_type_style_index_0_id_2988c035_scoped_true_lang_scss___WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_clonedRuleSet_12_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_12_use_2_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_12_use_3_node_modules_vue_loader_lib_index_js_vue_loader_options_DishCard_vue_vue_type_style_index_0_id_2988c035_scoped_true_lang_scss___WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-12.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12.use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/FooterComp.vue?vue&type=style&index=0&id=09ff8af5&lang=scss&scoped=true&":
 /*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-12.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12.use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/FooterComp.vue?vue&type=style&index=0&id=09ff8af5&lang=scss&scoped=true& ***!
@@ -21731,15 +21810,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _DishCard_vue_vue_type_template_id_2988c035_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./DishCard.vue?vue&type=template&id=2988c035&scoped=true& */ "./resources/js/components/DishCard.vue?vue&type=template&id=2988c035&scoped=true&");
 /* harmony import */ var _DishCard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./DishCard.vue?vue&type=script&lang=js& */ "./resources/js/components/DishCard.vue?vue&type=script&lang=js&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _DishCard_vue_vue_type_style_index_0_id_2988c035_scoped_true_lang_scss___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./DishCard.vue?vue&type=style&index=0&id=2988c035&scoped=true&lang=scss& */ "./resources/js/components/DishCard.vue?vue&type=style&index=0&id=2988c035&scoped=true&lang=scss&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
+;
 
 
 /* normalize component */
-;
-var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
   _DishCard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _DishCard_vue_vue_type_template_id_2988c035_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
   _DishCard_vue_vue_type_template_id_2988c035_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
@@ -22405,6 +22486,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_RestaurantPage_vue_vue_type_template_id_6b773735_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_RestaurantPage_vue_vue_type_template_id_6b773735_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./RestaurantPage.vue?vue&type=template&id=6b773735&scoped=true& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/RestaurantPage.vue?vue&type=template&id=6b773735&scoped=true&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/DishCard.vue?vue&type=style&index=0&id=2988c035&scoped=true&lang=scss&":
+/*!********************************************************************************************************!*\
+  !*** ./resources/js/components/DishCard.vue?vue&type=style&index=0&id=2988c035&scoped=true&lang=scss& ***!
+  \********************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_12_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_12_use_2_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_12_use_3_node_modules_vue_loader_lib_index_js_vue_loader_options_DishCard_vue_vue_type_style_index_0_id_2988c035_scoped_true_lang_scss___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader/dist/cjs.js!../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-12.use[1]!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12.use[2]!../../../node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12.use[3]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./DishCard.vue?vue&type=style&index=0&id=2988c035&scoped=true&lang=scss& */ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-12.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12.use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/DishCard.vue?vue&type=style&index=0&id=2988c035&scoped=true&lang=scss&");
 
 
 /***/ }),
