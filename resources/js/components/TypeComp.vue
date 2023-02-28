@@ -24,11 +24,11 @@
                                 >{{ elem.name }}</router-link
                             >
                             <ul v-if="elem.showRestaurants">
-                                <li
+                                <li class="list-restaurants"
                                     v-for="restaurant in elem.restaurants"
                                     :key="restaurant.id"
                                 >
-                                    <router-link
+                                    <router-link class="list-restaurants"
                                         :to="`/dishes/${restaurant.id}`"
                                         >{{ restaurant.name }}</router-link
                                     >
@@ -159,5 +159,11 @@ export default {
 .list-type {
     background-color: #00ccbc;
     border-radius: 15px;
+}
+
+.list-restaurants{
+  list-style-type: none;
+  text-decoration: none;
+  color: gray;
 }
 </style>

@@ -30,7 +30,7 @@
 
         <!-- -------------------------------------------------------- -->
 
-        <div class="container my-4">
+        <div class="container my-4 w-25">
 
 
             <div class="row justify-content-center my-5" v-for="(elem, index) in dish" :key="index">
@@ -104,6 +104,10 @@ export default {
 
 
 <style scoped lang="scss">
+
+/* .card{
+    width: 50%;
+} */
 img.restaurant_img {
     &.before-enter {
         opacity: 0;
