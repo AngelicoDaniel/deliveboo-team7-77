@@ -9,7 +9,7 @@
           <li>{{ item }}</li>
         </div>
       </div>
-      
+
       <div class="p-4">
       <button class="btn-danger" @click="removeCart()">Svuota Carrello</button>
     </div>

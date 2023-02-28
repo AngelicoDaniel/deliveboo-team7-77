@@ -91,7 +91,9 @@ export default {
             this.totalPrice += parseFloat(price);
             localStorage.setItem("cart", this.cart);
             localStorage.setItem("priceCart", this.totalPrice);
+            alert("Piatto aggiunto al carrello!");
         },
+
         removeCart() {
             this.cart = [];
             this.totalPrice = 0;

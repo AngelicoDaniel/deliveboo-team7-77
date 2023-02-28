@@ -1855,6 +1855,7 @@ __webpack_require__.r(__webpack_exports__);
       this.totalPrice += parseFloat(price);
       localStorage.setItem("cart", this.cart);
       localStorage.setItem("priceCart", this.totalPrice);
+      alert("Piatto aggiunto al carrello!");
     },
     removeCart: function removeCart() {
       this.cart = [];
@@ -2440,7 +2441,7 @@ var render = function render() {
       alt: ""
     }
   })]), _vm._v(" "), _vm._m(0)], 1), _vm._v(" "), _c("div", {
-    staticClass: "collapse navbar-collapse d-flex justify-content-between",
+    staticClass: "collapse navbar-collapse w-100 d-flex justify-content-between",
     attrs: {
       id: "navbarNav"
     }
