@@ -17,13 +17,34 @@ class TypeSeeder extends Seeder
         $restaurants = User::all()->pluck('id');
         $types = [
             'pizzeria',
-            'sushi',
-            'trattoria',
-            'fast food',
+            'italiano',
             'cinese',
-            'street food',
-            'vegano',
+            'giapponese',
+            'messicano',
+            'indiano',
+            'pesce',
+            'carne',
             'vegetariano',
+            'senza glutine',
+            'americano',
+            'dessert',
+            'gelato',
+            'poke',
+
+        ];
+        $restaurantTypes = [
+            1 => [1, 2, 7, 8], // O'Pizzaiuolo
+            2 => [1, 2, 7, 8], // Pizzeria da Ciro
+            3 => [4, 7], // Hokkaido
+            4 => [11, 7, 8], // Streat Piombo
+            5 => [10], // Gluten Free
+            6 => [3, 8, 7], //Hang Zhou
+            7 => [4, 7], //Hachi
+            8 => [13, 12], //Scimmia
+            9 => [14], //pokémon
+            10 => [9], //cavoli
+            11 => [6, 7, 8], //shabababa
+            12 => [5] //mexican ziocan
         ];
 
         foreach ($types as $type) {
@@ -31,7 +52,10 @@ class TypeSeeder extends Seeder
             $objType->name = $type;
             $objType->save();
 
-            $objType->users()->attach($faker->randomElements($restaurants, rand(1, (count($restaurants) > 5) ? 5 : count($restaurants))));
-        }
-    }
-}
+            foreach ($restaurantTypes as $restaurantId => $preferredTypes) {
+                if (in_array($objType->id, $preferredTypes)) {
+                    $restaurant = User::find($restaurantId);
+                    $objType->users()->attach($restaurant);}
+
+} }
+}}

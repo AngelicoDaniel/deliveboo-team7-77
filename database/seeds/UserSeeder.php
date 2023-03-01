@@ -12,7 +12,7 @@ class UserSeeder extends Seeder
      *
      * @return void
      */
-    public function run(Faker $faker)
+    public function run()
     {
         $restaurants = [
             // [
@@ -46,6 +46,12 @@ class UserSeeder extends Seeder
                 "address" => 'Via Toledo, 8 - Napoli',
                 "PIVA" => '12548951657',
                 "image_logo" => 'images/restaurants/pizzaiuolo.jpg',
+                "type_id" => [
+                    1,
+                    2,
+                    7,
+                    8
+                ]
             ],
             [
                 "name" => "Pizzeria da Ciro",
@@ -55,6 +61,12 @@ class UserSeeder extends Seeder
                 "PIVA" => '15548956657',
                 "description" => 'La pizza più buona di Napoli',
                 "image_logo" => 'images/restaurants/daciro.jpg',
+                "type_id" => [
+                    1,
+                    2,
+                    7,
+                    8
+                ]
             ],
             [
                 "name" => "Hokkaido",
@@ -64,6 +76,10 @@ class UserSeeder extends Seeder
                 "PIVA" => '85416378925',
                 "description" => 'Barche di sushi e tempura, anche nella formula all you can eat, in locale con cucina a vista e arredi minimal.',
                 "image_logo" => 'images/restaurants/hokkaido.jpg',
+                "type_id" => [
+                    4,
+                    7,
+                ]
             ],
             [
                 "name" => "Streat Piombo",
@@ -73,6 +89,11 @@ class UserSeeder extends Seeder
                 "PIVA" => '69542031025',
                 "description" => 'Ristorante Americano, con una vasta gamma di piatti, da tutte le epoche.',
                 "image_logo" => 'images/restaurants/piombo.jpg',
+                "type_id" => [
+                    11,
+                    7,
+                    8
+                ]
             ],
             [
                 "name" => "Gluten Free",
@@ -82,6 +103,9 @@ class UserSeeder extends Seeder
                 "PIVA" => '15587956887',
                 "description" => 'Il cibo gluten free più buono di tutti',
                 "image_logo" => 'images/restaurants/gluten.jpg',
+                "type_id" => [
+                    10,
+                ]
             ],
             [
                 "name" => "Hang Zhou",
@@ -91,6 +115,12 @@ class UserSeeder extends Seeder
                 "PIVA" => '10000568487',
                 "description" => "Specialità cinesi servite in porzioni abbondanti e abbellite da decorazioni di verdure.",
                 "image_logo" => 'images/restaurants/zhou.jpg',
+                "type_id" => [
+                    3,
+                    8,
+                    7,
+
+                ]
             ],
             [
                 "name" => "Hachi Ristorante Giapponese",
@@ -100,6 +130,10 @@ class UserSeeder extends Seeder
                 "PIVA" => '95100236654',
                 "description" => 'Ristorante giapponese',
                 "image_logo" => 'images/restaurants/hachi.jpg',
+                "type_id" => [
+                    4,
+                    7,
+                ]
             ],
             [
                 "name" => "La Scimmietta",
@@ -109,6 +143,10 @@ class UserSeeder extends Seeder
                 "PIVA" => '10855688879',
                 "description" => "Semifreddi, gelati artigianali e gusti originali serviti in un ambiente dal clima allegro e pareti colorate.",
                 "image_logo" => 'images/restaurants/scimmietta.jpg',
+                "type_id" => [
+                    13,
+                    12,
+                ]
             ],
             [
                 "name" => "Poke House",
@@ -118,6 +156,10 @@ class UserSeeder extends Seeder
                 "PIVA" => '78855689979',
                 "description" => 'Che pokè!',
                 "image_logo" => 'images/restaurants/pokehouse.jpg',
+                "type_id" => [
+                    14,
+
+                ]
             ],
             [
                 "name" => "Cavoli Nostri",
