@@ -40,7 +40,7 @@
                     {{ elem.description }}
                 </p>
                 <p class="card-text mb-3">Prezzo: {{ elem.price }}€</p>
-                <button @click="addCart(elem.name, elem.price)" class="btn btn-primary w-25">
+                <button @click="addCart(elem.name, elem.price , elem.id, elem.user_id)" class="btn btn-primary w-25">
                     Aggiungi al Carrello
                 </button>
 
@@ -86,8 +86,15 @@ export default {
                 });
         },
 
-        addCart(name, price) {
-            this.cart.push(name);
+        addCart(name, price,id,user_id) {
+            this.cart.push({
+                id: id,
+               name: name,
+               price: price,
+               user_id: user_id
+            }
+
+            );
             this.totalPrice += parseFloat(price);
             localStorage.setItem("cart", this.cart);
             localStorage.setItem("priceCart", this.totalPrice);

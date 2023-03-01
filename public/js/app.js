@@ -1850,8 +1850,13 @@ __webpack_require__.r(__webpack_exports__);
         console.log(err);
       });
     },
-    addCart: function addCart(name, price) {
-      this.cart.push(name);
+    addCart: function addCart(name, price, id, user_id) {
+      this.cart.push({
+        id: id,
+        name: name,
+        price: price,
+        user_id: user_id
+      });
       this.totalPrice += parseFloat(price);
       localStorage.setItem("cart", this.cart);
       localStorage.setItem("priceCart", this.totalPrice);
@@ -2249,7 +2254,7 @@ var render = function render() {
       staticClass: "btn btn-primary w-25",
       on: {
         click: function click($event) {
-          return _vm.addCart(elem.name, elem.price);
+          return _vm.addCart(elem.name, elem.price, elem.id, elem.user_id);
         }
       }
     }, [_vm._v("\n                Aggiungi al Carrello\n            ")])]);
