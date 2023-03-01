@@ -51,103 +51,61 @@
 
 <script>
 export default {
-    name: "DishCard",
+  name: "DishCard",
 
-    data() {
-        return {
-            dish: [],
-            cart: [],
-            totalPrice: localStorage.getItem("priceCart") || 0,
-        };
+  data() {
+    return {
+      dish: [],
+      cart: [],
+    };
+  },
+
+  mounted() {
+    this.getDish();
+
+    localStorage
+      .getItem("cart")
+      .split(",")
+      .forEach((element) => {
+        this.cart.push(element);
+      });
+  },
+  methods: {
+    getDish() {
+      axios
+        .get("http://127.0.0.1:8000/api/dishes/" + this.$route.params.user_id)
+        .then((res) => {
+          this.dish = res.data;
+          console.log(this.dish);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     },
 
-    mounted() {
-        this.getDish();
-
-        localStorage
-            .getItem("cart")
-            .split(",")
-            .forEach((element) => {
-                this.cart.push(element);
-            });
-    },
-    methods: {
-        getDish() {
-            axios
-                .get("http://127.0.0.1:8000/api/dishes/" + this.$route.params.user_id)
-                .then((res) => {
-                    this.dish = res.data;
-                    console.log(this.dish);
-                })
-                .catch((err) => {
-                    console.log(err);
-                });
-        },
-
-        // addCart(name, price,id,user_id) {
-
-
-        //     this.cart.push({
-        //         id: id,
-        //        name: name,
-        //        price: price,
-        //        user_id: user_id
-        //     }
-
-        //     );
-        //     this.totalPrice += parseFloat(price);
-        //     localStorage.setItem("cart", this.cart);
-        //     localStorage.setItem("priceCart", this.totalPrice);
-        //     alert("Piatto aggiunto al carrello!");
-        // },
-
-
-
-    addCart(name, price,id,user_id) {
+    addCart(name, price, id, user_id) {
       if (this.cart.length > 0 && user_id != this.cart[0].user_id) {
-        // Swal.fire({
-        //   icon: "error",
-        //   title: "Oops...",
-        //   text: "Puoi comprare da un solo ristoratore per volta!",
-        //   showCloseButton: true,
-        // });
-        alert("Non Puoi Aggiungere piatti di altri ristoranti!!!");
-      }  else {
-         this.cart.push({
-                id: id,
-               name: name,
-               price: price,
-               user_id: user_id
-            }
-
-            ),
-          this.totalPrice += parseFloat(price);
-            localStorage.setItem("cart", JSON.stringify(this.cart));
-            localStorage.setItem("priceCart", this.totalPrice);
-            alert("Piatto aggiunto al carrello!");
-        }
-      },
-
-
-
-
-
-
-
-
-
-
-
-
-        removeCart() {
-            this.cart = [];
-            this.totalPrice = 0;
-            localStorage.removeItem("cart");
-            localStorage.removeItem("priceCart");
-        },
+        alert("Non Puoi inserire piatti di altri ristoranti nel carrello!!");
+      } else {
+        this.cart.push({
+          id: id,
+          name: name,
+          price: price,
+          user_id: user_id,
+        }),
+          localStorage.setItem("cart", JSON.stringify(this.cart));
+        alert("Piatto aggiunto al carrello!");
+      }
     },
-}
 
+    removeCart() {
+      this.cart = [];
+      this.totalPrice = 0;
+      localStorage.removeItem("cart");
+      localStorage.removeItem("priceCart");
+    },
+  },
+};
 </script>
 
 
