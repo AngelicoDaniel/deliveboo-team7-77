@@ -10,7 +10,7 @@
           v-for="(elem, index) in dish"
           :key="index"
           class="card"
-          :style="{ backgroundImage: `url(${elem.image})` }"
+          :style="{ backgroundImage: `url(/storage/${elem.image})` }"
         >
           <div class="card-overlay">
             <h5 class="card-title">{{ elem.name }}</h5>
