@@ -1850,17 +1850,39 @@ __webpack_require__.r(__webpack_exports__);
         console.log(err);
       });
     },
+    // addCart(name, price,id,user_id) {
+    //     this.cart.push({
+    //         id: id,
+    //        name: name,
+    //        price: price,
+    //        user_id: user_id
+    //     }
+    //     );
+    //     this.totalPrice += parseFloat(price);
+    //     localStorage.setItem("cart", this.cart);
+    //     localStorage.setItem("priceCart", this.totalPrice);
+    //     alert("Piatto aggiunto al carrello!");
+    // },
     addCart: function addCart(name, price, id, user_id) {
-      this.cart.push({
-        id: id,
-        name: name,
-        price: price,
-        user_id: user_id
-      });
-      this.totalPrice += parseFloat(price);
-      localStorage.setItem("cart", this.cart);
-      localStorage.setItem("priceCart", this.totalPrice);
-      alert("Piatto aggiunto al carrello!");
+      if (this.cart.length > 0 && user_id != this.cart[0].user_id) {
+        // Swal.fire({
+        //   icon: "error",
+        //   title: "Oops...",
+        //   text: "Puoi comprare da un solo ristoratore per volta!",
+        //   showCloseButton: true,
+        // });
+        alert("Non Puoi Aggiungere piatti di altri ristoranti!!!");
+      } else {
+        this.cart.push({
+          id: id,
+          name: name,
+          price: price,
+          user_id: user_id
+        }), this.totalPrice += parseFloat(price);
+        localStorage.setItem("cart", this.cart);
+        localStorage.setItem("priceCart", this.totalPrice);
+        alert("Piatto aggiunto al carrello!");
+      }
     },
     removeCart: function removeCart() {
       this.cart = [];
@@ -2248,7 +2270,7 @@ var render = function render() {
       staticClass: "row justify-content-center my-5"
     }, [_c("h5", [_vm._v(_vm._s(elem.name))]), _vm._v(" "), _c("p", {
       staticClass: "card-text mb-2 plate_description"
-    }, [_vm._v("\n                " + _vm._s(elem.description) + "\n            ")]), _vm._v(" "), _c("p", {
+    }, [_vm._v("\n        " + _vm._s(elem.description) + "\n      ")]), _vm._v(" "), _c("p", {
       staticClass: "card-text mb-3"
     }, [_vm._v("Prezzo: " + _vm._s(elem.price) + "€")]), _vm._v(" "), _c("button", {
       staticClass: "btn btn-primary w-25",
@@ -2257,7 +2279,7 @@ var render = function render() {
           return _vm.addCart(elem.name, elem.price, elem.id, elem.user_id);
         }
       }
-    }, [_vm._v("\n                Aggiungi al Carrello\n            ")])]);
+    }, [_vm._v("\n        Aggiungi al Carrello\n      ")])]);
   }), 0)]);
 };
 var staticRenderFns = [function () {
