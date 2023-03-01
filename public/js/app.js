@@ -2139,6 +2139,14 @@ __webpack_require__.r(__webpack_exports__);
       this.cart.forEach(function (elem) {
         _this.TotalPrice += elem.price;
       });
+    },
+    validateForm: function validateForm() {
+      if (this.cart.length === 0) {
+        alert("Il carrello è vuoto");
+      } else {
+        this.formValidated = true;
+        alert("Il pagamento è andato a buon fine");
+      }
     }
   }
 });
@@ -2869,7 +2877,16 @@ var render = function render() {
     staticClass: "py-2"
   }, [_vm._v("Prezzo totale:")]), _vm._v(" "), _c("h5", {
     staticClass: "my-4"
-  }, [_vm._v(_vm._s(this.TotalPrice) + " €")]), _vm._v(" "), _vm._m(4)])])])])])]);
+  }, [_vm._v(_vm._s(this.TotalPrice) + " €")]), _vm._v(" "), _c("div", {
+    staticClass: "d-flex justify-content-center"
+  }, [_c("button", {
+    staticClass: "btn-danger mt-2 mb-4",
+    on: {
+      click: function click($event) {
+        return _vm.validateForm();
+      }
+    }
+  }, [_vm._v("\n                          Paga Il tuo Ordine\n                        ")])])])])])])])]);
 };
 var staticRenderFns = [function () {
   var _vm = this,
@@ -2919,14 +2936,6 @@ var staticRenderFns = [function () {
   }, [_vm._v("Email "), _c("span", {
     staticClass: "text-danger"
   }, [_vm._v("*")])]);
-}, function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("div", {
-    staticClass: "d-flex justify-content-center"
-  }, [_c("button", {
-    staticClass: "btn-danger mt-2 mb-4"
-  }, [_vm._v("\n                          Paga Il tuo Ordine\n                        ")])]);
 }];
 render._withStripped = true;
 

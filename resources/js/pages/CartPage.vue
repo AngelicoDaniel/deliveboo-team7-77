@@ -117,7 +117,7 @@
                           <!-- bottone conferma dati -->
                         <div class="d-flex justify-content-center">
                           <button
-
+                            @click="validateForm()"
                             class="btn-danger mt-2 mb-4"
                           >
                             Paga Il tuo Ordine
@@ -182,8 +182,23 @@ export default {
         this.TotalPrice += elem.price;
       });
     },
-  },
-};
+
+
+
+       validateForm() {
+      if (this.cart.length === 0) {
+        alert("Il carrello è vuoto");
+
+      } else {
+
+          this.formValidated = true;
+
+          alert("Il pagamento è andato a buon fine");
+        }
+      }
+    },
+  }
+
 </script>
 
 <style scoped lang="scss">
