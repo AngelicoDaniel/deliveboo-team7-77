@@ -2107,7 +2107,12 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       cart: [],
-      TotalPrice: 0
+      TotalPrice: 0,
+      customer_name: null,
+      address: null,
+      email: null,
+      ship_cost: null,
+      order_number: null
     };
   },
   mounted: function mounted() {
@@ -2744,7 +2749,7 @@ var render = function render() {
           return _vm.removeCartItem(index);
         }
       }
-    }, [_vm._v("Rimuovi")])])]);
+    }, [_vm._v("\n            Rimuovi\n          ")])])]);
   }), _vm._v(" "), _c("div", {
     staticClass: "p-4"
   }, [_c("button", {
@@ -2754,7 +2759,7 @@ var render = function render() {
         return _vm.removeCart();
       }
     }
-  }, [_vm._v("\n            Svuota Carrello\n          ")])])], 2), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n          Svuota Carrello\n        ")])])], 2), _vm._v(" "), _c("div", {
     staticClass: "py-5 text-white"
   }, [_c("h3", {
     staticClass: "py-2"
@@ -2763,13 +2768,49 @@ var render = function render() {
   }, [_vm._v(_vm._s(this.TotalPrice) + " €")]), _vm._v(" "), _c("h3", {
     staticClass: "my-3"
   }, [_vm._v("Paga ora")]), _vm._v(" "), _c("button", {
-    staticClass: "btn btn-primary my-3",
+    staticClass: "btn btn-primary",
     attrs: {
-      type: "button"
+      type: "button",
+      "data-bs-toggle": "offcanvas",
+      "data-bs-target": "#staticBackdrop",
+      "aria-controls": "staticBackdrop"
     }
-  }, [_vm._v("Checkout")])])])]);
+  }, [_vm._v("\n        Checkout\n      ")]), _vm._v(" "), _c("div", {
+    staticClass: "offcanvas offcanvas-start",
+    attrs: {
+      "data-bs-backdrop": "static",
+      tabindex: "-1",
+      id: "staticBackdrop",
+      "aria-labelledby": "staticBackdropLabel"
+    }
+  }, [_vm._m(0), _vm._v(" "), _c("div", {
+    staticClass: "offcanvas-body"
+  }, [_c("div", [!_vm.formValidated ? _c("div", {
+    staticClass: "alert alert-danger mb-1",
+    attrs: {
+      role: "alert"
+    }
+  }, [_vm._v("\n                      I campi contrassegnati dall'asterisco (*) sono\n                      obbligatori.\n                    ")]) : _vm._e()])])])])])]);
 };
-var staticRenderFns = [];
+var staticRenderFns = [function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "offcanvas-header"
+  }, [_c("h5", {
+    staticClass: "offcanvas-title",
+    attrs: {
+      id: "staticBackdropLabel"
+    }
+  }, [_vm._v("Offcanvas")]), _vm._v(" "), _c("button", {
+    staticClass: "btn-close",
+    attrs: {
+      type: "button",
+      "data-bs-dismiss": "offcanvas",
+      "aria-label": "Close"
+    }
+  })]);
+}];
 render._withStripped = true;
 
 
