@@ -90,6 +90,7 @@ export default {
 
 
 <style scoped lang="scss">
+
 .card {
   flex-basis: 22%;
   justify-content: space-between;

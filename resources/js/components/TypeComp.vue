@@ -210,7 +210,7 @@ export default {
   },
 };
 </script>
-<style>
+<style scoped lang="scss">
 .inp-sty {
   padding: 10px;
   border-radius: 20px;
