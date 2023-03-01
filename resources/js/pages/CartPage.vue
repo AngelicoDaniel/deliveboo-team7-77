@@ -44,7 +44,7 @@
           aria-labelledby="staticBackdropLabel"
         >
           <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="staticBackdropLabel">Offcanvas</h5>
+            <h5 class="offcanvas-title" id="staticBackdropLabel">Checkout</h5>
             <button
               type="button"
               class="btn-close"
@@ -54,14 +54,78 @@
           </div>
           <div class="offcanvas-body">
             <div>
-                <div
-                        v-if="!formValidated"
-                        class="alert alert-danger mb-1"
-                        role="alert"
-                      >
-                        I campi contrassegnati dall'asterisco (*) sono
-                        obbligatori.
-                      </div>
+
+                 <div class="input-box mb-2">
+                          <label for="customer_name"
+                            >Nome <span class="text-danger">*</span></label
+                          >
+                          <br />
+                          <input
+                            type="text"
+                            name="customer_name"
+                            placeholder="Inserisci il tuo nome"
+                            v-model="customer_name"
+                            class="form-control"
+                            maxlength="50"
+                            required
+                            autofocus
+                          />
+
+                          </div>
+
+                          <!-- input indirizzo di consegna -->
+                        <div class="input-box mb-2">
+                          <label for="address"
+                            >Indirizzo di consegna
+                            <span class="text-danger">*</span></label
+                          >
+                          <br />
+                          <input
+                            type="text"
+                            name="address"
+                            placeholder="Inserisci il tuo indirizzo"
+                            v-model="address"
+                            value=""
+                            class="form-control"
+                            required
+                            maxlength="255"
+                          />
+
+                          </div>
+
+                           <!-- input email -->
+                        <div class="input-box mb-2">
+                          <label for="email"
+                            >Email <span class="text-danger">*</span></label
+                          >
+                          <br />
+                          <input
+                            type="email"
+                            name="email"
+                            placeholder="tuamail@gmail.com"
+                            v-model="email"
+                            class="form-control"
+                            required
+                          />
+                          </div>
+
+                          <p class="py-2">Prezzo totale:</p>
+        <h5  class="my-4">{{ this.TotalPrice }} €</h5>
+
+
+
+                          <!-- bottone conferma dati -->
+                        <div class="d-flex justify-content-center">
+                          <button
+
+                            class="btn-danger mt-2 mb-4"
+                          >
+                            Paga Il tuo Ordine
+                          </button>
+                        </div>
+
+
+
 
 
 
@@ -88,6 +152,7 @@ export default {
       email: null,
       ship_cost: null,
       order_number: null,
+      formValidated: false,
     };
   },
 
