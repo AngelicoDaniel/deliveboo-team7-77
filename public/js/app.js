@@ -7617,7 +7617,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.inp-sty {\n  padding: 10px;\n  border-radius: 20px;\n  width: 30%;\n  margin: 30px 0px;\n  border: 0;\n}\n.list-type {\n  background-color: #00ccbc;\n  border-radius: 15px;\n}\n.list-restaurants {\n  list-style-type: none;\n  text-decoration: none;\n  color: gray;\n}\n.card{\n    flex-basis: 22%;\n    justify-content: space-between;\n    margin: 10px 10px;\n}\n.card-deck{\n    display: flex;\n    flex-wrap: wrap;\n}\n.card-titl .card-tex{\n    color: white;\n}\nrouter-link{\n    text-decoration: none !important;\n}\n.card {\n  background-size: cover;\n  background-position: center;\n  background-repeat: no-repeat;\n  aspect-ratio: 1/1;\n}\n.card-overlay {\nmargin-top: 25%;\n  padding: 10px;\n  background-color: rgba(255, 255, 255, 0.7);\n  text-align: center;\n  color: black;\n}\n.card-title {\n  font-size: 1.2rem;\n  margin: 0;\n}\n.card-text {\n  font-size: 1rem;\n  margin: 0;\n}\n\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.inp-sty {\r\n  padding: 10px;\r\n  border-radius: 20px;\r\n  width: 30%;\r\n  margin: 30px 0px;\r\n  border: 0;\n}\n.list-type {\r\n  background-color: #00ccbc;\r\n  border-radius: 15px;\n}\n.list-restaurants {\r\n  list-style-type: none;\r\n  text-decoration: none;\r\n  color: gray;\n}\n.card{\r\n    flex-basis: 22%;\r\n    justify-content: space-between;\r\n    margin: 10px 10px;\n}\n.card-deck{\r\n    display: flex;\r\n    flex-wrap: wrap;\n}\n.card-titl .card-tex{\r\n    color: white;\n}\nrouter-link{\r\n    text-decoration: none !important;\n}\n.card {\r\n  background-size: cover;\r\n  background-position: center;\r\n  background-repeat: no-repeat;\r\n  aspect-ratio: 1/1;\n}\n.card-overlay {\r\nmargin-top: 25%;\r\n  padding: 10px;\r\n  background-color: rgba(255, 255, 255, 0.7);\r\n  text-align: center;\r\n  color: black;\n}\n.card-title {\r\n  font-size: 1.2rem;\r\n  margin: 0;\n}\n.card-text {\r\n  font-size: 1rem;\r\n  margin: 0;\n}\r\n\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -7641,7 +7641,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.hero {\n  background-image: url(\"/images/pexels-valeria-boltneva-1639562.jpg\");\n  background-size: cover;\n  background-repeat: no-repeat;\n  background-position: center;\n  padding: 165.7px;\n  height: 100%;\n}\n.domicilio-span {\n  color: #00ccbc;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.hero {\r\n  background-image: url(\"/images/pexels-valeria-boltneva-1639562.jpg\");\r\n  background-size: cover;\r\n  background-repeat: no-repeat;\r\n  background-position: center;\r\n  padding: 165.7px;\r\n  height: 100%;\n}\n.domicilio-span {\r\n  color: #00ccbc;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
