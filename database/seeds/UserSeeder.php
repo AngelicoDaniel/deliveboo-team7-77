@@ -42,7 +42,7 @@ class UserSeeder extends Seeder
             [
                 "name" => "O'Pizzaiuolo",
                 "email" => "pizzaiuolo@live.it",
-                "password" => 'pizzaiuolo',
+                "password" => Hash::make('pizzaiuolo'),
                 "address" => 'Via Toledo, 8 - Napoli',
                 "PIVA" => '12548951657',
                 "image_logo" => 'images/restaurants/pizzaiuolo.jpg',
@@ -50,7 +50,7 @@ class UserSeeder extends Seeder
             [
                 "name" => "Pizzeria da Ciro",
                 "email" => "daciro@live.it",
-                "password" => 'daciro10',
+                "password" => Hash::make('daciro10'),
                 "address" => 'Via Napoli, 8 - Napoli',
                 "PIVA" => '15548956657',
                 "description" => 'La pizza più buona di Napoli',
@@ -59,7 +59,7 @@ class UserSeeder extends Seeder
             [
                 "name" => "Hokkaido",
                 "email" => "hokkaido@gmail.com",
-                "password" => 'Hokkaido189',
+                "password" => Hash::make('Hokkaido189'),
                 "address" => 'Piazza Giuseppe Verdi, 15 - Napoli',
                 "PIVA" => '85416378925',
                 "description" => 'Barche di sushi e tempura, anche nella formula all you can eat, in locale con cucina a vista e arredi minimal.',
@@ -68,7 +68,7 @@ class UserSeeder extends Seeder
             [
                 "name" => "Streat Piombo",
                 "email" => "piombostrt@gmail.com",
-                "password" => 'piombo00',
+                "password" => Hash::make('piombo00'),
                 "address" => 'Via Sebastiano del Piombo, 12, Napoli',
                 "PIVA" => '69542031025',
                 "description" => 'Ristorante Americano, con una vasta gamma di piatti, da tutte le epoche.',
@@ -77,7 +77,7 @@ class UserSeeder extends Seeder
             [
                 "name" => "Gluten Free",
                 "email" => "glutenfree@live.it",
-                "password" => 'glutenfree',
+                "password" => Hash::make('glutenfree'),
                 "address" => 'Via Milano, 8 - Napoli',
                 "PIVA" => '15587956887',
                 "description" => 'Il cibo gluten free più buono di tutti',
@@ -86,7 +86,7 @@ class UserSeeder extends Seeder
             [
                 "name" => "Hang Zhou",
                 "email" => "zhou@live.it",
-                "password" => 'zuzu0000',
+                "password" => Hash::make('zuzu0000'),
                 "address" => 'Via Principe Eugenio, 82, Napoli',
                 "PIVA" => '10000568487',
                 "description" => "Specialità cinesi servite in porzioni abbondanti e abbellite da decorazioni di verdure.",
@@ -95,7 +95,7 @@ class UserSeeder extends Seeder
             [
                 "name" => "Hachi Ristorante Giapponese",
                 "email" => "hachi@gmail.com",
-                "password" => 'hachi000',
+                "password" => Hash::make('hachi000'),
                 "address" => 'Via Luca Giordano 33, Napoli ',
                 "PIVA" => '95100236654',
                 "description" => 'Ristorante giapponese',
@@ -104,7 +104,7 @@ class UserSeeder extends Seeder
             [
                 "name" => "La Scimmietta",
                 "email" => "lascimmia@live.it",
-                "password" => 'scimmietta11',
+                "password" => Hash::make('scimmietta11'),
                 "address" => 'Via Giovanni Amendola, 176/178, Napoli',
                 "PIVA" => '10855688879',
                 "description" => "Semifreddi, gelati artigianali e gusti originali serviti in un ambiente dal clima allegro e pareti colorate.",
@@ -113,7 +113,7 @@ class UserSeeder extends Seeder
             [
                 "name" => "Poke House",
                 "email" => "pokehouse@live.it",
-                "password" => 'pokehouse',
+                "password" => Hash::make('pokehouse'),
                 "address" => 'Via Aurno, 8 - Napoli',
                 "PIVA" => '78855689979',
                 "description" => 'Che pokè!',
@@ -122,7 +122,7 @@ class UserSeeder extends Seeder
             [
                 "name" => "Cavoli Nostri",
                 "email" => "nostricavoli@gmail.com",
-                "password" => 'cavolituoi',
+                "password" => Hash::make('cavolituoi'),
                 "address" => 'Via Palepoli, 32, Napoli ',
                 "PIVA" => '46006998521',
                 "description" => 'Niente carne e pesce, solo cavoli.',
@@ -131,7 +131,7 @@ class UserSeeder extends Seeder
             [
                 "name" => "Shabnaz",
                 "email" => "shabnaz@gmail.com",
-                "password" => 'shaby00',
+                "password" => Hash::make('shaby00'),
                 "address" => 'Via Liborio Romano, 19, Napoli',
                 "PIVA" => '87624159320',
                 "description" => "Shabnaz l'indiano più famoso di tutti i tempi di Lecce",
@@ -140,7 +140,7 @@ class UserSeeder extends Seeder
             [
                 "name" => "The Mexican",
                 "email" => "mexican@live.it",
-                "password" => 'mexican',
+                "password" => Hash::make('mexican'),
                 "address" => 'Via Palermo, 8 - Napoli',
                 "PIVA" => '78858887979',
                 "description" => 'Tacos e tortillas',
