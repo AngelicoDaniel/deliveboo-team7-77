@@ -1879,7 +1879,7 @@ __webpack_require__.r(__webpack_exports__);
           price: price,
           user_id: user_id
         }), this.totalPrice += parseFloat(price);
-        localStorage.setItem("cart", this.cart);
+        localStorage.setItem("cart", JSON.stringify(this.cart));
         localStorage.setItem("priceCart", this.totalPrice);
         alert("Piatto aggiunto al carrello!");
       }
@@ -2134,9 +2134,9 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     var _this = this;
-    localStorage.getItem("cart").split(",").forEach(function (element) {
-      _this.cart.push(element);
-    });
+    if (localStorage.getItem("cart")) {
+      this.cart = JSON.parse(localStorage.getItem("cart"));
+    }
     localStorage.getItem("priceCart").split(",").forEach(function (element) {
       _this.TotalPrice.push(element);
     });
@@ -2751,7 +2751,7 @@ var render = function render() {
       staticClass: "card my-2"
     }, [_c("div", {
       staticClass: "card-body"
-    }, [_c("li", [_vm._v(_vm._s(item))])])]);
+    }, [_c("li", [_vm._v(_vm._s(item.id))]), _vm._v(" "), _c("li", [_vm._v(_vm._s(item.name))]), _vm._v(" "), _c("li", [_vm._v(_vm._s(item.price))])])]);
   }), _vm._v(" "), _c("div", {
     staticClass: "p-4"
   }, [_c("button", {

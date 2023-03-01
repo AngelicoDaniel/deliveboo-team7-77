@@ -6,7 +6,9 @@
 
       <div class="card my-2" v-for="(item, index) in cart" :key="index">
         <div class="card-body">
-          <li>{{ item }}</li>
+            <li>{{ item.id }}</li>
+          <li>{{ item.name }}</li>
+          <li>{{ item.price}}</li>
         </div>
       </div>
 
@@ -36,12 +38,9 @@ export default {
   },
 
   mounted() {
-    localStorage
-      .getItem("cart")
-      .split(",")
-      .forEach((element) => {
-        this.cart.push(element);
-      });
+   if (localStorage.getItem("cart")) {
+      this.cart = JSON.parse(localStorage.getItem("cart"));
+    }
 
     localStorage
       .getItem("priceCart")

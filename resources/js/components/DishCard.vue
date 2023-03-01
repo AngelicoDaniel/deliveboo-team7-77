@@ -122,7 +122,7 @@ export default {
 
             ),
           this.totalPrice += parseFloat(price);
-            localStorage.setItem("cart", this.cart);
+            localStorage.setItem("cart", JSON.stringify(this.cart));
             localStorage.setItem("priceCart", this.totalPrice);
             alert("Piatto aggiunto al carrello!");
         }
