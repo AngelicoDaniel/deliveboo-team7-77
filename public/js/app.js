@@ -2708,7 +2708,7 @@ var render = function render() {
       key: restaurant.id,
       staticClass: "card",
       style: {
-        backgroundImage: "url(".concat(restaurant.image_logo, ")")
+        backgroundImage: "url(/storage/".concat(restaurant.image_logo, ")")
       }
     }, [_c("router-link", {
       attrs: {

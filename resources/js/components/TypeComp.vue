@@ -57,7 +57,8 @@
   <div v-for="restaurant in types.find((t) => t.id === selectedType).restaurants"
     :key="restaurant.id"
     class="card"
-    :style="{ backgroundImage: `url(${restaurant.image_logo})` }">
+    :style="{ backgroundImage: `url(/storage/${restaurant.image_logo})` }"
+        >
     <router-link :to="`/dishes/${restaurant.id}`">
       <div class="card-overlay">
         <h5 class="card-title">{{ restaurant.name }}</h5>
