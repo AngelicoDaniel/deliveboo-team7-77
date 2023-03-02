@@ -9,13 +9,13 @@
           <div
             v-for="(elem, index) in dish"
             :key="index"
-            class="card"
+            class="card m-4"
             :style="{ backgroundImage: `url(/storage/${elem.image})` }"
           >
             <div class="card-overlay d-flex flex-column align-items-center justify-content-center justify-content-around">
               <h4 class="card-title">{{ elem.name }}</h4>
               <p class="card-text">{{ elem.price }}€ </p>
-              <p class="card-text">{{ elem.description }}</p>
+              <p class="card-text description">{{ elem.description }}</p>
               <button
                 @click="addCart(elem.name, elem.price, elem.id, elem.user_id , elem.image)"
                 class="btn"
@@ -49,6 +49,17 @@
         .forEach((element) => {
           this.cart.push(element);
         });
+
+        const maxWidth = 200; // larghezza massima del contenitore della descrizione in pixel
+  const maxChars = 100; // numero massimo di caratteri della descrizione da visualizzare
+  const descriptions = document.querySelectorAll(".description");
+  descriptions.forEach((desc) => {
+    if (desc.offsetWidth > maxWidth) {
+      const text = desc.textContent.trim();
+      desc.textContent = text.slice(0, maxChars) + "...";
+    }
+  });
+
     },
     methods: {
       getDish() {
@@ -90,7 +101,7 @@
 
   <style scoped lang="scss">
 .card {
-  flex-basis: 22%;
+  flex-basis: 18%;
   justify-content: space-between;
   margin: 10px 10px;
   background-size: cover;
@@ -135,21 +146,31 @@
 
 
 .card-title {
-  font-size: 1.7rem;
+  font-size: 1.5rem;
   margin: 0;
   font-weight: bolder;
 }
 
+// .card-text {
+//   font-size: 1rem;
+//   margin: 0;
+//   font-weight: bold;
+// }
+
 .card-text {
-  font-size: 1.3rem;
+  font-size: 1rem;
   margin: 0;
   font-weight: bold;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
+
+
 
 .btn{
     background-color: #00CCBC;
     color: white;
-    font-weight: bold;
+    // font-weight: bold;
 }
 
 .btn:hover{

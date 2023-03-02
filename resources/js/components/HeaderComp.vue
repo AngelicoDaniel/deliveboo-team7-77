@@ -53,14 +53,16 @@ export default {
 </script>
 
 
-<style>
+<style lang="scss" scoped>
+
+
 /* .navbar-nav li:hover {
   color: #00CCBC;
 } */
 
 .navbar{
     padding: 0;
-    border-bottom: 1px solid #00CCBC;;
+    border-bottom: 1px solid #00CCBC;
 }
 
 .nav-right{
