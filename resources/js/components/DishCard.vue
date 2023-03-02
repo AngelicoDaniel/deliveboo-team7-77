@@ -12,9 +12,9 @@
             class="card"
             :style="{ backgroundImage: `url(/storage/${elem.image})` }"
           >
-            <div class="card-overlay">
-              <h5 class="card-title">{{ elem.name }}</h5>
-              <p class="card-text">{{ elem.price }}</p>
+            <div class="card-overlay d-flex flex-column align-items-center justify-content-center justify-content-around">
+              <h4 class="card-title">{{ elem.name }}</h4>
+              <p class="card-text">{{ elem.price }}€ </p>
               <p class="card-text">{{ elem.description }}</p>
               <button
                 @click="addCart(elem.name, elem.price, elem.id, elem.user_id , elem.image)"
@@ -89,63 +89,62 @@
 
 
   <style scoped lang="scss">
+.card {
+  flex-basis: 22%;
+  justify-content: space-between;
+  margin: 10px 10px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  aspect-ratio: 1/1;
+  position: relative; /* needed for absolute positioning of .card-overlay */
+  transition: transform 0.5s ease-in-out; /* add a transition effect for transform */
+}
 
-  .card {
-    flex-basis: 22%;
-    justify-content: space-between;
-    margin: 10px 10px;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    aspect-ratio: 1/1;
-    position: relative; /* needed for absolute positioning of .card-overlay */
-  }
+.card:hover {
+  transform: rotateY(180deg); /* rotate on hover */
+}
 
-  .card-deck {
-    display: flex;
-    flex-wrap: wrap;
-  }
+.card:hover .card-overlay {
+  opacity: 1; /* show content on hover */
+  transform: rotateY(180deg); /* rotate the overlay to match the card rotation */
+}
 
-  .card-titl .card-tex {
-    color: white;
-  }
+.card-deck {
+  display: flex;
+  flex-wrap: wrap;
+}
 
-  .card-overlay {
-    opacity: 0; /* hide content initially */
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-    padding: 10px;
-    background-color: rgba(255, 255, 255, 0.3);
-    text-align: center;
-    color: black;
-    transition: opacity 0.2s ease-in-out; /* add a transition effect */
-  }
+.card-titl .card-tex {
+  color: white;
+}
 
-  .card:hover .card-overlay {
-    opacity: 1; /* show content on hover */
-  }
+.card-overlay {
+  opacity: 0; /* hide content initially */
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.3);
+  text-align: center;
+  color: black;
+  transform: rotateY(180deg); /* rotate the overlay to match the card rotation */
+  transition: transform 0.5s ease-in-out; /* add a transition effect for transform */
+}
 
-  .card-title {
-    font-size: 1.2rem;
-    margin: 0;
-  }
+.card-title {
+  font-size: 1.7rem;
+  margin: 0;
+  font-weight: bolder;
+}
 
-  .card-text {
-    font-size: 1rem;
-    margin: 0;
-  }
+.card-text {
+  font-size: 1.3rem;
+  margin: 0;
+  font-weight: bold;
+}
 
-  .card-title {
-    font-size: 1.2rem;
-    margin: 0;
-  }
-
-  .card-text {
-    font-size: 1rem;
-    margin: 0;
-  }
   </style>
