@@ -2157,6 +2157,9 @@ __webpack_require__.r(__webpack_exports__);
         this.validation.customer_name.success = true;
         this.validation.customer_name.message = "";
         this.formValidated = true;
+        this.cart = [];
+        localStorage.removeItem("cart");
+        this.totalPrice();
       }
     }
   }
