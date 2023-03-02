@@ -1838,16 +1838,18 @@ __webpack_require__.r(__webpack_exports__);
     localStorage.getItem("cart").split(",").forEach(function (element) {
       _this.cart.push(element);
     });
-    var maxWidth = 200; // larghezza massima del contenitore della descrizione in pixel
-    var maxChars = 100; // numero massimo di caratteri della descrizione da visualizzare
-    var descriptions = document.querySelectorAll(".description");
-    descriptions.forEach(function (desc) {
-      if (desc.offsetWidth > maxWidth) {
-        var text = desc.textContent.trim();
-        desc.textContent = text.slice(0, maxChars) + "...";
-      }
-    });
+
+    //         const maxWidth = 200; // larghezza massima del contenitore della descrizione in pixel
+    //   const maxChars = 100; // numero massimo di caratteri della descrizione da visualizzare
+    //   const descriptions = document.querySelectorAll(".description");
+    //   descriptions.forEach((desc) => {
+    //     if (desc.offsetWidth > maxWidth) {
+    //       const text = desc.textContent.trim();
+    //       desc.textContent = text.slice(0, maxChars) + "...";
+    //     }
+    //   });
   },
+
   methods: {
     getDish: function getDish() {
       var _this2 = this;
@@ -2290,12 +2292,14 @@ var render = function render() {
     _c = _vm._self._c;
   return _c("div", {
     staticClass: "text-center"
-  }, [_vm._m(0), _vm._v(" "), _c("div", {}, [_c("div", {
-    staticClass: "card-deck d-flex justify-content-center"
+  }, [_vm._m(0), _vm._v(" "), _c("div", {
+    staticClass: "row justify-content-center"
   }, _vm._l(_vm.dish, function (elem, index) {
     return _c("div", {
       key: index,
-      staticClass: "card m-4",
+      staticClass: "col-sm-6 col-md-4 col-lg-3 mb-4 m-4"
+    }, [_c("div", {
+      staticClass: "card h-100",
       style: {
         backgroundImage: "url(/storage/".concat(elem.image, ")")
       }
@@ -2314,8 +2318,8 @@ var render = function render() {
           return _vm.addCart(elem.name, elem.price, elem.id, elem.user_id, elem.image);
         }
       }
-    }, [_vm._v("\n            Aggiungi al Carrello\n          ")])])]);
-  }), 0)])]);
+    }, [_vm._v("\n            Aggiungi al Carrello\n          ")])])])]);
+  }), 0)]);
 };
 var staticRenderFns = [function () {
   var _vm = this,
@@ -2324,7 +2328,9 @@ var staticRenderFns = [function () {
     staticClass: "row justify-content-center my-5"
   }, [_c("h3", {
     staticClass: "text-center"
-  }, [_vm._v("Seleziona il tuo piatto preferito")])]);
+  }, [_vm._v("Seleziona il tuo piatto "), _c("span", {
+    staticClass: "text-green"
+  }, [_vm._v("preferito")])])]);
 }];
 render._withStripped = true;
 
@@ -7719,7 +7725,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".card[data-v-2988c035] {\n  flex-basis: 18%;\n  justify-content: space-between;\n  margin: 10px 10px;\n  background-size: cover;\n  background-position: center;\n  background-repeat: no-repeat;\n  aspect-ratio: 1/1;\n  position: relative; /* needed for absolute positioning of .card-overlay */\n  transition: transform 0.5s ease-in-out; /* add a transition effect for transform */\n  border-radius: 10%;\n}\n.card:hover .card-overlay[data-v-2988c035] {\n  opacity: 1; /* show content on hover */\n}\n.card[data-v-2988c035]:hover {\n  transform: scale(1.05);\n  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);\n}\n.card-deck[data-v-2988c035] {\n  display: flex;\n  flex-wrap: wrap;\n}\n.card-overlay[data-v-2988c035] {\n  opacity: 0; /* hide content initially */\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  margin: auto;\n  padding: 10px;\n  background-color: rgba(255, 255, 255, 0.3);\n  text-align: center;\n  color: black;\n  transition: opacity 0.5s ease-in-out; /* add a transition effect for opacity */\n  border-radius: 10%;\n}\n.card-title[data-v-2988c035] {\n  font-size: 1.5rem;\n  margin: 0;\n  font-weight: bolder;\n}\n.card-text[data-v-2988c035] {\n  font-size: 1rem;\n  margin: 0;\n  font-weight: bold;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n.btn[data-v-2988c035] {\n  background-color: #00CCBC;\n  color: white;\n}\n.btn[data-v-2988c035]:hover {\n  border-color: #00CCBC;\n  color: black;\n  background-color: rgba(13, 163, 150, 0.9);\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".card[data-v-2988c035] {\n  flex-basis: 19%;\n  justify-content: space-between;\n  margin: 10px 10px;\n  background-size: cover;\n  background-position: center;\n  background-repeat: no-repeat;\n  aspect-ratio: 1/1;\n  position: relative; /* needed for absolute positioning of .card-overlay */\n  transition: transform 0.5s ease-in-out; /* add a transition effect for transform */\n  border-radius: 10%;\n}\n.card:hover .card-overlay[data-v-2988c035] {\n  opacity: 1; /* show content on hover */\n}\n.card[data-v-2988c035]:hover {\n  transform: scale(1.1);\n  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);\n}\n.card-deck[data-v-2988c035] {\n  display: flex;\n  flex-wrap: wrap;\n}\n.card-overlay[data-v-2988c035] {\n  opacity: 0; /* hide content initially */\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  margin: auto;\n  padding: 10px;\n  background-color: rgba(255, 255, 255, 0.3);\n  text-align: center;\n  color: black;\n  transition: opacity 0.5s ease-in-out; /* add a transition effect for opacity */\n  border-radius: 10%;\n}\n.card-title[data-v-2988c035] {\n  font-size: 1.5rem;\n  margin: 0;\n  font-weight: bolder;\n}\n.card-text[data-v-2988c035] {\n  font-size: 1rem;\n  margin: 0;\n  font-weight: bold;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  max-width: 100%;\n}\n.text-green[data-v-2988c035] {\n  color: #00CCBC;\n}\n.btn[data-v-2988c035] {\n  background-color: #00CCBC;\n  color: white;\n}\n.btn[data-v-2988c035]:hover {\n  border-color: #00CCBC;\n  color: black;\n  background-color: rgba(13, 163, 150, 0.9);\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
