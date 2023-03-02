@@ -2568,12 +2568,19 @@ var staticRenderFns = [function () {
     _c = _vm._self._c;
   return _c("div", {
     staticClass: "nav-right d-flex flex-end"
-  }, [_c("a", {
-    staticClass: "nav-link text-white",
+  }, [_c("p", {
+    staticClass: "nav-link text-white"
+  }, [_vm._v("Sei un ristoratore?")]), _vm._v(" "), _c("a", {
+    staticClass: "nav-link text-white mx-3",
     attrs: {
-      href: "http://127.0.0.1:8000/admin"
+      href: "http://127.0.0.1:8000/login"
     }
-  }, [_vm._v("Sei un ristoratore?")])]);
+  }, [_vm._v("Accedi")]), _vm._v(" "), _c("a", {
+    staticClass: "nav-link text-white mx-3",
+    attrs: {
+      href: "http://127.0.0.1:8000/register"
+    }
+  }, [_vm._v("Registrati")])]);
 }];
 render._withStripped = true;
 
@@ -7714,7 +7721,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\r\n/* .navbar-nav li:hover {\r\n  color: #00CCBC;\r\n} */\n.navbar{\r\n    padding: 0;\n}\n.nav-right{\r\n    margin-right: 30px;\n}\n.img-logo {\r\n    width: 170px;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n/* .navbar-nav li:hover {\n  color: #00CCBC;\n} */\n.navbar{\n    padding: 0;\n}\n.nav-right{\n    margin-right: 30px;\n}\n.img-logo {\n    width: 170px;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

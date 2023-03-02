@@ -19,7 +19,7 @@
                                 :to="{ name: 'home' }">Home</router-link>
                         </li>
 
-                        
+
                         <li>
                             <router-link class="nav-link active" aria-current="page"
                                 :to="{ name: 'cart' }">Carrello</router-link>
@@ -31,7 +31,10 @@
                     </ul>
                     <div class="nav-right d-flex flex-end">
 
-                        <a class="nav-link text-white" href="http://127.0.0.1:8000/admin">Sei un ristoratore?</a>
+                        <p class="nav-link text-white">Sei un ristoratore?</p>
+                        <a class="nav-link text-white mx-3" href="http://127.0.0.1:8000/login">Accedi</a>
+                        <a class="nav-link text-white mx-3" href="http://127.0.0.1:8000/register">Registrati</a>
+
 
                     </div>
                 </div>
