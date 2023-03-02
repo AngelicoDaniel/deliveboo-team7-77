@@ -101,19 +101,15 @@
   transition: transform 0.5s ease-in-out; /* add a transition effect for transform */
 }
 
-.card:hover {
-  transform: rotateY(180deg); /* rotate on hover */
-}
-
 .card:hover .card-overlay {
   opacity: 1; /* show content on hover */
-  transform: rotateY(180deg); /* rotate the overlay to match the card rotation */
 }
 
 .card-deck {
   display: flex;
   flex-wrap: wrap;
 }
+
 
 .card-titl .card-tex {
   color: white;
@@ -131,9 +127,9 @@
   background-color: rgba(255, 255, 255, 0.3);
   text-align: center;
   color: black;
-  transform: rotateY(180deg); /* rotate the overlay to match the card rotation */
-  transition: transform 0.5s ease-in-out; /* add a transition effect for transform */
+  transition: opacity 0.5s ease-in-out; /* add a transition effect for opacity */
 }
+
 
 .card-title {
   font-size: 1.7rem;
