@@ -57,7 +57,7 @@
                           <button
                             class="btn btn-danger"
                             @click="removeCartItem(index)"
-                            style="color: #ffffff"
+                        
                           >
                             <i class="fas fa-trash-alt"></i>
                           </button>
@@ -75,7 +75,7 @@
                 <div class="col-lg-5">
                   <div  class="card card_right rounded-3">
                     <div class="p-4">
-                      <button class="btn-danger" @click="removeCart()">
+                      <button class="btn btn-danger" type="button" @click="removeCart()">
                         Svuota Carrello
                       </button>
                     </div>
@@ -223,7 +223,7 @@
                             >
                               <button
                                 @click="validateForm"
-                                class="btn-danger mt-2 mb-4"
+                                class="btn btn-danger mt-2 mb-4"
                                 id="pay-btn"
                                 :disabled="
                                   cart.length === 0 ||
@@ -335,6 +335,7 @@ export default {
 
   .btn-primary {
     width: 150px;
+    color: #00ccbc;
   }
 
   .btn-danger {

@@ -2791,9 +2791,6 @@ var render = function render() {
       staticClass: "col-4 col-sm-2 text-right"
     }, [_c("button", {
       staticClass: "btn btn-danger",
-      staticStyle: {
-        color: "#ffffff"
-      },
       on: {
         click: function click($event) {
           return _vm.removeCartItem(index);
@@ -2811,7 +2808,10 @@ var render = function render() {
   }, [_c("div", {
     staticClass: "p-4"
   }, [_c("button", {
-    staticClass: "btn-danger",
+    staticClass: "btn btn-danger",
+    attrs: {
+      type: "button"
+    },
     on: {
       click: function click($event) {
         return _vm.removeCart();
@@ -2992,7 +2992,7 @@ var render = function render() {
       to: "/success"
     }
   }, [_c("button", {
-    staticClass: "btn-danger mt-2 mb-4",
+    staticClass: "btn btn-danger mt-2 mb-4",
     attrs: {
       id: "pay-btn",
       disabled: _vm.cart.length === 0 || _vm.customer_name === "" || _vm.customer_surname === "" || _vm.customer_address === "" || _vm.customer_phone === "" || _vm.customer_email === ""
@@ -7804,7 +7804,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".cont li[data-v-2f3a4cd8] {\n  list-style: none;\n  font-size: 120%;\n}\n.cont h2[data-v-2f3a4cd8],\n.cont h3[data-v-2f3a4cd8] {\n  color: #00ccbc;\n  font-size: 350%;\n}\n.cont .btn-primary[data-v-2f3a4cd8] {\n  width: 150px;\n}\n.cont .btn-danger[data-v-2f3a4cd8] {\n  background-color: #dc3545;\n  border-color: #dc3545;\n  border-radius: 5px;\n}\n.cont .btn-danger[data-v-2f3a4cd8]:hover {\n  background-color: #c82333;\n  border-color: rgba(204, 136, 34, 0.2);\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".cont li[data-v-2f3a4cd8] {\n  list-style: none;\n  font-size: 120%;\n}\n.cont h2[data-v-2f3a4cd8],\n.cont h3[data-v-2f3a4cd8] {\n  color: #00ccbc;\n  font-size: 350%;\n}\n.cont .btn-primary[data-v-2f3a4cd8] {\n  width: 150px;\n  color: #00ccbc;\n}\n.cont .btn-danger[data-v-2f3a4cd8] {\n  background-color: #dc3545;\n  border-color: #dc3545;\n  border-radius: 5px;\n}\n.cont .btn-danger[data-v-2f3a4cd8]:hover {\n  background-color: #c82333;\n  border-color: rgba(204, 136, 34, 0.2);\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -7852,7 +7852,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n/* .navbar-nav li:hover {\n  color: #00CCBC;\n} */\n.navbar{\n    padding: 0;\n}\n.nav-right{\n    margin-right: 30px;\n}\n.img-logo {\n    width: 170px;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\r\n/* .navbar-nav li:hover {\r\n  color: #00CCBC;\r\n} */\n.navbar{\r\n    padding: 0;\n}\n.nav-right{\r\n    margin-right: 30px;\n}\n.img-logo {\r\n    width: 170px;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
