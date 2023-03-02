@@ -99,20 +99,22 @@
   aspect-ratio: 1/1;
   position: relative; /* needed for absolute positioning of .card-overlay */
   transition: transform 0.5s ease-in-out; /* add a transition effect for transform */
+  border-radius: 10%;
 }
 
 .card:hover .card-overlay {
   opacity: 1; /* show content on hover */
 }
 
-.card-deck {
-  display: flex;
-  flex-wrap: wrap;
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 }
 
 
-.card-titl .card-tex {
-  color: white;
+.card-deck {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .card-overlay {
@@ -128,6 +130,7 @@
   text-align: center;
   color: black;
   transition: opacity 0.5s ease-in-out; /* add a transition effect for opacity */
+  border-radius: 10%;
 }
 
 

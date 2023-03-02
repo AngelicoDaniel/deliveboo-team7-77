@@ -60,6 +60,7 @@ export default {
 
 .navbar{
     padding: 0;
+    border-bottom: 1px solid #00CCBC;;
 }
 
 .nav-right{
@@ -68,4 +69,14 @@ export default {
 .img-logo {
     width: 170px;
 }
+
+li {
+  margin: 5px;
+  border-bottom: 1px solid transparent;
+}
+
+li:hover {
+  border-bottom-color: #00CCBC;
+}
+
 </style>
