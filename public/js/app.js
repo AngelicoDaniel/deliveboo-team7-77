@@ -2143,7 +2143,6 @@ __webpack_require__.r(__webpack_exports__);
     validateForm: function validateForm() {
       if (this.cart.length === 0) {
         alert("Il carrello è vuoto");
-        document.getElementById("pay-btn").disabled = true;
       } else {
         this.formValidated = true;
       }
@@ -2782,7 +2781,7 @@ var render = function render() {
           return _vm.removeCartItem(index);
         }
       }
-    }, [_vm._v("\n            Rimuovi\n          ")])])]);
+    }, [_vm._v("\n              Rimuovi\n            ")])])]);
   }), _vm._v(" "), _c("div", {
     staticClass: "p-4"
   }, [_c("button", {
@@ -2792,7 +2791,7 @@ var render = function render() {
         return _vm.removeCart();
       }
     }
-  }, [_vm._v("\n          Svuota Carrello\n        ")])])], 2), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n            Svuota Carrello\n          ")])])], 2), _vm._v(" "), _c("div", {
     staticClass: "py-5 text-white"
   }, [_c("h3", {
     staticClass: "py-2"
@@ -2808,7 +2807,7 @@ var render = function render() {
       "data-bs-target": "#staticBackdrop",
       "aria-controls": "staticBackdrop"
     }
-  }, [_vm._v("\n        Checkout\n      ")]), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n          Checkout\n        ")]), _vm._v(" "), _c("div", {
     staticClass: "offcanvas offcanvas-start",
     attrs: {
       "data-bs-backdrop": "static",
@@ -2912,14 +2911,13 @@ var render = function render() {
   }, [_c("button", {
     staticClass: "btn-danger mt-2 mb-4",
     attrs: {
-      id: "pay-btn"
+      id: "pay-btn",
+      disabled: _vm.cart.length === 0
     },
     on: {
-      click: function click($event) {
-        return _vm.validateForm();
-      }
+      click: _vm.validateForm
     }
-  }, [_vm._v("\n                          Paga Il tuo Ordine\n                        ")])])], 1)])])])])])]);
+  }, [_vm._v("\n      Paga Il tuo Ordine\n    ")])])], 1)])])])])])]);
 };
 var staticRenderFns = [function () {
   var _vm = this,
@@ -2956,7 +2954,7 @@ var staticRenderFns = [function () {
     attrs: {
       "for": "address"
     }
-  }, [_vm._v("Indirizzo di consegna\n                          "), _c("span", {
+  }, [_vm._v("Indirizzo di consegna\n                            "), _c("span", {
     staticClass: "text-danger"
   }, [_vm._v("*")])]);
 }, function () {
