@@ -2108,20 +2108,13 @@ __webpack_require__.r(__webpack_exports__);
     return {
       cart: [],
       TotalPrice: 0,
-      customer_name: null,
-      customer_surname: null,
-      customer_address: null,
-      customer_phone: null,
-      email: null,
+      customer_name: "",
+      customer_surname: "",
+      customer_address: "",
+      customer_phone: "",
+      customer_email: "",
       order_number: null,
-      formValidated: false,
-      validation: {
-        customer_name: {
-          success: true,
-          message: "",
-          formValidated: false
-        }
-      }
+      formValidated: false
     };
   },
   mounted: function mounted() {
@@ -2149,14 +2142,9 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     validateForm: function validateForm() {
-      if (this.cart.length === 0 && !this.customer_name) {
-        alert("Il carrello è vuoto o il nome del cliente non è stato inserito.");
-        this.validation.customer_name.success = false;
-        this.validation.customer_name.message = "Il nome è obbligatorio";
+      if (this.cart.length === 0 && this.customer_name === " " && this.customer_surname === " " && this.customer_address === " " && this.customer_phone === " " && this.customer_email === " ") {
         this.formValidated = false;
       } else {
-        this.validation.customer_name.success = true;
-        this.validation.customer_name.message = "";
         this.formValidated = true;
         this.cart = [];
         localStorage.removeItem("cart");
@@ -2758,7 +2746,7 @@ var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", {
-    staticClass: "cont text-center bg-dark"
+    staticClass: "cont text-center bg-dark my-5"
   }, [_c("div", {
     staticClass: "container d-flex justify-content-around"
   }, [_c("div", {
@@ -2814,7 +2802,12 @@ var render = function render() {
     }
   }, [_vm._m(0), _vm._v(" "), _c("div", {
     staticClass: "offcanvas-body"
-  }, [_c("div", [_c("div", {
+  }, [!_vm.formValidated ? _c("div", {
+    staticClass: "alert alert-danger mb-1",
+    attrs: {
+      role: "alert"
+    }
+  }, [_vm._v("\n            I campi contrassegnati dall'asterisco (*) sono obbligatori.\n          ")]) : _vm._e(), _vm._v(" "), _c("form", [_c("div", {
     staticClass: "input-box mb-2"
   }, [_vm._m(1), _vm._v(" "), _c("br"), _vm._v(" "), _c("input", {
     directives: [{
@@ -2825,6 +2818,7 @@ var render = function render() {
     }],
     staticClass: "form-control",
     attrs: {
+      id: "addon-wrapping",
       type: "text",
       name: "customer_name",
       placeholder: "Inserisci il tuo nome",
@@ -2841,9 +2835,7 @@ var render = function render() {
         _vm.customer_name = $event.target.value;
       }
     }
-  }), _vm._v(" "), _vm.validation.customer_name.message ? _c("div", {
-    staticClass: "alert alert-danger"
-  }, [_vm._v("\n                " + _vm._s(_vm.validation.customer_name.message) + "\n              ")]) : _vm._e()]), _vm._v(" "), _c("div", {
+  })]), _vm._v(" "), _c("div", {
     staticClass: "input-box mb-2"
   }, [_vm._m(2), _vm._v(" "), _c("br"), _vm._v(" "), _c("input", {
     directives: [{
@@ -2927,23 +2919,23 @@ var render = function render() {
     directives: [{
       name: "model",
       rawName: "v-model",
-      value: _vm.email,
-      expression: "email"
+      value: _vm.customer_email,
+      expression: "customer_email"
     }],
     staticClass: "form-control",
     attrs: {
       type: "email",
-      name: "email",
+      name: "customer_email",
       placeholder: "tuamail@gmail.com",
       required: ""
     },
     domProps: {
-      value: _vm.email
+      value: _vm.customer_email
     },
     on: {
       input: function input($event) {
         if ($event.target.composing) return;
-        _vm.email = $event.target.value;
+        _vm.customer_email = $event.target.value;
       }
     }
   })]), _vm._v(" "), _c("p", {
@@ -2962,7 +2954,7 @@ var render = function render() {
     staticClass: "btn-danger mt-2 mb-4",
     attrs: {
       id: "pay-btn",
-      disabled: _vm.cart.length === 0
+      disabled: _vm.cart.length === 0 || _vm.customer_name === "" || _vm.customer_surname === "" || _vm.customer_address === "" || _vm.customer_phone === "" || _vm.customer_email === ""
     },
     on: {
       click: _vm.validateForm

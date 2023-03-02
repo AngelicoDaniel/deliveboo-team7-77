@@ -1,5 +1,5 @@
 <template>
-  <div class="cont text-center bg-dark">
+  <div class="cont text-center bg-dark my-5">
     <div class="container d-flex justify-content-around">
       <div class="py-5">
         <h2 class="py-2">I tuoi Piatti:</h2>
@@ -53,7 +53,16 @@
             ></button>
           </div>
           <div class="offcanvas-body">
-            <div>
+            <!-- box alert campi obbligatori -->
+            <div
+              v-if="!formValidated"
+              class="alert alert-danger mb-1"
+              role="alert"
+            >
+              I campi contrassegnati dall'asterisco (*) sono obbligatori.
+            </div>
+
+            <form>
               <!-- input Nome -->
               <div class="input-box mb-2">
                 <label for="customer_name"
@@ -61,6 +70,7 @@
                 >
                 <br />
                 <input
+                  id="addon-wrapping"
                   type="text"
                   name="customer_name"
                   placeholder="Inserisci il tuo nome"
@@ -70,12 +80,6 @@
                   required
                   autofocus
                 />
-                <div
-                  v-if="validation.customer_name.message"
-                  class="alert alert-danger"
-                >
-                  {{ validation.customer_name.message }}
-                </div>
               </div>
 
               <!-- input cognome -->
@@ -140,9 +144,9 @@
                 <br />
                 <input
                   type="email"
-                  name="email"
+                  name="customer_email"
                   placeholder="tuamail@gmail.com"
-                  v-model="email"
+                  v-model="customer_email"
                   class="form-control"
                   required
                 />
@@ -162,13 +166,20 @@
                     @click="validateForm"
                     class="btn-danger mt-2 mb-4"
                     id="pay-btn"
-                    :disabled="cart.length === 0"
+                    :disabled="
+                      cart.length === 0 ||
+                      customer_name === '' ||
+                      customer_surname === '' ||
+                      customer_address === '' ||
+                      customer_phone === '' ||
+                      customer_email === ''
+                    "
                   >
                     Paga Il tuo Ordine
                   </button>
                 </router-link>
               </div>
-            </div>
+            </form>
           </div>
         </div>
       </div>
@@ -184,22 +195,14 @@ export default {
     return {
       cart: [],
       TotalPrice: 0,
-      customer_name: null,
-      customer_surname: null,
-      customer_address: null,
-      customer_phone: null,
-
-      email: null,
+      customer_name: "",
+      customer_surname: "",
+      customer_address: "",
+      customer_phone: "",
+      customer_email: "",
 
       order_number: null,
       formValidated: false,
-      validation: {
-        customer_name: {
-          success: true,
-          message: "",
-          formValidated: false,
-        },
-      },
     };
   },
 
@@ -231,16 +234,16 @@ export default {
     },
 
     validateForm() {
-      if (this.cart.length === 0 && !this.customer_name) {
-        alert(
-          "Il carrello è vuoto o il nome del cliente non è stato inserito."
-        );
-        this.validation.customer_name.success = false;
-        this.validation.customer_name.message = "Il nome è obbligatorio";
+      if (
+        this.cart.length === 0 &&
+        this.customer_name === " " &&
+        this.customer_surname === " " &&
+        this.customer_address === " " &&
+        this.customer_phone === " " &&
+        this.customer_email === " "
+      ) {
         this.formValidated = false;
       } else {
-        this.validation.customer_name.success = true;
-        this.validation.customer_name.message = "";
         this.formValidated = true;
         this.cart = [];
         localStorage.removeItem("cart");
