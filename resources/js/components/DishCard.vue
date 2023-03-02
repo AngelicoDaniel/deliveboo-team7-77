@@ -18,7 +18,7 @@
               <p class="card-text">{{ elem.description }}</p>
               <button
                 @click="addCart(elem.name, elem.price, elem.id, elem.user_id , elem.image)"
-                class="btn btn-primary"
+                class="btn"
               >
                 Aggiungi al Carrello
               </button>
@@ -146,5 +146,18 @@
   margin: 0;
   font-weight: bold;
 }
+
+.btn{
+    background-color: #00CCBC;
+    color: white;
+    font-weight: bold;
+}
+
+.btn:hover{
+    border-color: #00CCBC;
+    color: black;
+    background-color: rgba(13, 163, 150, 0.9);
+}
+
 
   </style>

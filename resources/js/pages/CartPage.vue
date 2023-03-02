@@ -57,7 +57,7 @@
                           <button
                             class="btn btn-danger"
                             @click="removeCartItem(index)"
-                        
+
                           >
                             <i class="fas fa-trash-alt"></i>
                           </button>
