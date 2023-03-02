@@ -16,20 +16,20 @@ class TypeSeeder extends Seeder
     {
         $restaurants = User::all()->pluck('id');
         $types = [
-            'pizzeria',
-            'italiano',
-            'cinese',
-            'giapponese',
-            'messicano',
-            'indiano',
-            'pesce',
-            'carne',
-            'vegetariano',
-            'senza glutine',
-            'americano',
-            'dessert',
-            'gelato',
-            'poke',
+            'Pizzeria',
+            'Italiano',
+            'Cinese',
+            'Giapponese',
+            'Messicano',
+            'Indiano',
+            'Pesce',
+            'Carne',
+            'Vegetariano',
+            'Senza glutine',
+            'Americano',
+            'Dessert',
+            'Gelato',
+            'Poke',
 
         ];
         $restaurantTypes = [

@@ -2109,9 +2109,10 @@ __webpack_require__.r(__webpack_exports__);
       cart: [],
       TotalPrice: 0,
       customer_name: null,
-      address: null,
+      customer_surname: null,
+      customer_address: null,
+      customer_phone: null,
       email: null,
-      ship_cost: null,
       order_number: null,
       formValidated: false,
       validation: {
@@ -2777,7 +2778,7 @@ var render = function render() {
           return _vm.removeCartItem(index);
         }
       }
-    }, [_vm._v("\n              Rimuovi\n            ")])])]);
+    }, [_vm._v("\n            Rimuovi\n          ")])])]);
   }), _vm._v(" "), _c("div", {
     staticClass: "p-4"
   }, [_c("button", {
@@ -2787,7 +2788,7 @@ var render = function render() {
         return _vm.removeCart();
       }
     }
-  }, [_vm._v("\n            Svuota Carrello\n          ")])])], 2), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n          Svuota Carrello\n        ")])])], 2), _vm._v(" "), _c("div", {
     staticClass: "py-5 text-white"
   }, [_c("h3", {
     staticClass: "py-2"
@@ -2803,7 +2804,7 @@ var render = function render() {
       "data-bs-target": "#staticBackdrop",
       "aria-controls": "staticBackdrop"
     }
-  }, [_vm._v("\n          Checkout\n        ")]), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n        Checkout\n      ")]), _vm._v(" "), _c("div", {
     staticClass: "offcanvas offcanvas-start",
     attrs: {
       "data-bs-backdrop": "static",
@@ -2842,36 +2843,87 @@ var render = function render() {
     }
   }), _vm._v(" "), _vm.validation.customer_name.message ? _c("div", {
     staticClass: "alert alert-danger"
-  }, [_vm._v("\n    " + _vm._s(_vm.validation.customer_name.message) + "\n  ")]) : _vm._e()]), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n                " + _vm._s(_vm.validation.customer_name.message) + "\n              ")]) : _vm._e()]), _vm._v(" "), _c("div", {
     staticClass: "input-box mb-2"
   }, [_vm._m(2), _vm._v(" "), _c("br"), _vm._v(" "), _c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
-      value: _vm.address,
-      expression: "address"
+      value: _vm.customer_surname,
+      expression: "customer_surname"
     }],
     staticClass: "form-control",
     attrs: {
       type: "text",
-      name: "address",
+      name: "customer_surname",
+      placeholder: "Inserisci il tuo cognome",
+      required: "",
+      maxlength: "50"
+    },
+    domProps: {
+      value: _vm.customer_surname
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.customer_surname = $event.target.value;
+      }
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "input-box mb-2"
+  }, [_vm._m(3), _vm._v(" "), _c("br"), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.customer_address,
+      expression: "customer_address"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      type: "text",
+      name: "customer_address",
       placeholder: "Inserisci il tuo indirizzo",
       value: "",
       required: "",
       maxlength: "255"
     },
     domProps: {
-      value: _vm.address
+      value: _vm.customer_address
     },
     on: {
       input: function input($event) {
         if ($event.target.composing) return;
-        _vm.address = $event.target.value;
+        _vm.customer_address = $event.target.value;
       }
     }
   })]), _vm._v(" "), _c("div", {
     staticClass: "input-box mb-2"
-  }, [_vm._m(3), _vm._v(" "), _c("br"), _vm._v(" "), _c("input", {
+  }, [_vm._m(4), _vm._v(" "), _c("br"), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.customer_phone,
+      expression: "customer_phone"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      type: "tel",
+      name: "customer_phone",
+      placeholder: "Inserisci il tuo numero di telefono",
+      required: ""
+    },
+    domProps: {
+      value: _vm.customer_phone
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.customer_phone = $event.target.value;
+      }
+    }
+  }), _vm._v(" "), _c("small", [_vm._v("Formato 346 15 96 524")])]), _vm._v(" "), _c("div", {
+    staticClass: "input-box mb-2"
+  }, [_vm._m(5), _vm._v(" "), _c("br"), _vm._v(" "), _c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -2915,7 +2967,7 @@ var render = function render() {
     on: {
       click: _vm.validateForm
     }
-  }, [_vm._v("\n      Paga Il tuo Ordine\n    ")])])], 1)])])])])])]);
+  }, [_vm._v("\n                  Paga Il tuo Ordine\n                ")])])], 1)])])])])])]);
 };
 var staticRenderFns = [function () {
   var _vm = this,
@@ -2950,9 +3002,29 @@ var staticRenderFns = [function () {
     _c = _vm._self._c;
   return _c("label", {
     attrs: {
+      "for": "customer_surname"
+    }
+  }, [_vm._v("Cognome "), _c("span", {
+    staticClass: "text-danger"
+  }, [_vm._v("*")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("label", {
+    attrs: {
       "for": "address"
     }
-  }, [_vm._v("Indirizzo di consegna\n                            "), _c("span", {
+  }, [_vm._v("Indirizzo di consegna\n                "), _c("span", {
+    staticClass: "text-danger"
+  }, [_vm._v("*")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("label", {
+    attrs: {
+      "for": "customer_phone"
+    }
+  }, [_vm._v("Inserisci il tuo numero di telefono\n                "), _c("span", {
     staticClass: "text-danger"
   }, [_vm._v("*")])]);
 }, function () {

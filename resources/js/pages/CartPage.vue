@@ -54,85 +54,123 @@
           </div>
           <div class="offcanvas-body">
             <div>
+              <!-- input Nome -->
+              <div class="input-box mb-2">
+                <label for="customer_name"
+                  >Nome <span class="text-danger">*</span></label
+                >
+                <br />
+                <input
+                  type="text"
+                  name="customer_name"
+                  placeholder="Inserisci il tuo nome"
+                  v-model="customer_name"
+                  class="form-control"
+                  maxlength="50"
+                  required
+                  autofocus
+                />
+                <div
+                  v-if="validation.customer_name.message"
+                  class="alert alert-danger"
+                >
+                  {{ validation.customer_name.message }}
+                </div>
+              </div>
 
-               <div class="input-box mb-2">
-  <label for="customer_name">Nome <span class="text-danger">*</span></label>
-  <br />
-  <input
-    type="text"
-    name="customer_name"
-    placeholder="Inserisci il tuo nome"
-    v-model="customer_name"
-    class="form-control"
-    maxlength="50"
-    required
-    autofocus
-  />
-  <div v-if="validation.customer_name.message" class="alert alert-danger">
-    {{ validation.customer_name.message }}
-  </div>
-</div>
+              <!-- input cognome -->
+              <div class="input-box mb-2">
+                <label for="customer_surname"
+                  >Cognome <span class="text-danger">*</span></label
+                >
+                <br />
+                <input
+                  type="text"
+                  name="customer_surname"
+                  placeholder="Inserisci il tuo cognome"
+                  v-model="customer_surname"
+                  class="form-control"
+                  required
+                  maxlength="50"
+                />
+              </div>
 
-                          <!-- input indirizzo di consegna -->
-                        <div class="input-box mb-2">
-                          <label for="address"
-                            >Indirizzo di consegna
-                            <span class="text-danger">*</span></label
-                          >
-                          <br />
-                          <input
-                            type="text"
-                            name="address"
-                            placeholder="Inserisci il tuo indirizzo"
-                            v-model="address"
-                            value=""
-                            class="form-control"
-                            required
-                            maxlength="255"
-                          />
+              <!-- input indirizzo di consegna -->
+              <div class="input-box mb-2">
+                <label for="address"
+                  >Indirizzo di consegna
+                  <span class="text-danger">*</span></label
+                >
+                <br />
+                <input
+                  type="text"
+                  name="customer_address"
+                  placeholder="Inserisci il tuo indirizzo"
+                  v-model="customer_address"
+                  value=""
+                  class="form-control"
+                  required
+                  maxlength="255"
+                />
+              </div>
 
-                          </div>
+              <!-- input telefono -->
+              <div class="input-box mb-2">
+                <label for="customer_phone"
+                  >Inserisci il tuo numero di telefono
+                  <span class="text-danger">*</span></label
+                >
+                <br />
+                <input
+                  type="tel"
+                  name="customer_phone"
+                  placeholder="Inserisci il tuo numero di telefono"
+                  v-model="customer_phone"
+                  class="form-control"
+                  required
+                />
+                <small>Formato 346 15 96 524</small>
+              </div>
 
-                           <!-- input email -->
-                        <div class="input-box mb-2">
-                          <label for="email"
-                            >Email <span class="text-danger">*</span></label
-                          >
-                          <br />
-                          <input
-                            type="email"
-                            name="email"
-                            placeholder="tuamail@gmail.com"
-                            v-model="email"
-                            class="form-control"
-                            required
-                          />
-                          </div>
+              <!-- input email -->
+              <div class="input-box mb-2">
+                <label for="email"
+                  >Email <span class="text-danger">*</span></label
+                >
+                <br />
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="tuamail@gmail.com"
+                  v-model="email"
+                  class="form-control"
+                  required
+                />
+              </div>
 
-                          <p class="py-2">Prezzo totale:</p>
-        <h5  class="my-4">{{ this.TotalPrice }} €</h5>
+              <p class="py-2">Prezzo totale:</p>
+              <h5 class="my-4">{{ this.TotalPrice }} €</h5>
 
-
-
-                          <!-- bottone conferma dati -->
-      <div class="d-flex justify-content-center">
-  <router-link class="nav-link active" aria-current="page" :to="`/success`">
-    <button @click="validateForm" class="btn-danger mt-2 mb-4" id="pay-btn" :disabled="cart.length === 0">
-      Paga Il tuo Ordine
-    </button>
-  </router-link>
-</div>
-
-
-
-
-
-
-
+              <!-- bottone conferma dati -->
+              <div class="d-flex justify-content-center">
+                <router-link
+                  class="nav-link active"
+                  aria-current="page"
+                  :to="`/success`"
+                >
+                  <button
+                    @click="validateForm"
+                    class="btn-danger mt-2 mb-4"
+                    id="pay-btn"
+                    :disabled="cart.length === 0"
+                  >
+                    Paga Il tuo Ordine
+                  </button>
+                </router-link>
+              </div>
             </div>
           </div>
         </div>
-
       </div>
     </div>
   </div>
@@ -147,9 +185,12 @@ export default {
       cart: [],
       TotalPrice: 0,
       customer_name: null,
-      address: null,
+      customer_surname: null,
+      customer_address: null,
+      customer_phone: null,
+
       email: null,
-      ship_cost: null,
+
       order_number: null,
       formValidated: false,
       validation: {
@@ -157,7 +198,8 @@ export default {
           success: true,
           message: "",
           formValidated: false,
-        },}
+        },
+      },
     };
   },
 
@@ -188,29 +230,25 @@ export default {
       });
     },
 
-
-validateForm() {
-  if (this.cart.length === 0 && !this.customer_name) {
-    alert("Il carrello è vuoto o il nome del cliente non è stato inserito.");
-    this.validation.customer_name.success = false;
-    this.validation.customer_name.message = "Il nome è obbligatorio";
-    this.formValidated = false;
-  } else {
-    this.validation.customer_name.success = true;
-    this.validation.customer_name.message = "";
-    this.formValidated = true;
-    this.cart = [];
-      localStorage.removeItem("cart");
-      this.totalPrice();
-
-  }
-}
-
-
-
-
+    validateForm() {
+      if (this.cart.length === 0 && !this.customer_name) {
+        alert(
+          "Il carrello è vuoto o il nome del cliente non è stato inserito."
+        );
+        this.validation.customer_name.success = false;
+        this.validation.customer_name.message = "Il nome è obbligatorio";
+        this.formValidated = false;
+      } else {
+        this.validation.customer_name.success = true;
+        this.validation.customer_name.message = "";
+        this.formValidated = true;
+        this.cart = [];
+        localStorage.removeItem("cart");
+        this.totalPrice();
+      }
+    },
   },
-}
+};
 </script>
 
 <style scoped lang="scss">
