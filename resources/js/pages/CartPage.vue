@@ -48,7 +48,7 @@
                                 "
                               >
                                 Prezzo:
-                                {{ item.price }}€
+                                {{ item.price }} €
                               </p>
                             </div>
                           </div>
@@ -59,7 +59,7 @@
                             @click="removeCartItem(index)"
 
                           >
-                            <i class="fas fa-trash-alt"></i>
+                            <i class="fa-regular fa-trash-can"></i>
                           </button>
                         </div>
                       </div>

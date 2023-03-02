@@ -2786,7 +2786,7 @@ var render = function render() {
       staticClass: "mb-2"
     }, [_vm._v("\n                            " + _vm._s(item.name) + "\n                          ")]), _vm._v(" "), _c("div", [_c("p", {
       staticClass: "my-2 ml-0 ml-sm-2 d-sm-inline-block d-block"
-    }, [_vm._v("\n                              Prezzo:\n                              " + _vm._s(item.price) + "€\n                            ")])])])]), _vm._v(" "), _c("div", {
+    }, [_vm._v("\n                              Prezzo:\n                              " + _vm._s(item.price) + " €\n                            ")])])])]), _vm._v(" "), _c("div", {
       staticClass: "col-4 col-sm-2 text-right"
     }, [_c("button", {
       staticClass: "btn btn-danger",
@@ -2796,7 +2796,7 @@ var render = function render() {
         }
       }
     }, [_c("i", {
-      staticClass: "fas fa-trash-alt"
+      staticClass: "fa-regular fa-trash-can"
     })])])])]);
   })], 2) : _c("div", {
     staticClass: "text-center mt-5"
