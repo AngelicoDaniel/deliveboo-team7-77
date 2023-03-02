@@ -1,18 +1,22 @@
 <template>
     <div class="text-center">
       <div class="row justify-content-center my-5">
-        <h3 class="text-center">Seleziona il tuo piatto preferito</h3>
+        <h3 class="text-center">Seleziona il tuo piatto <span class="text-green">preferito</span> </h3>
       </div>
 
-      <div class="">
-        <div class="card-deck d-flex justify-content-center">
+      <div class="row justify-content-center">
+        <div
+          v-for="(elem, index) in dish"
+          :key="index"
+          class="col-sm-6 col-md-4 col-lg-3 mb-4 m-4"
+        >
           <div
-            v-for="(elem, index) in dish"
-            :key="index"
-            class="card m-4"
+            class="card h-100"
             :style="{ backgroundImage: `url(/storage/${elem.image})` }"
           >
-            <div class="card-overlay d-flex flex-column align-items-center justify-content-center justify-content-around">
+            <div
+              class="card-overlay d-flex flex-column align-items-center justify-content-center justify-content-around"
+            >
               <h4 class="card-title">{{ elem.name }}</h4>
               <p class="card-text">{{ elem.price }}€ </p>
               <p class="card-text description">{{ elem.description }}</p>
@@ -28,6 +32,8 @@
       </div>
     </div>
   </template>
+
+
 
   <script>
   export default {
@@ -50,15 +56,15 @@
           this.cart.push(element);
         });
 
-        const maxWidth = 200; // larghezza massima del contenitore della descrizione in pixel
-  const maxChars = 100; // numero massimo di caratteri della descrizione da visualizzare
-  const descriptions = document.querySelectorAll(".description");
-  descriptions.forEach((desc) => {
-    if (desc.offsetWidth > maxWidth) {
-      const text = desc.textContent.trim();
-      desc.textContent = text.slice(0, maxChars) + "...";
-    }
-  });
+//         const maxWidth = 200; // larghezza massima del contenitore della descrizione in pixel
+//   const maxChars = 100; // numero massimo di caratteri della descrizione da visualizzare
+//   const descriptions = document.querySelectorAll(".description");
+//   descriptions.forEach((desc) => {
+//     if (desc.offsetWidth > maxWidth) {
+//       const text = desc.textContent.trim();
+//       desc.textContent = text.slice(0, maxChars) + "...";
+//     }
+//   });
 
     },
     methods: {
@@ -101,7 +107,7 @@
 
   <style scoped lang="scss">
 .card {
-  flex-basis: 18%;
+  flex-basis: 19%;
   justify-content: space-between;
   margin: 10px 10px;
   background-size: cover;
@@ -118,7 +124,7 @@
 }
 
 .card:hover {
-  transform: scale(1.05);
+  transform: scale(1.1);
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 }
 
@@ -151,11 +157,6 @@
   font-weight: bolder;
 }
 
-// .card-text {
-//   font-size: 1rem;
-//   margin: 0;
-//   font-weight: bold;
-// }
 
 .card-text {
   font-size: 1rem;
@@ -163,8 +164,12 @@
   font-weight: bold;
   overflow: hidden;
   text-overflow: ellipsis;
+  max-width: 100%;
 }
 
+.text-green{
+    color: #00CCBC;
+}
 
 
 .btn{
