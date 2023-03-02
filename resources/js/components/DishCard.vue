@@ -12,9 +12,9 @@
             class="card"
             :style="{ backgroundImage: `url(/storage/${elem.image})` }"
           >
-            <div class="card-overlay">
-              <h5 class="card-title">{{ elem.name }}</h5>
-              <p class="card-text">{{ elem.price }}</p>
+            <div class="card-overlay d-flex flex-column align-items-center justify-content-center justify-content-around">
+              <h4 class="card-title">{{ elem.name }}</h4>
+              <p class="card-text">{{ elem.price }}€ </p>
               <p class="card-text">{{ elem.description }}</p>
               <button
                 @click="addCart(elem.name, elem.price, elem.id, elem.user_id)"
@@ -131,22 +131,14 @@
   }
 
   .card-title {
-    font-size: 1.2rem;
+    font-size: 1.7rem;
     margin: 0;
+    font-weight: bolder;
   }
 
   .card-text {
-    font-size: 1rem;
+    font-size: 1.3rem;
     margin: 0;
-  }
-
-  .card-title {
-    font-size: 1.2rem;
-    margin: 0;
-  }
-
-  .card-text {
-    font-size: 1rem;
-    margin: 0;
+    font-weight: bold;
   }
   </style>

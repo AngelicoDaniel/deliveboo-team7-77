@@ -2292,12 +2292,12 @@ var render = function render() {
         backgroundImage: "url(/storage/".concat(elem.image, ")")
       }
     }, [_c("div", {
-      staticClass: "card-overlay"
-    }, [_c("h5", {
+      staticClass: "card-overlay d-flex flex-column align-items-center justify-content-center justify-content-around"
+    }, [_c("h4", {
       staticClass: "card-title"
     }, [_vm._v(_vm._s(elem.name))]), _vm._v(" "), _c("p", {
       staticClass: "card-text"
-    }, [_vm._v(_vm._s(elem.price))]), _vm._v(" "), _c("p", {
+    }, [_vm._v(_vm._s(elem.price) + "€ ")]), _vm._v(" "), _c("p", {
       staticClass: "card-text"
     }, [_vm._v(_vm._s(elem.description))]), _vm._v(" "), _c("button", {
       staticClass: "btn btn-primary",
@@ -7708,7 +7708,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".card[data-v-2988c035] {\n  flex-basis: 22%;\n  justify-content: space-between;\n  margin: 10px 10px;\n  background-size: cover;\n  background-position: center;\n  background-repeat: no-repeat;\n  aspect-ratio: 1/1;\n  position: relative; /* needed for absolute positioning of .card-overlay */\n}\n.card-deck[data-v-2988c035] {\n  display: flex;\n  flex-wrap: wrap;\n}\n.card-titl .card-tex[data-v-2988c035] {\n  color: white;\n}\n.card-overlay[data-v-2988c035] {\n  opacity: 0; /* hide content initially */\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  margin: auto;\n  padding: 10px;\n  background-color: rgba(255, 255, 255, 0.3);\n  text-align: center;\n  color: black;\n  transition: opacity 0.2s ease-in-out; /* add a transition effect */\n}\n.card:hover .card-overlay[data-v-2988c035] {\n  opacity: 1; /* show content on hover */\n}\n.card-title[data-v-2988c035] {\n  font-size: 1.2rem;\n  margin: 0;\n}\n.card-text[data-v-2988c035] {\n  font-size: 1rem;\n  margin: 0;\n}\n.card-title[data-v-2988c035] {\n  font-size: 1.2rem;\n  margin: 0;\n}\n.card-text[data-v-2988c035] {\n  font-size: 1rem;\n  margin: 0;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".card[data-v-2988c035] {\n  flex-basis: 22%;\n  justify-content: space-between;\n  margin: 10px 10px;\n  background-size: cover;\n  background-position: center;\n  background-repeat: no-repeat;\n  aspect-ratio: 1/1;\n  position: relative; /* needed for absolute positioning of .card-overlay */\n}\n.card-deck[data-v-2988c035] {\n  display: flex;\n  flex-wrap: wrap;\n}\n.card-titl .card-tex[data-v-2988c035] {\n  color: white;\n}\n.card-overlay[data-v-2988c035] {\n  opacity: 0; /* hide content initially */\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  margin: auto;\n  padding: 10px;\n  background-color: rgba(255, 255, 255, 0.3);\n  text-align: center;\n  color: black;\n  transition: opacity 0.2s ease-in-out; /* add a transition effect */\n}\n.card:hover .card-overlay[data-v-2988c035] {\n  opacity: 1; /* show content on hover */\n}\n.card-title[data-v-2988c035] {\n  font-size: 1.7rem;\n  margin: 0;\n  font-weight: bolder;\n}\n.card-text[data-v-2988c035] {\n  font-size: 1.3rem;\n  margin: 0;\n  font-weight: bold;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
