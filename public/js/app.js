@@ -2745,29 +2745,70 @@ __webpack_require__.r(__webpack_exports__);
 var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("div", {
-    staticClass: "cont text-center bg-dark my-5"
+  return _c("section", {
+    staticClass: "h-100 h-custom",
+    staticStyle: {
+      "background-color": "#eee"
+    }
   }, [_c("div", {
-    staticClass: "container d-flex justify-content-around"
+    staticClass: "container py-5 h-100"
   }, [_c("div", {
-    staticClass: "py-5"
-  }, [_c("h2", {
-    staticClass: "py-2"
-  }, [_vm._v("I tuoi Piatti:")]), _vm._v(" "), _vm._l(_vm.cart, function (item, index) {
+    staticClass: "row d-flex justify-content-center align-items-center h-100"
+  }, [_c("div", {
+    staticClass: "col"
+  }, [_c("div", {
+    staticClass: "card"
+  }, [_c("div", {
+    staticClass: "card-body p-4"
+  }, [_c("div", {
+    staticClass: "row"
+  }, [_c("div", {
+    staticClass: "col-lg-7"
+  }, [_vm._m(0), _vm._v(" "), _c("hr"), _vm._v(" "), _vm.cart.length > 0 ? _c("div", [_vm._m(1), _vm._v(" "), _vm._l(_vm.cart, function (item, index) {
     return _c("div", {
       key: index,
-      staticClass: "card my-2"
+      staticClass: "card mb-3"
     }, [_c("div", {
-      staticClass: "card-body"
-    }, [_c("li", [_vm._v(_vm._s(item.id))]), _vm._v(" "), _c("li", [_vm._v(_vm._s(item.name))]), _vm._v(" "), _c("li", [_vm._v(_vm._s(item.price))]), _vm._v(" "), _c("button", {
+      staticClass: "row align-items-center p-3 added_plate"
+    }, [_c("div", {
+      staticClass: "col-0 col-sm-4 d-none d-sm-block"
+    }, [_c("img", {
+      staticClass: "d-inline-block",
+      attrs: {
+        src: "/storage/".concat(item.image),
+        alt: item.name,
+        width: "100px"
+      }
+    })]), _vm._v(" "), _c("div", {
+      staticClass: "col-8 col-sm-6"
+    }, [_c("div", {
+      staticClass: "d-flex flex-column"
+    }, [_c("h6", {
+      staticClass: "mb-2"
+    }, [_vm._v("\n                            " + _vm._s(item.name) + "\n                          ")]), _vm._v(" "), _c("div", [_c("p", {
+      staticClass: "my-2 ml-0 ml-sm-2 d-sm-inline-block d-block"
+    }, [_vm._v("\n                              Prezzo:\n                              " + _vm._s(item.price) + "€\n                            ")])])])]), _vm._v(" "), _c("div", {
+      staticClass: "col-4 col-sm-2 text-right"
+    }, [_c("button", {
       staticClass: "btn btn-danger",
+      staticStyle: {
+        color: "#ffffff"
+      },
       on: {
         click: function click($event) {
           return _vm.removeCartItem(index);
         }
       }
-    }, [_vm._v("\n            Rimuovi\n          ")])])]);
-  }), _vm._v(" "), _c("div", {
+    }, [_c("i", {
+      staticClass: "fas fa-trash-alt"
+    })])])])]);
+  })], 2) : _c("div", {
+    staticClass: "text-center mt-5"
+  }, [_vm._m(2)])]), _vm._v(" "), _c("div", {
+    staticClass: "col-lg-5"
+  }, [_c("div", {
+    staticClass: "card card_right rounded-3"
+  }, [_c("div", {
     staticClass: "p-4"
   }, [_c("button", {
     staticClass: "btn-danger",
@@ -2776,7 +2817,7 @@ var render = function render() {
         return _vm.removeCart();
       }
     }
-  }, [_vm._v("\n          Svuota Carrello\n        ")])])], 2), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n                      Svuota Carrello\n                    ")])])]), _vm._v(" "), _c("div", {
     staticClass: "py-5 text-white"
   }, [_c("h3", {
     staticClass: "py-2"
@@ -2792,7 +2833,7 @@ var render = function render() {
       "data-bs-target": "#staticBackdrop",
       "aria-controls": "staticBackdrop"
     }
-  }, [_vm._v("\n        Checkout\n      ")]), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n                    Checkout\n                  ")]), _vm._v(" "), _c("div", {
     staticClass: "offcanvas offcanvas-start",
     attrs: {
       "data-bs-backdrop": "static",
@@ -2800,16 +2841,16 @@ var render = function render() {
       id: "staticBackdrop",
       "aria-labelledby": "staticBackdropLabel"
     }
-  }, [_vm._m(0), _vm._v(" "), _c("div", {
+  }, [_vm._m(3), _vm._v(" "), _c("div", {
     staticClass: "offcanvas-body"
   }, [!_vm.formValidated ? _c("div", {
     staticClass: "alert alert-danger mb-1",
     attrs: {
       role: "alert"
     }
-  }, [_vm._v("\n            I campi contrassegnati dall'asterisco (*) sono obbligatori.\n          ")]) : _vm._e(), _vm._v(" "), _c("form", [_c("div", {
+  }, [_vm._v("\n                        I campi contrassegnati dall'asterisco (*) sono obbligatori.\n                      ")]) : _vm._e(), _vm._v(" "), _c("form", [_c("div", {
     staticClass: "input-box mb-2"
-  }, [_vm._m(1), _vm._v(" "), _c("br"), _vm._v(" "), _c("input", {
+  }, [_vm._m(4), _vm._v(" "), _c("br"), _vm._v(" "), _c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -2837,7 +2878,7 @@ var render = function render() {
     }
   })]), _vm._v(" "), _c("div", {
     staticClass: "input-box mb-2"
-  }, [_vm._m(2), _vm._v(" "), _c("br"), _vm._v(" "), _c("input", {
+  }, [_vm._m(5), _vm._v(" "), _c("br"), _vm._v(" "), _c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -2863,7 +2904,7 @@ var render = function render() {
     }
   })]), _vm._v(" "), _c("div", {
     staticClass: "input-box mb-2"
-  }, [_vm._m(3), _vm._v(" "), _c("br"), _vm._v(" "), _c("input", {
+  }, [_vm._m(6), _vm._v(" "), _c("br"), _vm._v(" "), _c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -2890,7 +2931,7 @@ var render = function render() {
     }
   })]), _vm._v(" "), _c("div", {
     staticClass: "input-box mb-2"
-  }, [_vm._m(4), _vm._v(" "), _c("br"), _vm._v(" "), _c("input", {
+  }, [_vm._m(7), _vm._v(" "), _c("br"), _vm._v(" "), _c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -2915,7 +2956,7 @@ var render = function render() {
     }
   }), _vm._v(" "), _c("small", [_vm._v("Formato 346 15 96 524")])]), _vm._v(" "), _c("div", {
     staticClass: "input-box mb-2"
-  }, [_vm._m(5), _vm._v(" "), _c("br"), _vm._v(" "), _c("input", {
+  }, [_vm._m(8), _vm._v(" "), _c("br"), _vm._v(" "), _c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -2959,9 +3000,35 @@ var render = function render() {
     on: {
       click: _vm.validateForm
     }
-  }, [_vm._v("\n                  Paga Il tuo Ordine\n                ")])])], 1)])])])])])]);
+  }, [_vm._v("\n                              Paga Il tuo Ordine\n                            ")])])], 1)])])])])])])])])])])])]);
 };
 var staticRenderFns = [function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("h5", {
+    staticClass: "mb-3"
+  }, [_c("a", {
+    staticClass: "text-body continue_shopping"
+  }, [_c("i", {
+    staticClass: "fas fa-long-arrow-alt-left mr-2"
+  }), _vm._v("Continua\n                    lo shopping")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "mb-4"
+  }, [_c("p", {
+    staticClass: "mb-1"
+  }, [_vm._v("Il tuo Carrello")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "d-flex flex-column mb-3"
+  }, [_c("i", {
+    staticClass: "fa-solid fa-2x fa-cart-shopping mb-3"
+  }), _vm._v(" "), _c("p", [_vm._v("Il carrello è vuoto")])]);
+}, function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", {
@@ -3006,7 +3073,7 @@ var staticRenderFns = [function () {
     attrs: {
       "for": "address"
     }
-  }, [_vm._v("Indirizzo di consegna\n                "), _c("span", {
+  }, [_vm._v("Indirizzo di consegna\n                            "), _c("span", {
     staticClass: "text-danger"
   }, [_vm._v("*")])]);
 }, function () {
@@ -3016,7 +3083,7 @@ var staticRenderFns = [function () {
     attrs: {
       "for": "customer_phone"
     }
-  }, [_vm._v("Inserisci il tuo numero di telefono\n                "), _c("span", {
+  }, [_vm._v("Inserisci il tuo numero di telefono\n                            "), _c("span", {
     staticClass: "text-danger"
   }, [_vm._v("*")])]);
 }, function () {
