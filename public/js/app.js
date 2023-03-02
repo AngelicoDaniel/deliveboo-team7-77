@@ -2847,7 +2847,7 @@ var render = function render() {
     attrs: {
       role: "alert"
     }
-  }, [_vm._v("\n                        I campi contrassegnati dall'asterisco (*) sono obbligatori.\n                      ")]) : _vm._e(), _vm._v(" "), _c("form", [_c("div", {
+  }, [_vm._v("\n                        I campi contrassegnati dall'asterisco (*) sono\n                        obbligatori.\n                      ")]) : _vm._e(), _vm._v(" "), _c("form", [_c("div", {
     staticClass: "input-box mb-2"
   }, [_vm._m(4), _vm._v(" "), _c("br"), _vm._v(" "), _c("input", {
     directives: [{
@@ -3007,9 +3007,12 @@ var staticRenderFns = [function () {
   return _c("h5", {
     staticClass: "mb-3"
   }, [_c("a", {
-    staticClass: "text-body continue_shopping"
+    staticClass: "text-body continue_shopping",
+    attrs: {
+      onclick: "history.back()"
+    }
   }, [_c("i", {
-    staticClass: "fas fa-long-arrow-alt-left mr-2"
+    staticClass: "fas fa-long-arrow-alt-left mx-2"
   }), _vm._v("Continua\n                    lo shopping")])]);
 }, function () {
   var _vm = this,
@@ -3037,7 +3040,7 @@ var staticRenderFns = [function () {
     attrs: {
       id: "staticBackdropLabel"
     }
-  }, [_vm._v("Checkout")]), _vm._v(" "), _c("button", {
+  }, [_vm._v("\n                        Checkout\n                      ")]), _vm._v(" "), _c("button", {
     staticClass: "btn-close",
     attrs: {
       type: "button",
@@ -7803,7 +7806,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "li[data-v-2f3a4cd8] {\n  list-style: none;\n  font-size: 120%;\n}\nh2[data-v-2f3a4cd8],\nh3[data-v-2f3a4cd8] {\n  color: #00ccbc;\n  font-size: 350%;\n}\n.btn-green[data-v-2f3a4cd8] {\n  background-color: #00CCBC;\n  color: white;\n}\n.btn-green[data-v-2f3a4cd8]:hover {\n  border-color: #00CCBC;\n  background-color: rgba(13, 163, 150, 0.9);\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "li[data-v-2f3a4cd8] {\n  list-style: none;\n  font-size: 120%;\n}\nh2[data-v-2f3a4cd8],\nh3[data-v-2f3a4cd8] {\n  color: #00ccbc;\n  font-size: 350%;\n}\n.btn-green[data-v-2f3a4cd8] {\n  background-color: #00ccbc;\n  color: white;\n}\n.btn-green[data-v-2f3a4cd8]:hover {\n  border-color: #00ccbc;\n  background-color: rgba(13, 163, 150, 0.9);\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -7851,7 +7854,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\r\n/* .navbar-nav li:hover {\r\n  color: #00CCBC;\r\n} */\n.navbar{\r\n    padding: 0;\n}\n.nav-right{\r\n    margin-right: 30px;\n}\n.img-logo {\r\n    width: 170px;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n/* .navbar-nav li:hover {\n  color: #00CCBC;\n} */\n.navbar{\n    padding: 0;\n}\n.nav-right{\n    margin-right: 30px;\n}\n.img-logo {\n    width: 170px;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

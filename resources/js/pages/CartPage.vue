@@ -10,18 +10,20 @@
                   <h5 class="mb-3">
                     <a
                       class="text-body continue_shopping"
-                      ><i class="fas fa-long-arrow-alt-left mr-2"></i>Continua
+                      onclick="history.back()"
+                      ><i class="fas fa-long-arrow-alt-left mx-2"></i>Continua
                       lo shopping</a
                     >
                   </h5>
+
                   <hr />
                   <div v-if="cart.length > 0">
                     <div class="mb-4">
                       <p class="mb-1">Il tuo Carrello</p>
                     </div>
                     <div
-
-                      v-for="(item, index) in cart" :key="index"
+                      v-for="(item, index) in cart"
+                      :key="index"
                       class="card mb-3"
                     >
                       <div class="row align-items-center p-3 added_plate">
@@ -39,13 +41,8 @@
                               {{ item.name }}
                             </h6>
                             <div>
-
                               <p
-                                class="
-                                  my-2
-                                  ml-0 ml-sm-2
-                                  d-sm-inline-block d-block
-                                "
+                                class="my-2 ml-0 ml-sm-2 d-sm-inline-block d-block"
                               >
                                 Prezzo:
                                 {{ item.price }} €
@@ -57,7 +54,6 @@
                           <button
                             class="btn btn-danger"
                             @click="removeCartItem(index)"
-
                           >
                             <i class="fa-regular fa-trash-can"></i>
                           </button>
@@ -73,9 +69,13 @@
                   </div>
                 </div>
                 <div class="col-lg-5">
-                  <div  class="card card_right rounded-3">
+                  <div class="card card_right rounded-3">
                     <div class="p-4">
-                      <button class="btn btn-danger" type="button" @click="removeCart()">
+                      <button
+                        class="btn btn-danger"
+                        type="button"
+                        @click="removeCart()"
+                      >
                         Svuota Carrello
                       </button>
                     </div>
@@ -103,7 +103,9 @@
                       aria-labelledby="staticBackdropLabel"
                     >
                       <div class="offcanvas-header">
-                        <h5 class="offcanvas-title" id="staticBackdropLabel">Checkout</h5>
+                        <h5 class="offcanvas-title" id="staticBackdropLabel">
+                          Checkout
+                        </h5>
                         <button
                           type="button"
                           class="btn-close"
@@ -118,7 +120,8 @@
                           class="alert alert-danger mb-1"
                           role="alert"
                         >
-                          I campi contrassegnati dall'asterisco (*) sono obbligatori.
+                          I campi contrassegnati dall'asterisco (*) sono
+                          obbligatori.
                         </div>
 
                         <form>
@@ -241,7 +244,6 @@
                         </form>
                       </div>
                     </div>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -249,6 +251,7 @@
           </div>
         </div>
       </div>
+    </div>
   </section>
 </template>
 
@@ -321,26 +324,24 @@ export default {
 </script>
 
 <style scoped lang="scss">
-
-  li {
-    list-style: none;
-    font-size: 120%;
-  }
-
-  h2,
-  h3 {
-    color: #00ccbc;
-    font-size: 350%;
-  }
-
-  .btn-green{
-    background-color: #00CCBC;
-    color: white;
+li {
+  list-style: none;
+  font-size: 120%;
 }
 
-.btn-green:hover{
-    border-color: #00CCBC;
-    background-color: rgba(13, 163, 150, 0.9);
+h2,
+h3 {
+  color: #00ccbc;
+  font-size: 350%;
 }
 
+.btn-green {
+  background-color: #00ccbc;
+  color: white;
+}
+
+.btn-green:hover {
+  border-color: #00ccbc;
+  background-color: rgba(13, 163, 150, 0.9);
+}
 </style>
