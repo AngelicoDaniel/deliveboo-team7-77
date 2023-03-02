@@ -2368,7 +2368,7 @@ var staticRenderFns = [function () {
     attrs: {
       href: ""
     }
-  }, [_vm._v("0555-010101")])]), _vm._v(" "), _c("li", [_c("i", {
+  }, [_vm._v(" 0555-010101")])]), _vm._v(" "), _c("li", [_c("i", {
     staticClass: "fa-solid fa-envelope"
   }), _vm._v(" "), _c("a", {
     attrs: {
@@ -7710,7 +7710,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".card[data-v-2988c035] {\n  flex-basis: 22%;\n  justify-content: space-between;\n  margin: 10px 10px;\n  background-size: cover;\n  background-position: center;\n  background-repeat: no-repeat;\n  aspect-ratio: 1/1;\n  position: relative; /* needed for absolute positioning of .card-overlay */\n  transition: transform 0.5s ease-in-out; /* add a transition effect for transform */\n}\n.card:hover .card-overlay[data-v-2988c035] {\n  opacity: 1; /* show content on hover */\n}\n.card-deck[data-v-2988c035] {\n  display: flex;\n  flex-wrap: wrap;\n}\n.card-titl .card-tex[data-v-2988c035] {\n  color: white;\n}\n.card-overlay[data-v-2988c035] {\n  opacity: 0; /* hide content initially */\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  margin: auto;\n  padding: 10px;\n  background-color: rgba(255, 255, 255, 0.3);\n  text-align: center;\n  color: black;\n  transition: opacity 0.5s ease-in-out; /* add a transition effect for opacity */\n}\n.card-title[data-v-2988c035] {\n  font-size: 1.7rem;\n  margin: 0;\n  font-weight: bolder;\n}\n.card-text[data-v-2988c035] {\n  font-size: 1.3rem;\n  margin: 0;\n  font-weight: bold;\n}\n.btn[data-v-2988c035] {\n  background-color: #00CCBC;\n  color: white;\n  font-weight: bold;\n}\n.btn[data-v-2988c035]:hover {\n  border-color: #00CCBC;\n  color: black;\n  background-color: rgba(13, 163, 150, 0.9);\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".card[data-v-2988c035] {\n  flex-basis: 22%;\n  justify-content: space-between;\n  margin: 10px 10px;\n  background-size: cover;\n  background-position: center;\n  background-repeat: no-repeat;\n  aspect-ratio: 1/1;\n  position: relative; /* needed for absolute positioning of .card-overlay */\n  transition: transform 0.5s ease-in-out; /* add a transition effect for transform */\n  border-radius: 10%;\n}\n.card:hover .card-overlay[data-v-2988c035] {\n  opacity: 1; /* show content on hover */\n}\n.card[data-v-2988c035]:hover {\n  transform: scale(1.05);\n  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);\n}\n.card-deck[data-v-2988c035] {\n  display: flex;\n  flex-wrap: wrap;\n}\n.card-overlay[data-v-2988c035] {\n  opacity: 0; /* hide content initially */\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  margin: auto;\n  padding: 10px;\n  background-color: rgba(255, 255, 255, 0.3);\n  text-align: center;\n  color: black;\n  transition: opacity 0.5s ease-in-out; /* add a transition effect for opacity */\n  border-radius: 10%;\n}\n.card-title[data-v-2988c035] {\n  font-size: 1.7rem;\n  margin: 0;\n  font-weight: bolder;\n}\n.card-text[data-v-2988c035] {\n  font-size: 1.3rem;\n  margin: 0;\n  font-weight: bold;\n}\n.btn[data-v-2988c035] {\n  background-color: #00CCBC;\n  color: white;\n  font-weight: bold;\n}\n.btn[data-v-2988c035]:hover {\n  border-color: #00CCBC;\n  color: black;\n  background-color: rgba(13, 163, 150, 0.9);\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -7734,7 +7734,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".logo[data-v-09ff8af5] {\n  margin-left: -42px;\n}\n.img-logo[data-v-09ff8af5] {\n  width: 170px;\n}\nfooter[data-v-09ff8af5] {\n  background-color: black;\n  color: white;\n}\nfooter img[data-v-09ff8af5] {\n  width: 70%;\n  /*  margin: 40px 0; */\n}\nfooter h5[data-v-09ff8af5] {\n  padding-top: 10px;\n}\nfooter .pd[data-v-09ff8af5] {\n  padding: 0;\n}\nfooter ul[data-v-09ff8af5] {\n  list-style: none;\n  padding: 0;\n}\nfooter ul li[data-v-09ff8af5] {\n  margin-top: 5px;\n}\nfooter ul li a[data-v-09ff8af5] {\n  text-decoration: none;\n  color: hsl(53, 37%, 77%);\n}\nfooter ul li a[data-v-09ff8af5]:hover {\n  text-decoration: underline;\n}\nfooter ul li i[data-v-09ff8af5] {\n  /*  margin-right: 10px; */\n}\nfooter .terms-privacy[data-v-09ff8af5] {\n  text-align: center;\n}\nfooter .terms-privacy li[data-v-09ff8af5] {\n  display: inline-block;\n  padding: 20px;\n}\nfooter .terms-privacy li a[data-v-09ff8af5] {\n  text-decoration: none;\n  color: gray;\n  font-size: 12px;\n  padding-bottom: 20px;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".logo[data-v-09ff8af5] {\n  margin-left: -42px;\n}\n.img-logo[data-v-09ff8af5] {\n  width: 170px;\n}\nfooter[data-v-09ff8af5] {\n  background-color: black;\n  color: white;\n  margin-top: 20px;\n}\nfooter img[data-v-09ff8af5] {\n  width: 70%;\n  /*  margin: 40px 0; */\n}\nfooter h5[data-v-09ff8af5] {\n  padding-top: 10px;\n}\nfooter .pd[data-v-09ff8af5] {\n  padding: 0;\n}\nfooter ul[data-v-09ff8af5] {\n  list-style: none;\n  padding: 0;\n}\nfooter ul li[data-v-09ff8af5] {\n  margin-top: 5px;\n}\nfooter ul li a[data-v-09ff8af5] {\n  text-decoration: none;\n  color: hsl(53, 37%, 77%);\n}\nfooter ul li a[data-v-09ff8af5]:hover {\n  text-decoration: underline;\n}\nfooter ul li i[data-v-09ff8af5] {\n  margin-right: 10px;\n}\nfooter .terms-privacy[data-v-09ff8af5] {\n  text-align: center;\n}\nfooter .terms-privacy li[data-v-09ff8af5] {\n  display: inline-block;\n  padding: 20px;\n}\nfooter .terms-privacy li a[data-v-09ff8af5] {\n  text-decoration: none;\n  color: gray;\n  font-size: 12px;\n  padding-bottom: 20px;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -7806,7 +7806,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "li[data-v-2f3a4cd8] {\n  list-style: none;\n  font-size: 120%;\n}\nh2[data-v-2f3a4cd8],\nh3[data-v-2f3a4cd8] {\n  color: #00ccbc;\n  font-size: 350%;\n}\n.btn-green[data-v-2f3a4cd8] {\n  background-color: #00ccbc;\n  color: white;\n}\n.btn-green[data-v-2f3a4cd8]:hover {\n  border-color: #00ccbc;\n  background-color: rgba(13, 163, 150, 0.9);\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "li[data-v-2f3a4cd8] {\n  list-style: none;\n  font-size: 120%;\n}\nh2[data-v-2f3a4cd8],\nh3[data-v-2f3a4cd8] {\n  color: #00ccbc;\n  font-size: 350%;\n}\n.btn-green[data-v-2f3a4cd8] {\n  background-color: #00ccbc;\n  color: white;\n}\n.btn-green[data-v-2f3a4cd8]:hover {\n  border-color: #00ccbc;\n  background-color: rgba(13, 163, 150, 0.9);\n}\n.continue_shopping[data-v-2f3a4cd8] {\n  padding: 0.5rem 1rem;\n  cursor: pointer;\n  border-radius: 5px;\n  transition: all 0.25s ease-in-out;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -7854,7 +7854,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n/* .navbar-nav li:hover {\n  color: #00CCBC;\n} */\n.navbar{\n    padding: 0;\n}\n.nav-right{\n    margin-right: 30px;\n}\n.img-logo {\n    width: 170px;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\r\n/* .navbar-nav li:hover {\r\n  color: #00CCBC;\r\n} */\n.navbar{\r\n    padding: 0;\r\n    border-bottom: 1px solid #00CCBC;\n}\n.nav-right{\r\n    margin-right: 30px;\n}\n.img-logo {\r\n    width: 170px;\n}\nli {\r\n  margin: 5px;\r\n  border-bottom: 1px solid transparent;\n}\nli:hover {\r\n  border-bottom-color: #00CCBC;\n}\r\n\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

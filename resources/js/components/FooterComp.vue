@@ -16,7 +16,7 @@
           <h5>CONTATTI</h5>
           <ul>
             <li>
-              <i class="fa-solid fa-headset"></i><a href="">0555-010101</a>
+              <i class="fa-solid fa-headset"></i><a href=""> 0555-010101</a>
             </li>
             <li>
               <i class="fa-solid fa-envelope"></i>
@@ -100,15 +100,6 @@
     <!--sezione copyright-->
     <div class="container">
       <div class="row pl-3">
-       <!--  <div class="col-12 pd">
-          <h5>COPYRIGHT BY</h5>
-          <ul>
-            <li><i class="fa-brands fa-github"></i><a href="">a</a></li>
-            <li><i class="fa-brands fa-github"></i><a href="">d</a></li>
-            <li><i class="fa-brands fa-github"></i><a href="">p</a></li>
-            <li><i class="fa-brands fa-github"></i><a href="">a</a></li>
-          </ul>
-        </div> -->
 
         <!--sezione termini e condizioni-->
         <div class="col-12 terms-privacy">
@@ -140,10 +131,11 @@ export default {
 footer {
   background-color: black;
   color: white;
+  margin-top: 20px;
   img {
     width: 70%;
    /*  margin: 40px 0; */
-   
+
   }
   h5 {
     padding-top: 10px;
@@ -164,7 +156,7 @@ footer {
         text-decoration: underline;
       }
       i {
-       /*  margin-right: 10px; */
+        margin-right: 10px;
       }
     }
   }
