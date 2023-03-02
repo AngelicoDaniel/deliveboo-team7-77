@@ -344,4 +344,10 @@ h3 {
   border-color: #00ccbc;
   background-color: rgba(13, 163, 150, 0.9);
 }
+
+.continue_shopping {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: all 0.25s ease-in-out;}
 </style>
