@@ -1849,7 +1849,7 @@ __webpack_require__.r(__webpack_exports__);
         console.log(err);
       });
     },
-    addCart: function addCart(name, price, id, user_id) {
+    addCart: function addCart(name, price, id, user_id, image) {
       if (this.cart.length > 0 && user_id != this.cart[0].user_id) {
         alert("Non Puoi inserire piatti di altri ristoranti nel carrello!!");
       } else {
@@ -1857,16 +1857,15 @@ __webpack_require__.r(__webpack_exports__);
           id: id,
           name: name,
           price: price,
-          user_id: user_id
+          user_id: user_id,
+          image: image
         }), localStorage.setItem("cart", JSON.stringify(this.cart));
         alert("Piatto aggiunto al carrello!");
       }
     },
     removeCart: function removeCart() {
       this.cart = [];
-      this.totalPrice = 0;
       localStorage.removeItem("cart");
-      localStorage.removeItem("priceCart");
     }
   }
 });
@@ -2303,7 +2302,7 @@ var render = function render() {
       staticClass: "btn btn-primary",
       on: {
         click: function click($event) {
-          return _vm.addCart(elem.name, elem.price, elem.id, elem.user_id);
+          return _vm.addCart(elem.name, elem.price, elem.id, elem.user_id, elem.image);
         }
       }
     }, [_vm._v("\n            Aggiungi al Carrello\n          ")])])]);
@@ -7852,7 +7851,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\r\n/* .navbar-nav li:hover {\r\n  color: #00CCBC;\r\n} */\n.navbar{\r\n    padding: 0;\n}\n.nav-right{\r\n    margin-right: 30px;\n}\n.img-logo {\r\n    width: 170px;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n/* .navbar-nav li:hover {\n  color: #00CCBC;\n} */\n.navbar{\n    padding: 0;\n}\n.nav-right{\n    margin-right: 30px;\n}\n.img-logo {\n    width: 170px;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

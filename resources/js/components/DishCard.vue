@@ -17,7 +17,7 @@
               <p class="card-text">{{ elem.price }}</p>
               <p class="card-text">{{ elem.description }}</p>
               <button
-                @click="addCart(elem.name, elem.price, elem.id, elem.user_id)"
+                @click="addCart(elem.name, elem.price, elem.id, elem.user_id , elem.image)"
                 class="btn btn-primary"
               >
                 Aggiungi al Carrello
@@ -63,7 +63,7 @@
           });
       },
 
-      addCart(name, price, id, user_id) {
+      addCart(name, price, id, user_id , image) {
         if (this.cart.length > 0 && user_id != this.cart[0].user_id) {
           alert("Non Puoi inserire piatti di altri ristoranti nel carrello!!");
         } else {
@@ -72,6 +72,7 @@
             name: name,
             price: price,
             user_id: user_id,
+            image: image,
           }),
             localStorage.setItem("cart", JSON.stringify(this.cart));
           alert("Piatto aggiunto al carrello!");
@@ -80,9 +81,7 @@
 
       removeCart() {
         this.cart = [];
-        this.totalPrice = 0;
         localStorage.removeItem("cart");
-        localStorage.removeItem("priceCart");
       },
     },
   };
