@@ -116,12 +116,19 @@
 
                           <!-- bottone conferma dati -->
                         <div class="d-flex justify-content-center">
+                             <router-link
+          class="nav-link active"
+          aria-current="page"
+          :to="`/success`"
+        >
                           <button
                             @click="validateForm()"
                             class="btn-danger mt-2 mb-4"
+                            id="pay-btn"
                           >
                             Paga Il tuo Ordine
                           </button>
+                           </router-link>
                         </div>
 
 
@@ -186,16 +193,13 @@ export default {
 
 
        validateForm() {
-      if (this.cart.length === 0) {
-        alert("Il carrello è vuoto");
-
-      } else {
-
-          this.formValidated = true;
-
-          alert("Il pagamento è andato a buon fine");
-        }
-      }
+    if (this.cart.length === 0) {
+      alert("Il carrello è vuoto");
+      document.getElementById("pay-btn").disabled = true;
+    } else {
+      this.formValidated = true;
+    }
+  }
     },
   }
 

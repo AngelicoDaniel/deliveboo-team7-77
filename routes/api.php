@@ -25,3 +25,6 @@ Route::namespace('Api')->prefix('/dishes')->group(function () {
     Route::get('/', 'DishController@index');
     Route::get('/{id}', 'DishController@show');
 });
+
+
+Route::post("payment", "Api\Orders\OrderController@payment");
