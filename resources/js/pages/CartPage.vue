@@ -55,23 +55,23 @@
           <div class="offcanvas-body">
             <div>
 
-                 <div class="input-box mb-2">
-                          <label for="customer_name"
-                            >Nome <span class="text-danger">*</span></label
-                          >
-                          <br />
-                          <input
-                            type="text"
-                            name="customer_name"
-                            placeholder="Inserisci il tuo nome"
-                            v-model="customer_name"
-                            class="form-control"
-                            maxlength="50"
-                            required
-                            autofocus
-                          />
-
-                          </div>
+               <div class="input-box mb-2">
+  <label for="customer_name">Nome <span class="text-danger">*</span></label>
+  <br />
+  <input
+    type="text"
+    name="customer_name"
+    placeholder="Inserisci il tuo nome"
+    v-model="customer_name"
+    class="form-control"
+    maxlength="50"
+    required
+    autofocus
+  />
+  <div v-if="validation.customer_name.message" class="alert alert-danger">
+    {{ validation.customer_name.message }}
+  </div>
+</div>
 
                           <!-- input indirizzo di consegna -->
                         <div class="input-box mb-2">
@@ -152,6 +152,12 @@ export default {
       ship_cost: null,
       order_number: null,
       formValidated: false,
+      validation: {
+        customer_name: {
+          success: true,
+          message: "",
+          formValidated: false,
+        },}
     };
   },
 
@@ -184,15 +190,23 @@ export default {
 
 
 validateForm() {
-  if (this.cart.length === 0) {
-    alert("Il carrello è vuoto");
+  if (this.cart.length === 0 && !this.customer_name) {
+    alert("Il carrello è vuoto o il nome del cliente non è stato inserito.");
+    this.validation.customer_name.success = false;
+    this.validation.customer_name.message = "Il nome è obbligatorio";
+    this.formValidated = false;
   } else {
+    this.validation.customer_name.success = true;
+    this.validation.customer_name.message = "";
     this.formValidated = true;
   }
 }
-    },
-  }
 
+
+
+
+  },
+}
 </script>
 
 <style scoped lang="scss">
