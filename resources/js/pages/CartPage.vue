@@ -86,7 +86,7 @@
                     <h3 class="my-3">Paga ora</h3>
 
                     <button
-                      class="btn btn-primary"
+                      class="btn btn-green"
                       type="button"
                       data-bs-toggle="offcanvas"
                       data-bs-target="#staticBackdrop"
@@ -321,7 +321,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.cont {
+
   li {
     list-style: none;
     font-size: 120%;
@@ -333,20 +333,14 @@ export default {
     font-size: 350%;
   }
 
-  .btn-primary {
-    width: 150px;
-    color: #00ccbc;
-  }
-
-  .btn-danger {
-    background-color: #dc3545;
-    border-color: #dc3545;
-    border-radius: 5px;
-  }
-
-  .btn-danger:hover {
-    background-color: #c82333;
-    border-color: #c823;
-  }
+  .btn-green{
+    background-color: #00CCBC;
+    color: white;
 }
+
+.btn-green:hover{
+    border-color: #00CCBC;
+    background-color: rgba(13, 163, 150, 0.9);
+}
+
 </style>

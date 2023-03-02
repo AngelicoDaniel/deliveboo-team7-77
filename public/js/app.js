@@ -2825,7 +2825,7 @@ var render = function render() {
   }, [_vm._v(_vm._s(this.TotalPrice) + " €")]), _vm._v(" "), _c("h3", {
     staticClass: "my-3"
   }, [_vm._v("Paga ora")]), _vm._v(" "), _c("button", {
-    staticClass: "btn btn-primary",
+    staticClass: "btn btn-green",
     attrs: {
       type: "button",
       "data-bs-toggle": "offcanvas",
@@ -7803,7 +7803,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".cont li[data-v-2f3a4cd8] {\n  list-style: none;\n  font-size: 120%;\n}\n.cont h2[data-v-2f3a4cd8],\n.cont h3[data-v-2f3a4cd8] {\n  color: #00ccbc;\n  font-size: 350%;\n}\n.cont .btn-primary[data-v-2f3a4cd8] {\n  width: 150px;\n  color: #00ccbc;\n}\n.cont .btn-danger[data-v-2f3a4cd8] {\n  background-color: #dc3545;\n  border-color: #dc3545;\n  border-radius: 5px;\n}\n.cont .btn-danger[data-v-2f3a4cd8]:hover {\n  background-color: #c82333;\n  border-color: rgba(204, 136, 34, 0.2);\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "li[data-v-2f3a4cd8] {\n  list-style: none;\n  font-size: 120%;\n}\nh2[data-v-2f3a4cd8],\nh3[data-v-2f3a4cd8] {\n  color: #00ccbc;\n  font-size: 350%;\n}\n.btn-green[data-v-2f3a4cd8] {\n  background-color: #00CCBC;\n  color: white;\n}\n.btn-green[data-v-2f3a4cd8]:hover {\n  border-color: #00CCBC;\n  background-color: rgba(13, 163, 150, 0.9);\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
