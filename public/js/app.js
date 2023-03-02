@@ -2342,7 +2342,7 @@ var staticRenderFns = [function () {
   return _c("footer", [_c("div", {
     staticClass: "container"
   }, [_c("div", {
-    staticClass: "row pl-3"
+    staticClass: "logo row pl-3"
   }, [_c("a", {
     attrs: {
       href: ""
@@ -2446,32 +2446,6 @@ var staticRenderFns = [function () {
   }, [_c("div", {
     staticClass: "row pl-3"
   }, [_c("div", {
-    staticClass: "col-12 pd"
-  }, [_c("h5", [_vm._v("COPYRIGHT BY")]), _vm._v(" "), _c("ul", [_c("li", [_c("i", {
-    staticClass: "fa-brands fa-github"
-  }), _c("a", {
-    attrs: {
-      href: ""
-    }
-  }, [_vm._v("a")])]), _vm._v(" "), _c("li", [_c("i", {
-    staticClass: "fa-brands fa-github"
-  }), _c("a", {
-    attrs: {
-      href: ""
-    }
-  }, [_vm._v("d")])]), _vm._v(" "), _c("li", [_c("i", {
-    staticClass: "fa-brands fa-github"
-  }), _c("a", {
-    attrs: {
-      href: ""
-    }
-  }, [_vm._v("p")])]), _vm._v(" "), _c("li", [_c("i", {
-    staticClass: "fa-brands fa-github"
-  }), _c("a", {
-    attrs: {
-      href: ""
-    }
-  }, [_vm._v("a")])])])]), _vm._v(" "), _c("div", {
     staticClass: "col-12 terms-privacy"
   }, [_c("ul", {
     attrs: {
@@ -2578,7 +2552,7 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", {
-    staticClass: "d-flex flex-end w-25"
+    staticClass: "nav-right d-flex flex-end"
   }, [_c("a", {
     staticClass: "nav-link text-white",
     attrs: {
@@ -7603,7 +7577,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".img-logo[data-v-09ff8af5] {\n  width: 170px;\n}\nfooter[data-v-09ff8af5] {\n  background-color: black;\n  color: white;\n}\nfooter img[data-v-09ff8af5] {\n  width: 70%;\n  margin: 40px 0;\n}\nfooter h5[data-v-09ff8af5] {\n  padding-top: 10px;\n}\nfooter .pd[data-v-09ff8af5] {\n  padding: 0;\n}\nfooter ul[data-v-09ff8af5] {\n  list-style: none;\n  padding: 0;\n}\nfooter ul li[data-v-09ff8af5] {\n  margin-top: 5px;\n}\nfooter ul li a[data-v-09ff8af5] {\n  text-decoration: none;\n  color: hsl(53, 37%, 77%);\n}\nfooter ul li a[data-v-09ff8af5]:hover {\n  text-decoration: underline;\n}\nfooter ul li i[data-v-09ff8af5] {\n  margin-right: 10px;\n}\nfooter .terms-privacy[data-v-09ff8af5] {\n  text-align: center;\n}\nfooter .terms-privacy li[data-v-09ff8af5] {\n  display: inline-block;\n  padding: 20px;\n}\nfooter .terms-privacy li a[data-v-09ff8af5] {\n  text-decoration: none;\n  color: gray;\n  font-size: 12px;\n  padding-bottom: 20px;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".logo[data-v-09ff8af5] {\n  margin-left: -42px;\n}\n.img-logo[data-v-09ff8af5] {\n  width: 170px;\n}\nfooter[data-v-09ff8af5] {\n  background-color: black;\n  color: white;\n}\nfooter img[data-v-09ff8af5] {\n  width: 70%;\n  /*  margin: 40px 0; */\n}\nfooter h5[data-v-09ff8af5] {\n  padding-top: 10px;\n}\nfooter .pd[data-v-09ff8af5] {\n  padding: 0;\n}\nfooter ul[data-v-09ff8af5] {\n  list-style: none;\n  padding: 0;\n}\nfooter ul li[data-v-09ff8af5] {\n  margin-top: 5px;\n}\nfooter ul li a[data-v-09ff8af5] {\n  text-decoration: none;\n  color: hsl(53, 37%, 77%);\n}\nfooter ul li a[data-v-09ff8af5]:hover {\n  text-decoration: underline;\n}\nfooter ul li i[data-v-09ff8af5] {\n  /*  margin-right: 10px; */\n}\nfooter .terms-privacy[data-v-09ff8af5] {\n  text-align: center;\n}\nfooter .terms-privacy li[data-v-09ff8af5] {\n  display: inline-block;\n  padding: 20px;\n}\nfooter .terms-privacy li a[data-v-09ff8af5] {\n  text-decoration: none;\n  color: gray;\n  font-size: 12px;\n  padding-bottom: 20px;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -7723,7 +7697,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.img-logo {\r\n    width: 170px;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\r\n/* .navbar-nav li:hover {\r\n  color: #00CCBC;\r\n} */\n.navbar{\r\n    padding: 0;\n}\n.nav-right{\r\n    margin-right: 30px;\n}\n.img-logo {\r\n    width: 170px;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -7747,7 +7721,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.hero {\r\n  background-image: url(\"/images/pexels-valeria-boltneva-1639562.jpg\");\r\n  background-size: cover;\r\n  background-repeat: no-repeat;\r\n  background-position: center;\r\n  padding: 165.7px;\r\n  height: 100%;\n}\n.domicilio-span {\r\n  color: #00ccbc;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.hero {\r\n  background-image: url(\"/images/pexels-valeria-boltneva-1639562.jpg\");\r\n  background-size: cover;\r\n  background-repeat: no-repeat;\r\n  background-position: center;\r\n  padding: 120px;\r\n  height: 1000px;\n}\nh1{\r\n font-size:3.5rem;\r\n margin-bottom: 50px;\n}\n.domicilio-span {\r\n  color: #00ccbc;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

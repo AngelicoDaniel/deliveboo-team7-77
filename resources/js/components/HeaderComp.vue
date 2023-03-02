@@ -29,7 +29,7 @@
 
 
                     </ul>
-                    <div class="d-flex flex-end w-25">
+                    <div class="nav-right d-flex flex-end">
 
                         <a class="nav-link text-white" href="http://127.0.0.1:8000/admin">Sei un ristoratore?</a>
 
@@ -48,8 +48,20 @@ export default {
     name: "Header",
 };
 </script>
-<style>
 
+
+<style>
+/* .navbar-nav li:hover {
+  color: #00CCBC;
+} */
+
+.navbar{
+    padding: 0;
+}
+
+.nav-right{
+    margin-right: 30px;
+}
 .img-logo {
     width: 170px;
 }
