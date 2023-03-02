@@ -2827,21 +2827,19 @@ var render = function render() {
     }
   }, [_vm._v("\n                      Svuota Carrello\n                    ")])])]), _vm._v(" "), _c("div", {
     staticClass: "py-5 text-white"
-  }, [_c("h3", {
-    staticClass: "py-2"
-  }, [_vm._v("Prezzo totale:")]), _vm._v(" "), _c("h5", {
+  }, [_c("div", {
+    staticClass: "card mb-3"
+  }, [_c("div", {
+    staticClass: "row align-items-center p-3 added_plate"
+  }, [_vm._m(3), _vm._v(" "), _c("div", {
+    staticClass: "col-4 col-sm-6"
+  }, [_c("div", {
+    staticClass: "d-flex flex-column"
+  }, [_c("h6", {
+    staticClass: "mb-2"
+  }, [_c("h5", {
     staticClass: "my-4"
-  }, [_vm._v(_vm._s(this.TotalPrice) + " €")]), _vm._v(" "), _c("h3", {
-    staticClass: "my-3"
-  }, [_vm._v("Paga ora")]), _vm._v(" "), _c("button", {
-    staticClass: "btn btn-green",
-    attrs: {
-      type: "button",
-      "data-bs-toggle": "offcanvas",
-      "data-bs-target": "#staticBackdrop",
-      "aria-controls": "staticBackdrop"
-    }
-  }, [_vm._v("\n                    Checkout\n                  ")]), _vm._v(" "), _c("div", {
+  }, [_vm._v(_vm._s(this.TotalPrice) + " €")])])])]), _vm._v(" "), _vm._m(4)])])])]), _vm._v(" "), _c("div", {
     staticClass: "offcanvas offcanvas-start",
     attrs: {
       "data-bs-backdrop": "static",
@@ -2849,7 +2847,7 @@ var render = function render() {
       id: "staticBackdrop",
       "aria-labelledby": "staticBackdropLabel"
     }
-  }, [_vm._m(3), _vm._v(" "), _c("div", {
+  }, [_vm._m(5), _vm._v(" "), _c("div", {
     staticClass: "offcanvas-body"
   }, [!_vm.formValidated ? _c("div", {
     staticClass: "alert alert-danger mb-1",
@@ -2858,7 +2856,7 @@ var render = function render() {
     }
   }, [_vm._v("\n                        I campi contrassegnati dall'asterisco (*) sono\n                        obbligatori.\n                      ")]) : _vm._e(), _vm._v(" "), _c("form", [_c("div", {
     staticClass: "input-box mb-2"
-  }, [_vm._m(4), _vm._v(" "), _c("br"), _vm._v(" "), _c("input", {
+  }, [_vm._m(6), _vm._v(" "), _c("br"), _vm._v(" "), _c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -2886,7 +2884,7 @@ var render = function render() {
     }
   })]), _vm._v(" "), _c("div", {
     staticClass: "input-box mb-2"
-  }, [_vm._m(5), _vm._v(" "), _c("br"), _vm._v(" "), _c("input", {
+  }, [_vm._m(7), _vm._v(" "), _c("br"), _vm._v(" "), _c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -2912,7 +2910,7 @@ var render = function render() {
     }
   })]), _vm._v(" "), _c("div", {
     staticClass: "input-box mb-2"
-  }, [_vm._m(6), _vm._v(" "), _c("br"), _vm._v(" "), _c("input", {
+  }, [_vm._m(8), _vm._v(" "), _c("br"), _vm._v(" "), _c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -2939,7 +2937,7 @@ var render = function render() {
     }
   })]), _vm._v(" "), _c("div", {
     staticClass: "input-box mb-2"
-  }, [_vm._m(7), _vm._v(" "), _c("br"), _vm._v(" "), _c("input", {
+  }, [_vm._m(9), _vm._v(" "), _c("br"), _vm._v(" "), _c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -2964,7 +2962,7 @@ var render = function render() {
     }
   }), _vm._v(" "), _c("small", [_vm._v("Formato 346 15 96 524")])]), _vm._v(" "), _c("div", {
     staticClass: "input-box mb-2"
-  }, [_vm._m(8), _vm._v(" "), _c("br"), _vm._v(" "), _c("input", {
+  }, [_vm._m(10), _vm._v(" "), _c("br"), _vm._v(" "), _c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -3008,7 +3006,7 @@ var render = function render() {
     on: {
       click: _vm.validateForm
     }
-  }, [_vm._v("\n                              Paga Il tuo Ordine\n                            ")])])], 1)])])])])])])])])])])])]);
+  }, [_vm._v("\n                              Paga Il tuo Ordine\n                            ")])])], 1)])])])])])])])])])]);
 };
 var staticRenderFns = [function () {
   var _vm = this,
@@ -3039,6 +3037,30 @@ var staticRenderFns = [function () {
   }, [_c("i", {
     staticClass: "fa-solid fa-2x fa-cart-shopping mb-3"
   }), _vm._v(" "), _c("p", [_vm._v("Il carrello è vuoto")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "col-6 col-sm-4 d-none d-sm-block"
+  }, [_c("h3", {
+    staticClass: "py-2"
+  }, [_vm._v("Prezzo totale:")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "col-6 col-sm-4 d-none d-sm-block"
+  }, [_c("h3", {
+    staticClass: "my-3"
+  }, [_vm._v("Paga ora")]), _vm._v(" "), _c("button", {
+    staticClass: "btn btn-green",
+    attrs: {
+      type: "button",
+      "data-bs-toggle": "offcanvas",
+      "data-bs-target": "#staticBackdrop",
+      "aria-controls": "staticBackdrop"
+    }
+  }, [_vm._v("\n                    Checkout\n                  ")])]);
 }, function () {
   var _vm = this,
     _c = _vm._self._c;
@@ -7839,7 +7861,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "li[data-v-2f3a4cd8] {\n  list-style: none;\n  font-size: 120%;\n}\nh2[data-v-2f3a4cd8],\nh3[data-v-2f3a4cd8] {\n  color: #00ccbc;\n  font-size: 350%;\n}\n.btn-green[data-v-2f3a4cd8] {\n  background-color: #00ccbc;\n  color: white;\n}\n.btn-green[data-v-2f3a4cd8]:hover {\n  border-color: #00ccbc;\n  background-color: rgba(13, 163, 150, 0.9);\n}\n.continue_shopping[data-v-2f3a4cd8] {\n  padding: 0.5rem 1rem;\n  cursor: pointer;\n  border-radius: 5px;\n  transition: all 0.25s ease-in-out;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "li[data-v-2f3a4cd8] {\n  list-style: none;\n  font-size: 120%;\n}\nh2[data-v-2f3a4cd8],\nh3[data-v-2f3a4cd8] {\n  color: #00ccbc;\n}\n.btn-green[data-v-2f3a4cd8] {\n  background-color: #00ccbc;\n  color: white;\n}\n.btn-green[data-v-2f3a4cd8]:hover {\n  border-color: #00ccbc;\n  background-color: rgba(13, 163, 150, 0.9);\n}\n.continue_shopping[data-v-2f3a4cd8] {\n  padding: 0.5rem 1rem;\n  cursor: pointer;\n  border-radius: 5px;\n  transition: all 0.25s ease-in-out;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

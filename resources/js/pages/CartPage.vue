@@ -81,9 +81,21 @@
                     </div>
                   </div>
                   <div class="py-5 text-white">
-                    <h3 class="py-2">Prezzo totale:</h3>
-                    <h5 class="my-4">{{ this.TotalPrice }} €</h5>
-                    <h3 class="my-3">Paga ora</h3>
+                                        <div class="card mb-3">
+                      <div class="row align-items-center p-3 added_plate">
+                        <div class="col-6 col-sm-4 d-none d-sm-block">
+                          <h3 class="py-2">Prezzo totale:</h3>
+                        </div>
+                        <div class="col-4 col-sm-6">
+                          <div class="d-flex flex-column">
+                            <h6 class="mb-2">
+                              <h5 class="my-4">{{ this.TotalPrice }} €</h5>
+                            </h6>
+                          </div>
+                        </div>
+
+                        <div class="col-6 col-sm-4 d-none d-sm-block">
+                          <h3 class="my-3">Paga ora</h3>
 
                     <button
                       class="btn btn-green"
@@ -94,6 +106,12 @@
                     >
                       Checkout
                     </button>
+                        </div>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
 
                     <div
                       class="offcanvas offcanvas-start"
@@ -250,8 +268,8 @@
             </div>
           </div>
         </div>
-      </div>
-    </div>
+
+
   </section>
 </template>
 
@@ -332,7 +350,7 @@ li {
 h2,
 h3 {
   color: #00ccbc;
-  font-size: 350%;
+
 }
 
 .btn-green {
