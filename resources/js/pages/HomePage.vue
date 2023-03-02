@@ -34,8 +34,13 @@ export default {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  padding: 165.7px;
-  height: 100%;
+  padding: 120px;
+  height: 1000px;
+}
+
+h1{
+ font-size:3.5rem;
+ margin-bottom: 50px;
 }
 
 .domicilio-span {

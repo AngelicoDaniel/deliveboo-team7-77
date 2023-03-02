@@ -1,7 +1,7 @@
 <template>
   <footer>
     <div class="container">
-      <div class="row pl-3">
+      <div class="logo row pl-3">
         <!--logo deliveboo-->
         <a href="">
           <img class=" img-logo" src="../../../public/images/6103fbd57410870004d7f2dd.png" alt="deliveboo-logo" />
@@ -100,7 +100,7 @@
     <!--sezione copyright-->
     <div class="container">
       <div class="row pl-3">
-        <div class="col-12 pd">
+       <!--  <div class="col-12 pd">
           <h5>COPYRIGHT BY</h5>
           <ul>
             <li><i class="fa-brands fa-github"></i><a href="">a</a></li>
@@ -108,7 +108,7 @@
             <li><i class="fa-brands fa-github"></i><a href="">p</a></li>
             <li><i class="fa-brands fa-github"></i><a href="">a</a></li>
           </ul>
-        </div>
+        </div> -->
 
         <!--sezione termini e condizioni-->
         <div class="col-12 terms-privacy">
@@ -131,7 +131,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+.logo{
+  margin-left: -42px;
+}
 .img-logo {
   width: 170px;
 }
@@ -140,7 +142,8 @@ footer {
   color: white;
   img {
     width: 70%;
-    margin: 40px 0;
+   /*  margin: 40px 0; */
+   
   }
   h5 {
     padding-top: 10px;
@@ -161,7 +164,7 @@ footer {
         text-decoration: underline;
       }
       i {
-        margin-right: 10px;
+       /*  margin-right: 10px; */
       }
     }
   }

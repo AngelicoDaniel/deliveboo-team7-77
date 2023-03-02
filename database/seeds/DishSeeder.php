@@ -48,7 +48,7 @@ class DishSeeder extends Seeder
                 "description" => "La pizza crocchè è morbida e soffice, farcita con mozzarella, prosciutto cotto e crocchette di patate",
                 "price" => "7.00",
                 "visibility" => "1",
-                "image" => "images/plates/pizza-crocchè.jpg",
+                "image" => "images/plates/pizza-crocche.jpg",
                 "user_id" => "1"
             ],
             [
@@ -72,7 +72,7 @@ class DishSeeder extends Seeder
                 "description" => "La pizza crocchè è morbida e soffice, farcita con mozzarella, prosciutto cotto e crocchette di patate",
                 "price" => "7.00",
                 "visibility" => "1",
-                "image" => "images/plates/pizza-crocchè.jpg",
+                "image" => "images/plates/pizza-crocche.jpg",
                 "user_id" => "2"
             ],
             [
@@ -188,7 +188,7 @@ class DishSeeder extends Seeder
                 "user_id" => "7"
             ],
             [
-                "name"  => "salmone tartare",
+                "name"  => "Salmone tartare",
                 "description" => "Tartare di salmone fresco accompagnato de un contorno di avocado.",
                 "price" => "5.00",
                 "visibility" => "1",
