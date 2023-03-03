@@ -2158,6 +2158,7 @@ __webpack_require__.r(__webpack_exports__);
         image: image
       }), localStorage.setItem("cart", JSON.stringify(this.cart));
       alert("Piatto aggiunto al carrello!");
+      this.totalPrice();
     },
     removeCart: function removeCart() {
       if (this.cart.length > 0) {
@@ -2855,15 +2856,6 @@ var render = function render() {
       on: {
         click: function click($event) {
           return _vm.removeCartItem(index);
-        }
-      }
-    }, [_c("i", {
-      staticClass: "fa-regular fa-trash-can"
-    })]), _vm._v(" "), _c("button", {
-      staticClass: "btn btn-danger",
-      on: {
-        click: function click($event) {
-          return _vm.removeCart(item.name, item.price, item.id, item.user_id, item.image, index);
         }
       }
     }, [_vm._v("\n                                                    -\n                                                ")])])])]);

@@ -43,12 +43,9 @@
                                                         +
                                                     </button>
                                                     <button class="btn btn-danger" @click="removeCartItem(index)">
-                                                        <i class="fa-regular fa-trash-can"></i>
-                                                    </button>
-                                                    <button class="btn btn-danger"
-                                                        @click="removeCart(item.name, item.price, item.id, item.user_id, item.image, index)">
                                                         -
                                                     </button>
+
                                                 </div>
                                             </div>
                                         </div>
@@ -303,7 +300,7 @@ export default {
             }),
                 localStorage.setItem("cart", JSON.stringify(this.cart));
             alert("Piatto aggiunto al carrello!");
-
+            this.totalPrice();
         },
 
         removeCart() {
