@@ -210,8 +210,9 @@ export default {
             customer_phone: "",
             customer_email: "",
 
-            order_number: null,
+            order_number: 1,
             formValidated: false,
+            ship_cost:"",
         };
     },
 
@@ -221,6 +222,7 @@ export default {
         }
 
         this.totalPrice();
+        this.sendOrder()
     },
     methods: {
         removeCartItem(index) {
