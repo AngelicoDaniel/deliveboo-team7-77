@@ -239,7 +239,7 @@
                           <div class="d-flex justify-content-center">
 
                               <button
-                                @click="removeCart()"
+                                @click="removeCart(),validateForm() "
                                 class="btn btn-danger mt-2 mb-4"
                                 id="pay-btn"
                                 :disabled="
@@ -341,10 +341,39 @@ export default {
         this.cart = [];
         localStorage.removeItem("cart");
         this.totalPrice();
+        this.sendOrder()
       }
+    },
+
+      sendOrder() {
+      window.axios
+        .post("http://127.0.0.1:8000/api/payment", {
+          customer_name: this.customer_name,
+          customer_surname: this.customer_surname,
+          customer_address: this.customer_address,
+          customer_phone: this.customer_phone,
+          customer_email: this.customer_email,
+          customer_note: this.customer_note,
+          total_price: this.getTotal(),
+          user_id: this.cart[0].user_id,
+          plates: this.cart,
+        })
+        .then((response) => {
+          if (response.status === 200) {
+            localStorage.clear();
+            this.loading = false;
+            this.$router.push({
+              name: "success",
+            });
+          }
+        })
+        .catch((e) => console.log("error payment", e));
     },
   },
 };
+
+
+
 </script>
 
 <style scoped lang="scss">
