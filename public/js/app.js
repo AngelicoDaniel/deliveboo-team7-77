@@ -2134,15 +2134,15 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
     },
     sendOrder: function sendOrder() {
       var _this2 = this;
-      axios__WEBPACK_IMPORTED_MODULE_0___default().post('/api/payment', {
+      axios__WEBPACK_IMPORTED_MODULE_0___default().post('http://127.0.0.1:8000/api/payment', {
         order_number: 1,
         customer_name: this.customer_name,
         customer_surname: this.customer_surname,
         customer_address: this.customer_address,
         customer_phone: this.customer_phone,
         customer_email: this.customer_email,
-        ship_cost: this.totalPrice(),
-        user_id: this.cart[0].user_id
+        ship_cost: this.totalPrice()
+        // user_id: this.cart[0].user_id,
       }).then(function (response) {
         if (response.status === 200) {
           localStorage.clear();

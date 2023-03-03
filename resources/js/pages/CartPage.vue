@@ -369,7 +369,7 @@ export default {
     },
 
     sendOrder() {
-    axios.post('/api/payment', {
+    axios.post('http://127.0.0.1:8000/api/payment', {
         order_number: 1,
         customer_name: this.customer_name,
         customer_surname: this.customer_surname,
@@ -377,7 +377,7 @@ export default {
         customer_phone: this.customer_phone,
         customer_email: this.customer_email,
         ship_cost: this.totalPrice(),
-        user_id: this.cart[0].user_id,
+        // user_id: this.cart[0].user_id,
 
     })
     .then(response => {

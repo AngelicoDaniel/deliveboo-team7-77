@@ -26,7 +26,7 @@ class OrderController extends Controller
     // $user_id = $request->input('user_id');
     // $plates = $request->input('plates');
 
-
+    dd($request->all());
      $NewOrder = new Order();
      $NewOrder->fill($data);
      $NewOrder->save();
