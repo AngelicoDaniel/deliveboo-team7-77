@@ -237,13 +237,9 @@
 
                           <!-- bottone conferma dati -->
                           <div class="d-flex justify-content-center">
-                            <router-link
-                              class="nav-link active"
-                              aria-current="page"
-                              :to="`/success`"
-                            >
+
                               <button
-                                @click="validateForm"
+                                @click="removeCart()"
                                 class="btn btn-danger mt-2 mb-4"
                                 id="pay-btn"
                                 :disabled="
@@ -255,9 +251,17 @@
                                   customer_email === ''
                                 "
                               >
-                                Paga Il tuo Ordine
+                              <router-link
+                              class="nav-link active"
+                              aria-current="page"
+                              :to="`/success`"
+
+                            >
+                            <span @click="removeCart()">Paga Il tuo Ordine</span>
+
+                                 </router-link>
                               </button>
-                            </router-link>
+
                           </div>
                         </form>
                       </div>
@@ -322,12 +326,7 @@ export default {
 
     validateForm() {
       if (
-        this.cart.length === 0 &&
-        this.customer_name === " " &&
-        this.customer_surname === " " &&
-        this.customer_address === " " &&
-        this.customer_phone === " " &&
-        this.customer_email === " "
+        this.cart.length === 0
       ) {
         this.formValidated = false;
       } else {

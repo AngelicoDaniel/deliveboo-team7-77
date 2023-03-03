@@ -2152,7 +2152,7 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     validateForm: function validateForm() {
-      if (this.cart.length === 0 && this.customer_name === " " && this.customer_surname === " " && this.customer_address === " " && this.customer_phone === " " && this.customer_email === " ") {
+      if (this.cart.length === 0) {
         this.formValidated = false;
       } else {
         this.formValidated = true;
@@ -2997,12 +2997,6 @@ var render = function render() {
     staticClass: "my-4"
   }, [_vm._v(_vm._s(this.TotalPrice) + " €")]), _vm._v(" "), _c("div", {
     staticClass: "d-flex justify-content-center"
-  }, [_c("router-link", {
-    staticClass: "nav-link active",
-    attrs: {
-      "aria-current": "page",
-      to: "/success"
-    }
   }, [_c("button", {
     staticClass: "btn btn-danger mt-2 mb-4",
     attrs: {
@@ -3010,9 +3004,23 @@ var render = function render() {
       disabled: _vm.cart.length === 0 || _vm.customer_name === "" || _vm.customer_surname === "" || _vm.customer_address === "" || _vm.customer_phone === "" || _vm.customer_email === ""
     },
     on: {
-      click: _vm.validateForm
+      click: function click($event) {
+        return _vm.removeCart();
+      }
     }
-  }, [_vm._v("\n                              Paga Il tuo Ordine\n                            ")])])], 1)])])])])])])])])])]);
+  }, [_c("router-link", {
+    staticClass: "nav-link active",
+    attrs: {
+      "aria-current": "page",
+      to: "/success"
+    }
+  }, [_c("span", {
+    on: {
+      click: function click($event) {
+        return _vm.removeCart();
+      }
+    }
+  }, [_vm._v("Paga Il tuo Ordine")])])], 1)])])])])])])])])])])]);
 };
 var staticRenderFns = [function () {
   var _vm = this,
