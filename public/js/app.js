@@ -1983,7 +1983,7 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
     return {
       types: [],
       search: "",
-      selectedType: ""
+      selectedTypes: []
     };
   },
   methods: {
@@ -1992,28 +1992,12 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
       axios__WEBPACK_IMPORTED_MODULE_0___default().get("http://127.0.0.1:8000/api/types").then(function (res) {
         _this.types = res.data.map(function (type) {
           return _objectSpread(_objectSpread({}, type), {}, {
-            showRestaurants: false,
-            filteredRestaurants: [],
-            originalRestaurants: type.restaurants // Salva una copia dell'elenco originale di ristoranti
+            restaurants: type.restaurants || []
           });
         });
-
         _this.getRestaurants();
       });
     },
-    //  getTypes() {
-    //             axios.get("http://127.0.0.1:8000/api/types").then((res) => {
-    //                 this.types = res.data.map((type) => {
-    //                     return {
-    //                         ...type,
-    //                         showRestaurants: false,
-    //                         filteredRestaurants: [],
-    //                         originalRestaurants: [],
-    //                     };
-    //                 });
-    //                 this.getRestaurants();
-    //             });
-    //         },
     getRestaurants: function getRestaurants() {
       var _this2 = this;
       axios__WEBPACK_IMPORTED_MODULE_0___default().get("http://127.0.0.1:8000/api/restaurants").then(function (res) {
@@ -2023,9 +2007,6 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
               return t.id === type.id;
             });
             if (matchingType) {
-              if (!matchingType.restaurants) {
-                matchingType.restaurants = [];
-              }
               if (!matchingType.restaurants.includes(restaurant)) {
                 matchingType.restaurants.push(restaurant);
               }
@@ -2047,54 +2028,30 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
       } else {
         return this.types;
       }
-    }
-  },
-  watch: {
-    search: function search(val) {
-      if (val) {
-        this.types.forEach(function (type) {
-          type.filteredRestaurants = type.originalRestaurants.filter(function (restaurant) {
-            return restaurant.name.toLowerCase().includes(val.toLowerCase());
+    },
+    filteredRestaurants: function filteredRestaurants() {
+      if (this.selectedTypes.length) {
+        var selectedTypeIds = this.selectedTypes.map(function (id) {
+          return parseInt(id);
+        });
+        var matchingRestaurants = this.types.filter(function (type) {
+          return selectedTypeIds.includes(type.id);
+        }).map(function (type) {
+          return type.restaurants;
+        }).reduce(function (accumulator, currentValue) {
+          return accumulator.filter(function (restaurant) {
+            return currentValue.includes(restaurant);
           });
         });
-      }
-    },
-    // watch: {
-    //     search(val) {
-    //         if (val) {
-    //             this.types.forEach((type) => {
-    //                 type.filteredRestaurants = type.originalRestaurants.filter(
-    //                     (restaurant) => {
-    //                         return restaurant.name
-    //                             .toLowerCase()
-    //                             .includes(val.toLowerCase());
-    //                     }
-    //                 );
-    //             });
-    //         }
-    //     },
-    filteredTypes: function filteredTypes(val) {
-      if (!this.search) {
-        this.types.forEach(function (type) {
-          type.showRestaurants = false;
-          type.filteredRestaurants = type.originalRestaurants; // Ripristina l'elenco completo di ristoranti
+        return matchingRestaurants.filter(function (restaurant, index, self) {
+          // Rimuove i ristoranti duplicati
+          return index === self.findIndex(function (r) {
+            return r.id === restaurant.id;
+          });
         });
       } else {
-        val.forEach(function (type) {
-          type.showRestaurants = true;
-        });
+        return [];
       }
-    }
-  },
-  filteredTypes: function filteredTypes(val) {
-    if (!this.search) {
-      this.types.forEach(function (type) {
-        type.showRestaurants = false;
-      });
-    } else {
-      val.forEach(function (type) {
-        type.showRestaurants = true;
-      });
     }
   }
 });
@@ -2712,44 +2669,53 @@ var render = function render() {
     staticClass: "text-center"
   }, [_c("div", {
     staticClass: "d-flex justify-content-center"
-  }, [_c("select", {
-    directives: [{
-      name: "model",
-      rawName: "v-model",
-      value: _vm.selectedType,
-      expression: "selectedType"
-    }],
-    staticClass: "form-select w-50 form-select-lg mb-3",
-    attrs: {
-      "aria-label": ".form-select-lg example"
-    },
-    on: {
-      change: function change($event) {
-        var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
-          return o.selected;
-        }).map(function (o) {
-          var val = "_value" in o ? o._value : o.value;
-          return val;
-        });
-        _vm.selectedType = $event.target.multiple ? $$selectedVal : $$selectedVal[0];
-      }
-    }
-  }, [_c("option", {
-    attrs: {
-      value: ""
-    }
-  }, [_vm._v("Seleziona un tipo di ristorante")]), _vm._v(" "), _vm._l(_vm.filteredTypes, function (type) {
-    return _c("option", {
+  }, _vm._l(_vm.filteredTypes, function (type) {
+    return _c("div", {
       key: type.id,
+      staticClass: "form-check form-check-inline"
+    }, [_c("input", {
+      directives: [{
+        name: "model",
+        rawName: "v-model",
+        value: _vm.selectedTypes,
+        expression: "selectedTypes"
+      }],
+      staticClass: "form-check-input",
+      attrs: {
+        type: "checkbox",
+        id: type.id
+      },
       domProps: {
-        value: type.id
+        value: type.id,
+        checked: Array.isArray(_vm.selectedTypes) ? _vm._i(_vm.selectedTypes, type.id) > -1 : _vm.selectedTypes
+      },
+      on: {
+        change: function change($event) {
+          var $$a = _vm.selectedTypes,
+            $$el = $event.target,
+            $$c = $$el.checked ? true : false;
+          if (Array.isArray($$a)) {
+            var $$v = type.id,
+              $$i = _vm._i($$a, $$v);
+            if ($$el.checked) {
+              $$i < 0 && (_vm.selectedTypes = $$a.concat([$$v]));
+            } else {
+              $$i > -1 && (_vm.selectedTypes = $$a.slice(0, $$i).concat($$a.slice($$i + 1)));
+            }
+          } else {
+            _vm.selectedTypes = $$c;
+          }
+        }
       }
-    }, [_vm._v("\n        " + _vm._s(type.name) + "\n      ")]);
-  })], 2)]), _vm._v(" "), _vm.selectedType ? _c("div", [_c("div", {
+    }), _vm._v(" "), _c("label", {
+      staticClass: "form-check-label",
+      attrs: {
+        "for": type.id
+      }
+    }, [_vm._v(_vm._s(type.name))])]);
+  }), 0), _vm._v(" "), _vm.filteredRestaurants.length ? _c("div", [_c("div", {
     staticClass: "card-deck d-flex"
-  }, _vm._l(_vm.types.find(function (t) {
-    return t.id === _vm.selectedType;
-  }).restaurants, function (restaurant) {
+  }, _vm._l(_vm.filteredRestaurants, function (restaurant) {
     return _c("div", {
       key: restaurant.id,
       staticClass: "card",
@@ -7786,7 +7752,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".card[data-v-2988c035] {\n  flex-basis: 19%;\n  justify-content: space-between;\n  margin: 10px 10px;\n  background-size: cover;\n  background-position: center;\n  background-repeat: no-repeat;\n  aspect-ratio: 1/1;\n  position: relative;\n  /* needed for absolute positioning of .card-overlay */\n  transition: transform 0.5s ease-in-out;\n  /* add a transition effect for transform */\n  border-radius: 10%;\n}\n.card:hover .card-overlay[data-v-2988c035] {\n  opacity: 1;\n  /* show content on hover */\n}\n.card[data-v-2988c035]:hover {\n  transform: scale(1.1);\n  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);\n}\n.card-deck[data-v-2988c035] {\n  display: flex;\n  flex-wrap: wrap;\n}\n.card-overlay[data-v-2988c035] {\n  opacity: 0;\n  /* hide content initially */\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  margin: auto;\n  padding: 10px;\n  background-color: rgba(255, 255, 255, 0.3);\n  text-align: center;\n  color: black;\n  transition: opacity 0.5s ease-in-out;\n  /* add a transition effect for opacity */\n  border-radius: 10%;\n}\n.card-title[data-v-2988c035] {\n  font-size: 1.5rem;\n  margin: 0;\n  font-weight: bolder;\n}\n.card-text[data-v-2988c035] {\n  font-size: 1rem;\n  margin: 0;\n  font-weight: bold;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  max-width: 100%;\n}\n.text-green[data-v-2988c035] {\n  color: #00CCBC;\n}\n.btn[data-v-2988c035] {\n  background-color: #00CCBC;\n  color: white;\n}\n.btn[data-v-2988c035]:hover {\n  border-color: #00CCBC;\n  color: black;\n  background-color: rgba(13, 163, 150, 0.9);\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".card[data-v-2988c035] {\n  flex-basis: 19%;\n  justify-content: space-between;\n  margin: 10px 10px;\n  background-size: cover;\n  background-position: center;\n  background-repeat: no-repeat;\n  aspect-ratio: 1/1;\n  position: relative;\n  /* needed for absolute positioning of .card-overlay */\n  transition: transform 0.5s ease-in-out;\n  /* add a transition effect for transform */\n  border-radius: 10%;\n}\n.card:hover .card-overlay[data-v-2988c035] {\n  opacity: 1;\n  /* show content on hover */\n}\n.card[data-v-2988c035]:hover {\n  transform: scale(1.1);\n  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);\n}\n.card-deck[data-v-2988c035] {\n  display: flex;\n  flex-wrap: wrap;\n}\n.card-overlay[data-v-2988c035] {\n  opacity: 0;\n  /* hide content initially */\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  margin: auto;\n  padding: 10px;\n  background-color: rgba(14, 1, 1, 0.3);\n  text-align: center;\n  color: white;\n  transition: opacity 0.5s ease-in-out;\n  /* add a transition effect for opacity */\n  border-radius: 10%;\n}\n.card-title[data-v-2988c035] {\n  font-size: 1.8rem;\n  margin: 0;\n  font-weight: bolder;\n}\n.card-text[data-v-2988c035] {\n  font-size: 1rem;\n  margin: 0;\n  font-weight: bold;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  max-width: 100%;\n}\n.text-green[data-v-2988c035] {\n  color: #00CCBC;\n}\n.btn[data-v-2988c035] {\n  background-color: #00CCBC;\n  color: white;\n}\n.btn[data-v-2988c035]:hover {\n  border-color: #00CCBC;\n  color: black;\n  background-color: rgba(13, 163, 150, 0.9);\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
