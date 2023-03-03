@@ -10,7 +10,8 @@ import RestaurantPage from './pages/RestaurantPage.vue'
 import DishPage from './pages/DishPage.vue'
 import CartPage from './pages/CartPage.vue'
 
-import PaymentSuccessfull from './pages/PaymentSuccessfull';
+import PaymentSuccessfull from './pages/PaymentSuccessfull'
+import PayForm from './pages/PayForm';
 
 
 
@@ -43,7 +44,11 @@ const router = new VueRouter({
             name: 'success',
             component: PaymentSuccessfull
         },
-
+        {
+            path: '/pay-form',
+            name: 'pay-form',
+            component: PayForm
+        },
 
     ]
 });

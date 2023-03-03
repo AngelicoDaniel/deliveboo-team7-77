@@ -164,7 +164,7 @@
                                             <!-- bottone conferma dati -->
                                             <div class="d-flex justify-content-center">
 
-                                                <button @click="removeCart(), validateForm()"
+                                                <button @click="removeCart(), validateForm(), payForm()"
                                                     class="btn btn-danger mt-2 mb-4" id="pay-btn" :disabled="
                                                         cart.length === 0 ||
                                                         customer_name === '' ||
@@ -174,7 +174,7 @@
                                                         customer_email === ''
                                                     ">
                                                     <router-link class="nav-link active" aria-current="page"
-                                                        :to="`/success`">
+                                                        :to="{name: 'pay-form' }">
                                                         <span @click="removeCart()">Paga Il tuo Ordine</span>
 
                                                     </router-link>
@@ -235,6 +235,12 @@ export default {
                 localStorage.removeItem("cart");
                 this.totalPrice();
             }
+        },
+
+        payForm(){
+          this.$router.push({
+            name: "pay-form",
+          });
         },
 
 
