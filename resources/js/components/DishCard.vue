@@ -136,9 +136,9 @@ export default {
     right: 0;
     margin: auto;
     padding: 10px;
-    background-color: rgba(255, 255, 255, 0.3);
+    background-color: rgba(14, 1, 1, 0.3);
     text-align: center;
-    color: black;
+    color: white;
     transition: opacity 0.5s ease-in-out;
     /* add a transition effect for opacity */
     border-radius: 10%;
@@ -146,7 +146,7 @@ export default {
 
 
 .card-title {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     margin: 0;
     font-weight: bolder;
 }
@@ -178,3 +178,4 @@ export default {
     background-color: rgba(13, 163, 150, 0.9);
 }
 </style>
+
