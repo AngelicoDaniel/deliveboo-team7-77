@@ -2458,6 +2458,32 @@ var staticRenderFns = [function () {
       href: ""
     }
   }, [_vm._v("Apple Pay")])])])]), _vm._v(" "), _c("div", {
+    staticClass: "col-xl-2 col-lg-3 col-md-4 col-sm-6 col-12 pd"
+  }, [_c("h5", [_vm._v("COPYRIGHT")]), _vm._v(" "), _c("ul", [_c("li", [_c("i", {
+    staticClass: "fa-brands fa-github"
+  }), _c("a", {
+    attrs: {
+      href: "https://github.com/Andrea-lulli"
+    }
+  }, [_vm._v("Andrea")])]), _vm._v(" "), _c("li", [_c("i", {
+    staticClass: "fa-brands fa-github"
+  }), _c("a", {
+    attrs: {
+      href: "https://github.com/AngelicoDaniel"
+    }
+  }, [_vm._v("Daniel")])]), _vm._v(" "), _c("li", [_c("i", {
+    staticClass: "fa-brands fa-github"
+  }), _c("a", {
+    attrs: {
+      href: "https://github.com/MattiaDG1995"
+    }
+  }, [_vm._v("Mattia")])]), _vm._v(" "), _c("li", [_c("i", {
+    staticClass: "fa-brands fa-github"
+  }), _c("a", {
+    attrs: {
+      href: "https://github.com/Paolo-dev-it"
+    }
+  }, [_vm._v("Paolo")])])])]), _vm._v(" "), _c("div", {
     staticClass: "col-md-4 pd"
   })])]), _vm._v(" "), _c("div", {
     staticClass: "container"
