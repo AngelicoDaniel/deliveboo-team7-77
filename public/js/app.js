@@ -2069,6 +2069,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "CartPage",
   data: function data() {
@@ -2090,7 +2094,7 @@ __webpack_require__.r(__webpack_exports__);
     }
     this.totalPrice();
   },
-  methods: {
+  methods: _defineProperty({
     removeCartItem: function removeCartItem(index) {
       this.cart.splice(index, 1);
       localStorage.setItem("cart", JSON.stringify(this.cart));
@@ -2147,8 +2151,25 @@ __webpack_require__.r(__webpack_exports__);
       })["catch"](function (e) {
         return console.log("error payment", e);
       });
+    },
+    addCart: function addCart(name, price, id, user_id, image) {
+      if (this.cart.length > 0 && user_id != this.cart[0].user_id) {
+        alert("Non Puoi inserire piatti di altri ristoranti nel carrello!!");
+      } else {
+        this.cart.push({
+          id: id,
+          name: name,
+          price: price,
+          user_id: user_id,
+          image: image
+        }), localStorage.setItem("cart", JSON.stringify(this.cart));
+        alert("Piatto aggiunto al carrello!");
+      }
     }
-  }
+  }, "removeCart", function removeCart() {
+    this.cart = [];
+    localStorage.removeItem("cart");
+  })
 });
 
 /***/ }),
@@ -2821,11 +2842,18 @@ var render = function render() {
       staticClass: "d-flex flex-column"
     }, [_c("h6", {
       staticClass: "mb-2"
-    }, [_vm._v("\n                            " + _vm._s(item.name) + "\n                          ")]), _vm._v(" "), _c("div", [_c("p", {
+    }, [_vm._v("\n                                                        " + _vm._s(item.name) + "\n                                                    ")]), _vm._v(" "), _c("div", [_c("p", {
       staticClass: "my-2 ml-0 ml-sm-2 d-sm-inline-block d-block"
-    }, [_vm._v("\n                              Prezzo:\n                              " + _vm._s(item.price) + " €\n                            ")])])])]), _vm._v(" "), _c("div", {
+    }, [_vm._v("\n                                                            Prezzo:\n                                                            " + _vm._s(item.price) + " €\n                                                        ")])])])]), _vm._v(" "), _c("div", {
       staticClass: "col-4 col-sm-2 text-right"
     }, [_c("button", {
+      staticClass: "btn btn-danger",
+      on: {
+        click: function click($event) {
+          return _vm.addCart(item.name, item.price, item.id, item.user_id, item.image);
+        }
+      }
+    }, [_vm._v("\n                                                    +\n                                                ")]), _vm._v(" "), _c("button", {
       staticClass: "btn btn-danger",
       on: {
         click: function click($event) {
@@ -2834,7 +2862,14 @@ var render = function render() {
       }
     }, [_c("i", {
       staticClass: "fa-regular fa-trash-can"
-    })])])])]);
+    })]), _vm._v(" "), _c("button", {
+      staticClass: "btn btn-danger",
+      on: {
+        click: function click($event) {
+          return _vm.removeCart(item.name, item.price, item.id, item.user_id, item.image);
+        }
+      }
+    }, [_vm._v("\n                                                    -\n                                                ")])])])]);
   })], 2) : _c("div", {
     staticClass: "text-center mt-5"
   }, [_vm._m(2)])]), _vm._v(" "), _c("div", {
@@ -2853,7 +2888,7 @@ var render = function render() {
         return _vm.removeCart();
       }
     }
-  }, [_vm._v("\n                      Svuota Carrello\n                    ")])])]), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n                                            Svuota Carrello\n                                        ")])])]), _vm._v(" "), _c("div", {
     staticClass: "py-5 text-white"
   }, [_c("div", {
     staticClass: "card mb-3"
@@ -2882,7 +2917,7 @@ var render = function render() {
     attrs: {
       role: "alert"
     }
-  }, [_vm._v("\n                        I campi contrassegnati dall'asterisco (*) sono\n                        obbligatori.\n                      ")]) : _vm._e(), _vm._v(" "), _c("form", [_c("div", {
+  }, [_vm._v("\n                                        I campi contrassegnati dall'asterisco (*) sono\n                                        obbligatori.\n                                    ")]) : _vm._e(), _vm._v(" "), _c("form", [_c("div", {
     staticClass: "input-box mb-2"
   }, [_vm._m(6), _vm._v(" "), _c("br"), _vm._v(" "), _c("input", {
     directives: [{
@@ -3056,7 +3091,7 @@ var staticRenderFns = [function () {
     }
   }, [_c("i", {
     staticClass: "fas fa-long-arrow-alt-left mx-2"
-  }), _vm._v("Continua\n                    lo shopping")])]);
+  }), _vm._v("Continua\n                                        lo shopping")])]);
 }, function () {
   var _vm = this,
     _c = _vm._self._c;
@@ -3096,7 +3131,7 @@ var staticRenderFns = [function () {
       "data-bs-target": "#staticBackdrop",
       "aria-controls": "staticBackdrop"
     }
-  }, [_vm._v("\n                    Checkout\n                  ")])]);
+  }, [_vm._v("\n                                                    Checkout\n                                                ")])]);
 }, function () {
   var _vm = this,
     _c = _vm._self._c;
@@ -3107,7 +3142,7 @@ var staticRenderFns = [function () {
     attrs: {
       id: "staticBackdropLabel"
     }
-  }, [_vm._v("\n                        Checkout\n                      ")]), _vm._v(" "), _c("button", {
+  }, [_vm._v("\n                                        Checkout\n                                    ")]), _vm._v(" "), _c("button", {
     staticClass: "btn-close",
     attrs: {
       type: "button",
@@ -3142,7 +3177,7 @@ var staticRenderFns = [function () {
     attrs: {
       "for": "address"
     }
-  }, [_vm._v("Indirizzo di consegna\n                            "), _c("span", {
+  }, [_vm._v("Indirizzo di consegna\n                                                "), _c("span", {
     staticClass: "text-danger"
   }, [_vm._v("*")])]);
 }, function () {
@@ -3152,7 +3187,7 @@ var staticRenderFns = [function () {
     attrs: {
       "for": "customer_phone"
     }
-  }, [_vm._v("Inserisci il tuo numero di telefono\n                            "), _c("span", {
+  }, [_vm._v("Inserisci il tuo numero di telefono\n                                                "), _c("span", {
     staticClass: "text-danger"
   }, [_vm._v("*")])]);
 }, function () {
@@ -7825,7 +7860,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "/* .navbar-nav li:hover {\n  color: #00CCBC;\n} */\n.navbar[data-v-7acab432] {\n  padding: 0;\n  border-bottom: 1px solid #00CCBC;\n}\n.nav-right[data-v-7acab432] {\n  margin-right: 30px;\n}\n.img-logo[data-v-7acab432] {\n  width: 170px;\n}\nli[data-v-7acab432] {\n  border-bottom: 1px solid transparent;\n}\nli[data-v-7acab432]:hover {\n  border-bottom-color: #00CCBC;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "/* .navbar-nav li:hover {\n  color: #00CCBC;\n} */\n.navbar[data-v-7acab432] {\n  padding: 0;\n  border-bottom: 1px solid #00CCBC;\n}\n.nav-right[data-v-7acab432] {\n  margin-right: 30px;\n}\n.img-logo[data-v-7acab432] {\n  width: 170px;\n}\nli[data-v-7acab432] {\n  margin: 5px;\n  border-bottom: 1px solid transparent;\n}\nli[data-v-7acab432]:hover {\n  border-bottom-color: #00CCBC;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -7945,7 +7980,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.hero {\r\n  background-image: url(\"/images/pexels-valeria-boltneva-1639562.jpg\");\r\n  background-size: cover;\r\n  background-repeat: no-repeat;\r\n  background-position: center;\r\n  padding: 120px;\r\n  height: 1000px;\n}\nh1{\r\n font-size:3.5rem;\r\n margin-bottom: 50px;\n}\n.domicilio-span {\r\n  color: #00ccbc;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.hero {\n  background-image: url(\"/images/pexels-valeria-boltneva-1639562.jpg\");\n  background-size: cover;\n  background-repeat: no-repeat;\n  background-position: center;\n  padding: 120px;\n  height: 1000px;\n}\nh1{\n font-size:3.5rem;\n margin-bottom: 50px;\n}\n.domicilio-span {\n  color: #00ccbc;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

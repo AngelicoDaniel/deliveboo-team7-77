@@ -75,13 +75,8 @@ export default {
 }
 
 li {
-<<<<<<< HEAD
-
-  border-bottom: 1px solid transparent;
-=======
     margin: 5px;
     border-bottom: 1px solid transparent;
->>>>>>> ca0a9d879edc5cacf0246da9b6fba0b38e90050a
 }
 
 li:hover {
