@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Http\Controllers\Controller;
 use App\Order;
+use App\Dish;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -13,27 +14,9 @@ class OrderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-         $data = $request->all();
-    //     $customer_name = $request->input('customer_name');
-    // $customer_surname = $request->input('customer_surname');
-    // $customer_address = $request->input('customer_address');
-    // $customer_phone = $request->input('customer_phone');
-    // $customer_email = $request->input('customer_email');
-    // $customer_note = $request->input('customer_note');
-    // $total_price = $request->input('total_price');
-    // $user_id = $request->input('user_id');
-    // $plates = $request->input('plates');
-
-    dd($request->all());
-     $NewOrder = new Order();
-     $NewOrder->fill($data);
-     $NewOrder->save();
-
-    // invia notifiche all'amministratore e al cliente, se necessario
-
-    return response()->json();
+        //
     }
 
     /**
@@ -44,8 +27,55 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+
+        // Validazione dei dati ricevuti
+        $validatedData = $request->validate([
+            'customer_name' => 'required|max:255',
+            'customer_surname' => 'required|max:255',
+            'customer_address' => 'required|max:255',
+            'customer_phone' => 'required|max:20',
+            'customer_email' => 'required|email|max:255',
+            'order_number' => 'required|max:20',
+            'ship_cost' => 'required',
+            // 'cart' => 'required|array',
+            // 'cart.*.chiave.name' => 'required|max:255',
+            // 'cart.*.chiave.price' => 'required|numeric|min:0',
+            // 'cart.*.quantity' => 'required|integer|min:1',
+            // 'restaurant_id' => 'required|exists:restaurants,id',
+        ]);
+
+        // return response()->json(['message' => $validatedData], 201);
+        $cart = $validatedData['cart'];
+
+        // Salvataggio dei dati nella tabella "orders"
+        $order = new Order();
+        $order->customer_name = $validatedData['customer_name'];
+        $order->customer_surname = $validatedData['customer_surname'];
+        $order->customer_address = $validatedData['customer_address'];
+        $order->customer_phone = $validatedData['customer_phone'];
+        $order->customer_email = $validatedData['customer_email'];
+        $order->order_number = $validatedData['order_number'];
+        $order->ship_cost = $validatedData['ship_cost'];
+        // $order->cart = $validatedData['cart'];
+        // $order->restaurant_id = $validatedData['restaurant_id'];
+        $order->save();
+
+        // Associa i piatti all'ordine nella tabella pivot "dish_order"
+        foreach ($cart as $item) {
+
+
+            $order->dishes()->attach(
+                $item['chiave']['id']
+                // ['quantity' => $item['quantity']]
+            );
+            $order->save();
+        }
+
+        // Invio della risposta
+        return response()->json(['message' => 'Ordine salvato con successo'], 201);
     }
+
 
     /**
      * Display the specified resource.
@@ -81,9 +111,3 @@ class OrderController extends Controller
         //
     }
 }
-
-
-
-
-
-

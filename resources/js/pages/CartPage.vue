@@ -212,7 +212,7 @@ export default {
 
             order_number: 1,
             formValidated: false,
-            ship_cost:"",
+            ship_cost: "",
         };
     },
 
@@ -290,26 +290,29 @@ export default {
         },
 
         sendOrder() {
-            axios.post('http://127.0.0.1:8000/api/payment', {
-                order_number: 1,
+
+            const order = {
                 customer_name: this.customer_name,
                 customer_surname: this.customer_surname,
                 customer_address: this.customer_address,
                 customer_phone: this.customer_phone,
                 customer_email: this.customer_email,
-                ship_cost: this.totalPrice(),
-                // user_id: this.cart[0].user_id,
+                order_number: this.order_number,
+                total_price: this.totalPrice(),
+                ship_cost: this.ship_cost,
+                cart: this.cart
+            };
+            axios.post('http://127.0.0.1:8000/api/payment', order)
 
-            })
+
+
                 .then(response => {
-                    if (response.status === 200) {
-                        localStorage.clear();
-                        this.loading = false;
-                        this.$router.push({ name: 'success' });
-                    }
+                    console.log('ordine ok', response.data);
+                    // this.$router.push({ name: '' })
                 })
                 .catch(error => {
                     console.log(error);
+                    // this.$router.push({ name: '' })
                 });
         },
 

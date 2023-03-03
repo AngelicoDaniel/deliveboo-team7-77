@@ -30,8 +30,12 @@ Route::namespace('Api')->prefix('/dishes')->group(function () {
 // Route::post("payment", "Api\Orders\OrderController@payment");
 
 
+// Route::namespace('Api')->prefix('/payment')->group(function () {
+
+//     Route::post('/', 'OrderController@store');
+// });
+
 Route::namespace('Api')->prefix('/payment')->group(function () {
 
-    Route::post('/', 'OrderController@index');
+    Route::post('/', [OrderController::class, 'store']);
 });
-
