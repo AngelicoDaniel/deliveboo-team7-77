@@ -2075,14 +2075,14 @@ __webpack_require__.r(__webpack_exports__);
     return {
       cart: [],
       TotalPrice: 0,
-      customer_name: "",
-      customer_surname: "",
-      customer_address: "",
-      customer_phone: "",
-      customer_email: "",
+      customer_name: "1",
+      customer_surname: "1",
+      customer_address: "1",
+      customer_phone: "1",
+      customer_email: "1",
       order_number: 1,
       formValidated: false,
-      ship_cost: ""
+      ship_cost: "1"
     };
   },
   mounted: function mounted() {
@@ -2129,7 +2129,6 @@ __webpack_require__.r(__webpack_exports__);
         this.cart = [];
         localStorage.removeItem("cart");
         this.totalPrice();
-        this.sendOrder();
       }
     },
     addCart: function addCart(name, price, id, user_id, image) {
@@ -2152,21 +2151,19 @@ __webpack_require__.r(__webpack_exports__);
     },
     sendOrder: function sendOrder() {
       var order = {
-        customer_name: this.customer_name,
-        customer_surname: this.customer_surname,
-        customer_address: this.customer_address,
-        customer_phone: this.customer_phone,
-        customer_email: this.customer_email,
-        order_number: this.order_number,
-        total_price: this.totalPrice(),
-        ship_cost: this.ship_cost,
-        cart: this.cart
+        order_number: '1',
+        customer_name: 'ok',
+        customer_surname: 'ok',
+        customer_address: 'ok',
+        customer_phone: 'ok',
+        customer_email: 'ok',
+        ship_cost: '1'
       };
       axios.post('http://127.0.0.1:8000/api/payment', order).then(function (response) {
         console.log('ordine ok', response.data);
         // this.$router.push({ name: '' })
       })["catch"](function (error) {
-        console.log(error);
+        console.error(error.response.data);
         // this.$router.push({ name: '' })
       });
     },
@@ -2945,7 +2942,17 @@ var render = function render() {
     attrs: {
       role: "alert"
     }
-  }, [_vm._v("\n                                        I campi contrassegnati dall'asterisco (*) sono\n                                        obbligatori.\n                                    ")]) : _vm._e(), _vm._v(" "), _c("form", [_c("div", {
+  }, [_vm._v("\n                                        I campi contrassegnati dall'asterisco (*) sono\n                                        obbligatori.\n                                    ")]) : _vm._e(), _vm._v(" "), _c("form", {
+    attrs: {
+      id: "myForm"
+    },
+    on: {
+      submit: function submit($event) {
+        $event.preventDefault();
+        return _vm.sendOrder.apply(null, arguments);
+      }
+    }
+  }, [_c("div", {
     staticClass: "input-box mb-2"
   }, [_vm._m(6), _vm._v(" "), _c("br"), _vm._v(" "), _c("input", {
     directives: [{
@@ -3322,12 +3329,12 @@ var render = function render() {
         return _vm.submitForm.apply(null, arguments);
       }
     }
-  }, [!_vm.formValidated ? _c("div", {
+  }, [_c("div", {
     staticClass: "alert alert-danger mb-1",
     attrs: {
       role: "alert"
     }
-  }, [_vm._v("\n            I campi contrassegnati dall'asterisco (*) sono obbligatori.\n        ")]) : _vm._e(), _vm._v(" "), _vm._m(0), _vm._v(" "), _vm._m(1), _vm._v(" "), _vm._m(2), _vm._v(" "), _vm._m(3), _vm._v(" "), _vm._m(4), _vm._v(" "), _c("button", {
+  }, [_vm._v("\n            I campi contrassegnati dall'asterisco (*) sono obbligatori.\n        ")]), _vm._v(" "), _vm._m(0), _vm._v(" "), _vm._m(1), _vm._v(" "), _vm._m(2), _vm._v(" "), _vm._m(3), _vm._v(" "), _vm._m(4), _vm._v(" "), _c("button", {
     staticClass: "btn btn-green",
     attrs: {
       type: "submit"

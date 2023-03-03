@@ -109,7 +109,7 @@
                                             obbligatori.
                                         </div>
 
-                                        <form>
+                                        <form @submit.prevent="sendOrder" id="myForm">
                                             <!-- input Nome -->
                                             <div class="input-box mb-2">
                                                 <label for="customer_name">Nome <span class="text-danger">*</span></label>
@@ -204,15 +204,15 @@ export default {
         return {
             cart: [],
             TotalPrice: 0,
-            customer_name: "",
-            customer_surname: "",
-            customer_address: "",
-            customer_phone: "",
-            customer_email: "",
+            customer_name: "1",
+            customer_surname: "1",
+            customer_address: "1",
+            customer_phone: "1",
+            customer_email: "1",
 
             order_number: 1,
             formValidated: false,
-            ship_cost: "",
+            ship_cost: "1",
         };
     },
 
@@ -223,6 +223,8 @@ export default {
 
         this.totalPrice();
         this.sendOrder()
+
+
     },
     methods: {
         removeCartItem(index) {
@@ -268,7 +270,7 @@ export default {
                 this.cart = [];
                 localStorage.removeItem("cart");
                 this.totalPrice();
-                this.sendOrder()
+
             }
         },
 
@@ -298,17 +300,16 @@ export default {
         sendOrder() {
 
             const order = {
-                customer_name: this.customer_name,
-                customer_surname: this.customer_surname,
-                customer_address: this.customer_address,
-                customer_phone: this.customer_phone,
-                customer_email: this.customer_email,
-                order_number: this.order_number,
-                total_price: this.totalPrice(),
-                ship_cost: this.ship_cost,
-                cart: this.cart
+                order_number: '1',
+                customer_name: 'ok',
+                customer_surname: 'ok',
+                customer_address: 'ok',
+                customer_phone: 'ok',
+                customer_email: 'ok',
+                ship_cost: '1',
+
             };
-            axios.post('http://127.0.0.1:8000/api/payment', order)
+            axios.post('http://127.0.0.1:8000/api/payment', order,)
 
 
 
@@ -317,7 +318,7 @@ export default {
                     // this.$router.push({ name: '' })
                 })
                 .catch(error => {
-                    console.log(error);
+                    console.error(error.response.data);
                     // this.$router.push({ name: '' })
                 });
         },

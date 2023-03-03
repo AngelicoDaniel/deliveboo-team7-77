@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <form @submit.prevent="submitForm">
-            <div v-if="!formValidated" class="alert alert-danger mb-1" role="alert">
+            <div  class="alert alert-danger mb-1" role="alert">
                 I campi contrassegnati dall'asterisco (*) sono obbligatori.
             </div>
             <div class="input-box mb-2">
@@ -29,13 +29,13 @@
                     <br />
                 <input id="addon-wrapping" type="number" placeholder="Inserisci il numero della carta" class="form-control" maxlength="3" required autofocus />
             </div>
-            
+
             <button @click="success()" type="submit" class="btn btn-green">
                 <router-link class="nav-link active" aria-current="page" :to="{ name: 'success' }">
                 <span @click="success()">Invia</span>
                 </router-link>
             </button>
-        </form>    
+        </form>
     </div>
 </template>
 
@@ -59,9 +59,9 @@
         });
         },
     }}
-   
+
   </script>
-  
+
   <style lang="scss" scoped>
 .btn-green {
     background-color: #00ccbc;
