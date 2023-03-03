@@ -2416,7 +2416,7 @@ var staticRenderFns = [function () {
     attrs: {
       href: "https://play.google.com/store/apps/details?id=com.deliveroo.orderapp&hl=it&gl=US"
     }
-  }, [_vm._v("Google Play")])])])]), _vm._v(" "), _c("div", {
+  }, [_vm._v("Google\n                            Play")])])])]), _vm._v(" "), _c("div", {
     staticClass: "col-xl-2 col-lg-3 col-md-4 col-sm-6 col-12 pd"
   }, [_c("h5", [_vm._v("SEGUICI")]), _vm._v(" "), _c("ul", [_c("li", [_c("i", {
     staticClass: "fa-brands fa-facebook"
@@ -7810,7 +7810,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".logo[data-v-09ff8af5] {\n  margin-left: -42px;\n}\n.img-logo[data-v-09ff8af5] {\n  width: 170px;\n}\nfooter[data-v-09ff8af5] {\n  background-color: black;\n  color: white;\n  margin-top: 20px;\n}\nfooter img[data-v-09ff8af5] {\n  width: 70%;\n  /*  margin: 40px 0; */\n}\nfooter h5[data-v-09ff8af5] {\n  padding-top: 10px;\n}\nfooter .pd[data-v-09ff8af5] {\n  padding: 0;\n}\nfooter ul[data-v-09ff8af5] {\n  list-style: none;\n  padding: 0;\n}\nfooter ul li[data-v-09ff8af5] {\n  margin-top: 5px;\n}\nfooter ul li a[data-v-09ff8af5] {\n  text-decoration: none;\n  color: hsl(53, 37%, 77%);\n}\nfooter ul li a[data-v-09ff8af5]:hover {\n  text-decoration: underline;\n}\nfooter ul li i[data-v-09ff8af5] {\n  margin-right: 10px;\n}\nfooter .terms-privacy[data-v-09ff8af5] {\n  text-align: center;\n}\nfooter .terms-privacy li[data-v-09ff8af5] {\n  display: inline-block;\n  padding: 20px;\n}\nfooter .terms-privacy li a[data-v-09ff8af5] {\n  text-decoration: none;\n  color: gray;\n  font-size: 12px;\n  padding-bottom: 20px;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".logo[data-v-09ff8af5] {\n  margin-left: -42px;\n}\n.img-logo[data-v-09ff8af5] {\n  width: 170px;\n}\nfooter[data-v-09ff8af5] {\n  background-color: black;\n  color: white;\n}\nfooter img[data-v-09ff8af5] {\n  width: 70%;\n  /*  margin: 40px 0; */\n}\nfooter h5[data-v-09ff8af5] {\n  padding-top: 10px;\n}\nfooter .pd[data-v-09ff8af5] {\n  padding: 0;\n}\nfooter ul[data-v-09ff8af5] {\n  list-style: none;\n  padding: 0;\n}\nfooter ul li[data-v-09ff8af5] {\n  margin-top: 5px;\n}\nfooter ul li a[data-v-09ff8af5] {\n  text-decoration: none;\n  color: hsl(53, 37%, 77%);\n}\nfooter ul li a[data-v-09ff8af5]:hover {\n  text-decoration: underline;\n}\nfooter ul li i[data-v-09ff8af5] {\n  margin-right: 10px;\n}\nfooter .terms-privacy[data-v-09ff8af5] {\n  text-align: center;\n}\nfooter .terms-privacy li[data-v-09ff8af5] {\n  display: inline-block;\n  padding: 20px;\n}\nfooter .terms-privacy li a[data-v-09ff8af5] {\n  text-decoration: none;\n  color: gray;\n  font-size: 12px;\n  padding-bottom: 20px;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
