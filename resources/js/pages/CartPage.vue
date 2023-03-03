@@ -308,9 +308,12 @@ export default {
         },
 
         removeCart() {
-            this.cart = [];
-            localStorage.removeItem("cart");
-        },
+            if (this.cart.length > 0) {
+                this.cart.pop();
+                localStorage.setItem("cart", JSON.stringify(this.cart));
+                this.totalPrice();
+            }
+        }
     },
 };
 

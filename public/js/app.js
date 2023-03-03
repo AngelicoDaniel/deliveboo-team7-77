@@ -2167,8 +2167,11 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
       }
     }
   }, "removeCart", function removeCart() {
-    this.cart = [];
-    localStorage.removeItem("cart");
+    if (this.cart.length > 0) {
+      this.cart.pop();
+      localStorage.setItem("cart", JSON.stringify(this.cart));
+      this.totalPrice();
+    }
   })
 });
 
