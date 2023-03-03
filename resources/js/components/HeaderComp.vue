@@ -1,13 +1,16 @@
 <template>
     <header>
         <nav class="navbar navbar-expand-lg bg-body-tertiary navbar-light" data-bs-theme="dark">
-            <div class="container-fluid bg-dark d-flex justify-content-between">
+            <div class="container-fluid bg-dark d-flex justify-content-between ">
                 <div class="">
                     <router-link class="navbar-brand" :to="{ name: 'home' }"><img class="img-logo"
                             src="../../../public/images/6103fbd57410870004d7f2dd.png" alt="" /></router-link>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
+
+
+
                     </button>
                 </div>
 
@@ -29,9 +32,9 @@
 
 
                     </ul>
-                    <div class="nav-right d-flex flex-end">
+                    <div class="nav-right d-flex flex-end align-items-center">
 
-                        <p class="nav-link text-white">Sei un ristoratore?</p>
+                        <span class="nav-link text-white">Sei un ristoratore?</span>
                         <a class="nav-link text-white mx-3" href="http://127.0.0.1:8000/login">Accedi</a>
                         <a class="nav-link text-white mx-3" href="http://127.0.0.1:8000/register">Registrati</a>
 
@@ -54,31 +57,29 @@ export default {
 
 
 <style lang="scss" scoped>
-
-
 /* .navbar-nav li:hover {
   color: #00CCBC;
 } */
 
-.navbar{
+.navbar {
     padding: 0;
     border-bottom: 1px solid #00CCBC;
 }
 
-.nav-right{
+.nav-right {
     margin-right: 30px;
 }
+
 .img-logo {
     width: 170px;
 }
 
 li {
-  margin: 5px;
-  border-bottom: 1px solid transparent;
+    margin: 5px;
+    border-bottom: 1px solid transparent;
 }
 
 li:hover {
-  border-bottom-color: #00CCBC;
+    border-bottom-color: #00CCBC;
 }
-
 </style>

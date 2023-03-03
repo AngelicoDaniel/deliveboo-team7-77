@@ -2601,8 +2601,8 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", {
-    staticClass: "nav-right d-flex flex-end"
-  }, [_c("p", {
+    staticClass: "nav-right d-flex flex-end align-items-center"
+  }, [_c("span", {
     staticClass: "nav-link text-white"
   }, [_vm._v("Sei un ristoratore?")]), _vm._v(" "), _c("a", {
     staticClass: "nav-link text-white mx-3",
