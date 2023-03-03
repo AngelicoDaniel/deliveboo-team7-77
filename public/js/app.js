@@ -2138,6 +2138,11 @@ __webpack_require__.r(__webpack_exports__);
       this.cart.splice(index, 1);
       localStorage.setItem("cart", JSON.stringify(this.cart));
       this.totalPrice();
+      if (this.cart.length === 0) {
+        this.cart = [];
+        localStorage.removeItem("cart");
+        this.totalPrice();
+      }
     },
     removeCart: function removeCart() {
       this.cart = [];

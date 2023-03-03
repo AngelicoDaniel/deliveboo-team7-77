@@ -306,10 +306,17 @@ export default {
   },
   methods: {
     removeCartItem(index) {
-      this.cart.splice(index, 1);
-      localStorage.setItem("cart", JSON.stringify(this.cart));
-      this.totalPrice();
-    },
+  this.cart.splice(index, 1);
+  localStorage.setItem("cart", JSON.stringify(this.cart));
+  this.totalPrice();
+
+  if (this.cart.length === 0) {
+    this.cart = [];
+    localStorage.removeItem("cart");
+    this.totalPrice();
+  }
+},
+
 
     removeCart() {
       this.cart = [];
