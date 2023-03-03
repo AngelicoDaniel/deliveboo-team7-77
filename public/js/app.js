@@ -2298,7 +2298,7 @@ var render = function render() {
   return _c("div", {
     staticClass: "text-center"
   }, [_vm._m(0), _vm._v(" "), _c("div", {
-    staticClass: "row justify-content-center"
+    staticClass: "row justify-content-center m-0"
   }, _vm._l(_vm.dish, function (elem, index) {
     return _c("div", {
       key: index,
@@ -2323,14 +2323,14 @@ var render = function render() {
           return _vm.addCart(elem.name, elem.price, elem.id, elem.user_id, elem.image);
         }
       }
-    }, [_vm._v("\n            Aggiungi al Carrello\n          ")])])])]);
+    }, [_vm._v("\n                        Aggiungi al Carrello\n                    ")])])])]);
   }), 0)]);
 };
 var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", {
-    staticClass: "row justify-content-center my-5"
+    staticClass: "row justify-content-center my-5 m-0"
   }, [_c("h3", {
     staticClass: "text-center"
   }, [_vm._v("Seleziona il tuo piatto "), _c("span", {
@@ -7786,7 +7786,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".card[data-v-2988c035] {\n  flex-basis: 19%;\n  justify-content: space-between;\n  margin: 10px 10px;\n  background-size: cover;\n  background-position: center;\n  background-repeat: no-repeat;\n  aspect-ratio: 1/1;\n  position: relative; /* needed for absolute positioning of .card-overlay */\n  transition: transform 0.5s ease-in-out; /* add a transition effect for transform */\n  border-radius: 10%;\n}\n.card:hover .card-overlay[data-v-2988c035] {\n  opacity: 1; /* show content on hover */\n}\n.card[data-v-2988c035]:hover {\n  transform: scale(1.1);\n  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);\n}\n.card-deck[data-v-2988c035] {\n  display: flex;\n  flex-wrap: wrap;\n}\n.card-overlay[data-v-2988c035] {\n  opacity: 0; /* hide content initially */\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  margin: auto;\n  padding: 10px;\n  background-color: rgba(255, 255, 255, 0.3);\n  text-align: center;\n  color: black;\n  transition: opacity 0.5s ease-in-out; /* add a transition effect for opacity */\n  border-radius: 10%;\n}\n.card-title[data-v-2988c035] {\n  font-size: 1.5rem;\n  margin: 0;\n  font-weight: bolder;\n}\n.card-text[data-v-2988c035] {\n  font-size: 1rem;\n  margin: 0;\n  font-weight: bold;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  max-width: 100%;\n}\n.text-green[data-v-2988c035] {\n  color: #00CCBC;\n}\n.btn[data-v-2988c035] {\n  background-color: #00CCBC;\n  color: white;\n}\n.btn[data-v-2988c035]:hover {\n  border-color: #00CCBC;\n  color: black;\n  background-color: rgba(13, 163, 150, 0.9);\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".card[data-v-2988c035] {\n  flex-basis: 19%;\n  justify-content: space-between;\n  margin: 10px 10px;\n  background-size: cover;\n  background-position: center;\n  background-repeat: no-repeat;\n  aspect-ratio: 1/1;\n  position: relative;\n  /* needed for absolute positioning of .card-overlay */\n  transition: transform 0.5s ease-in-out;\n  /* add a transition effect for transform */\n  border-radius: 10%;\n}\n.card:hover .card-overlay[data-v-2988c035] {\n  opacity: 1;\n  /* show content on hover */\n}\n.card[data-v-2988c035]:hover {\n  transform: scale(1.1);\n  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);\n}\n.card-deck[data-v-2988c035] {\n  display: flex;\n  flex-wrap: wrap;\n}\n.card-overlay[data-v-2988c035] {\n  opacity: 0;\n  /* hide content initially */\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  margin: auto;\n  padding: 10px;\n  background-color: rgba(255, 255, 255, 0.3);\n  text-align: center;\n  color: black;\n  transition: opacity 0.5s ease-in-out;\n  /* add a transition effect for opacity */\n  border-radius: 10%;\n}\n.card-title[data-v-2988c035] {\n  font-size: 1.5rem;\n  margin: 0;\n  font-weight: bolder;\n}\n.card-text[data-v-2988c035] {\n  font-size: 1rem;\n  margin: 0;\n  font-weight: bold;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  max-width: 100%;\n}\n.text-green[data-v-2988c035] {\n  color: #00CCBC;\n}\n.btn[data-v-2988c035] {\n  background-color: #00CCBC;\n  color: white;\n}\n.btn[data-v-2988c035]:hover {\n  border-color: #00CCBC;\n  color: black;\n  background-color: rgba(13, 163, 150, 0.9);\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -7954,7 +7954,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.hero {\r\n  background-image: url(\"/images/pexels-valeria-boltneva-1639562.jpg\");\r\n  background-size: cover;\r\n  background-repeat: no-repeat;\r\n  background-position: center;\r\n  padding: 120px;\r\n  height: 1000px;\n}\nh1{\r\n font-size:3.5rem;\r\n margin-bottom: 50px;\n}\n.domicilio-span {\r\n  color: #00ccbc;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.hero {\n  background-image: url(\"/images/pexels-valeria-boltneva-1639562.jpg\");\n  background-size: cover;\n  background-repeat: no-repeat;\n  background-position: center;\n  padding: 120px;\n  height: 1000px;\n}\nh1{\n font-size:3.5rem;\n margin-bottom: 50px;\n}\n.domicilio-span {\n  color: #00ccbc;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
