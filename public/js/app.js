@@ -2069,10 +2069,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
-function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
-function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "CartPage",
   data: function data() {
@@ -2094,7 +2090,7 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
     }
     this.totalPrice();
   },
-  methods: _defineProperty({
+  methods: {
     removeCartItem: function removeCartItem(index) {
       this.cart.splice(index, 1);
       localStorage.setItem("cart", JSON.stringify(this.cart));
@@ -2105,9 +2101,10 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
         this.totalPrice();
       }
     },
-    removeCart: function removeCart() {
+    emptyCart: function emptyCart() {
       this.cart = [];
       localStorage.removeItem("cart");
+      localStorage.addItem("cart");
       this.totalPrice();
     },
     totalPrice: function totalPrice() {
@@ -2153,26 +2150,23 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
       });
     },
     addCart: function addCart(name, price, id, user_id, image) {
-      if (this.cart.length > 0 && user_id != this.cart[0].user_id) {
-        alert("Non Puoi inserire piatti di altri ristoranti nel carrello!!");
-      } else {
-        this.cart.push({
-          id: id,
-          name: name,
-          price: price,
-          user_id: user_id,
-          image: image
-        }), localStorage.setItem("cart", JSON.stringify(this.cart));
-        alert("Piatto aggiunto al carrello!");
+      this.cart.push({
+        id: id,
+        name: name,
+        price: price,
+        user_id: user_id,
+        image: image
+      }), localStorage.setItem("cart", JSON.stringify(this.cart));
+      alert("Piatto aggiunto al carrello!");
+    },
+    removeCart: function removeCart() {
+      if (this.cart.length > 0) {
+        this.cart.pop();
+        localStorage.setItem("cart", JSON.stringify(this.cart));
+        this.totalPrice();
       }
     }
-  }, "removeCart", function removeCart() {
-    if (this.cart.length > 0) {
-      this.cart.pop();
-      localStorage.setItem("cart", JSON.stringify(this.cart));
-      this.totalPrice();
-    }
-  })
+  }
 });
 
 /***/ }),
@@ -2853,7 +2847,7 @@ var render = function render() {
       staticClass: "btn btn-danger",
       on: {
         click: function click($event) {
-          return _vm.addCart(item.name, item.price, item.id, item.user_id, item.image);
+          return _vm.addCart(item.name, item.price, item.id, item.user_id, item.image, index);
         }
       }
     }, [_vm._v("\n                                                    +\n                                                ")]), _vm._v(" "), _c("button", {
@@ -2869,7 +2863,7 @@ var render = function render() {
       staticClass: "btn btn-danger",
       on: {
         click: function click($event) {
-          return _vm.removeCart(item.name, item.price, item.id, item.user_id, item.image);
+          return _vm.removeCart(item.name, item.price, item.id, item.user_id, item.image, index);
         }
       }
     }, [_vm._v("\n                                                    -\n                                                ")])])])]);
@@ -2888,7 +2882,7 @@ var render = function render() {
     },
     on: {
       click: function click($event) {
-        return _vm.removeCart();
+        return _vm.emptyCart();
       }
     }
   }, [_vm._v("\n                                            Svuota Carrello\n                                        ")])])]), _vm._v(" "), _c("div", {

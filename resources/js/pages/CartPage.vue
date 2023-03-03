@@ -39,14 +39,14 @@
                                                 </div>
                                                 <div class="col-4 col-sm-2 text-right">
                                                     <button class="btn btn-danger"
-                                                        @click="addCart(item.name, item.price, item.id, item.user_id, item.image)">
+                                                        @click="addCart(item.name, item.price, item.id, item.user_id, item.image, index)">
                                                         +
                                                     </button>
                                                     <button class="btn btn-danger" @click="removeCartItem(index)">
                                                         <i class="fa-regular fa-trash-can"></i>
                                                     </button>
                                                     <button class="btn btn-danger"
-                                                        @click="removeCart(item.name, item.price, item.id, item.user_id, item.image)">
+                                                        @click="removeCart(item.name, item.price, item.id, item.user_id, item.image, index)">
                                                         -
                                                     </button>
                                                 </div>
@@ -63,7 +63,7 @@
                                 <div class="col-lg-5">
                                     <div class="card card_right rounded-3">
                                         <div class="p-4">
-                                            <button class="btn btn-danger" type="button" @click="removeCart()">
+                                            <button class="btn btn-danger" type="button" @click="emptyCart()">
                                                 Svuota Carrello
                                             </button>
                                         </div>
@@ -239,9 +239,10 @@ export default {
         },
 
 
-        removeCart() {
+        emptyCart() {
             this.cart = [];
             localStorage.removeItem("cart");
+            localStorage.addItem("cart");
             this.totalPrice();
         },
 
@@ -292,19 +293,17 @@ export default {
         },
 
         addCart(name, price, id, user_id, image) {
-            if (this.cart.length > 0 && user_id != this.cart[0].user_id) {
-                alert("Non Puoi inserire piatti di altri ristoranti nel carrello!!");
-            } else {
-                this.cart.push({
-                    id: id,
-                    name: name,
-                    price: price,
-                    user_id: user_id,
-                    image: image,
-                }),
-                    localStorage.setItem("cart", JSON.stringify(this.cart));
-                alert("Piatto aggiunto al carrello!");
-            }
+
+            this.cart.push({
+                id: id,
+                name: name,
+                price: price,
+                user_id: user_id,
+                image: image,
+            }),
+                localStorage.setItem("cart", JSON.stringify(this.cart));
+            alert("Piatto aggiunto al carrello!");
+
         },
 
         removeCart() {
