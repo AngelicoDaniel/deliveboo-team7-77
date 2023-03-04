@@ -10,7 +10,7 @@ class Order extends Model
 
     protected $fillable = [
         'order_number',
-        'customer_mame',
+        'customer_name',
         'customer_surname',
         'customer_address',
         'customer_phone',

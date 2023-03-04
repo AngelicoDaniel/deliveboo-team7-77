@@ -109,7 +109,7 @@
                                             obbligatori.
                                         </div>
 
-                                        <form @submit.prevent="sendOrder" id="myForm">
+                                        <form >
                                             <!-- input Nome -->
                                             <div class="input-box mb-2">
                                                 <label for="customer_name">Nome <span class="text-danger">*</span></label>
@@ -175,7 +175,7 @@
                                                     ">
                                                     <router-link class="nav-link active" aria-current="page"
                                                         :to="{name: 'pay-form' }">
-                                                        <span @click="removeCart()">Paga Il tuo Ordine</span>
+                                                        <span @click="removeCart(), sendOrder()">Paga Il tuo Ordine</span>
 
                                                     </router-link>
                                                 </button>
@@ -203,16 +203,16 @@ export default {
     data() {
         return {
             cart: [],
-            TotalPrice: 0,
-            customer_name: "1",
-            customer_surname: "1",
-            customer_address: "1",
-            customer_phone: "1",
-            customer_email: "1",
+            TotalPrice: "",
+            customer_name: "",
+            customer_surname: "",
+            customer_address: "",
+            customer_phone: "",
+            customer_email: "",
 
-            order_number: 1,
+            order_number: this.generaNumeroCasuale(),
             formValidated: false,
-            ship_cost: "1",
+            ship_cost: "",
         };
     },
 
@@ -222,10 +222,15 @@ export default {
         }
 
         this.totalPrice();
-        this.sendOrder()
+
+        this.generaNumeroCasuale()
+
+        this.ship_cost = this.TotalPrice
+},
 
 
-    },
+
+
     methods: {
         removeCartItem(index) {
             this.cart.splice(index, 1);
@@ -239,11 +244,16 @@ export default {
             }
         },
 
+
+
         payForm(){
           this.$router.push({
             name: "pay-form",
           });
         },
+
+        generaNumeroCasuale() {
+  return Math.floor(Math.random() * 90000) + 10000;},
 
 
         emptyCart() {
@@ -256,8 +266,10 @@ export default {
         totalPrice() {
             this.TotalPrice = 0;
             this.cart.forEach((elem) => {
-                this.TotalPrice += elem.price;
+              this.TotalPrice += elem.price;
             });
+
+
         },
 
         validateForm() {
@@ -273,6 +285,8 @@ export default {
 
             }
         },
+
+
 
 
         addCart(name, price, id, user_id, image) {
@@ -297,16 +311,18 @@ export default {
             }
         },
 
+
+
         sendOrder() {
 
             const order = {
-                order_number: '1',
-                customer_name: 'ok',
-                customer_surname: 'ok',
-                customer_address: 'ok',
-                customer_phone: 'ok',
-                customer_email: 'ok',
-                ship_cost: '1',
+                order_number: this.order_number,
+                customer_name: this.customer_name,
+                customer_surname: this.customer_surname,
+                customer_address: this.customer_address,
+                customer_phone: this.customer_phone,
+                customer_email: this.customer_email,
+                ship_cost:  this.ship_cost ,
 
             };
             axios.post('http://127.0.0.1:8000/api/payment', order,)

@@ -21,7 +21,7 @@ class CreateOrdersTable extends Migration
             $table->string('customer_address')->nullable();
             $table->string('customer_phone')->nullable();
             $table->string('customer_email')->nullable();
-            $table->integer('ship_cost');
+            $table->string('ship_cost')->nullable();
             $table->timestamps();
         });
     }

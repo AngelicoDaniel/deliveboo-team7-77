@@ -2074,15 +2074,15 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       cart: [],
-      TotalPrice: 0,
-      customer_name: "1",
-      customer_surname: "1",
-      customer_address: "1",
-      customer_phone: "1",
-      customer_email: "1",
-      order_number: 1,
+      TotalPrice: "",
+      customer_name: "",
+      customer_surname: "",
+      customer_address: "",
+      customer_phone: "",
+      customer_email: "",
+      order_number: this.generaNumeroCasuale(),
       formValidated: false,
-      ship_cost: "1"
+      ship_cost: ""
     };
   },
   mounted: function mounted() {
@@ -2090,7 +2090,8 @@ __webpack_require__.r(__webpack_exports__);
       this.cart = JSON.parse(localStorage.getItem("cart"));
     }
     this.totalPrice();
-    this.sendOrder();
+    this.generaNumeroCasuale();
+    this.ship_cost = this.TotalPrice;
   },
   methods: {
     removeCartItem: function removeCartItem(index) {
@@ -2107,6 +2108,9 @@ __webpack_require__.r(__webpack_exports__);
       this.$router.push({
         name: "pay-form"
       });
+    },
+    generaNumeroCasuale: function generaNumeroCasuale() {
+      return Math.floor(Math.random() * 90000) + 10000;
     },
     emptyCart: function emptyCart() {
       this.cart = [];
@@ -2150,13 +2154,13 @@ __webpack_require__.r(__webpack_exports__);
     },
     sendOrder: function sendOrder() {
       var order = {
-        order_number: '1',
-        customer_name: 'ok',
-        customer_surname: 'ok',
-        customer_address: 'ok',
-        customer_phone: 'ok',
-        customer_email: 'ok',
-        ship_cost: '1'
+        order_number: this.order_number,
+        customer_name: this.customer_name,
+        customer_surname: this.customer_surname,
+        customer_address: this.customer_address,
+        customer_phone: this.customer_phone,
+        customer_email: this.customer_email,
+        ship_cost: this.ship_cost
       };
       axios.post('http://127.0.0.1:8000/api/payment', order).then(function (response) {
         console.log('ordine ok', response.data);
@@ -2944,17 +2948,7 @@ var render = function render() {
     attrs: {
       role: "alert"
     }
-  }, [_vm._v("\n                                        I campi contrassegnati dall'asterisco (*) sono\n                                        obbligatori.\n                                    ")]) : _vm._e(), _vm._v(" "), _c("form", {
-    attrs: {
-      id: "myForm"
-    },
-    on: {
-      submit: function submit($event) {
-        $event.preventDefault();
-        return _vm.sendOrder.apply(null, arguments);
-      }
-    }
-  }, [_c("div", {
+  }, [_vm._v("\n                                        I campi contrassegnati dall'asterisco (*) sono\n                                        obbligatori.\n                                    ")]) : _vm._e(), _vm._v(" "), _c("form", [_c("div", {
     staticClass: "input-box mb-2"
   }, [_vm._m(6), _vm._v(" "), _c("br"), _vm._v(" "), _c("input", {
     directives: [{
@@ -3113,7 +3107,7 @@ var render = function render() {
   }, [_c("span", {
     on: {
       click: function click($event) {
-        return _vm.removeCart();
+        _vm.removeCart(), _vm.sendOrder();
       }
     }
   }, [_vm._v("Paga Il tuo Ordine")])])], 1)])])])])])])])])])])]);
