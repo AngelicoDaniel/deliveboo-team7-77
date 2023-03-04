@@ -2139,7 +2139,6 @@ __webpack_require__.r(__webpack_exports__);
         user_id: user_id,
         image: image
       }), localStorage.setItem("cart", JSON.stringify(this.cart));
-      alert("Piatto aggiunto al carrello!");
       this.totalPrice();
     },
     removeCart: function removeCart() {
@@ -2572,14 +2571,15 @@ var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
   return _c("header", [_c("nav", {
-    staticClass: "navbar navbar-expand-lg bg-body-tertiary navbar-light",
+    staticClass: "navbar navbar-expand-md bg-body-tertiary navbar-light",
     attrs: {
       "data-bs-theme": "dark"
     }
   }, [_c("div", {
     staticClass: "container-fluid bg-dark d-flex justify-content-between"
-  }, [_c("div", {}, [_c("router-link", {
-    staticClass: "navbar-brand",
+  }, [_c("div", {
+    staticClass: "navbar-brand"
+  }, [_c("router-link", {
     attrs: {
       to: {
         name: "home"
@@ -2591,8 +2591,8 @@ var render = function render() {
       src: __webpack_require__(/*! ../../../public/images/6103fbd57410870004d7f2dd.png */ "./public/images/6103fbd57410870004d7f2dd.png"),
       alt: ""
     }
-  })]), _vm._v(" "), _vm._m(0)], 1), _vm._v(" "), _c("div", {
-    staticClass: "collapse navbar-collapse w-100 d-flex justify-content-between",
+  })])], 1), _vm._v(" "), _vm._m(0), _vm._v(" "), _c("div", {
+    staticClass: "collapse navbar-collapse justify-content-between",
     attrs: {
       id: "navbarNav"
     }
@@ -2601,17 +2601,17 @@ var render = function render() {
   }, [_c("li", {
     staticClass: "nav-item"
   }, [_c("router-link", {
-    staticClass: "nav-link active",
+    staticClass: "nav-link",
     attrs: {
-      "aria-current": "page",
       to: {
         name: "home"
       }
     }
-  }, [_vm._v("Home")])], 1), _vm._v(" "), _c("li", [_c("router-link", {
-    staticClass: "nav-link active",
+  }, [_vm._v("Home")])], 1), _vm._v(" "), _c("li", {
+    staticClass: "nav-item"
+  }, [_c("router-link", {
+    staticClass: "nav-link",
     attrs: {
-      "aria-current": "page",
       to: {
         name: "cart"
       }
@@ -2638,9 +2638,9 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", {
-    staticClass: "nav-right d-flex flex-end align-items-center"
+    staticClass: "nav-right d-flex align-items-center"
   }, [_c("span", {
-    staticClass: "nav-link text-white"
+    staticClass: "nav-link text-white d-none d-md-block"
   }, [_vm._v("Sei un ristoratore?")]), _vm._v(" "), _c("a", {
     staticClass: "nav-link text-white mx-3",
     attrs: {
@@ -2748,11 +2748,17 @@ var render = function render() {
   return _c("div", {
     staticClass: "text-center"
   }, [_c("div", {
-    staticClass: "d-flex justify-content-center"
+    staticClass: "row justify-content-center"
+  }, [_c("div", {
+    staticClass: "col-md-8"
+  }, [_c("div", {
+    staticClass: "form-group row"
   }, _vm._l(_vm.filteredTypes, function (type) {
     return _c("div", {
       key: type.id,
-      staticClass: "form-check form-check-inline"
+      staticClass: "col-md-4 col-sm-2"
+    }, [_c("div", {
+      staticClass: "form-check"
     }, [_c("input", {
       directives: [{
         name: "model",
@@ -2792,9 +2798,9 @@ var render = function render() {
       attrs: {
         "for": type.id
       }
-    }, [_vm._v(_vm._s(type.name))])]);
-  }), 0), _vm._v(" "), _vm.filteredRestaurants.length ? _c("div", [_c("div", {
-    staticClass: "card-deck d-flex"
+    }, [_vm._v(_vm._s(type.name))])])]);
+  }), 0)])]), _vm._v(" "), _vm.filteredRestaurants.length ? _c("div", [_c("div", {
+    staticClass: "card-deck d-flex flex-wrap justify-content-center"
   }, _vm._l(_vm.filteredRestaurants, function (restaurant) {
     return _c("div", {
       key: restaurant.id,

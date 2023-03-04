@@ -285,7 +285,7 @@ export default {
                 image: image,
             }),
                 localStorage.setItem("cart", JSON.stringify(this.cart));
-            alert("Piatto aggiunto al carrello!");
+
             this.totalPrice();
         },
 
