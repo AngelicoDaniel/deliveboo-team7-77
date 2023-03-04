@@ -2746,17 +2746,13 @@ var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", {
-    staticClass: "text-center"
+    staticClass: "container text-center"
   }, [_c("div", {
-    staticClass: "row justify-content-center"
-  }, [_c("div", {
-    staticClass: "col-md-8"
-  }, [_c("div", {
-    staticClass: "form-group row"
+    staticClass: "row d-flex"
   }, _vm._l(_vm.filteredTypes, function (type) {
     return _c("div", {
       key: type.id,
-      staticClass: "col-md-4 col-sm-2"
+      staticClass: "test p-1"
     }, [_c("div", {
       staticClass: "form-check"
     }, [_c("input", {
@@ -2799,7 +2795,7 @@ var render = function render() {
         "for": type.id
       }
     }, [_vm._v(_vm._s(type.name))])])]);
-  }), 0)])]), _vm._v(" "), _vm.filteredRestaurants.length ? _c("div", [_c("div", {
+  }), 0), _vm._v(" "), _vm.filteredRestaurants.length ? _c("div", [_c("div", {
     staticClass: "card-deck d-flex flex-wrap justify-content-center"
   }, _vm._l(_vm.filteredRestaurants, function (restaurant) {
     return _c("div", {
@@ -8128,7 +8124,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".inp-sty[data-v-35fcbe54] {\n  padding: 10px;\n  border-radius: 20px;\n  width: 30%;\n  margin: 30px 0px;\n  border: 0;\n}\n.list-type[data-v-35fcbe54] {\n  background-color: #00ccbc;\n  border-radius: 15px;\n}\n.list-restaurants[data-v-35fcbe54] {\n  list-style-type: none;\n  text-decoration: none;\n  color: gray;\n}\n.card[data-v-35fcbe54] {\n  flex-basis: 22%;\n  justify-content: space-between;\n  margin: 10px 10px;\n}\n.card-deck[data-v-35fcbe54] {\n  display: flex;\n  flex-wrap: wrap;\n}\n.card-titl .card-tex[data-v-35fcbe54] {\n  color: white;\n}\nrouter-link[data-v-35fcbe54] {\n  text-decoration: none !important;\n}\n.card[data-v-35fcbe54] {\n  background-size: cover;\n  background-position: center;\n  background-repeat: no-repeat;\n  aspect-ratio: 1/1;\n}\n.card-overlay[data-v-35fcbe54] {\n  margin-top: 25%;\n  padding: 10px;\n  background-color: rgba(255, 255, 255, 0.7);\n  text-align: center;\n  color: black;\n}\n.card-title[data-v-35fcbe54] {\n  font-size: 1.2rem;\n  margin: 0;\n}\n.card-text[data-v-35fcbe54] {\n  font-size: 1rem;\n  margin: 0;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".inp-sty[data-v-35fcbe54] {\n  padding: 10px;\n  border-radius: 20px;\n  width: 30%;\n  margin: 30px 0px;\n  border: 0;\n}\n.list-type[data-v-35fcbe54] {\n  background-color: #00ccbc;\n  border-radius: 15px;\n}\n.list-restaurants[data-v-35fcbe54] {\n  list-style-type: none;\n  text-decoration: none;\n  color: gray;\n}\n.card[data-v-35fcbe54] {\n  flex-basis: 22%;\n  justify-content: space-between;\n  margin: 10px 10px;\n}\n.card-deck[data-v-35fcbe54] {\n  display: flex;\n  flex-wrap: wrap;\n}\n.card-titl .card-tex[data-v-35fcbe54] {\n  color: white;\n}\nrouter-link[data-v-35fcbe54] {\n  text-decoration: none !important;\n}\n.card[data-v-35fcbe54] {\n  background-size: cover;\n  background-position: center;\n  background-repeat: no-repeat;\n  aspect-ratio: 1/1;\n}\n.card-overlay[data-v-35fcbe54] {\n  margin-top: 25%;\n  padding: 10px;\n  background-color: rgba(255, 255, 255, 0.7);\n  text-align: center;\n  color: black;\n}\n.card-title[data-v-35fcbe54] {\n  font-size: 1.2rem;\n  margin: 0;\n}\n.card-text[data-v-35fcbe54] {\n  font-size: 1rem;\n  margin: 0;\n}\n\n/* .form-check-input {\n  width: 1.3em;\n  height: 1.3em;\n  margin-top: 0.2em;\n  margin-right: 0.5em;\n  vertical-align: middle;\n  background-color: #212529;\n  border: 1px solid #ccc;\n  border-radius: 0.25em;\n\n  width: 20px;\n  height: 20px;\n\n}\n\n\n.form-check-label {\n  vertical-align: middle;\n\n}\n\n\n.form-check-input:checked {\n  background-color: #00CCBC;\n  border-color: #00CCBC;\n}\n\n\n.form-check-input:checked + .form-check-label {\n  color: #00CCBC;\n}\n */\n/* Stile per le checkbox come bottone */\n.form-check-input[data-v-35fcbe54] {\n  position: absolute;\n  opacity: 0;\n  z-index: -1;\n}\n.form-check-input + .form-check-label[data-v-35fcbe54] {\n  display: inline-block;\n  padding: 0.5em 1em;\n  margin-bottom: 0;\n  font-size: 1rem;\n  font-weight: 400;\n  line-height: 1.5;\n  color: #fff;\n  text-align: center;\n  vertical-align: middle;\n  cursor: pointer;\n  background-color: #00CCBC;\n  border: 1px solid #00CCBC;\n  border-radius: 0.25em;\n  transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;\n}\n.form-check-input:checked + .form-check-label[data-v-35fcbe54] {\n  background-color: #fff;\n  border-color: #00CCBC;\n  color: #00CCBC;\n}\n.test[data-v-35fcbe54] {\n  justify-content: center;\n  width: 14.2857142857%;\n}\n.form-check-label[data-v-35fcbe54] {\n  width: 100%;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

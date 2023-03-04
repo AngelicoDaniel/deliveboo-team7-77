@@ -1,17 +1,17 @@
 <template>
-    <div class="text-center">
-      <div class="row justify-content-center">
-        <div class="col-md-8">
-          <div class="form-group row">
-            <div v-for="type in filteredTypes" :key="type.id" class="col-md-4 col-sm-2">
+    <div class="container text-center">
+      
+        <div class="row d-flex">
+         
+            <div v-for="type in filteredTypes" :key="type.id" class="test p-1">
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" :id="type.id" :value="type.id" v-model="selectedTypes">
                 <label class="form-check-label" :for="type.id">{{ type.name }}</label>
               </div>
             </div>
-          </div>
+         
         </div>
-      </div>
+ 
 
       <div v-if="filteredRestaurants.length">
         <div class="card-deck d-flex flex-wrap justify-content-center">
@@ -183,5 +183,79 @@ margin-top: 25%;
   font-size: 1rem;
   margin: 0;
 }
+
+
+/* .form-check-input {
+  width: 1.3em;
+  height: 1.3em;
+  margin-top: 0.2em;
+  margin-right: 0.5em;
+  vertical-align: middle;
+  background-color: #212529;
+  border: 1px solid #ccc;
+  border-radius: 0.25em;
+
+  width: 20px;
+  height: 20px;
+
+}
+
+
+.form-check-label {
+  vertical-align: middle;
+
+}
+
+
+.form-check-input:checked {
+  background-color: #00CCBC;
+  border-color: #00CCBC;
+}
+
+
+.form-check-input:checked + .form-check-label {
+  color: #00CCBC;
+}
+ */
+
+
+/* Stile per le checkbox come bottone */
+.form-check-input {
+  position: absolute;
+  opacity: 0;
+  z-index: -1;
+}
+.form-check-input + .form-check-label {
+  display: inline-block;
+  padding: 0.5em 1em;
+  margin-bottom: 0;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #fff;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  background-color: #00CCBC;
+  border: 1px solid #00CCBC;
+  border-radius: 0.25em;
+  transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out;
+}
+.form-check-input:checked + .form-check-label {
+  background-color: #fff;
+  border-color: #00CCBC;
+  color: #00CCBC;
+}
+
+.test{
+justify-content: center;
+width: calc(100% / 7);
+}
+
+.form-check-label{
+  width: 100%;
+}
+
 
 </style>
