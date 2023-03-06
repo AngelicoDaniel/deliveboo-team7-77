@@ -2918,7 +2918,7 @@ var render = function render() {
     },
     on: {
       click: function click($event) {
-        return _vm.emptyCart();
+        _vm.removeCart(), _vm.emptyCart();
       }
     }
   }, [_vm._v("\n                                            Svuota Carrello\n                                        ")])])]), _vm._v(" "), _c("div", {

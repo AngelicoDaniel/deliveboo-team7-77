@@ -60,7 +60,7 @@
                                 <div class="col-lg-5">
                                     <div class="card card_right rounded-3">
                                         <div class="p-4">
-                                            <button class="btn btn-danger" type="button" @click="emptyCart()">
+                                            <button class="btn btn-danger" type="button" @click="removeCart(), emptyCart()">
                                                 Svuota Carrello
                                             </button>
                                         </div>
