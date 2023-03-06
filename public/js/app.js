@@ -1871,7 +1871,25 @@ __webpack_require__.r(__webpack_exports__);
           user_id: user_id,
           image: image
         }), localStorage.setItem("cart", JSON.stringify(this.cart));
-        alert("Piatto aggiunto al carrello!");
+        // sostituisci l'alert con un pop-up a schermo
+        var popup = document.createElement('div');
+        popup.innerHTML = 'Piatto aggiunto al carrello!';
+        popup.style.position = 'fixed';
+        popup.style.top = '19%';
+        popup.style.left = '84%';
+        popup.style.transform = 'translate(-50%, -50%)';
+        popup.style.backgroundColor = 'white';
+        popup.style.padding = '10px';
+        popup.style.border = '1px solid black';
+        popup.style.borderRadius = '5px';
+        popup.style.boxShadow = '2px 2px 5px rgba(0, 0, 0, 0.3)';
+        popup.style.backgroundColor = '#00CCBC';
+        popup.style.color = 'black';
+        popup.style.zIndex = '999';
+        document.body.appendChild(popup);
+        setTimeout(function () {
+          popup.remove();
+        }, 1000); // il pop-up scomparirà dopo 2 secondi
       }
     },
     removeCart: function removeCart() {
@@ -2927,7 +2945,7 @@ var render = function render() {
   }, [_c("div", {
     staticClass: "row align-items-center p-3 added_plate"
   }, [_vm._m(3), _vm._v(" "), _c("div", {
-    staticClass: "col-4 col-sm-6"
+    staticClass: "col-12 col-sm-6 col-md-4"
   }, [_c("div", {
     staticClass: "d-flex flex-column"
   }, [_c("h6", {
@@ -3153,7 +3171,7 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", {
-    staticClass: "col-6 col-sm-4 d-none d-sm-block"
+    staticClass: "col-12 col-sm-6 col-md-4"
   }, [_c("h3", {
     staticClass: "py-2"
   }, [_vm._v("Prezzo totale:")])]);
@@ -3161,18 +3179,18 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", {
-    staticClass: "col-6 col-sm-4 d-none d-sm-block"
+    staticClass: "col-12 col-md-4"
   }, [_c("h3", {
     staticClass: "my-3"
   }, [_vm._v("Paga ora")]), _vm._v(" "), _c("button", {
-    staticClass: "btn btn-green",
+    staticClass: "btn btn-green w-100",
     attrs: {
       type: "button",
       "data-bs-toggle": "offcanvas",
       "data-bs-target": "#staticBackdrop",
       "aria-controls": "staticBackdrop"
     }
-  }, [_vm._v("\n                                                    Checkout\n                                                ")])]);
+  }, [_vm._v("Checkout")])]);
 }, function () {
   var _vm = this,
     _c = _vm._self._c;

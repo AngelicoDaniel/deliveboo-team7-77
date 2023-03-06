@@ -68,29 +68,25 @@
                                     <div class="py-5 text-white">
                                         <div class="card mb-3">
                                             <div class="row align-items-center p-3 added_plate">
-                                                <div class="col-6 col-sm-4 d-none d-sm-block">
+                                                <div class="col-12 col-sm-6 col-md-4">
                                                     <h3 class="py-2">Prezzo totale:</h3>
                                                 </div>
-                                                <div class="col-4 col-sm-6">
+                                                <div class="col-12 col-sm-6 col-md-4">
                                                     <div class="d-flex flex-column">
                                                         <h6 class="mb-2">
                                                             <h5 class="my-4">{{ this.TotalPrice }} €</h5>
                                                         </h6>
                                                     </div>
                                                 </div>
-
-                                                <div class="col-6 col-sm-4 d-none d-sm-block">
+                                                <div class="col-12 col-md-4">
                                                     <h3 class="my-3">Paga ora</h3>
-
-                                                    <button class="btn btn-green" type="button" data-bs-toggle="offcanvas"
-                                                        data-bs-target="#staticBackdrop" aria-controls="staticBackdrop">
-                                                        Checkout
-                                                    </button>
+                                                    <button class="btn btn-green w-100" type="button" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop"
+                                                        aria-controls="staticBackdrop">Checkout</button>
                                                 </div>
-
                                             </div>
                                         </div>
                                     </div>
+
                                 </div>
 
                                 <div class="offcanvas offcanvas-start" data-bs-backdrop="static" tabindex="-1"
