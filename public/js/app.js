@@ -1875,8 +1875,8 @@ __webpack_require__.r(__webpack_exports__);
         var popup = document.createElement('div');
         popup.innerHTML = 'Piatto aggiunto al carrello!';
         popup.style.position = 'fixed';
-        popup.style.top = '50%';
-        popup.style.left = '50%';
+        popup.style.top = '19%';
+        popup.style.left = '84%';
         popup.style.transform = 'translate(-50%, -50%)';
         popup.style.backgroundColor = 'white';
         popup.style.padding = '10px';
@@ -1889,7 +1889,7 @@ __webpack_require__.r(__webpack_exports__);
         document.body.appendChild(popup);
         setTimeout(function () {
           popup.remove();
-        }, 2000); // il pop-up scomparirà dopo 2 secondi
+        }, 1000); // il pop-up scomparirà dopo 2 secondi
       }
     },
     removeCart: function removeCart() {
