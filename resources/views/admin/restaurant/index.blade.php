@@ -1,15 +1,32 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>Il Tuo ristorante</h1>
-    <p>Nome del tuo ristorante: {{ $user->name }}</p>
-    <p>Indirizzo del tuo ristorante: {{ $user->address }}</p>
-    <p>P.iva del tuo ristorante: {{ $user->PIVA }}</p>
-    <img src="{{ asset("storage/$user->image_logo") }}" alt="">
+    <div class="spacer">
+        <img class="img_spacer" src="{{ asset('storage/lightgreen_wave.png') }}" alt="">
+    </div>
+    <div id="backend_container"class="">
+        <div class="backend_wrap">
 
-    <ul>
-        <h3 class="nav-item">
-            <a class="nav-link" href="{{ route('admin.dishes.index') }}">Menu del tuo ristorante</a>
-        </h3>
-    </ul>
+            <div id="main_container" class="main_container_home">
+                <h1 class="text-center" > <strong>{{ $user->name }}</strong> benvenuto nella tua dashboard</h1>
+                <div class="card m-3 shadow">
+
+                    <div class="card-body row">
+                        <div class="col-md-8">
+                            <h4>Il tuo ristorante {{ $user->name }}</h4>
+                            <hr>
+                            <p class="card-title">Il tuo Indirizzo: {{ $user->address }}</p>
+                            <p class="card-title">P.Iva: {{ $user->PIVA }}</p>
+                        </div>
+                        <div class="col-md-4">
+                            <h4>Immagine</h4>
+                            <hr>
+                            <img class="w-25" src="{{ asset("storage/$user->image_logo") }}" alt="">
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection

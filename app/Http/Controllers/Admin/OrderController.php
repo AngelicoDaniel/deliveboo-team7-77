@@ -21,6 +21,8 @@ class OrderController extends Controller
             $query->where('id', $user->id);
         })->get();
 
+
+
         return view('admin.orders.index', [
             'orders' => $orders,
         ]);

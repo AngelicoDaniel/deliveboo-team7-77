@@ -37,14 +37,13 @@ Route::middleware('auth')
 
 // Route::get('admin/register', 'TypeController@index');
 
-
-// Route::get('/admin', function () {
-//     return view('admin.restaurant.index');
-// })->name('index');
+//  Route::get('/admin', function () {
+//      return view('admin.restaurant.index');
+//  });
 
 Route::get('/admin', function () {
     return view('admin.restaurant.homepage');
-})->name('homepage');
+});
 
 
 Route::get('{any?}', function () {

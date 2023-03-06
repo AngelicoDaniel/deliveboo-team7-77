@@ -20,6 +20,8 @@ class DishController extends Controller
         // $user = Auth::user();
         // $dishes = Dish::where('user_id', $user->id)->get();
 
+        dd($dishes);
+
         return response()->json($dishes);
     }
 
@@ -50,6 +52,8 @@ class DishController extends Controller
         //      return response('Post non trovato', 404);
 
         $dish = Dish::where('user_id', 'like', $user_id)->get();
+
+
 
          return response()->json($dish);
 

@@ -29,6 +29,8 @@ class RestaurantController extends Controller
         $user = Auth::user();
         $dishes = Dish::where('user_id', $user->id)->get();
 
+
+
         return view('admin.dishes.index', [
             'dishes' => $dishes,
         ]);
