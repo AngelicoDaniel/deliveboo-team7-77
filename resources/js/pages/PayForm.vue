@@ -1,6 +1,6 @@
-<template>
-    <div class="container">
-        <form @submit.prevent="submitForm">
+<template class="text-center">
+    <div class="container w-100 my-5 d-flex justify-content-center ">
+        <form class="w-50 " @submit.prevent="submitForm">
             <div  class="alert alert-danger mb-1" role="alert">
                 I campi contrassegnati dall'asterisco (*) sono obbligatori.
             </div>
@@ -19,16 +19,19 @@
                     <br />
                 <input id="addon-wrapping" type="text" placeholder="Inserisci il tuo Cognome" class="form-control" maxlength="50" required autofocus />
             </div>
-            <div class="input-box mb-2">
+            <div class=" d-flex">
+ <div class="input-box mb-2 w-50">
                 <label for="card_expiration_date">Data di scadenza della carta<span class="text-danger">*</span></label>
                     <br />
                 <input id="addon-wrapping" type="date" placeholder="Inserisci la data" class="form-control" maxlength="50" required autofocus />
             </div>
-            <div class="input-box mb-2">
+            <div class="input-box mb-2 w-50">
                 <label for="card_cvv">Codice di sicurezza della carta(CVV)<span class="text-danger">*</span></label>
                     <br />
                 <input id="addon-wrapping" type="number" placeholder="Inserisci il numero della carta" class="form-control" maxlength="3" required autofocus />
             </div>
+            </div>
+
 
             <button @click="success()" type="submit" class="btn btn-green">
                 <router-link class="nav-link active" aria-current="page" :to="{ name: 'success' }">
