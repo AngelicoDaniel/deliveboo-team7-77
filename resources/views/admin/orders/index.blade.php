@@ -16,7 +16,7 @@
                            Data ordine: {{ $order->created_at }}
                         </li>
                         <li>
-                            Prezzo totale:{{ $order->ship_cost }} €
+                            Prezzo totale: {{ $order->ship_cost }} €
                         </li>
                     </ul>
                 </div>
