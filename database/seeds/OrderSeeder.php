@@ -18,13 +18,13 @@ class OrderSeeder extends Seeder
 
         for ($i=0; $i < 20; $i++) {
             $order = Order::create([
-                'order_number' => rand(0, 1000),
-                'customer_name' => $faker->words(2, true),
-                'customer_surname' => $faker->words(3, true),
+                'order_number' => rand(1000, 10000),
+                'customer_name' => $faker->firstName('male'),
+                'customer_surname' => $faker->firstName('male'),
                 'customer_address' => $faker->address(),
-                'customer_phone' => $faker->email(),
-                'customer_email' => $faker->phoneNumber(),
-                'ship_cost' => $faker->randomElement([250, 350, 450, 700]),
+                'customer_phone' => $faker->phoneNumber(),
+                'customer_email' => $faker->email(),
+                'ship_cost' => $faker->randomElement([50, 75, 100, 110]),
             ]);
             $order->dishes()->attach($faker->randomElements($dishes, rand(1, (count($dishes) > 15) ? 15 : count($dishes))));
         };
