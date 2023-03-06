@@ -226,7 +226,7 @@ export default {
 
         this.generaNumeroCasuale()
 
-        this.ship_cost = this.TotalPrice
+
 
 
 },
@@ -270,6 +270,7 @@ export default {
             this.TotalPrice = 0;
             this.cart.forEach((elem) => {
               this.TotalPrice += elem.price;
+              this.ship_cost = this.TotalPrice
             });
 
 
@@ -307,11 +308,12 @@ export default {
         },
 
         removeCart() {
-            if (this.cart.length > 0) {
+
                 this.cart.pop();
                 localStorage.setItem("cart", JSON.stringify(this.cart));
                 this.totalPrice();
-            }
+                this.TotalPrice = 0
+
         },
 
 

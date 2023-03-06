@@ -2091,7 +2091,6 @@ __webpack_require__.r(__webpack_exports__);
     }
     this.totalPrice();
     this.generaNumeroCasuale();
-    this.ship_cost = this.TotalPrice;
   },
   methods: {
     removeCartItem: function removeCartItem(index) {
@@ -2123,6 +2122,7 @@ __webpack_require__.r(__webpack_exports__);
       this.TotalPrice = 0;
       this.cart.forEach(function (elem) {
         _this.TotalPrice += elem.price;
+        _this.ship_cost = _this.TotalPrice;
       });
     },
     validateForm: function validateForm() {
@@ -2146,11 +2146,10 @@ __webpack_require__.r(__webpack_exports__);
       this.totalPrice();
     },
     removeCart: function removeCart() {
-      if (this.cart.length > 0) {
-        this.cart.pop();
-        localStorage.setItem("cart", JSON.stringify(this.cart));
-        this.totalPrice();
-      }
+      this.cart.pop();
+      localStorage.setItem("cart", JSON.stringify(this.cart));
+      this.totalPrice();
+      this.TotalPrice = 0;
     },
     sendOrder: function sendOrder() {
       var order = {
