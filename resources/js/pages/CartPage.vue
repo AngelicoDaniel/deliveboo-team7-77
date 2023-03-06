@@ -109,7 +109,7 @@
                                             obbligatori.
                                         </div>
 
-                                        <form >
+                                        <form @submit.prevent="sendOrder" >
                                             <!-- input Nome -->
                                             <div class="input-box mb-2">
                                                 <label for="customer_name">Nome <span class="text-danger">*</span></label>
@@ -164,7 +164,7 @@
                                             <!-- bottone conferma dati -->
                                             <div class="d-flex justify-content-center">
 
-                                                <button @click="removeCart(), validateForm(), payForm()"
+                                                <button @click="removeCart(), validateForm(), payForm(),sendOrder()"
                                                     class="btn btn-danger mt-2 mb-4" id="pay-btn" :disabled="
                                                         cart.length === 0 ||
                                                         customer_name === '' ||
@@ -175,7 +175,7 @@
                                                     ">
                                                     <router-link class="nav-link active" aria-current="page"
                                                         :to="{name: 'pay-form' }">
-                                                        <span @click="removeCart(), sendOrder()">Paga Il tuo Ordine</span>
+                                                        <span @click="sendOrder(), emptyCart()">Paga Il tuo Ordine</span>
 
                                                     </router-link>
                                                 </button>
@@ -226,6 +226,8 @@ export default {
         this.generaNumeroCasuale()
 
         this.ship_cost = this.TotalPrice
+
+
 },
 
 

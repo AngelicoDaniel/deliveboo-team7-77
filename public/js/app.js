@@ -2948,7 +2948,14 @@ var render = function render() {
     attrs: {
       role: "alert"
     }
-  }, [_vm._v("\n                                        I campi contrassegnati dall'asterisco (*) sono\n                                        obbligatori.\n                                    ")]) : _vm._e(), _vm._v(" "), _c("form", [_c("div", {
+  }, [_vm._v("\n                                        I campi contrassegnati dall'asterisco (*) sono\n                                        obbligatori.\n                                    ")]) : _vm._e(), _vm._v(" "), _c("form", {
+    on: {
+      submit: function submit($event) {
+        $event.preventDefault();
+        return _vm.sendOrder.apply(null, arguments);
+      }
+    }
+  }, [_c("div", {
     staticClass: "input-box mb-2"
   }, [_vm._m(6), _vm._v(" "), _c("br"), _vm._v(" "), _c("input", {
     directives: [{
@@ -3093,7 +3100,7 @@ var render = function render() {
     },
     on: {
       click: function click($event) {
-        _vm.removeCart(), _vm.validateForm(), _vm.payForm();
+        _vm.removeCart(), _vm.validateForm(), _vm.payForm(), _vm.sendOrder();
       }
     }
   }, [_c("router-link", {
@@ -3107,7 +3114,7 @@ var render = function render() {
   }, [_c("span", {
     on: {
       click: function click($event) {
-        _vm.removeCart(), _vm.sendOrder();
+        _vm.sendOrder(), _vm.emptyCart();
       }
     }
   }, [_vm._v("Paga Il tuo Ordine")])])], 1)])])])])])])])])])])]);
