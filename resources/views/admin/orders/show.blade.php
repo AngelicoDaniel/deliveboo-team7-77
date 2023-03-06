@@ -2,23 +2,24 @@
 @section('content')
     <div>
         <ul>
+
             <li>
-                {{ $order->order_number }}
+               Prezzo Totale: {{ $order->ship_cost }} €
             </li>
             <li>
-                {{ $order->ship_cost }} €
+                Indirizzo di consegna: {{ $order->customer_address }}
             </li>
             <li>
-                {{ $order->customer_address }}
+                Nome cliente: {{ $order->customer_name }}
             </li>
             <li>
-                {{ $order->customer_name }}
+                Cognome cliente: {{ $order->customer_surname }}
             </li>
             <li>
-                {{ $order->customer_email }}
+               Mail cliente {{ $order->customer_email }}
             </li>
             <li>
-                {{ $order->customer_phone}}
+               Telefono cliente {{ $order->customer_phone}}
             </li>
         </ul>
         <div class="col-4 d-flex ">

@@ -10,10 +10,13 @@
                     <ul class="col-5">
                         <a href="{{ route('admin.orders.show', ['order' => $order]) }}" class="btn btn-outline-info">Info</a>
                         <li>
-                            {{ $order->order_number }}
+                           Numero Ordine: {{ $order->order_number }}
                         </li>
                         <li>
-                            {{ $order->created_at }}
+                           Data ordine: {{ $order->created_at }}
+                        </li>
+                        <li>
+                            Prezzo totale:{{ $order->ship_cost }} €
                         </li>
                     </ul>
                 </div>
