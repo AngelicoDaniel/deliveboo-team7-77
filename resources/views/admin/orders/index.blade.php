@@ -22,6 +22,7 @@
                             <p class="card-title">Telefono: {{ $order->customer_phone }}</p>
                             <p class="card-title">Email: {{ $order->customer_email }}</p>
                             <p class="card-title">Totale: €{{ $order->ship_cost }}</p>
+                            <a href="{{ route('admin.orders.show', ['order' => $order]) }}" class="btn btn-outline-info">Info</a>
                         </div>
                         {{-- <div class="col-md-6">
                             <h4 class="mt-md-0 mt-3">Piatti ordinati</h4>
