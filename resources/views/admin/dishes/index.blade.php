@@ -1,15 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>Lista piatti:</h1>
-    <table class="table table-striped">
-        <thead>
+    <h1 class="text-center">Lista piatti</h1>
+    <table class="table table-striped  ">
+        <thead class="">
             <tr>
-                <th>Nome</th>
-                <th>Prezzo</th>
-                <th>Immagine</th>
-                <th>Elimina</th>
-                <th>Modifica</th>
+                <th class="w-25">Nome</th>
+                <th class="w-15">Prezzo</th>
+                <th class="w-30">Immagine</th>
+                <th class="w-10">Elimina</th>
+                <th class="w-10">Modifica</th>
             </tr>
         </thead>
         <tbody>
@@ -19,8 +19,8 @@
                     <td>{{ $dish->price }} €</td>
                     <td>
                         @if ($dish->image)
-                            <img class="w-50" src="{{ asset('storage/' . $dish->image) }}" alt="">
-                            <img src="{{$dish->image}}" alt="">
+                            <img class="w-25" src="{{ asset('storage/' . $dish->image) }}" alt="">
+                            <img  class="w-25"src="{{$dish->image}}" alt="">
                         @else
                             <p>Immagine non disponibile</p>
                         @endif
