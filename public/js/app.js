@@ -2160,7 +2160,9 @@ __webpack_require__.r(__webpack_exports__);
         customer_address: this.customer_address,
         customer_phone: this.customer_phone,
         customer_email: this.customer_email,
-        ship_cost: this.ship_cost
+        ship_cost: this.ship_cost,
+        user_id: this.cart[0].user_id,
+        cart: this.cart
       };
       axios.post('http://127.0.0.1:8000/api/payment', order).then(function (response) {
         console.log('ordine ok', response.data);

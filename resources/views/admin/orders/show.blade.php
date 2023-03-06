@@ -6,16 +6,19 @@
                 {{ $order->order_number }}
             </li>
             <li>
-                {{ ($total_cost + $order->ship_cost) / 100 }} €
+                {{ $order->ship_cost }} €
             </li>
             <li>
-                {{ $order->address }}
+                {{ $order->customer_address }}
             </li>
             <li>
                 {{ $order->customer_name }}
             </li>
             <li>
-                {{ $order->email }}
+                {{ $order->customer_email }}
+            </li>
+            <li>
+                {{ $order->customer_phone}}
             </li>
         </ul>
         <div class="col-4 d-flex ">

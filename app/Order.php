@@ -15,7 +15,8 @@ class Order extends Model
         'customer_address',
         'customer_phone',
         'customer_email',
-        'ship_cost'
+        'ship_cost',
+        'dishe_id'
     ];
 
 

@@ -47,22 +47,22 @@ $data = $request->all();
         // ]);
 
         // return response()->json(['message' => $validatedData], 201);
-        // $cart = $validatedData['cart'];
+         $cart = $data['cart'];
 
         $newOrder = new Order();
         $newOrder->fill($data);
         $newOrder->save();
 
         // Associa i piatti all'ordine nella tabella pivot "dish_order"
-        // foreach ($cart as $item) {
+        foreach ($cart as $item) {
 
 
-        //     $order->dishes()->attach(
-        //         $item['chiave']['id']
-        //         // ['quantity' => $item['quantity']]
-        //     );
-        //     $order->save();
-        // }
+            $newOrder->dishes()->attach($item['id']
+            // ['quantity' => $item['quantity']]
+        );
+            $newOrder->save();
+            }
+
 
         // Invio della risposta
         return response()->json(['message' => 'Ordine salvato con successo'], 201);

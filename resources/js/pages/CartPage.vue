@@ -213,6 +213,7 @@ export default {
             order_number: this.generaNumeroCasuale(),
             formValidated: false,
             ship_cost: "",
+
         };
     },
 
@@ -325,6 +326,8 @@ export default {
                 customer_phone: this.customer_phone,
                 customer_email: this.customer_email,
                 ship_cost:  this.ship_cost ,
+                user_id: this.cart[0].user_id,
+                cart: this.cart
 
             };
             axios.post('http://127.0.0.1:8000/api/payment', order,)

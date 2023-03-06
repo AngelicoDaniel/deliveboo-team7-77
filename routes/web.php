@@ -30,9 +30,9 @@ Route::middleware('auth')
         Route::resource('dishes', 'RestaurantController');
 
         Route::get('/restaurantwelcome', 'WelcomeController@index');
-        // Route::resource('/restaurants', RestaurantController::class);
+         Route::resource('/restaurants', RestaurantController::class);
 
-        // Route::resource('orders', 'OrderController');
+         Route::resource('orders', 'OrderController');
     });
 
 // Route::get('admin/register', 'TypeController@index');
