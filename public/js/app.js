@@ -1871,7 +1871,25 @@ __webpack_require__.r(__webpack_exports__);
           user_id: user_id,
           image: image
         }), localStorage.setItem("cart", JSON.stringify(this.cart));
-        alert("Piatto aggiunto al carrello!");
+        // sostituisci l'alert con un pop-up a schermo
+        var popup = document.createElement('div');
+        popup.innerHTML = 'Piatto aggiunto al carrello!';
+        popup.style.position = 'fixed';
+        popup.style.top = '50%';
+        popup.style.left = '50%';
+        popup.style.transform = 'translate(-50%, -50%)';
+        popup.style.backgroundColor = 'white';
+        popup.style.padding = '10px';
+        popup.style.border = '1px solid black';
+        popup.style.borderRadius = '5px';
+        popup.style.boxShadow = '2px 2px 5px rgba(0, 0, 0, 0.3)';
+        popup.style.backgroundColor = '#00CCBC';
+        popup.style.color = 'black';
+        popup.style.zIndex = '999';
+        document.body.appendChild(popup);
+        setTimeout(function () {
+          popup.remove();
+        }, 2000); // il pop-up scomparirà dopo 2 secondi
       }
     },
     removeCart: function removeCart() {
